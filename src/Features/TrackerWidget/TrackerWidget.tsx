@@ -1,4 +1,4 @@
-import { ProgressBar } from "./Components/ProgressBar";
+import { ProgressBar } from "./Components/ProgressBar/ProgressBar";
 import styles from "./TrackerWidget.module.scss";
 import Logo from "@assets/TrackerWidget/logo.svg?react";
 

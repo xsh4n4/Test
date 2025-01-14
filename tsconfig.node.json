@@ -12,10 +12,10 @@
 		"isolatedModules": true,
 		"moduleDetection": "force",
 		"noEmit": true,
-"baseUrl": "./",
+		"baseUrl": "./",
 		"paths": {
 			"@/*": ["src/*"],
-			"@assets/*": ["src/Assets/*"],
+			"@assets/*": ["src/assets/*"],
 			"@features/*": ["src/Features/*"],
 			"@utils/*": ["src/Utils/*"],
 			"@services/*": ["src/Services/*"],

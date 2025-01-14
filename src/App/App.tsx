@@ -1,11 +1,8 @@
+import AppRouter from "./Routes/Router";
 import "./Styles/Global.scss";
 
 function App() {
-	return (
-		<div>
-			<p className='read-the-docs'>Genetiq app setup...</p>
-		</div>
-	);
+	return <AppRouter />;
 }
 
 export default App;

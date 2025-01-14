@@ -1,4 +1,3 @@
-import React from "react";
 import BellIcon from "@assets/Navbar/Icons/profile.svg?react";
 import styles from "./profile.module.scss";
 

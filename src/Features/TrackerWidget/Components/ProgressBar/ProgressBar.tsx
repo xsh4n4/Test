@@ -5,15 +5,17 @@ interface ProgressBarProps {
 }
 
 export const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
+	const validProgress = Math.max(0, Math.min(100, progress));
+
 	return (
 		<div className={styles["ProgressBar-container"]}>
 			<div
 				className={`${styles["ProgressBar-fill"]} ${styles["animate-fill"]}`}
-				style={{ "--progress": `${progress}%` } as React.CSSProperties}
+				style={{ "--progress": `${validProgress}%` } as React.CSSProperties}
 			/>
 			<div
 				className={`${styles["ProgressBar-slider"]} ${styles["animate-slider"]}`}
-				style={{ "--progress": `${progress}%` } as React.CSSProperties}
+				style={{ "--progress": `${validProgress}%` } as React.CSSProperties}
 			></div>
 		</div>
 	);

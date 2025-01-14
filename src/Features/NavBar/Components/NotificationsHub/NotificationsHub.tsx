@@ -1,6 +1,6 @@
 import React from "react";
 import BellIcon from "@assets/Navbar/Icons/notification.svg?react";
-import styles from "./Notificationhub.module.scss";
+import styles from "./NotificationHub.module.scss";
 
 interface NotificationHubProps {
 	IsBadge: boolean;

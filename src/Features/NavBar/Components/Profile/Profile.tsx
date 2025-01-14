@@ -1,5 +1,5 @@
 import BellIcon from "@assets/Navbar/Icons/profile.svg?react";
-import styles from "./profile.module.scss";
+import styles from "./Profile.module.scss";
 
 interface ProfileProps {
 	// onClick: () => void;

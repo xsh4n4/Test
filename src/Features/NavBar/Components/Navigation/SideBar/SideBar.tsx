@@ -15,10 +15,34 @@ import StressManagementIcon from "@assets/SideBar/Icons/stress_management.svg?re
 import UlnaRadiusAltIcon from "@assets/SideBar/Icons/ulna_radius_alt.svg?react";
 import UrologyIcon from "@assets/SideBar/Icons/urology.svg?react";
 import IconButton from "./Components/IconButton/IconButton";
+import { useCamera } from "../../Three/CameraContext";
+
+
 
 const SideBar = () => {
+	const { setCameraState } = useCamera();
+  
+	const handleZoom = (bodyPart: string) => {
+	  const zoomConfigs = {
+		ClinicalNotes: { position: [0, 0, 200], zoom: 10 }, // Default view
+		StressManagement: { position: [0, 33, 200], zoom: 40 }, // Head
+		CardioLoad: { position: [0, 20, 200], zoom: 40 }, // Chest
+		Pulmonology: { position: [0, 12, 200], zoom: 35 }, // Lungs
+		Gastroenterolgy: { position: [0, 10, 200], zoom: 35 }, // Stomach
+		Endocrinology: { position: [0, 30, 200], zoom: 45 }, // Neck
+		Pulmonology1: { position: [0, -10, 200], zoom: 17 }, // Lower body
+	  };
+  
+	  const config = zoomConfigs[bodyPart as keyof typeof zoomConfigs];
+	  if (config) {
+		setCameraState({
+		  targetPosition: config.position as [number, number, number],
+		  targetZoom: config.zoom,
+		});
+	  }
+	};
 	const buttons = [
-		{ text: "ClinicalNotes", icon: <ClinicalNotesIcon /> },
+	    { text: "ClinicalNotes", icon: <ClinicalNotesIcon /> },
 		{ text: "StressManagement", icon: <StressManagementIcon /> },
 		{ text: "CardioLoad", icon: <CardioLoadIcon />, count: 2 },
 		{ text: "Pulmonology", icon: <PulmonologyIcon /> },
@@ -34,16 +58,18 @@ const SideBar = () => {
 		{ text: "OxygenSaturation", icon: <OxygenSaturationIcon /> },
 	];
 	return (
-		<div className={styles["SideBar-container"]}>
-			{buttons.map((data) => {
-				return (
-					<IconButton key={data.text} onClick={() => console.log(data)}>
-						{data.count && <span className='count'>{data.count}</span>}
-						{data.icon}
-					</IconButton>
-				);
-			})}
-		</div>
+	    <div className={styles["SideBar-container"]}>
+
+      {buttons.map((data) => (
+        <IconButton
+          key={data.text}
+          onClick={() => handleZoom(data.text)}
+        >
+          {data.count && <span className='count'>{data.count}</span>}
+          {data.icon}
+        </IconButton>
+      ))}
+    </div>
 	);
 };
 

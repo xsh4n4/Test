@@ -2,13 +2,14 @@
 	display: flex;
 	gap: 0.5rem;
 	flex-direction: column;
-
+	padding: 1rem;
+  
 	button {
-		border-radius: unset;
-		border: unset;
-		padding: unset;
-		font-size: unset;
-		font-weight: unset;
-		background-color: unset;
+	  border-radius: unset;
+	  border: unset;
+	  padding: unset;
+	  font-size: unset;
+	  font-weight: unset;
+	  background-color: unset;
 	}
-}
+  }

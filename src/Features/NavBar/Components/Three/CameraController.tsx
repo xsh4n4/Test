@@ -13,7 +13,7 @@ const CameraController = () => {
 	const currentZoomRef = useRef(camera.zoom);
 
 	const MAX_ROTATION = Math.PI / 4;
-	const POSITION_LERP_FACTOR = 0.05; // Reduced from 0.2 for smoother movement
+	const POSITION_LERP_FACTOR = 0.05;
 	const ZOOM_LERP_FACTOR = 0.08; // Separate lerp factor for zoom
 
 	useEffect(() => {
@@ -30,8 +30,7 @@ const CameraController = () => {
 			if (!isDraggingRef.current) return;
 
 			const deltaX = e.clientX - previousMouseXRef.current;
-			const sensitivity = 0.005; // Reduced sensitivity for smoother rotation
-
+			const sensitivity = 0.005;
 			const newRotation = rotationRef.current - deltaX * sensitivity;
 			rotationRef.current = Math.max(
 				-MAX_ROTATION,
@@ -70,16 +69,13 @@ const CameraController = () => {
 			Math.cos(rotationRef.current) * distance,
 		);
 
-		// Smoothly interpolate the current position
 		if (!currentPositionRef.current.equals(rotatedPosition)) {
 			currentPositionRef.current.lerp(rotatedPosition, POSITION_LERP_FACTOR);
 		}
 
-		// Apply the smoothed position to the camera
 		camera.position.copy(currentPositionRef.current);
 		camera.lookAt(0, targetPosition.y, 0);
 
-		// Smoothly interpolate the zoom
 		currentZoomRef.current +=
 			(cameraState.targetZoom - currentZoomRef.current) * ZOOM_LERP_FACTOR;
 		camera.zoom = currentZoomRef.current;

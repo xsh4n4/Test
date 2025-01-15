@@ -1,0 +1,14 @@
+.SideBar-container {
+	display: flex;
+	gap: 0.5rem;
+	flex-direction: column;
+
+	button {
+		border-radius: unset;
+		border: unset;
+		padding: unset;
+		font-size: unset;
+		font-weight: unset;
+		background-color: unset;
+	}
+}

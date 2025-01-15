@@ -4,6 +4,7 @@ import { TrackerWidget } from "@/Features/TrackerWidget/TrackerWidget";
 import { AgeWidget } from "@/Features/AgeWidget/AgeWidget";
 import Sidebar from "@/Features/NavBar/Components/Navigation/SideBar/SideBar";
 import MainScene from "@/Features/NavBar/Components/Three/MainScene";
+import { ConcernWidget } from "@/Features/ConcernWidget/ConcernWidget";
 
 const Dashboard = () => {
 	return (
@@ -20,6 +21,7 @@ const Dashboard = () => {
 				<div className={styles["Dashboard-stats"]}>
 					<TrackerWidget />
 					<AgeWidget />
+					<ConcernWidget />
 				</div>
 			</div>
 		</div>

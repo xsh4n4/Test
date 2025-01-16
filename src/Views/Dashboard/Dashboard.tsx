@@ -5,26 +5,43 @@ import { AgeWidget } from "@/Features/AgeWidget/AgeWidget";
 import Sidebar from "@/Features/NavBar/Components/Navigation/SideBar/SideBar";
 import MainScene from "@/Features/NavBar/Components/Three/MainScene";
 import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
-import { ConcernWidget } from "@/Features/ConcernWidget/ConcernWidget";
 import { ConnectWatchWidget } from "@/Features/ConnectWatchWidget/ConnectWatchWidget";
+import { KeyConcernsWidget } from "@/Features/KeyConcernsWidget/KeyConcernsWidget";
+import { useState } from "react";
 
 const Dashboard = () => {
+	const [animate, setAnimate] = useState(false);
+
 	return (
 		<div className={styles["Dashboard-layout"]}>
 			<NavBar />
 			<div className={styles["Dashboard-select"]}></div>
 			<CameraProvider>
 				<div className={styles["Dashboard-content"]}>
-					<div className={styles["Dashboard-sidebar"]}>
-						<Sidebar />
+					<div className={styles["Dashboard-left"]}>
+						<div className={styles["Dashboard-sidebar"]}>
+							<Sidebar />
+						</div>
+						<div className={styles["Dashboard-model"]}>
+							<MainScene />
+						</div>
 					</div>
-					<div className={styles["Dashboard-model"]}>
-						<MainScene />
-					</div>
-					<div className={styles["Dashboard-stats"]}>
+					<div
+						className={`${styles["Dashboard-stats"]} ${
+							animate && styles["animate"]
+						}`}
+					>
+						<button
+							onClick={() => {
+								setAnimate(!animate);
+							}}
+						>
+							{animate ? "Reset" : "Animate Widgets"}
+						</button>
 						<TrackerWidget />
 						<AgeWidget />
-						<ConcernWidget />
+						<KeyConcernsWidget />
+						{/* <ConcernWidget /> */}
 						<ConnectWatchWidget />
 					</div>
 				</div>

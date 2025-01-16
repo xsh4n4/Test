@@ -1,0 +1,157 @@
+.ConcernWidget-row {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 6px;
+	border-radius: 6px;
+	background-color: #ffffff;
+}
+
+.ConcernWidget-row-head {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.ConcernWidget-system {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	gap: 8px;
+}
+
+.ConcernWidget-system-icon {
+	background-color: #d0d4dc33;
+	border: 1px solid #5f68771f;
+	border-radius: 4px;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ConcernWidget-system-title {
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	color: #0b101a;
+}
+
+.ConcernWidget-row-buttons {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+}
+
+.ConcernWidget-notifs {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	padding: 5px 8px 5px 6px;
+	background-color: #d0d4dc33;
+	border: 1px solid #ffffffb2;
+	border-radius: 24px;
+}
+
+.ConcernWidget-bulb-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 12px;
+	height: 100%;
+}
+
+.ConcernWidget-notif-number {
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 14px;
+	color: #372ea5;
+}
+
+.ConcernWidget-report {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0 6px;
+	color: #0974fb;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.ConcernWidget-report-icon-container {
+	display: flex;
+	align-items: center;
+	padding: 4px;
+	height: 12px;
+	width: 12px;
+}
+
+.ConcernWidget-concerns-container {
+	overflow: hidden;
+	transition:
+		max-height 0.4s ease-in-out,
+		padding 0.3s ease-in-out;
+}
+
+.expand {
+	max-height: 100px;
+}
+
+.collapse {
+	max-height: 0;
+}
+
+.rotate-chevron {
+	transform: rotate(180deg);
+	transition: transform 0.4s ease;
+}
+
+.ConcernWidget-concerns {
+	display: flex;
+	gap: 4px;
+}
+
+.ConcernWidget-concern {
+	display: flex;
+	gap: 4px;
+	border-radius: 100px;
+	padding: 4px 8px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 16px;
+	background-color: #ffffff;
+}
+
+.ConcernWidget-concern-high {
+	border: 1px solid #cc343b4d;
+}
+
+.ConcernWidget-concern-medium {
+	border: 1px solid rgb(255, 193, 77, 0.6);
+}
+
+.ConcernWidget-concern-low {
+	border: 1px solid rgb(108, 202, 108, 0.6);
+}
+
+.ConcernWidget-concern-label {
+	font-weight: 500;
+	text-wrap: nowrap;
+}
+
+.ConcernWidget-high {
+	color: #cc343b;
+}
+
+.ConcernWidget-medium {
+	color: rgb(255, 193, 77);
+}
+
+.ConcernWidget-low {
+	color: rgb(108, 202, 108);
+}

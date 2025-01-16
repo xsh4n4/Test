@@ -14,11 +14,9 @@
 	"dependencies": {
 		"@react-three/drei": "^9.121.0",
 		"@react-three/fiber": "^8.17.12",
-		"lucide-react": "^0.471.1",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
-		"react-router-dom": "^7.1.1",
-		"three": "^0.172.0"
+		"react-router-dom": "^7.1.1"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.17.0",

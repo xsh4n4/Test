@@ -1,90 +1,94 @@
 import { Clone } from "@react-three/drei";
 import { useFrame, useLoader } from "@react-three/fiber";
-import { OBJLoader } from "three/examples/jsm/Addons.js";
-import { useRef, useState } from "react";
+import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
+import { useRef, useState, useEffect } from "react";
+import * as THREE from "three";
 
 interface ModelProps {
 	position?: [number, number, number];
 	rotation?: [number, number, number];
 	scale?: [number, number, number];
+	color?: string;
 }
 
-function Model({ position, rotation, scale }: ModelProps) {
+function Model({
+	position = [0, 0, 0],
+	rotation = [0, 0, 0],
+	scale = [1, 1, 1],
+	color = "#f0f0f0",
+}: ModelProps) {
 	const obj = useLoader(OBJLoader, "/assets/models/body.obj");
-	const { risk } = { risk: 0 };
-	const [currentPosition, setCurrentPosition] = useState(position);
-	const [currentScale, setCurrentScale] = useState(scale);
+	const [currentPosition, setCurrentPosition] =
+		useState<[number, number, number]>(position);
+	const [currentScale, setCurrentScale] =
+		useState<[number, number, number]>(scale);
 
-	const prevPosition = useRef(position);
-	const prevScale = useRef(scale);
+	const modelRef = useRef<THREE.Group>(null);
+	const materialRef = useRef<THREE.MeshStandardMaterial>(null);
+
+	useEffect(() => {
+		if (obj) {
+			obj.traverse((child) => {
+				if (child instanceof THREE.Mesh) {
+					child.material = new THREE.MeshStandardMaterial({
+						color: new THREE.Color(color),
+						roughness: 0.5,
+						metalness: 0.1,
+						side: THREE.DoubleSide,
+					});
+				}
+			});
+		}
+	}, [obj, color]);
 
 	useFrame(() => {
-		if (risk && position && scale) {
-			const s = scale[0] * 3;
-			const targetPosition = [position[0], position[1] - 47.5 * s, position[2]];
-			const targetScale = [s, s, s];
+		if (modelRef.current) {
+			setCurrentPosition((prev) => {
+				return [
+					prev[0] + (position[0] - prev[0]) * 0.1,
+					prev[1] + (position[1] - prev[1]) * 0.1,
+					prev[2] + (position[2] - prev[2]) * 0.1,
+				];
+			});
 
-			setCurrentPosition(
-				(prevPos) =>
-					prevPos && [
-						prevPos[0] + (targetPosition[0] - prevPos[0]) * 0.1,
-						prevPos[1] + (targetPosition[1] - prevPos[1]) * 0.1,
-						prevPos[2] + (targetPosition[2] - prevPos[2]) * 0.1,
-					],
-			);
-
-			setCurrentScale(
-				(prevScaleValue) =>
-					prevScaleValue && [
-						prevScaleValue[0] + (targetScale[0] - prevScaleValue[0]) * 0.1,
-						prevScaleValue[1] + (targetScale[1] - prevScaleValue[1]) * 0.1,
-						prevScaleValue[2] + (targetScale[2] - prevScaleValue[2]) * 0.1,
-					],
-			);
-		} else if (position && scale) {
-			const targetPosition = position;
-			const targetScale = scale;
-			setCurrentPosition(
-				(prevPos) =>
-					prevPos && [
-						prevPos[0] + (targetPosition[0] - prevPos[0]) * 0.1,
-						prevPos[1] + (targetPosition[1] - prevPos[1]) * 0.1,
-						prevPos[2] + (targetPosition[2] - prevPos[2]) * 0.1,
-					],
-			);
-
-			setCurrentScale(
-				(prevScaleValue) =>
-					prevScaleValue && [
-						prevScaleValue[0] + (targetScale[0] - prevScaleValue[0]) * 0.1,
-						prevScaleValue[1] + (targetScale[1] - prevScaleValue[1]) * 0.1,
-						prevScaleValue[2] + (targetScale[2] - prevScaleValue[2]) * 0.1,
-					],
-			);
+			setCurrentScale((prev) => {
+				return [
+					prev[0] + (scale[0] - prev[0]) * 0.1,
+					prev[1] + (scale[1] - prev[1]) * 0.1,
+					prev[2] + (scale[2] - prev[2]) * 0.1,
+				];
+			});
 		}
-
-		prevPosition.current = currentPosition;
-		prevScale.current = currentScale;
 	});
+
 	return (
-		<>
+		<group ref={modelRef}>
 			<Clone
-				frustumCulled={false}
 				object={obj}
-				position={prevPosition.current}
+				position={currentPosition}
 				rotation={rotation}
-				scale={prevScale.current}
-				inject={<meshBasicMaterial color={"blue"} wireframe />}
+				scale={currentScale}
+				castShadow
+				receiveShadow
+			>
+				<meshStandardMaterial
+					ref={materialRef}
+					color={color}
+					roughness={0.5}
+					metalness={0.1}
+					side={THREE.DoubleSide}
+				/>
+			</Clone>
+
+			<ambientLight intensity={0.5} />
+			<directionalLight
+				position={[10, 10, 5]}
+				intensity={1}
+				castShadow
+				shadow-mapSize-width={2048}
+				shadow-mapSize-height={2048}
 			/>
-			<Clone
-				frustumCulled={false}
-				object={obj}
-				position={prevPosition.current}
-				rotation={rotation}
-				scale={prevScale.current}
-				inject={<meshBasicMaterial color={"white"} />}
-			/>
-		</>
+		</group>
 	);
 }
 

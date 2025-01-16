@@ -14,7 +14,11 @@ export const ConcernCard = ({
 	toggleConcern,
 }: ConcernCardProps) => {
 	return (
-		<div className={styles["ConcernCard-container"]}>
+		<div
+			className={`${styles["ConcernCard-container"]} ${
+				isChecked ? styles["ConcernCard-container-active"] : ""
+			}`}
+		>
 			<div className={styles["ConcernCard-head"]}>
 				<div className={styles["ConcernCard-title"]}>{concern.title}</div>
 				<div className={styles["ConcernCard-icon-container"]}>

@@ -19,6 +19,14 @@
 	color: #0b101a;
 	position: relative;
 	overflow: hidden;
+
+	@media (max-width: 768px) {
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 20px;
+		letter-spacing: 0em;
+		padding: 3px 35px 3px 20px;
+	}
 }
 
 .KeyConcernsWidget-tab::before {

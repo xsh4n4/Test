@@ -14,14 +14,20 @@
 		rgba(255, 255, 255, 0.48) 0%,
 		rgba(255, 255, 255, 0) 171.72%
 	);
-	backdrop-filter: blur(2px);
-	box-shadow: 2px 2px 4px 0px #9db3dd87;
+	box-shadow: 2px 2px 16px 0px rgba(181, 204, 248, 0.4);
+	transition: all 0.3s ease;
+
+	&-active {
+		box-shadow: 0px 7px 16px 0px rgba(160, 181, 220, 0.55);
+	}
 }
 
 .ConcernCard-head {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	gap: 8px;
+	align-items: center;
 	border-radius: 8px;
 	padding: 4px 12px;
 	width: 100%;
@@ -96,14 +102,17 @@
 .ConcernCard-foot {
 	display: flex;
 	flex-direction: row;
+	align-items: end;
 	justify-content: space-between;
+	// flex-wrap: wrap; /* Allow items to wrap when needed */
+	gap: 8px; /* Ensure consistent gap between items */
 }
 
 .ConcernCard-status {
 	display: flex;
 	align-items: center;
 	gap: 4px;
-	font-size: 14px;
+	font-size: 13px;
 	font-weight: 500;
 }
 
@@ -138,9 +147,6 @@
 }
 
 .ConcernCard-system {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	padding: 2px 8px;
 	border-radius: 100px;
 	font-weight: 400;
@@ -149,4 +155,8 @@
 	text-align: center;
 	color: #59635d;
 	background-color: #6478a51a;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
 }

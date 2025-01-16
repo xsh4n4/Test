@@ -1,7 +1,9 @@
+// Features/NavBar/Components/Navigation/SideBar/SideBar.module.scss
 .SideBar-container {
 	display: flex;
 	gap: 0.5rem;
 	flex-direction: column;
+	padding: 1rem;
 
 	button {
 		border-radius: unset;

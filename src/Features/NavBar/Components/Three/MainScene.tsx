@@ -1,10 +1,10 @@
 import { Canvas } from "@react-three/fiber";
 import Model from "./Model";
 import "./canvas.scss";
-import CameraController from "../../../DigitalTwin/CameraController/CameraController";
+// import { OrbitControls } from "@react-three/drei";
 
 const MainScene = () => {
-	const zoomValue = 0.9;
+	const { zoomValue } = { zoomValue: 0.9 };
 
 	return (
 		<Canvas
@@ -12,11 +12,11 @@ const MainScene = () => {
 			orthographic
 			camera={{ near: 0.0001, far: 20000, zoom: 10, position: [0, 0, 200] }}
 		>
-			<CameraController />
 			<Model
 				scale={[zoomValue, zoomValue, zoomValue]}
 				position={[0, (-zoomValue * 70) / 2 + 2, 0]}
 			/>
+			{/* <OrbitControls /> */}
 		</Canvas>
 	);
 };

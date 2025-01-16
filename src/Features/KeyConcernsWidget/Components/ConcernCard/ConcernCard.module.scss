@@ -1,0 +1,152 @@
+.ConcernCard-container {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: space-between;
+	gap: 8px;
+	flex: 1 1 calc(33.33% - 8px);
+	box-sizing: border-box;
+
+	padding: 4px 4px 12px 4px;
+	border-radius: 8px;
+	background: linear-gradient(
+		39.94deg,
+		rgba(255, 255, 255, 0.48) 0%,
+		rgba(255, 255, 255, 0) 171.72%
+	);
+	backdrop-filter: blur(2px);
+	box-shadow: 2px 2px 4px 0px #9db3dd87;
+}
+
+.ConcernCard-head {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-radius: 8px;
+	padding: 4px 12px;
+	width: 100%;
+	background-color: #fcfdfd;
+
+	box-sizing: border-box;
+}
+
+.ConcernCard-title {
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.ConcernCard-checkbox-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.ConcernCard-checkbox {
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	margin: 0;
+}
+
+.ConcernCard-custom-checkbox {
+	width: 16px;
+	height: 16px;
+	border: 2px solid #d1d5db;
+	border-radius: 100%;
+	background-color: #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+}
+
+.ConcernCard-checkbox:checked + .ConcernCard-custom-checkbox {
+	border: 0px;
+}
+
+.ConcernCard-checkbox-container:hover .ConcernCard-custom-checkbox {
+	border-color: #2563eb;
+}
+
+.ConcernCard-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	box-sizing: border-box;
+	width: 100%;
+	gap: 10px;
+	padding: 0px 12px;
+	height: 100%;
+}
+
+.ConcernCard-results {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+	height: 100%;
+}
+
+.ConcernCard-foot {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.ConcernCard-status {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.ConcernCard-status-dot {
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+}
+
+.status-high {
+	color: #e53935;
+}
+
+.status-high .ConcernCard-status-dot {
+	background-color: #e53935;
+}
+
+.status-medium {
+	color: #c7a755;
+}
+
+.status-medium .ConcernCard-status-dot {
+	background-color: #c7a755;
+}
+
+.status-low {
+	color: #43a047;
+}
+
+.status-low .ConcernCard-status-dot {
+	background-color: #43a047;
+}
+
+.ConcernCard-system {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2px 8px;
+	border-radius: 100px;
+	font-weight: 400;
+	font-size: 11px;
+	line-height: 14px;
+	text-align: center;
+	color: #59635d;
+	background-color: #6478a51a;
+}

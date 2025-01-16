@@ -1,0 +1,106 @@
+.KeyConcernsWidget-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.KeyConcernsWidget-head {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.KeyConcernsWidget-tab {
+	background-color: #e4ebf9;
+	border-top-left-radius: 8px;
+	padding: 6px 50px 3px 20px;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+	color: #0b101a;
+	position: relative;
+	overflow: hidden;
+}
+
+.KeyConcernsWidget-tab::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: -1%;
+	width: 42px;
+	height: 32px;
+	background-color: white;
+	rotate: (180deg);
+	clip-path: path(
+		"M27.6765 26.1497C29.6509 29.1127 32.4968 31.3123 35.75 32.5H0.5V0.5H2.28706C7.47069 0.5 12.3112 3.09122 15.1857 7.40487L27.6765 26.1497Z"
+	);
+}
+
+.KeyConcernsWidget-more {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	align-items: center;
+	cursor: pointer;
+}
+
+.KeyConcernsWidget-more-text {
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 14px;
+	color: #493ddd;
+	margin: 0 auto;
+}
+
+.KeyConcernsWidget-chevron-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2px 5px;
+	height: 20px;
+	width: 20px;
+}
+
+.KeyConcernsWidget-chevron {
+	height: 7px;
+	width: 11px;
+	transition: transform 0.3s ease;
+}
+
+.rotate-chevron {
+	transform: rotate(180deg);
+}
+
+.KeyConcernsWidget-content {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	background-color: #e4ebf9;
+	padding: 10px 14px;
+	border-radius: 0px 8px 8px 8px;
+	overflow: hidden;
+	transition:
+		max-height 1s ease,
+		padding 0.5s ease-in-out;
+}
+
+.expand {
+	max-height: 1000px;
+}
+
+.collapse {
+	max-height: 240px;
+}
+
+.KeyConcernsWidget-cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: space-between;
+}
+
+.KeyConcernsWidget-plan {
+	min-height: 200px;
+	padding: 24px;
+	border-radius: 8px;
+	background-color: #ffffff;
+}

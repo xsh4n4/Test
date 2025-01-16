@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import Model from "./Model";
 import "./canvas.scss";
-import CameraController from "./CameraController";
+import CameraController from "../../../DigitalTwin/CameraController/CameraController";
 
 const MainScene = () => {
 	const zoomValue = 0.9;

@@ -15,7 +15,8 @@ import StressManagementIcon from "@assets/SideBar/Icons/stress_management.svg?re
 import UlnaRadiusAltIcon from "@assets/SideBar/Icons/ulna_radius_alt.svg?react";
 import UrologyIcon from "@assets/SideBar/Icons/urology.svg?react";
 import IconButton from "./Components/IconButton/IconButton";
-import { useCamera } from "../../Three/CameraContext";
+import { useCamera } from "../../../../DigitalTwin/Context/CameraContext";
+import Dropdown from "../../../../DigitalTwin/Dropdown/Dropdown";
 
 const SideBar = () => {
 	const { setCameraState } = useCamera();
@@ -57,6 +58,7 @@ const SideBar = () => {
 	];
 	return (
 		<div className={styles["SideBar-container"]}>
+			<Dropdown />
 			{buttons.map((data) => (
 				<IconButton key={data.text} onClick={() => handleZoom(data.text)}>
 					{data.count && <span className='count'>{data.count}</span>}

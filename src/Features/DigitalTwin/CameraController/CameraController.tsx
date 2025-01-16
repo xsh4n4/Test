@@ -1,5 +1,5 @@
 import { useFrame, useThree } from "@react-three/fiber";
-import { useCamera } from "./CameraContext";
+import { useCamera } from "../Context/CameraContext";
 import { Vector3 } from "three";
 import { useRef, useEffect } from "react";
 

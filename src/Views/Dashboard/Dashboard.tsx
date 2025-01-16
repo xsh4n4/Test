@@ -4,7 +4,7 @@ import { TrackerWidget } from "@/Features/TrackerWidget/TrackerWidget";
 import { AgeWidget } from "@/Features/AgeWidget/AgeWidget";
 import Sidebar from "@/Features/NavBar/Components/Navigation/SideBar/SideBar";
 import MainScene from "@/Features/NavBar/Components/Three/MainScene";
-import { CameraProvider } from "@/Features/NavBar/Components/Three/CameraContext";
+import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
 
 const Dashboard = () => {
 	return (

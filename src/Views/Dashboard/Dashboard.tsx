@@ -23,9 +23,9 @@ const Dashboard = () => {
 					</div>
 					<div className={styles["Dashboard-stats"]}>
 						<TrackerWidget />
-					  <AgeWidget />
-					  <ConcernWidget />
-					  <ConnectWatchWidget />
+						<AgeWidget />
+						<ConcernWidget />
+						<ConnectWatchWidget />
 					</div>
 				</div>
 			</CameraProvider>

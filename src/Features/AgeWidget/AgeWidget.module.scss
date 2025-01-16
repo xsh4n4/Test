@@ -5,7 +5,12 @@
 	justify-content: space-between;
 	gap: 32px;
 	padding: 20px;
-	background-color: #e2e6ef;
+	background: linear-gradient(
+		73.42deg,
+		rgba(226, 230, 239, 0.5) 69.92%,
+		rgba(255, 255, 255, 0) 109.71%
+	);
+
 	border: 1px solid #ffffff;
 	border-radius: 16px;
 	margin-top: -2px;

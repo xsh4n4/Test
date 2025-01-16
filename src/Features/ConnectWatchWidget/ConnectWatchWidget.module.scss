@@ -14,13 +14,31 @@
 		rgba(255, 95, 168, 0.13) 42.17%,
 		rgba(255, 40, 27, 0.13) 100%
 	);
+	overflow: hidden;
 
 	@media (max-width: 1248px) {
 		flex-direction: column;
 		align-items: center;
 		gap: 16px;
 		padding: 12px;
-		width: 100%;
+	}
+}
+
+.ConnectWatchWidget-container::before {
+	content: "";
+	position: absolute;
+	width: 139px;
+	height: 113px;
+	background-image: url("../../assets/ConnectWatchWidget/Heart-bg.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	top: 6px;
+	right: 0px;
+	z-index: 0;
+	pointer-events: none;
+
+	@media (max-width: 1248px) {
+		top: 41%;
 	}
 }
 

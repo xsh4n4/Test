@@ -5,6 +5,7 @@
 	justify-content: flex-start;
 	height: 100vh;
 	width: 100vw;
+	overflow-y: scroll;
 }
 
 .Dashboard-sidebar {
@@ -39,7 +40,9 @@
 	flex-direction: column;
 	gap: 16px;
 	width: 51%;
-	overflow-x: hidden;
+	height: fit-content;
+	padding-bottom: 24px;
+	// overflow-x: hidden;
 
 	> * {
 		transform: translateX(100%);

@@ -8,7 +8,6 @@ import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
 import { ConcernWidget } from "@/Features/ConcernWidget/ConcernWidget";
 import { ConnectWatchWidget } from "@/Features/ConnectWatchWidget/ConnectWatchWidget";
 
-
 const Dashboard = () => {
 	return (
 		<div className={styles["Dashboard-layout"]}>
@@ -24,9 +23,9 @@ const Dashboard = () => {
 					</div>
 					<div className={styles["Dashboard-stats"]}>
 						<TrackerWidget />
-					<AgeWidget />
-					<ConcernWidget />
-					<ConnectWatchWidget />
+					  <AgeWidget />
+					  <ConcernWidget />
+					  <ConnectWatchWidget />
 					</div>
 				</div>
 			</CameraProvider>

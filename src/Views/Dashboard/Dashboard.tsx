@@ -7,8 +7,11 @@ import MainScene from "@/Features/NavBar/Components/Three/MainScene";
 import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
 import { ConnectWatchWidget } from "@/Features/ConnectWatchWidget/ConnectWatchWidget";
 import { KeyConcernsWidget } from "@/Features/KeyConcernsWidget/KeyConcernsWidget";
+import { useState } from "react";
 
 const Dashboard = () => {
+	const [animate, setAnimate] = useState(false);
+
 	return (
 		<div className={styles["Dashboard-layout"]}>
 			<NavBar />
@@ -23,7 +26,18 @@ const Dashboard = () => {
 							<MainScene />
 						</div>
 					</div>
-					<div className={styles["Dashboard-stats"]}>
+					<div
+						className={`${styles["Dashboard-stats"]} ${
+							animate && styles["animate"]
+						}`}
+					>
+						<button
+							onClick={() => {
+								setAnimate(!animate);
+							}}
+						>
+							{animate ? "Reset" : "Animate Widgets"}
+						</button>
 						<TrackerWidget />
 						<AgeWidget />
 						<KeyConcernsWidget />

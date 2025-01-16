@@ -56,6 +56,7 @@ const SideBar = () => {
 		{ text: "Alergy", icon: <AlergyIcon /> },
 		{ text: "OxygenSaturation", icon: <OxygenSaturationIcon /> },
 	];
+
 	return (
 		<div className={styles["SideBar-container"]}>
 			<Dropdown />

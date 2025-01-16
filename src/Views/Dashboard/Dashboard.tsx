@@ -5,6 +5,9 @@ import { AgeWidget } from "@/Features/AgeWidget/AgeWidget";
 import Sidebar from "@/Features/NavBar/Components/Navigation/SideBar/SideBar";
 import MainScene from "@/Features/NavBar/Components/Three/MainScene";
 import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
+import { ConcernWidget } from "@/Features/ConcernWidget/ConcernWidget";
+import { ConnectWatchWidget } from "@/Features/ConnectWatchWidget/ConnectWatchWidget";
+
 
 const Dashboard = () => {
 	return (
@@ -21,7 +24,9 @@ const Dashboard = () => {
 					</div>
 					<div className={styles["Dashboard-stats"]}>
 						<TrackerWidget />
-						<AgeWidget />
+					<AgeWidget />
+					<ConcernWidget />
+					<ConnectWatchWidget />
 					</div>
 				</div>
 			</CameraProvider>

@@ -5,31 +5,36 @@ import { useCamera } from "../Context/CameraContext";
 
 interface DropdownOption {
 	label: string;
-	value: string;
+	value: "total" | "cardio";
 }
 
 const options: DropdownOption[] = [
 	{ label: "Total Health", value: "total" },
-	{ label: "Upper Body", value: "upper" },
-	{ label: "Lower Body", value: "lower" },
+	{ label: "Cardiovascular", value: "cardio" },
 ];
 
-const Dropdown = () => {
+interface DropdownProps {
+	value: "total" | "cardio";
+	onChange: (value: "total" | "cardio") => void;
+}
+
+const Dropdown = ({ value, onChange }: DropdownProps) => {
 	const [isOpen, setIsOpen] = useState(false);
-	const [selected, setSelected] = useState(options[0]);
 	const { setCameraState } = useCamera();
 
+	const selected =
+		options.find((option) => option.value === value) || options[0];
+
 	const handleSelect = (option: DropdownOption) => {
-		setSelected(option);
+		onChange(option.value);
 		setIsOpen(false);
 
 		const zoomConfigs = {
 			total: { position: [0, 0, 200] as [number, number, number], zoom: 10 },
-			upper: { position: [0, 30, 200] as [number, number, number], zoom: 15 },
-			lower: { position: [0, -30, 200] as [number, number, number], zoom: 15 },
+			cardio: { position: [0, 14, 200] as [number, number, number], zoom: 43 },
 		};
 
-		const config = zoomConfigs[option.value as keyof typeof zoomConfigs];
+		const config = zoomConfigs[option.value];
 		if (config) {
 			setCameraState({
 				targetPosition: config.position,
@@ -47,7 +52,7 @@ const Dropdown = () => {
 			>
 				<div className={styles.labelContainer}>
 					<div className={styles.label}>{selected.label}</div>
-					<div className={styles.divider} /> {/* Divider */}
+					<div className={styles.divider} />
 					<ChevronDown
 						className={`${styles.icon} ${isOpen ? styles.rotated : ""}`}
 						size={16}

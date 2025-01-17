@@ -19,10 +19,14 @@ import { useCamera } from "../../Context/CameraContext";
 import Dropdown from "../../Dropdown/Dropdown";
 import React from "react";
 
+type DropdownValue = "total" | "cardio";
+
 const SideBar = () => {
 	const { setCameraState } = useCamera();
 	const [activeButton, setActiveButton] =
 		React.useState<string>("ClinicalNotes");
+	const [dropdownValue, setDropdownValue] =
+		React.useState<DropdownValue>("total");
 
 	const handleZoom = (bodyPart: string) => {
 		const zoomConfigs = {
@@ -46,6 +50,16 @@ const SideBar = () => {
 		}
 	};
 
+	// Handle dropdown value changes
+	const handleDropdownChange = (value: DropdownValue) => {
+		setDropdownValue(value);
+		if (value === "total") {
+			handleZoom("ClinicalNotes");
+		} else if (value === "cardio") {
+			handleZoom("CardioLoad");
+		}
+	};
+
 	const buttons = [
 		{ text: "ClinicalNotes", icon: <ClinicalNotesIcon /> },
 		{ text: "StressManagement", icon: <HeadIcon /> },
@@ -65,11 +79,18 @@ const SideBar = () => {
 
 	return (
 		<div className={styles["SideBar-container"]}>
-			<Dropdown />
+			<Dropdown value={dropdownValue} onChange={handleDropdownChange} />
 			{buttons.map((data, index) => (
 				<IconButton
 					key={data.text}
-					onClick={() => handleZoom(data.text)}
+					onClick={() => {
+						handleZoom(data.text);
+						if (data.text === "ClinicalNotes") {
+							setDropdownValue("total");
+						} else if (data.text === "CardioLoad") {
+							setDropdownValue("cardio");
+						}
+					}}
 					active={activeButton === data.text}
 					disabled={index > 6}
 				>

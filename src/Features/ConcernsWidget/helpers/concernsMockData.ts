@@ -1,55 +1,58 @@
 import Heart from "@assets/ConcernsWidget/Heart.svg";
 import Diab from "@assets/ConcernsWidget/Diab.svg";
 
-export const concernsMockData = [
+export interface Concern {
+	id: number;
+	title: string;
+	factors: string[];
+	icon: string;
+	status: "High" | "Medium" | "Low";
+}
+
+export const concernsMockData: Concern[] = [
 	{
 		id: 1,
 		title: "Cardiovascular Disease",
-		description: "High Cholesterol level and other 4 influencing factors",
-		whyText: "Why",
+		factors: ["High cholesterol", "Smoking", "Hypertension"],
 		icon: Heart,
-		level: 4,
+		status: "High",
 	},
 	{
 		id: 2,
 		title: "Diabetes",
-		description:
-			"Low Oral Glucose Tolerance level and other 2 influencing factors",
-		whyText: "Why",
+		factors: ["Low oral glucose", "Family history"],
 		icon: Diab,
-		level: 3,
+		status: "High",
 	},
 	{
 		id: 3,
 		title: "Coronary Artery Disease",
-		description:
-			"High Coronary Artery Calcium level and other 1 influencing factor",
-		whyText: "Why",
+		factors: [
+			"High coronary artery calcium level",
+			"High coronary artery calcium level",
+		],
 		icon: Heart,
-		level: 2,
+		status: "Medium",
 	},
 	{
 		id: 4,
 		title: "Hypertension",
-		description: "High blood pressure and other 3 influencing factors",
-		whyText: "Why",
+		factors: ["High blood pressure", "Stress", "High sodium diet"],
 		icon: Heart,
-		level: 3,
+		status: "Medium",
 	},
 	{
 		id: 5,
-		title: "Obesity",
-		description: "High BMI and other 2 influencing factors",
-		whyText: "Why",
-		icon: Heart,
-		level: 2,
+		title: "Chronic Kidney Disease",
+		factors: ["Elevated creatinine levels", "Diabetes", "Hypertension"],
+		icon: Diab,
+		status: "High",
 	},
 	{
 		id: 6,
-		title: "Chronic Kidney Disease",
-		description: "Elevated creatinine levels and other 3 influencing factors",
-		whyText: "Why",
+		title: "Obesity",
+		factors: ["High BMI", "Low physical activity", "Unhealthy eating habits"],
 		icon: Heart,
-		level: 4,
+		status: "Low",
 	},
 ];

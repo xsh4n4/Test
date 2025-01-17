@@ -2,13 +2,14 @@ import { Canvas } from "@react-three/fiber";
 import Model from "./Model";
 import "./canvas.scss";
 import { useCamera } from "../../../DigitalTwin/Context/CameraContext";
-import { useState } from "react";
+// import { useState } from "react";
 import CameraController from "@/Features/DigitalTwin/Controller/CameraController";
+import SideBar from "@/Features/DigitalTwin/Components/SideBar/SideBar";
 
 const MainScene = () => {
 	const zoomValue = 0.9;
 	const { cameraState, setCameraState } = useCamera();
-	const [isStretched, setIsStretched] = useState(false);
+	// const [isStretched, setIsStretched] = useState(false);
 
 	// Zoom configuration
 	const ZOOM_FACTOR = 1.1;
@@ -41,22 +42,22 @@ const MainScene = () => {
 		}
 	};
 
-	const handleStretch = () => {
-		setIsStretched((prev) => !prev);
+	// const handleStretch = () => {
+	// 	setIsStretched((prev) => !prev);
 
-		const currentZoom = cameraState.targetZoom;
-		const stretchFactor = 1.2;
-		const newZoom = isStretched
-			? currentZoom / stretchFactor
-			: currentZoom * stretchFactor;
+	// 	const currentZoom = cameraState.targetZoom;
+	// 	const stretchFactor = 1.2;
+	// 	const newZoom = isStretched
+	// 		? currentZoom / stretchFactor
+	// 		: currentZoom * stretchFactor;
 
-		if (newZoom >= MIN_ZOOM && newZoom <= MAX_ZOOM) {
-			setCameraState({
-				...cameraState,
-				targetZoom: newZoom,
-			});
-		}
-	};
+	// 	if (newZoom >= MIN_ZOOM && newZoom <= MAX_ZOOM) {
+	// 		setCameraState({
+	// 			...cameraState,
+	// 			targetZoom: newZoom,
+	// 		});
+	// 	}
+	// };
 
 	// const resetToDefault = () => {
 	// 	setCameraState({
@@ -73,6 +74,7 @@ const MainScene = () => {
 
 	return (
 		<div className='canvas-container'>
+			<SideBar />
 			<Canvas
 				className={`canvas-class ${isStretched ? "stretched" : ""}`}
 				orthographic
@@ -104,9 +106,9 @@ const MainScene = () => {
 				>
 					<span>−</span>
 				</button>
-				<button onClick={handleStretch} className='control-btn stretch-btn'>
+				{/* <button onClick={handleStretch} className='control-btn stretch-btn'>
 					<span>{isStretched ? "↙" : "↗"}</span>
-				</button>
+				</button> */}
 			</div>
 		</div>
 	);

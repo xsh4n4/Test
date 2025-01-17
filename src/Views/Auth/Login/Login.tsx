@@ -52,7 +52,7 @@ const Login = () => {
 
 						<button
 							className={styles["Auth-content-form-signin-button"]}
-							onClick={() => navigate(paths.config)}
+							onClick={() => navigate(paths.config.root)}
 						>
 							Sign In <CheckMark />
 						</button>

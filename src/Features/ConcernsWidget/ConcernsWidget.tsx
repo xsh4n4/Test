@@ -1,13 +1,14 @@
 import { useState } from "react";
 import styles from "./ConcernsWidget.module.scss";
 import Chevron from "@assets/ConcernWidget/Chevron.svg?react";
-import Lines from "@assets/ConcernsWidget/Lines.svg?react";
+import Slope from "@assets/ConcernsWidget/Slope.svg?react";
 import { concernsMockData } from "./helpers/concernsMockData";
+import { ConcernsCard } from "./Components/ConcernsCard/ConcernsCard";
 
 export const ConcernsWidget = () => {
 	const [isShowMore, setIsShowMore] = useState(false);
 
-	const systemsToShow = isShowMore
+	const concernsToShow = isShowMore
 		? concernsMockData
 		: concernsMockData.slice(0, 3);
 
@@ -18,7 +19,13 @@ export const ConcernsWidget = () => {
 	return (
 		<div className={styles["ConcernWidget-wrapper"]}>
 			<div className={styles["ConcernWidget-head"]}>
-				<div className={styles["ConcernWidget-tab"]}>Key Areas of Concern</div>
+				<div className={styles["ConcernWidget-tab-container"]}>
+					<div className={styles["ConcernWidget-tab"]}>
+						Key Areas of Concern
+					</div>
+					<Slope className={styles["ConcernWidget-slope"]} />
+				</div>
+
 				<div
 					className={styles["ConcernWidget-more"]}
 					onClick={() => handleShowMore()}
@@ -38,36 +45,8 @@ export const ConcernsWidget = () => {
 				</div>
 			</div>
 			<div className={styles["ConcernWidget-content"]}>
-				{systemsToShow.map((system) => (
-					<div key={system.id} className={styles["ConcernWidget-card"]}>
-						<div className={styles["ConcernWidget-head"]}>
-							<div className={styles["ConcernWidget-icon-container"]}>
-								<img src={system.icon} alt={`${system.title} icon`} />
-							</div>{" "}
-							<div className={styles["ConcernWidget-status"]}>
-								<Lines />
-							</div>
-						</div>
-						<div className={styles["ConcernWidget-body"]}>
-							<div className={styles["ConcernWidget-body-title"]}>
-								{system.title}
-							</div>
-							<div className={styles["ConcernWidget-body-description"]}>
-								<p className={styles["ConcernWidget-body-text"]}>
-									{system.description}
-								</p>
-								<div className={styles["ConcernWidget-why"]}>
-									<div className={styles["ConcernWidget-why-text"]}>
-										{system.whyText}
-									</div>
-									<Chevron
-										className={`${styles["ConcernWidget-chevron"]}
-										}`}
-									/>
-								</div>
-							</div>
-						</div>
-					</div>
+				{concernsToShow.map((concern) => (
+					<ConcernsCard concern={concern} />
 				))}
 			</div>
 		</div>

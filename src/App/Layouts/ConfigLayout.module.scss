@@ -1,0 +1,33 @@
+.Config-container {
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	height: 100vh;
+	align-items: center;
+
+	background-image: linear-gradient(
+			170deg,
+			rgba(255, 255, 255, 1) 51.45%,
+			rgba(128, 151, 205, 0.6) 92.89%
+		),
+		url("src/assets/General/UploadBackground.png");
+
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-blend-mode: plus-darker, normal, multiply, normal;
+}
+
+.logo-wrapper {
+	display: flex;
+	padding: var(--layout-card-l-storytelling-margin-right-left, 32px);
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+	align-self: stretch;
+
+	svg {
+		width: 150px;
+		height: 38px;
+	}
+}

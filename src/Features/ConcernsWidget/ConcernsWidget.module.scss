@@ -1,3 +1,5 @@
+@import "../../App/Styles/_mixins.scss";
+
 .ConcernWidget-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -12,7 +14,7 @@
 .ConcernWidget-tab {
 	background-color: #ffffff;
 	border-top-left-radius: 8px;
-	padding: 6px 50px 3px 20px;
+	padding: 6px 10px 3px 20px;
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 24px;
@@ -36,6 +38,22 @@
 // 		"M27.6765 26.1497C29.6509 29.1127 32.4968 31.3123 35.75 32.5H0.5V0.5H2.28706C7.47069 0.5 12.3112 3.09122 15.1857 7.40487L27.6765 26.1497Z"
 // 	);
 // }
+
+.ConcernWidget-tab-container {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		left: 1px;
+		bottom: -1px;
+		width: calc(100% - 1px);
+		height: 1px;
+		background-color: white;
+	}
+}
 
 .ConcernWidget-more {
 	display: flex;
@@ -70,11 +88,8 @@
 
 .ConcernWidget-content {
 	display: grid;
-	grid-template-columns: repeat(
-		3,
-		1fr
-	); /* Creates a grid with 3 equal columns */
-	gap: 12px; /* Space between the grid items */
+	grid-template-columns: repeat(3, 1fr);
+	gap: 12px;
 	background-color: #ffffff;
 	padding: 10px 14px;
 	border-radius: 0px 8px 8px 8px;
@@ -91,83 +106,4 @@
 
 .collapse {
 	max-height: 240px;
-}
-
-.ConcernWidget-card {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-	border-radius: 8px;
-	padding: 12px;
-	background: linear-gradient(0deg, #f7f9fc, #f7f9fc),
-		linear-gradient(
-			143.92deg,
-			rgba(211, 221, 245, 0.2) 6.09%,
-			rgba(211, 221, 245, 0) 55.38%
-		);
-}
-
-.ConcernWidget-head {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.ConcernWidget-icon-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 8px;
-	width: 32px;
-	height: 32px;
-	background-color: rgba(255, 255, 255, 0.7);
-	border: 1px solid rgba(220, 229, 247, 1);
-}
-
-.ConcernWidget-body-title {
-	color: rgba(31, 44, 35, 1);
-	font-weight: 600;
-	font-size: 14px;
-	line-height: 20px;
-}
-
-.ConcernWidget-body {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-}
-
-.ConcernWidget-body-text {
-	color: rgba(31, 44, 35, 0.7);
-	margin: 0;
-	font-weight: 400;
-	font-size: 12px;
-	line-height: 14px;
-}
-
-.ConcernWidget-body-description {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-}
-
-.ConcernWidget-why {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 4px;
-
-	svg {
-		path {
-			fill: rgba(9, 116, 251, 1);
-		}
-	}
-}
-
-.ConcernWidget-why-text {
-	color: rgba(9, 116, 251, 1);
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 20px;
 }

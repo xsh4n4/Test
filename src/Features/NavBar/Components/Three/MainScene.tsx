@@ -2,13 +2,12 @@ import { Canvas } from "@react-three/fiber";
 import Model from "./Model";
 import "./canvas.scss";
 import { useCamera } from "../../../DigitalTwin/Context/CameraContext";
-import { useState } from "react";
 import CameraController from "@/Features/DigitalTwin/Controller/CameraController";
 
 const MainScene = () => {
 	const zoomValue = 0.9;
 	const { cameraState, setCameraState } = useCamera();
-	const [isStretched, setIsStretched] = useState(false);
+	const isStretched = false;
 
 	// Zoom configuration
 	const ZOOM_FACTOR = 1.1;
@@ -40,31 +39,6 @@ const MainScene = () => {
 			});
 		}
 	};
-
-	const handleStretch = () => {
-		setIsStretched((prev) => !prev);
-
-		const currentZoom = cameraState.targetZoom;
-		const stretchFactor = 1.2;
-		const newZoom = isStretched
-			? currentZoom / stretchFactor
-			: currentZoom * stretchFactor;
-
-		if (newZoom >= MIN_ZOOM && newZoom <= MAX_ZOOM) {
-			setCameraState({
-				...cameraState,
-				targetZoom: newZoom,
-			});
-		}
-	};
-
-	// const resetToDefault = () => {
-	// 	setCameraState({
-	// 		...cameraState,
-	// 		targetZoom: DEFAULT_ZOOM,
-	// 		targetPosition: [0, 0, 200],
-	// 	});
-	// };
 
 	const nextZoomIn = cameraState.targetZoom * ZOOM_FACTOR;
 	const isZoomInDisabled = nextZoomIn > MAX_ZOOM;
@@ -104,8 +78,8 @@ const MainScene = () => {
 				>
 					<span>−</span>
 				</button>
-				<button onClick={handleStretch} className='control-btn stretch-btn'>
-					<span>{isStretched ? "↙" : "↗"}</span>
+				<button className='control-btn stretch-btn'>
+					<span>↗</span>
 				</button>
 			</div>
 		</div>

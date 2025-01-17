@@ -11,10 +11,13 @@ const CameraController = () => {
 	const previousMouseXRef = useRef<number>(0);
 	const currentPositionRef = useRef(new Vector3());
 	const currentZoomRef = useRef(camera.zoom);
+	const targetYRef = useRef(0);
+	const currentYRef = useRef(0);
 
 	const MAX_ROTATION = Math.PI / 4;
-	const POSITION_LERP_FACTOR = 0.05;
-	const ZOOM_LERP_FACTOR = 0.08; // Separate lerp factor for zoom
+	const POSITION_LERP_FACTOR = 0.02;
+	const ZOOM_LERP_FACTOR = 0.05;
+	const Y_LERP_FACTOR = 0.03; // Specific lerp factor for Y-axis movement
 
 	useEffect(() => {
 		const handleMouseDown = (e: MouseEvent) => {
@@ -60,21 +63,29 @@ const CameraController = () => {
 	}, []);
 
 	useFrame(() => {
-		const targetPosition = new Vector3(...cameraState.targetPosition);
+		targetYRef.current = cameraState.targetPosition[1];
+
+		currentYRef.current +=
+			(targetYRef.current - currentYRef.current) * Y_LERP_FACTOR;
+
+		const targetPosition = new Vector3(
+			cameraState.targetPosition[0],
+			currentYRef.current,
+			cameraState.targetPosition[2],
+		);
+
 		const distance = targetPosition.length();
 
 		const rotatedPosition = new Vector3(
 			Math.sin(rotationRef.current) * distance,
-			targetPosition.y,
+			currentYRef.current,
 			Math.cos(rotationRef.current) * distance,
 		);
 
-		if (!currentPositionRef.current.equals(rotatedPosition)) {
-			currentPositionRef.current.lerp(rotatedPosition, POSITION_LERP_FACTOR);
-		}
+		currentPositionRef.current.lerp(rotatedPosition, POSITION_LERP_FACTOR);
 
 		camera.position.copy(currentPositionRef.current);
-		camera.lookAt(0, targetPosition.y, 0);
+		camera.lookAt(0, currentYRef.current, 0);
 
 		currentZoomRef.current +=
 			(cameraState.targetZoom - currentZoomRef.current) * ZOOM_LERP_FACTOR;

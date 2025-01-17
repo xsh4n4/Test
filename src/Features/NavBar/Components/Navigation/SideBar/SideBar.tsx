@@ -1,17 +1,17 @@
 import styles from "./SideBar.module.scss";
 
 import AlergyIcon from "@assets/SideBar/Icons/allergy.svg?react";
-import CardioLoadIcon from "@assets/SideBar/Icons/cardio_load.svg?react";
-import ClinicalNotesIcon from "@assets/SideBar/Icons/clinical_notes.svg?react";
-import EndocrinologyIcon from "@assets/SideBar/Icons/endocrinology.svg?react";
-import GastroenterolgyIcon from "@assets/SideBar/Icons/gastroenterology.svg?react";
+import CardioLoadIcon from "@assets/SideBar/Icons/heart.svg?react";
+import ClinicalNotesIcon from "@assets/SideBar/Icons/default.svg?react";
+import EndocrinologyIcon from "@assets/SideBar/Icons/Neck.svg?react";
+import GastroenterolgyIcon from "@assets/SideBar/Icons/Lungs.svg?react";
 import GynecologyIcon from "@assets/SideBar/Icons/gynecology.svg?react";
 import HematologyIcon from "@assets/SideBar/Icons/hematology.svg?react";
 import NephrologyIcon from "@assets/SideBar/Icons/nephrology.svg?react";
 import OxygenSaturationIcon from "@assets/SideBar/Icons/oxygen_saturation.svg?react";
-import Pulmonology1Icon from "@assets/SideBar/Icons/pulmonology-1.svg?react";
-import PulmonologyIcon from "@assets/SideBar/Icons/pulmonology.svg?react";
-import StressManagementIcon from "@assets/SideBar/Icons/stress_management.svg?react";
+import Pulmonology1Icon from "@assets/SideBar/Icons/Kindeys.svg?react";
+import PulmonologyIcon from "@assets/SideBar/Icons/Stomach.svg?react";
+import HeadIcon from "@assets/SideBar/Icons/head.svg?react";
 import UlnaRadiusAltIcon from "@assets/SideBar/Icons/ulna_radius_alt.svg?react";
 import UrologyIcon from "@assets/SideBar/Icons/urology.svg?react";
 import IconButton from "./Components/IconButton/IconButton";
@@ -42,7 +42,7 @@ const SideBar = () => {
 	};
 	const buttons = [
 		{ text: "ClinicalNotes", icon: <ClinicalNotesIcon /> },
-		{ text: "StressManagement", icon: <StressManagementIcon /> },
+		{ text: "StressManagement", icon: <HeadIcon /> },
 		{ text: "CardioLoad", icon: <CardioLoadIcon />, count: 2 },
 		{ text: "Pulmonology", icon: <PulmonologyIcon /> },
 		{ text: "Gastroenterolgy", icon: <GastroenterolgyIcon />, count: 3 },

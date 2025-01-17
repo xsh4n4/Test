@@ -18,30 +18,25 @@ const Dashboard = () => {
 			<div className={styles["Dashboard-select"]}></div>
 			<CameraProvider>
 				<div className={styles["Dashboard-content"]}>
-					<div className={styles["Dashboard-left"]}>
-						<div className={styles["Dashboard-sidebar"]}>
-							<Sidebar />
-						</div>
-						<div className={styles["Dashboard-model"]}>
-							<MainScene />
+					<div className={styles["Dashboard-dt-container"]}>
+						<div className={styles["Dashboard-left"]}>
+							<div className={styles["Dashboard-sidebar"]}>
+								<Sidebar />
+							</div>
+							<div className={styles["Dashboard-model"]}>
+								<MainScene />
+							</div>
 						</div>
 					</div>
 					<div
-						className={`${styles["Dashboard-stats"]} ${
-							animate && styles["animate"]
-						}`}
+						className={`${styles["Dashboard-stats"]} ${animate && styles["animate"]}`}
 					>
-						<button
-							onClick={() => {
-								setAnimate(!animate);
-							}}
-						>
+						<button onClick={() => setAnimate(!animate)}>
 							{animate ? "Reset" : "Animate Widgets"}
 						</button>
 						<TrackerWidget />
 						<AgeWidget />
 						<KeyConcernsWidget />
-						{/* <ConcernWidget /> */}
 						<ConnectWatchWidget />
 					</div>
 				</div>

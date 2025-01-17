@@ -1,15 +1,7 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "@views/Dashboard/Dashboard";
+import { createBrowserRouter } from "react-router-dom";
 
-const AppRouter: React.FC = () => {
-	return (
-		<Router>
-			<Routes>
-				<Route path='/' element={<Dashboard />} />
-			</Routes>
-		</Router>
-	);
-};
+import RoutesConfig from "./RoutesConfig";
+
+const AppRouter = createBrowserRouter(RoutesConfig);
 
 export default AppRouter;

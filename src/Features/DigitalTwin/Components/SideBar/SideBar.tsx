@@ -15,8 +15,8 @@ import HeadIcon from "@assets/SideBar/Icons/head.svg?react";
 import UlnaRadiusAltIcon from "@assets/SideBar/Icons/ulna_radius_alt.svg?react";
 import UrologyIcon from "@assets/SideBar/Icons/urology.svg?react";
 import IconButton from "./Components/IconButton/IconButton";
-import { useCamera } from "../../../../DigitalTwin/Context/CameraContext";
-import Dropdown from "../../../../DigitalTwin/Dropdown/Dropdown";
+import { useCamera } from "../../Context/CameraContext";
+import Dropdown from "../../Dropdown/Dropdown";
 
 const SideBar = () => {
 	const { setCameraState } = useCamera();
@@ -62,7 +62,9 @@ const SideBar = () => {
 			<Dropdown />
 			{buttons.map((data) => (
 				<IconButton key={data.text} onClick={() => handleZoom(data.text)}>
-					{data.count && <span className='count'>{data.count}</span>}
+					{data.count && (
+						<span className={styles["SideBar-count"]}>{data.count}</span>
+					)}
 					{data.icon}
 				</IconButton>
 			))}

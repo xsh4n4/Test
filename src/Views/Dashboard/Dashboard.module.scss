@@ -14,14 +14,6 @@
 	position: relative;
 }
 
-.Dashboard-sidebar {
-	height: 100%;
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 2;
-}
-
 .Dashboard-content {
 	display: flex;
 	padding: 24px;
@@ -35,18 +27,10 @@
 	}
 }
 
-.Dashboard-left {
-	display: flex;
-	flex-direction: row;
-	flex: 1;
-	position: relative;
-}
 .Dashboard-model {
-	margin-left: 60px;
-	width: 90%;
-	height: calc(100% - 50px);
+	width: 100%;
+	height: 100%;
 	position: relative;
-	padding-top: 50px;
 }
 
 .Dashboard-stats {

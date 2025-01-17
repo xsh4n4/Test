@@ -75,40 +75,38 @@ const MainScene = () => {
 	return (
 		<div className='canvas-container'>
 			<SideBar />
-			<Canvas
-				// className={`canvas-class ${isStretched ? "stretched" : ""}`}
-				orthographic
-				camera={{
-					near: 0.0001,
-					far: 20000,
-					zoom: cameraState.targetZoom,
-					position: cameraState.targetPosition,
-				}}
-			>
-				<CameraController />
-				<Model
-					scale={[zoomValue, zoomValue, zoomValue]}
-					position={[0, (-zoomValue * 70) / 2 - 1, 0]}
-				/>
-			</Canvas>
-			<div className='canvas-controls'>
-				<button
-					onClick={handleZoomIn}
-					className='control-btn'
-					disabled={isZoomInDisabled}
+			<div className='canvas-wrapper'>
+				<Canvas
+					orthographic
+					camera={{
+						near: 0.0001,
+						far: 20000,
+						zoom: cameraState.targetZoom,
+						position: cameraState.targetPosition,
+					}}
 				>
-					<span>+</span>
-				</button>
-				<button
-					onClick={handleZoomOut}
-					className='control-btn'
-					disabled={isZoomOutDisabled}
-				>
-					<span>−</span>
-				</button>
-				{/* <button onClick={handleStretch} className='control-btn stretch-btn'>
-					<span>{isStretched ? "↙" : "↗"}</span>
-				</button> */}
+					<CameraController />
+					<Model
+						scale={[zoomValue, zoomValue, zoomValue]}
+						position={[0, (-zoomValue * 70) / 2 - 1, 0]}
+					/>
+				</Canvas>
+				<div className='canvas-controls'>
+					<button
+						onClick={handleZoomIn}
+						className='control-btn'
+						disabled={isZoomInDisabled}
+					>
+						<span>+</span>
+					</button>
+					<button
+						onClick={handleZoomOut}
+						className='control-btn'
+						disabled={isZoomOutDisabled}
+					>
+						<span>−</span>
+					</button>
+				</div>
 			</div>
 		</div>
 	);

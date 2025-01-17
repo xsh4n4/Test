@@ -5,9 +5,9 @@ import { AgeWidget } from "@/Features/AgeWidget/AgeWidget";
 import MainScene from "@/Features/NavBar/Components/Three/MainScene";
 import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
 import { ConnectWatchWidget } from "@/Features/ConnectWatchWidget/ConnectWatchWidget";
-import { KeyConcernsWidget } from "@/Features/KeyConcernsWidget/KeyConcernsWidget";
 import { useState } from "react";
 import CtaModal from "@/Features/CtaModal/CtaModal";
+import { ConcernsWidget } from "@/Features/ConcernsWidget/ConcernsWidget";
 
 const Dashboard = () => {
 	const [animate, setAnimate] = useState(false);
@@ -31,7 +31,7 @@ const Dashboard = () => {
 						</button>
 						<TrackerWidget />
 						<AgeWidget />
-						<KeyConcernsWidget />
+						<ConcernsWidget />
 						<ConnectWatchWidget />
 					</div>
 				</div>

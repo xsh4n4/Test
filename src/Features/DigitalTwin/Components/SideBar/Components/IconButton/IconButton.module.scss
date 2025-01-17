@@ -1,11 +1,10 @@
 .icon-button {
 	height: 36px;
 	width: 36px;
-	background-color: #e2e6ef80 !important;
+	background-color: #ffffff !important;
 	border: 1px solid #5f68771f !important;
 	border-radius: 10px !important;
 	cursor: pointer !important;
-	background: linear-gradient(276deg, #cee3fc 6.89%, #fcfdfd 98.53%);
 	transition: all 0.2s ease;
 
 	svg {
@@ -15,7 +14,11 @@
 
 	&.active {
 		border: 1px solid #0974fb !important;
-		background: linear-gradient(276deg, #cee3fc 6.89%, #fcfdfd 98.53%);
+		background: linear-gradient(
+			276deg,
+			#cee3fc 6.89%,
+			#fcfdfd 98.53%
+		) !important;
 
 		svg path {
 			fill: #0974fb;
@@ -29,6 +32,10 @@
 
 		&:hover svg path {
 			fill: currentColor;
+		}
+
+		&.active {
+			background: #ffffff !important;
 		}
 	}
 }

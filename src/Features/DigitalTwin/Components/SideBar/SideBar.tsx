@@ -17,20 +17,25 @@ import UrologyIcon from "@assets/SideBar/Icons/urology.svg?react";
 import IconButton from "./Components/IconButton/IconButton";
 import { useCamera } from "../../Context/CameraContext";
 import Dropdown from "../../Dropdown/Dropdown";
+import React from "react";
 
 const SideBar = () => {
 	const { setCameraState } = useCamera();
+	const [activeButton, setActiveButton] =
+		React.useState<string>("ClinicalNotes");
 
 	const handleZoom = (bodyPart: string) => {
 		const zoomConfigs = {
-			ClinicalNotes: { position: [0, 0, 200], zoom: 10 }, // Default view
-			StressManagement: { position: [0, 30, 200], zoom: 40 }, // Head
-			CardioLoad: { position: [0, 14, 200], zoom: 43 }, // Chest
-			Pulmonology: { position: [0, 10, 200], zoom: 43 }, // Lungs
-			Gastroenterolgy: { position: [0, 7, 200], zoom: 45 }, // Stomach
-			Endocrinology: { position: [0, 25, 200], zoom: 45 }, // Neck
-			Pulmonology1: { position: [0, -15, 200], zoom: 17 }, // Lower body
+			ClinicalNotes: { position: [0, 0, 200], zoom: 10 },
+			StressManagement: { position: [0, 30, 200], zoom: 40 },
+			CardioLoad: { position: [0, 14, 200], zoom: 43 },
+			Pulmonology: { position: [0, 10, 200], zoom: 43 },
+			Gastroenterolgy: { position: [0, 7, 200], zoom: 45 },
+			Endocrinology: { position: [0, 25, 200], zoom: 45 },
+			Pulmonology1: { position: [0, -15, 200], zoom: 17 },
 		};
+
+		setActiveButton(bodyPart);
 
 		const config = zoomConfigs[bodyPart as keyof typeof zoomConfigs];
 		if (config) {
@@ -40,6 +45,7 @@ const SideBar = () => {
 			});
 		}
 	};
+
 	const buttons = [
 		{ text: "ClinicalNotes", icon: <ClinicalNotesIcon /> },
 		{ text: "StressManagement", icon: <HeadIcon /> },
@@ -60,8 +66,13 @@ const SideBar = () => {
 	return (
 		<div className={styles["SideBar-container"]}>
 			<Dropdown />
-			{buttons.map((data) => (
-				<IconButton key={data.text} onClick={() => handleZoom(data.text)}>
+			{buttons.map((data, index) => (
+				<IconButton
+					key={data.text}
+					onClick={() => handleZoom(data.text)}
+					active={activeButton === data.text}
+					disabled={index > 6}
+				>
 					{data.count && (
 						<span className={styles["SideBar-count"]}>{data.count}</span>
 					)}

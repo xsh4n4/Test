@@ -6,13 +6,33 @@
 	border-radius: 10px !important;
 	cursor: pointer !important;
 	background: linear-gradient(276deg, #cee3fc 6.89%, #fcfdfd 98.53%);
+	transition: all 0.2s ease;
 
 	svg {
 		width: 22px;
 		height: 22px;
 	}
+
+	&.active {
+		border: 1px solid #0974fb !important;
+		background: linear-gradient(276deg, #cee3fc 6.89%, #fcfdfd 98.53%);
+
+		svg path {
+			fill: #0974fb;
+		}
+	}
+
+	&.disabled {
+		background: #ffffff !important;
+		cursor: default !important;
+		opacity: 0.6;
+
+		&:hover svg path {
+			fill: currentColor;
+		}
+	}
 }
 
-.icon-button:hover svg path {
+.icon-button:hover:not(.disabled) svg path {
 	fill: #0974fb;
 }

@@ -24,12 +24,12 @@ const SideBar = () => {
 	const handleZoom = (bodyPart: string) => {
 		const zoomConfigs = {
 			ClinicalNotes: { position: [0, 0, 200], zoom: 10 }, // Default view
-			StressManagement: { position: [0, 33, 200], zoom: 40 }, // Head
-			CardioLoad: { position: [0, 20, 200], zoom: 40 }, // Chest
-			Pulmonology: { position: [0, 12, 200], zoom: 35 }, // Lungs
-			Gastroenterolgy: { position: [0, 10, 200], zoom: 35 }, // Stomach
-			Endocrinology: { position: [0, 30, 200], zoom: 45 }, // Neck
-			Pulmonology1: { position: [0, -10, 200], zoom: 17 }, // Lower body
+			StressManagement: { position: [0, 30, 200], zoom: 40 }, // Head
+			CardioLoad: { position: [0, 14, 200], zoom: 43 }, // Chest
+			Pulmonology: { position: [0, 10, 200], zoom: 43 }, // Lungs
+			Gastroenterolgy: { position: [0, 7, 200], zoom: 45 }, // Stomach
+			Endocrinology: { position: [0, 25, 200], zoom: 45 }, // Neck
+			Pulmonology1: { position: [0, -15, 200], zoom: 17 }, // Lower body
 		};
 
 		const config = zoomConfigs[bodyPart as keyof typeof zoomConfigs];

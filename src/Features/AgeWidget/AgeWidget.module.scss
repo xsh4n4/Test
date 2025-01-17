@@ -5,14 +5,16 @@
 	justify-content: space-between;
 	position: relative;
 	gap: 32px;
+
 	padding: 20px;
-	background: linear-gradient(
-		131.7deg,
-		rgba(151, 176, 232, 0.5) 38.15%,
-		rgba(255, 255, 255, 0) 82.07%
-	);
+	// background: linear-gradient(
+	// 	131.7deg,
+	// 	rgba(151, 176, 232, 0.5) 38.15%,
+	// 	rgba(255, 255, 255, 0) 82.07%
+	// );
 	border-radius: 16px;
 	margin-top: -2px;
+	border: 1px solid #94b2ec;
 
 	@media (max-width: 1412px) {
 		flex-direction: column;
@@ -22,21 +24,21 @@
 	}
 }
 
-.AgeWidget-container::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	border-radius: 16px;
-	padding: 2px;
-	z-index: 0;
+// .AgeWidget-container::after {
+// 	content: "";
+// 	position: absolute;
+// 	inset: 0;
+// 	border-radius: 16px;
+// 	padding: 2px;
+// 	z-index: 0;
 
-	background: linear-gradient(90deg, #94b2ec 0%, rgba(148, 178, 236, 0) 100%);
-	-webkit-mask:
-		linear-gradient(white, white) content-box,
-		linear-gradient(white, white);
-	mask:
-		linear-gradient(white, white) content-box,
-		linear-gradient(white, white);
-	mask-composite: exclude;
-	-webkit-mask-composite: destination-out;
-}
+// 	background: linear-gradient(90deg, #94b2ec 0%, rgba(148, 178, 236, 0) 100%);
+// 	-webkit-mask:
+// 		linear-gradient(white, white) content-box,
+// 		linear-gradient(white, white);
+// 	mask:
+// 		linear-gradient(white, white) content-box,
+// 		linear-gradient(white, white);
+// 	mask-composite: exclude;
+// 	-webkit-mask-composite: destination-out;
+// }

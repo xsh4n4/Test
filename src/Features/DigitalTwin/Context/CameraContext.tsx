@@ -12,7 +12,7 @@ type CameraContextType = {
 
 const defaultState: CameraState = {
 	targetPosition: [0, 0, 200],
-	targetZoom: 10,
+	targetZoom: 11,
 };
 
 const CameraContext = createContext<CameraContextType | undefined>(undefined);

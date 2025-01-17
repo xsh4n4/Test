@@ -76,7 +76,7 @@ const MainScene = () => {
 		<div className='canvas-container'>
 			<SideBar />
 			<Canvas
-				className={`canvas-class ${isStretched ? "stretched" : ""}`}
+				// className={`canvas-class ${isStretched ? "stretched" : ""}`}
 				orthographic
 				camera={{
 					near: 0.0001,

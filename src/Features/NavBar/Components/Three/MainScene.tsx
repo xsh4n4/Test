@@ -2,12 +2,14 @@ import { Canvas } from "@react-three/fiber";
 import Model from "./Model";
 import "./canvas.scss";
 import { useCamera } from "../../../DigitalTwin/Context/CameraContext";
+// import { useState } from "react";
 import CameraController from "@/Features/DigitalTwin/Controller/CameraController";
+import SideBar from "@/Features/DigitalTwin/Components/SideBar/SideBar";
 
 const MainScene = () => {
 	const zoomValue = 0.9;
 	const { cameraState, setCameraState } = useCamera();
-	const isStretched = false;
+	// const [isStretched, setIsStretched] = useState(false);
 
 	// Zoom configuration
 	const ZOOM_FACTOR = 1.05;
@@ -40,6 +42,31 @@ const MainScene = () => {
 		}
 	};
 
+	// const handleStretch = () => {
+	// 	setIsStretched((prev) => !prev);
+
+	// 	const currentZoom = cameraState.targetZoom;
+	// 	const stretchFactor = 1.2;
+	// 	const newZoom = isStretched
+	// 		? currentZoom / stretchFactor
+	// 		: currentZoom * stretchFactor;
+
+	// 	if (newZoom >= MIN_ZOOM && newZoom <= MAX_ZOOM) {
+	// 		setCameraState({
+	// 			...cameraState,
+	// 			targetZoom: newZoom,
+	// 		});
+	// 	}
+	// };
+
+	// const resetToDefault = () => {
+	// 	setCameraState({
+	// 		...cameraState,
+	// 		targetZoom: DEFAULT_ZOOM,
+	// 		targetPosition: [0, 0, 200],
+	// 	});
+	// };
+
 	const nextZoomIn = cameraState.targetZoom * ZOOM_FACTOR;
 	const isZoomInDisabled = nextZoomIn > MAX_ZOOM;
 	const nextZoomOut = cameraState.targetZoom / ZOOM_FACTOR;
@@ -47,8 +74,9 @@ const MainScene = () => {
 
 	return (
 		<div className='canvas-container'>
+			<SideBar />
 			<Canvas
-				className={`canvas-class ${isStretched ? "stretched" : ""}`}
+				// className={`canvas-class ${isStretched ? "stretched" : ""}`}
 				orthographic
 				camera={{
 					near: 0.0001,
@@ -78,9 +106,9 @@ const MainScene = () => {
 				>
 					<span>−</span>
 				</button>
-				<button className='control-btn stretch-btn'>
-					<span>↗</span>
-				</button>
+				{/* <button onClick={handleStretch} className='control-btn stretch-btn'>
+					<span>{isStretched ? "↙" : "↗"}</span>
+				</button> */}
 			</div>
 		</div>
 	);

@@ -10,7 +10,7 @@ const MainScene = () => {
 	const isStretched = false;
 
 	// Zoom configuration
-	const ZOOM_FACTOR = 1.1;
+	const ZOOM_FACTOR = 1.05;
 	const DEFAULT_ZOOM = 10;
 	const MAX_ZOOM = 60;
 	const MIN_ZOOM = DEFAULT_ZOOM;

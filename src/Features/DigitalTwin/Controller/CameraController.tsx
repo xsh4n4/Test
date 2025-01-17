@@ -16,7 +16,7 @@ const CameraController = () => {
 
 	const MAX_ROTATION = Math.PI / 4;
 	const POSITION_LERP_FACTOR = 0.02;
-	const ZOOM_LERP_FACTOR = 0.05;
+	const ZOOM_LERP_FACTOR = 0.025;
 	const Y_LERP_FACTOR = 0.03; // Specific lerp factor for Y-axis movement
 
 	useEffect(() => {

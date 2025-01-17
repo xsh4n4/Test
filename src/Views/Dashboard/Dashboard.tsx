@@ -7,6 +7,7 @@ import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
 import { ConnectWatchWidget } from "@/Features/ConnectWatchWidget/ConnectWatchWidget";
 import { KeyConcernsWidget } from "@/Features/KeyConcernsWidget/KeyConcernsWidget";
 import { useState } from "react";
+import CtaModal from "@/Features/CtaModal/CtaModal";
 
 const Dashboard = () => {
 	const [animate, setAnimate] = useState(false);
@@ -35,6 +36,7 @@ const Dashboard = () => {
 					</div>
 				</div>
 			</CameraProvider>
+			<CtaModal />
 		</div>
 	);
 };

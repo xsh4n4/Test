@@ -1,4 +1,4 @@
-@import "../../App/Styles/_mixins.scss";
+@use "../../App/Styles/_mixins" as *;
 
 .CtaModal-container {
 	position: fixed;

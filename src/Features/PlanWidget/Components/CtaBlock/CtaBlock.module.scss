@@ -1,0 +1,81 @@
+.CtaBlock-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 12px;
+	padding: 12px;
+	border-radius: 8px;
+	background: linear-gradient(90deg, #21262e 0%, #363c47 100%);
+	border: 1px solid rgba(228, 235, 249, 1);
+}
+
+.CtaBlock-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+}
+
+.CtaBlock-body {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 4px;
+}
+
+.CtaBlock-title {
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	margin: 0;
+	color: rgba(239, 240, 241, 1);
+	width: fit-content;
+	position: relative;
+}
+
+.CtaBlock-desc {
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14px;
+	margin: 0;
+	color: rgba(164, 169, 177, 1);
+}
+
+.CtaBlock-shape {
+	position: absolute;
+	right: -20%;
+	bottom: -20%;
+}
+
+.CtaBlock-button {
+	border-radius: 100px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 8px 12px;
+	flex-shrink: 0;
+	background: rgba(59, 141, 245, 0.16);
+	transition: all 0.2s ease;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+}
+
+.CtaBlock-button-text {
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 16px;
+	color: rgba(132, 184, 249, 1);
+}
+
+.CtaBlock-button-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+}

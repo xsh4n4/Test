@@ -8,6 +8,7 @@ import { ConnectWatchWidget } from "@/Features/ConnectWatchWidget/ConnectWatchWi
 import { useState } from "react";
 import CtaModal from "@/Features/CtaModal/CtaModal";
 import { ConcernsWidget } from "@/Features/ConcernsWidget/ConcernsWidget";
+import { PlanWidget } from "@/Features/PlanWidget/PlanWidget";
 
 const Dashboard = () => {
 	const [animate, setAnimate] = useState(false);
@@ -32,6 +33,7 @@ const Dashboard = () => {
 						<TrackerWidget />
 						<AgeWidget />
 						<ConcernsWidget />
+						<PlanWidget />
 						<ConnectWatchWidget />
 					</div>
 				</div>

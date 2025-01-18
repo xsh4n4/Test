@@ -1,14 +1,14 @@
-import NavBar from "@/Features/NavBar/Navbar";
+import NavBar from "@/Features/Structural/NavBar/Navbar";
 import styles from "./Dashboard.module.scss";
-import { TrackerWidget } from "@/Features/TrackerWidget/TrackerWidget";
-import { AgeWidget } from "@/Features/AgeWidget/AgeWidget";
-import MainScene from "@/Features/NavBar/Components/Three/MainScene";
+import { TrackerWidget } from "@/Features/Dashboard/TrackerWidget/TrackerWidget";
+import { AgeWidget } from "@/Features/Dashboard/AgeWidget/AgeWidget";
+import MainScene from "@/Features/DigitalTwin/Components/Three/MainScene";
 import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
-import { ConnectWatchWidget } from "@/Features/ConnectWatchWidget/ConnectWatchWidget";
+import { ConnectWatchWidget } from "@/Features/Dashboard/ConnectWatchWidget/ConnectWatchWidget";
 import { useState } from "react";
-import CtaModal from "@/Features/CtaModal/CtaModal";
-import { ConcernsWidget } from "@/Features/ConcernsWidget/ConcernsWidget";
-import { PlanWidget } from "@/Features/PlanWidget/PlanWidget";
+import CtaModal from "@/Features/Dashboard/CtaModal/CtaModal";
+import { ConcernsWidget } from "@/Features/Dashboard/ConcernsWidget/ConcernsWidget";
+import { PlanWidget } from "@/Features/Dashboard/PlanWidget/PlanWidget";
 
 const Dashboard = () => {
 	const [animate, setAnimate] = useState(false);

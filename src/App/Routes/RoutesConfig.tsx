@@ -2,12 +2,12 @@ import { RouteObject, Navigate } from "react-router-dom";
 import { paths } from "./Paths";
 import GlobalLayout from "../Layouts/GlobalLayout";
 import MainLayout from "../Layouts/MainLayout";
-import AuthLayout from "../Layouts/AuthLayout";
+import AuthLayout from "../Layouts/Auth/AuthLayout";
 import Dashboard from "@/Views/Dashboard/Dashboard";
 import Login from "@/Views/Auth/Login/Login";
-import Config from "@/Views/Config/Config";
+import Config from "@/Views/UploadMethod/UploadMethod";
 import { ConfigLayout } from "../Layouts/ConfigLayout";
-import ImportOrUpload from "@/Views/Config/ImportOrUpload/ImportOrUpload";
+import ImportOrUpload from "@/Views/UploadMethod/ImportOrUpload/ImportOrUpload";
 
 const RoutesConfig: RouteObject[] = [
 	{

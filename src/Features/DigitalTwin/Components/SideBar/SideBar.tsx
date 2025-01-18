@@ -21,7 +21,11 @@ import React from "react";
 
 type DropdownValue = "total" | "cardio";
 
-const SideBar = () => {
+interface SideBarProps {
+	onModelChange: (type: "body" | "cardio") => void;
+}
+
+const SideBar = ({ onModelChange }: SideBarProps) => {
 	const { setCameraState } = useCamera();
 	const [activeButton, setActiveButton] =
 		React.useState<string>("ClinicalNotes");
@@ -32,7 +36,7 @@ const SideBar = () => {
 		const zoomConfigs = {
 			ClinicalNotes: { position: [0, 0, 200], zoom: 10 },
 			StressManagement: { position: [0, 30, 200], zoom: 40 },
-			CardioLoad: { position: [0, 14, 200], zoom: 43 },
+			CardioLoad: { position: [0, 85, 200], zoom: 20 },
 			Pulmonology: { position: [0, 10, 200], zoom: 43 },
 			Gastroenterolgy: { position: [0, 7, 200], zoom: 45 },
 			Endocrinology: { position: [0, 25, 200], zoom: 45 },
@@ -48,6 +52,11 @@ const SideBar = () => {
 				targetZoom: config.zoom,
 			});
 		}
+		if (bodyPart === "CardioLoad") {
+			onModelChange("cardio");
+		} else {
+			onModelChange("body");
+		}
 	};
 
 	// Handle dropdown value changes
@@ -55,8 +64,10 @@ const SideBar = () => {
 		setDropdownValue(value);
 		if (value === "total") {
 			handleZoom("ClinicalNotes");
+			onModelChange("body");
 		} else if (value === "cardio") {
 			handleZoom("CardioLoad");
+			onModelChange("cardio");
 		}
 	};
 

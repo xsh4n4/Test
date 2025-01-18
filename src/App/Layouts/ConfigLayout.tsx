@@ -1,4 +1,4 @@
-import { ConfigControl } from "@/Features/ConfigControl/ConfigControl";
+// import { ConfigControl } from "@/Features/Onboarding/Upload/Components/ConfigControl/ConfigControl";
 import { Outlet } from "react-router-dom";
 import Logo from "@assets/General/LogoGenetiq.svg?react";
 import styles from "./ConfigLayout.module.scss";
@@ -10,7 +10,6 @@ export const ConfigLayout = () => {
 				<Logo />
 			</div>
 			<Outlet />
-			<ConfigControl />
 		</div>
 	);
 };

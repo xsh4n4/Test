@@ -4,25 +4,22 @@ import svgr from "vite-plugin-svgr";
 import path from "path";
 import { fileURLToPath } from "url";
 
+// Resolve paths
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default defineConfig({
-	base: "/", // Ensure this is set to the root
-	plugins: [react(), svgr({})],
-	preview: {
-		port: 3000,
-		strictPort: true,
-	},
+	base: "/", // Adjust if deploying to a subdirectory
+	plugins: [react(), svgr()],
 	resolve: {
 		alias: {
-			"@": path.resolve(__dirname, "./src"),
+			"@": path.resolve(__dirname, "src"),
 			"@assets": path.resolve(__dirname, "src/assets"),
-			"@features": path.resolve(__dirname, "./src/Features"),
-			"@services": path.resolve(__dirname, "./src/Services"),
-			"@views": path.resolve(__dirname, "./src/Views"),
-			"@utils": path.resolve(__dirname, "./src/Utils"),
-			"@variables": path.resolve(__dirname, "./src/App/Styles/_variables.scss"),
+			"@features": path.resolve(__dirname, "src/Features"),
+			"@services": path.resolve(__dirname, "src/Services"),
+			"@views": path.resolve(__dirname, "src/Views"),
+			"@utils": path.resolve(__dirname, "src/Utils"),
+			"@variables": path.resolve(__dirname, "src/App/Styles/_variables.scss"),
 		},
 	},
 	css: {
@@ -36,6 +33,10 @@ export default defineConfig({
 		port: 3000,
 		strictPort: true,
 		host: true,
-		origin: "true",
+		origin: "http://localhost:3000",
+	},
+	preview: {
+		port: 3000,
+		strictPort: true,
 	},
 });

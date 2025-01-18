@@ -1,12 +1,3 @@
-.Auth-layout {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	height: 100vh;
-	width: 100vw;
-	overflow-y: scroll;
-}
-
 .Auth-content {
 	display: flex;
 	padding: 24px;
@@ -22,6 +13,7 @@
 		&-background {
 			width: auto;
 			height: 100%;
+			background: url("@assets/Auth/Background.png") no-repeat right bottom;
 			background-position: 30%;
 			transform: rotate(90deg);
 			transform-origin: center center;

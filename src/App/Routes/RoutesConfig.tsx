@@ -1,4 +1,4 @@
-import { RouteObject } from "react-router-dom";
+import { RouteObject, Navigate } from "react-router-dom";
 import { paths } from "./Paths";
 import GlobalLayout from "../Layouts/GlobalLayout";
 import MainLayout from "../Layouts/MainLayout";
@@ -11,11 +11,37 @@ import ImportOrUpload from "@/Views/Config/ImportOrUpload/ImportOrUpload";
 
 const RoutesConfig: RouteObject[] = [
 	{
+		element: <GlobalLayout />,
+		path: "",
 		children: [
+			// Auth routes
 			{
+				element: <AuthLayout />,
+				path: "",
 				children: [
 					{
+						element: <Login />,
+						path: paths.auth.login,
+					},
+					// Redirect root "/" to "/login"
+					{
+						element: <Navigate to={paths.auth.login} replace />,
+						index: true,
+					},
+				],
+			},
+			// Main application routes
+			{
+				element: <MainLayout />,
+				path: "",
+				children: [
+					{
+						element: <Dashboard />,
+						path: paths.dashboard,
+					},
+					{
 						element: <ConfigLayout />,
+						path: paths.config.root,
 						children: [
 							{ element: <Config />, path: paths.config.root },
 							{
@@ -23,30 +49,10 @@ const RoutesConfig: RouteObject[] = [
 								path: paths.config.importOrUpload,
 							},
 						],
-						path: paths.config.root,
-					},
-					{
-						element: <Dashboard />,
-						index: true,
-						path: paths.dashboard,
 					},
 				],
-				element: <MainLayout />,
-				path: "",
-			},
-			{
-				children: [
-					{
-						element: <Login />,
-						path: paths.auth.login,
-					},
-				],
-				element: <AuthLayout />,
-				path: "",
 			},
 		],
-		element: <GlobalLayout />,
-		path: "",
 	},
 ];
 

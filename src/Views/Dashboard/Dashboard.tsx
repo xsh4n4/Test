@@ -4,14 +4,14 @@ import { TrackerWidget } from "@/Features/Dashboard/TrackerWidget/TrackerWidget"
 import { AgeWidget } from "@/Features/Dashboard/AgeWidget/AgeWidget";
 import MainScene from "@/Features/DigitalTwin/Components/Three/MainScene";
 import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
-import { ConnectWatchWidget } from "@/Features/Dashboard/ConnectWatchWidget/ConnectWatchWidget";
-import { useState } from "react";
+// import { ConnectWatchWidget } from "@/Features/Dashboard/ConnectWatchWidget/ConnectWatchWidget";
+// import { useState } from "react";
 import CtaModal from "@/Features/Dashboard/CtaModal/CtaModal";
 import { ConcernsWidget } from "@/Features/Dashboard/ConcernsWidget/ConcernsWidget";
 import { PlanWidget } from "@/Features/Dashboard/PlanWidget/PlanWidget";
 
 const Dashboard = () => {
-	const [animate, setAnimate] = useState(false);
+	// const [animate, setAnimate] = useState(false);
 
 	return (
 		<div className={styles["Dashboard-layout"]}>
@@ -25,16 +25,17 @@ const Dashboard = () => {
 						</div>
 					</div>
 					<div
-						className={`${styles["Dashboard-stats"]} ${animate && styles["animate"]}`}
+						// className={`${styles["Dashboard-stats"]} ${animate && styles["animate"]}`}
+						className={`${styles["Dashboard-stats"]} `}
 					>
-						<button onClick={() => setAnimate(!animate)}>
+						{/* <button onClick={() => setAnimate(!animate)}>
 							{animate ? "Reset" : "Animate Widgets"}
-						</button>
+						</button> */}
 						<TrackerWidget />
 						<AgeWidget />
 						<ConcernsWidget />
 						<PlanWidget />
-						<ConnectWatchWidget />
+						{/* <ConnectWatchWidget /> */}
 					</div>
 				</div>
 			</CameraProvider>

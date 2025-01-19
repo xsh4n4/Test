@@ -6,6 +6,7 @@
 	border-radius: 10px !important;
 	cursor: pointer !important;
 	transition: all 0.2s ease;
+	display: flex;
 
 	svg {
 		width: 22px;
@@ -29,11 +30,14 @@
 		background: #ffffff !important;
 		cursor: default !important;
 		opacity: 0.6;
-
+		display: flex;
 		&:hover svg path {
-			fill: currentColor;
+			fill: #8f95a0 !important;
 		}
 
+		svg path {
+			fill: #8f95a0;
+		}
 		&.active {
 			background: #ffffff !important;
 		}

@@ -73,12 +73,12 @@ const SideBar = ({ onModelChange }: SideBarProps) => {
 
 	const buttons = [
 		{ text: "ClinicalNotes", icon: <ClinicalNotesIcon /> },
+		{ text: "CardioLoad", icon: <CardioLoadIcon />, count: 3 },
 		{ text: "StressManagement", icon: <HeadIcon /> },
-		{ text: "CardioLoad", icon: <CardioLoadIcon />, count: 2 },
 		{ text: "Pulmonology", icon: <PulmonologyIcon /> },
-		{ text: "Gastroenterolgy", icon: <GastroenterolgyIcon />, count: 3 },
+		{ text: "Gastroenterolgy", icon: <GastroenterolgyIcon /> },
 		{ text: "Endocrinology", icon: <EndocrinologyIcon /> },
-		{ text: "Pulmonology1", icon: <Pulmonology1Icon />, count: 5 },
+		{ text: "Pulmonology1", icon: <Pulmonology1Icon /> },
 		{ text: "Urology", icon: <UrologyIcon /> },
 		{ text: "UlnaRadiusAlt", icon: <UlnaRadiusAltIcon /> },
 		{ text: "Gynecology", icon: <GynecologyIcon /> },
@@ -103,7 +103,7 @@ const SideBar = ({ onModelChange }: SideBarProps) => {
 						}
 					}}
 					active={activeButton === data.text}
-					disabled={index > 6}
+					disabled={index > 1}
 				>
 					{data.count && (
 						<span className={styles["SideBar-count"]}>{data.count}</span>

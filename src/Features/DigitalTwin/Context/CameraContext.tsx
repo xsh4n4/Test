@@ -1,29 +1,30 @@
 import React, { createContext, useContext, useState } from "react";
 
-type CameraState = {
+interface CameraState {
 	targetPosition: [number, number, number];
 	targetZoom: number;
-};
+}
 
-type CameraContextType = {
+interface CameraContextType {
 	cameraState: CameraState;
 	setCameraState: (state: CameraState) => void;
-};
-
-const defaultState: CameraState = {
-	targetPosition: [0, 0, 200],
-	targetZoom: 11,
-};
+	modelType: "body" | "cardio";
+	setModelType: (type: "body" | "cardio") => void;
+}
 
 const CameraContext = createContext<CameraContextType | undefined>(undefined);
 
-export const CameraProvider: React.FC<{ children: React.ReactNode }> = ({
-	children,
-}) => {
-	const [cameraState, setCameraState] = useState<CameraState>(defaultState);
+export const CameraProvider = ({ children }: { children: React.ReactNode }) => {
+	const [cameraState, setCameraState] = useState<CameraState>({
+		targetPosition: [0, 9, 200],
+		targetZoom: 11,
+	});
+	const [modelType, setModelType] = useState<"body" | "cardio">("body");
 
 	return (
-		<CameraContext.Provider value={{ cameraState, setCameraState }}>
+		<CameraContext.Provider
+			value={{ cameraState, setCameraState, modelType, setModelType }}
+		>
 			{children}
 		</CameraContext.Provider>
 	);

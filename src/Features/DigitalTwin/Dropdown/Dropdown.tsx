@@ -31,7 +31,7 @@ const Dropdown = ({ value, onChange }: DropdownProps) => {
 
 		const zoomConfigs = {
 			total: { position: [0, 0, 200] as [number, number, number], zoom: 10 },
-			cardio: { position: [0, 14, 200] as [number, number, number], zoom: 43 },
+			cardio: { position: [0, 85, 200] as [number, number, number], zoom: 20 },
 		};
 
 		const config = zoomConfigs[option.value];

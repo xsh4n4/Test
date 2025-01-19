@@ -65,12 +65,9 @@ const MainScene = () => {
 				>
 					<CameraController />
 					<Model
+						key={modelType} // Add the key prop here to force re-render on modelType change
 						scale={[zoomValue, zoomValue, zoomValue]}
-						position={
-							modelType === "cardio"
-								? [0, (-zoomValue * 70) / 2 - 1.5, 0]
-								: [0, (-zoomValue * 70) / 2 - 1, 0]
-						}
+						position={[0, (-zoomValue * 70) / 2 - 1, 0]} // Static position based on modelType
 						modelType={modelType}
 					/>
 				</Canvas>

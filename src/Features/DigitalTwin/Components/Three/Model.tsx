@@ -154,8 +154,8 @@ function Model({
 						normalMapType: THREE.TangentSpaceNormalMap,
 						metalnessMap: metallic,
 						roughnessMap: roughness,
-						roughness: 1.0,
-						metalness: 1.0,
+						roughness: 0.7,
+						metalness: 0.25,
 						side: THREE.DoubleSide,
 					});
 
@@ -214,11 +214,12 @@ function Model({
 				receiveShadow
 			/>
 
-			<ambientLight intensity={0.5} />
+			<ambientLight intensity={0.8} />
 			<directionalLight
-				position={[10, 10, 5]}
-				intensity={1}
+				position={[2, 10, 5]}
+				intensity={5.0}
 				castShadow
+				color='#CFD8EA' //
 				shadow-mapSize-width={2048}
 				shadow-mapSize-height={2048}
 			/>

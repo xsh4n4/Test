@@ -16,8 +16,8 @@ const CameraContext = createContext<CameraContextType | undefined>(undefined);
 
 export const CameraProvider = ({ children }: { children: React.ReactNode }) => {
 	const [cameraState, setCameraState] = useState<CameraState>({
-		targetPosition: [0, 0, 200],
-		targetZoom: 10,
+		targetPosition: [0, 9, 200],
+		targetZoom: 11,
 	});
 	const [modelType, setModelType] = useState<"body" | "cardio">("body");
 

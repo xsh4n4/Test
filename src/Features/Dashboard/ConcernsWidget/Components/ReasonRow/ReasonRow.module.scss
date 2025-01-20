@@ -1,0 +1,152 @@
+@use "@/App/Styles/_mixins" as mixins;
+
+.ReasonRow-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	gap: 8px;
+	padding: 6px 12px;
+	border-radius: 2px;
+	background: linear-gradient(293deg, rgba(255, 255, 255, 0.7) 0.1%, #fff 100%),
+		linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(255, 255, 255, 0.3) 100%
+		);
+	box-sizing: border-box;
+
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 8px;
+		width: 8px;
+		border-left: 1px solid rgba(140, 147, 143, 1);
+		border-bottom: 1px solid rgba(140, 147, 143, 1);
+	}
+}
+
+.ReasonRow-title {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	flex: 1 0 0;
+	overflow: hidden;
+	color: #0b101a;
+	text-overflow: ellipsis;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 16px;
+}
+
+.ReasonRow-test {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	flex: 1 0 0;
+}
+
+.ReasonRow-test-name {
+	color: rgba(81, 89, 103, 1);
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 16px;
+}
+
+.ReasonRow-level {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	position: relative;
+	gap: 8px;
+	width: 80px;
+	height: 8px;
+	border-radius: 4px;
+	background: linear-gradient(
+		90deg,
+		#68b142 0%,
+		#b0d69c 34.86%,
+		#ffd24b 68.26%,
+		#b94153 100%
+	);
+
+	&-hidden {
+		visibility: hidden;
+	}
+}
+
+.ReasonRow-thumb {
+	position: absolute;
+	height: 8px;
+	width: 8px;
+	left: var(--level);
+	bottom: 0;
+	background: #ffffff;
+	z-index: 1;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+.ReasonRow-thumb-line {
+	height: 12px;
+	width: 2px;
+	left: var(--level);
+	bottom: 0;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, #fff 100%);
+	z-index: 2;
+}
+
+.ReasonRow-value {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	flex: 1 0 0;
+}
+
+.ReasonRow-value-number {
+	color: rgba(33, 38, 46, 1);
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 16px;
+}
+
+.ReasonRow-value-unit {
+	color: rgba(108, 117, 132, 1);
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 16px;
+}
+
+.ReasonRow-status-wrapper {
+	flex: 1 0 0;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.ReasonRow-status {
+	display: flex;
+	align-items: flex-end;
+	gap: 4px;
+	width: fit-content;
+	max-height: 20px;
+	padding: 4px 8px 4px 6px;
+	border-radius: 100px;
+	border: 1px solid rgba(148, 178, 236, 0.6);
+
+	display: -webkit-box;
+	max-width: 96px;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
+	color: #cc4047;
+	text-align: center;
+	text-overflow: ellipsis;
+
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 14px;
+}

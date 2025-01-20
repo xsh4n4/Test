@@ -86,11 +86,15 @@
 	transform: rotate(180deg);
 }
 
-.ConcernWidget-content {
+.ConcernWidget-cards-layout {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 12px;
-	background-color: #ffffff;
+}
+
+.ConcernWidget-content {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	background-color: #e4ebf9;
 	padding: 10px 14px;
 	border-radius: 0px 8px 8px 8px;
 	border: 1px solid rgba(149, 179, 233, 1);
@@ -100,10 +104,110 @@
 		padding 0.5s ease-in-out;
 }
 
-.expand {
-	max-height: 1000px;
+.ConcernWidget-concern-cards {
+	gap: 12px;
+	grid-template-columns: repeat(3, 1fr);
+	// max-height: 0;
+
+	&-hidden {
+		animation: slideOut 2s ease;
+		transform: translateX(-100%);
+		display: none;
+	}
+
+	&-visible {
+		animation: slideIn 2s ease;
+		transform: translateX(0%);
+		display: grid;
+	}
 }
 
-.collapse {
-	max-height: 240px;
+.ConcernWidget-detail-cards {
+	gap: 12px;
+	grid-template-columns: repeat(3, 1fr);
+
+	&-visible {
+		animation: slideIn 2s ease;
+		transform: translateX(0%);
+		display: grid;
+	}
+
+	&-hidden {
+		animation: slideOut2 2s ease;
+		transform: translateX(-102%);
+		display: grid;
+		max-height: 0;
+		// max-height: calc(fit-content + 10px);
+	}
+}
+
+// @keyframes slideOut {
+// 	0% {
+// 		max-height: 0;
+// 		display: grid;
+// 		transform: translateX(0%);
+// 	}
+// 	100% {
+// 		max-height: 0;
+// 		transform: translateX(-102%);
+// 	}
+// }
+
+// @keyframes slideOut2 {
+// 	0% {
+// 		max-height: calc(fit-content + 10px);
+// 		transform: translateX(0%);
+// 	}
+// 	100% {
+// 		max-height: calc(fit-content + 10px);
+// 		display: grid;
+// 		transform: translateX(-102%);
+// 	}
+// }
+
+// @keyframes slideIn {
+// 	0% {
+// 		// max-height: calc(fit-content);
+// 		display: grid;
+// 		transform: translateX(100%);
+// 	}
+// 	100% {
+// 		// max-height: calc(fit-content);
+// 		transform: translateX(0%);
+// 	}
+// }
+
+.ConcernWidget-reasons {
+	// width: 100%;
+	overflow: hidden;
+	max-height: 0;
+	// display: none;
+
+	&-visible {
+		// display: block;
+		max-height: fit-content;
+		animation: expand 2s ease;
+	}
+
+	&-hidden {
+		// animation: collapse 1s ease;
+	}
+}
+
+@keyframes expand {
+	0% {
+		max-height: 0;
+	}
+	100% {
+		max-height: 300px;
+	}
+}
+
+@keyframes collapse {
+	0% {
+		max-height: 300px;
+	}
+	100% {
+		max-height: 0;
+	}
 }

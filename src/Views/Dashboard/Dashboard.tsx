@@ -2,7 +2,7 @@ import NavBar from "@/Features/Structural/NavBar/Navbar";
 import styles from "./Dashboard.module.scss";
 import { TrackerWidget } from "@/Features/Dashboard/TrackerWidget/TrackerWidget";
 import { AgeWidget } from "@/Features/Dashboard/AgeWidget/AgeWidget";
-import MainScene from "@/Features/DigitalTwin/Components/Three/MainScene";
+import MainScene from "@/Features/DigitalTwin/Components/Three/Scene/MainScene";
 import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
 // import { ConnectWatchWidget } from "@/Features/Dashboard/ConnectWatchWidget/ConnectWatchWidget";
 import CtaModal from "@/Features/Dashboard/CtaModal/CtaModal";

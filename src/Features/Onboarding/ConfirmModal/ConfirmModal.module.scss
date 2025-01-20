@@ -1,0 +1,149 @@
+.process-modal-container {
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	background: rgba(12, 23, 38, 0.8);
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	top: 0;
+}
+
+.modal-body {
+	display: flex;
+	width: 385px;
+	padding: var(--rithm-XL, 40px);
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--rithm-XL, 40px);
+	flex-shrink: 0;
+	border-radius: var(--layout-sign-in_up-radius, 16px);
+	border: 1px solid #e7ecf2;
+	background: #fff;
+	box-shadow:
+		0px 33px 47px 0px rgba(0, 72, 115, 0.07),
+		0px 7.371px 10.498px 0px rgba(0, 72, 115, 0.04),
+		0px 2.195px 3.126px 0px rgba(0, 72, 115, 0.03);
+	position: relative;
+}
+
+.modal-content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 16px;
+	align-self: stretch;
+}
+
+.modal-header {
+	display: flex;
+	padding: 8.739px 17.479px;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 6.992px;
+}
+
+.background-image {
+	width: 139.832px;
+	height: 139.832px;
+	position: absolute;
+	top: 18px;
+	left: 18px;
+	background: url("@assets/General/ProcessModalBackground.png");
+	background-blend-mode: soft-light, normal;
+	border-radius: 139.832px;
+}
+
+.modal-title {
+	color: var(--Neutral-text, #0b101a);
+
+	/* actions/title/H2 */
+	font-family: var(--font-family-title, Inter);
+	font-size: var(--font-size-3xl, 24px);
+	font-style: normal;
+	font-weight: var(--font-weight-light-400, 400);
+	line-height: var(--font-line-hight-2xl, 32px); /* 133.333% */
+	letter-spacing: -0.48px;
+}
+
+.modal-title-emphasize {
+	color: var(--Neutral-text, #0b101a);
+
+	font-family: var(--font-family-title, Inter);
+	font-size: var(--font-size-3xl, 24px);
+	font-style: normal;
+	font-weight: var(--font-weight-semibold-600, 600);
+	line-height: var(--font-line-hight-2xl, 32px);
+	letter-spacing: -0.48px;
+}
+
+.modal-description {
+	align-self: stretch;
+	color: var(--p-color-text);
+
+	font-family: var(--Font-family-body, Inter);
+	font-size: var(--Font-size-S, 14px);
+	font-style: normal;
+	font-weight: 400;
+	line-height: var(--Font-line-height-M, 20px);
+}
+
+.modal-policy {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--space-4-px-025-rem, 4px);
+	align-self: stretch;
+	color: var(--p-color-text);
+
+	font-family: var(--Font-family-body, Inter);
+	font-size: var(--Font-size-S, 14px);
+	font-style: normal;
+	font-weight: 400;
+	line-height: var(--Font-line-height-M, 20px);
+}
+
+.modal-policy-checkbox {
+	display: flex;
+	padding: var(--space-2-px-0125-rem, 2px);
+	justify-content: center;
+	align-items: center;
+	width: 20px;
+	height: 20px;
+}
+
+.modal-footer {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 16px;
+	align-self: stretch;
+
+	button {
+		display: flex;
+		padding: var(---Buttons-and-Inputs-lg-py, 12px)
+			var(---Buttons-and-Inputs-lg-px, 16px);
+		justify-content: center;
+		align-items: center;
+		gap: var(---Buttons-and-Inputs-gap, 8px);
+		flex: 1 0 0;
+	}
+
+	.cancel {
+		border-radius: var(
+			---Buttons-and-Inputs-button-border-radius-primary,
+			999px
+		);
+		border: 1px solid var(--Text-weaker, #bfc3c1);
+		background: rgba(255, 255, 255, 0.12);
+	}
+
+	.confirm {
+		border-radius: var(
+			---Buttons-and-Inputs-button-border-radius-primary,
+			999px
+		);
+		background: #1f1f1f;
+		color: var(--p-color-text-inverse, white);
+	}
+}

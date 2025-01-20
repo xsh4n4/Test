@@ -1,13 +1,11 @@
 import { useState } from "react";
 import styles from "./ImportOrUpload.module.scss";
 import GroupIcon from "@assets/General/Group.svg?react";
-import { StepWidget } from "@/Features/Dashboard/StepWidget/StepWidget";
-import { StepItem } from "@/App/Types";
-import UploadCloudIcon from "@assets/General/UploadCloud.svg?react";
-import CreateExchangeIcon from "@assets/General/CreateExchange.svg?react";
-import DashboardReferenceIcon from "@assets/General/DashboardReference.svg?react";
 import FuselabIcon from "@assets/General/Fuselab.svg?react";
 import LoaderIcon from "@assets/General/Loader.svg?react";
+import { ConfigControl } from "@/Features/Onboarding/Upload/Components/ConfigControl/ConfigControl";
+import { ConfigControlItems } from "@/App/Consts";
+import { ConfirmModal } from "@/Features/Onboarding/ConfirmModal/ConfirmModal";
 
 interface UploadingFile {
 	fileName: string;
@@ -18,28 +16,21 @@ const ImportOrUpload = () => {
 	const FileTypes = [".fastq", ".vcf", ".pdf"];
 	const [selectedFileType, setSelectedFileType] = useState<string>(".fastq");
 	const [isUploading, setIsUploading] = useState<boolean>(false);
+	const [isOpenedConfirmModal, setIsOpenedConfirmModal] =
+		useState<boolean>(false);
 
 	const uploadingFiles: UploadingFile[] = [
 		{ fileName: "Wellness_Summary_JohnDoe.pdf", percentage: 18 },
 		{ fileName: "Metabolism_Report_2024.pdf", percentage: 82 },
 	];
-	const stepItems: StepItem[] = [
-		{
-			icon: <UploadCloudIcon />,
-			title: "Upload Files",
-			description: "This is a description",
-		},
-		{
-			icon: <CreateExchangeIcon />,
-			title: "Process",
-			description: "This is a description",
-		},
-		{
-			icon: <DashboardReferenceIcon />,
-			title: "Dashboard",
-			description: "This is a description",
-		},
-	];
+
+	const handleClose = () => {
+		setIsOpenedConfirmModal(false);
+	};
+
+	const handleConfirm = () => {
+		setIsOpenedConfirmModal(false);
+	};
 
 	const UploadScreen = () => {
 		return (
@@ -113,7 +104,6 @@ const ImportOrUpload = () => {
 
 	return (
 		<div className={styles["import-upload-container"]}>
-			<StepWidget items={stepItems} current={0} />
 			<div className={styles["import-upload-body"]}>
 				<div className={styles["import-upload-info"]}>
 					<div className={styles["title"]}>Upload Files</div>
@@ -141,6 +131,15 @@ const ImportOrUpload = () => {
 					</>
 				)}
 			</div>
+			<ConfigControl
+				selectedItem={ConfigControlItems.UploadFiles}
+				setIsOpenedConfirmModal={(opened: boolean) => {
+					setIsOpenedConfirmModal(opened);
+				}}
+			/>
+			{isOpenedConfirmModal && (
+				<ConfirmModal onClose={handleClose} onConfirm={handleConfirm} />
+			)}
 		</div>
 	);
 };

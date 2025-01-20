@@ -1,8 +1,7 @@
-
 import { Clone } from "@react-three/drei";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { ModelProps } from "./Types/modelTypes";
 import { useCardioTextures, useBodyTextures } from "./Hooks/useModelTextures";
@@ -10,6 +9,23 @@ import {
 	createCardioMaterial,
 	createBodyMaterial,
 } from "./Utils/materialUtils";
+import { useModelTransitions } from "./Hooks/useModelTransitions";
+import { useModelTransforms } from "./Hooks/useModelTransforms";
+
+// Lighting setup moved directly into Model component
+const ModelLighting = (): JSX.Element => (
+	<>
+		<ambientLight intensity={0.8} />
+		<directionalLight
+			position={[2, 10, 5]}
+			intensity={5.0}
+			castShadow
+			color='#CFD8EA'
+			shadow-mapSize-width={2048}
+			shadow-mapSize-height={2048}
+		/>
+	</>
+);
 
 function Model({
 	position = [0, 0, 0],
@@ -28,13 +44,23 @@ function Model({
 
 	const cardioTextures = useCardioTextures();
 	const bodyTextures = useBodyTextures();
-
 	const currentModel = modelType === "body" ? bodyModel : cardioModel;
-	const [currentPosition, setCurrentPosition] =
-		useState<[number, number, number]>(position);
-	const [currentScale, setCurrentScale] =
-		useState<[number, number, number]>(scale);
+
+	const { opacity, setOpacity, targetOpacity } = useModelTransitions();
+	const { currentPosition, currentScale, updateTransforms } =
+		useModelTransforms(position, scale);
 	const modelRef = useRef<THREE.Group>(null);
+
+	useFrame(() => {
+		setOpacity((current) => {
+			const diff = targetOpacity - current;
+			return Math.abs(diff) < 0.03 ? targetOpacity : current + diff * 0.015;
+		});
+
+		if (modelRef.current) {
+			updateTransforms(position, scale);
+		}
+	});
 
 	useEffect(() => {
 		if (!currentModel) return;
@@ -49,25 +75,11 @@ function Model({
 						child.material.normalScale.set(1, 1);
 					}
 				}
+				child.material.transparent = true;
+				child.material.opacity = opacity;
 			}
 		});
-	}, [currentModel, modelType, cardioTextures, bodyTextures]);
-
-	useFrame(() => {
-		if (modelRef.current) {
-			setCurrentPosition((prev) => [
-				prev[0] + (position[0] - prev[0]) * 0.1,
-				prev[1] + (position[1] - prev[1]) * 0.1,
-				prev[2] + (position[2] - prev[2]) * 0.1,
-			]);
-
-			setCurrentScale((prev) => [
-				prev[0] + (scale[0] - prev[0]) * 0.1,
-				prev[1] + (scale[1] - prev[1]) * 0.1,
-				prev[2] + (scale[2] - prev[2]) * 0.1,
-			]);
-		}
-	});
+	}, [currentModel, modelType, cardioTextures, bodyTextures, opacity]);
 
 	return (
 		<group ref={modelRef}>
@@ -79,15 +91,7 @@ function Model({
 				castShadow
 				receiveShadow
 			/>
-			<ambientLight intensity={0.8} />
-			<directionalLight
-				position={[2, 10, 5]}
-				intensity={5.0}
-				castShadow
-				color='#CFD8EA'
-				shadow-mapSize-width={2048}
-				shadow-mapSize-height={2048}
-			/>
+			<ModelLighting />
 		</group>
 	);
 }

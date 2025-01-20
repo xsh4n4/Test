@@ -5,10 +5,12 @@ import { ConfigControlItems } from "@/App/Consts";
 
 interface ConfigControlProps {
 	selectedItem: string;
+	setIsOpenedConfirmModal: (open: boolean) => void;
 }
 
 export const ConfigControl: React.FC<ConfigControlProps> = ({
 	selectedItem,
+	setIsOpenedConfirmModal,
 }) => {
 	return (
 		<div className={styles["config-control-bar"]}>
@@ -21,7 +23,10 @@ export const ConfigControl: React.FC<ConfigControlProps> = ({
 					</button>
 				))}
 			</div>
-			<button className={styles["config-control-bar-submit"]}>
+			<button
+				className={styles["config-control-bar-submit"]}
+				onClick={() => setIsOpenedConfirmModal(true)}
+			>
 				Submit My Health Data <ArrowRightIcon />
 			</button>
 		</div>

@@ -69,8 +69,9 @@
 	background:
 		linear-gradient(90deg, #21262e 0%, #363c47 100%),
 		no-repeat,
-		url("src/assets/General/UploadBackground.png") right bottom;
+		url("@assets/General/UploadBackground.png") right bottom;
 	background-blend-mode: multiply, normal;
+	background-size: cover;
 
 	/* Scrim blur */
 	backdrop-filter: blur(1.5px);

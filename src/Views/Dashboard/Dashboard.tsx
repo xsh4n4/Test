@@ -11,6 +11,7 @@ import { PlanWidget } from "@/Features/Dashboard/PlanWidget/PlanWidget";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/App/Redux/store";
+import { SystemDetailWidget } from "@/Features/Dashboard/SystemDetailWidget/SystemDetailWidget";
 
 const Dashboard = () => {
 	const [animate, setAnimate] = useState(false);
@@ -41,6 +42,7 @@ const Dashboard = () => {
 						{/* <button onClick={() => setAnimate(!animate)}>
 							{animate ? "Reset" : "Animate Widgets"}
 						</button> */}
+						{selectedCategory !== "total" && <SystemDetailWidget />}
 						<TrackerWidget />
 						<AgeWidget />
 						<ConcernsWidget />

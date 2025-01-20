@@ -8,22 +8,9 @@ import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
 import CtaModal from "@/Features/Dashboard/CtaModal/CtaModal";
 import { ConcernsWidget } from "@/Features/Dashboard/ConcernsWidget/ConcernsWidget";
 import { PlanWidget } from "@/Features/Dashboard/PlanWidget/PlanWidget";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "@/App/Redux/store";
+import { SystemDetailWidget } from "@/Features/Dashboard/SystemDetailWidget/SystemDetailWidget";
 
 const Dashboard = () => {
-	const [animate, setAnimate] = useState(false);
-	const selectedCategory = useSelector(
-		(state: RootState) => state.category.selectedCategory,
-	);
-
-	useEffect(() => {
-		setAnimate(true);
-		setTimeout(() => {
-			setAnimate(false);
-		}, 2000);
-	}, [selectedCategory]);
 	return (
 		<div className={styles["Dashboard-layout"]}>
 			<NavBar />
@@ -35,12 +22,11 @@ const Dashboard = () => {
 							<MainScene />
 						</div>
 					</div>
-					<div
-						className={`${styles["Dashboard-stats"]} ${animate && styles["animate"]}`}
-					>
+					<div className={`${styles["Dashboard-stats"]} `}>
 						{/* <button onClick={() => setAnimate(!animate)}>
 							{animate ? "Reset" : "Animate Widgets"}
 						</button> */}
+						<SystemDetailWidget />
 						<TrackerWidget />
 						<AgeWidget />
 						<ConcernsWidget />

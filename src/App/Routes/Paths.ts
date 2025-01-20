@@ -7,5 +7,6 @@ export const paths = {
 	config: {
 		root: "/config",
 		importOrUpload: "/config/import-or-upload",
+		connectApp: "/config/connect-app",
 	},
 };

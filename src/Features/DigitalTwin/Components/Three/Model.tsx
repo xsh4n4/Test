@@ -151,7 +151,7 @@ function Model({
 					child.material = new THREE.MeshStandardMaterial({
 						map: baseColor,
 						normalMap: normal,
-						normalMapType: THREE.TangentSpaceNormalMap,
+						// normalMapType: THREE.TangentSpaceNormalMap,
 						metalnessMap: metallic,
 						roughnessMap: roughness,
 						roughness: 0.7,

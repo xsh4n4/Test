@@ -46,7 +46,7 @@ export const ConcernsWidget = () => {
 			</div>
 			<div className={styles["ConcernWidget-content"]}>
 				{concernsToShow.map((concern) => (
-					<ConcernsCard concern={concern} />
+					<ConcernsCard key={concern.id} concern={concern} />
 				))}
 			</div>
 		</div>

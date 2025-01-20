@@ -17,6 +17,8 @@ import UrologyIcon from "@assets/SideBar/Icons/urology.svg?react";
 import IconButton from "./Components/IconButton/IconButton";
 import { useCamera } from "../../Context/CameraContext";
 import Dropdown from "../../Dropdown/Dropdown";
+import { useDispatch } from "react-redux";
+import { setCategory } from "@/App/Redux/categorySlice";
 import React from "react";
 
 type DropdownValue = "total" | "cardio";
@@ -27,16 +29,25 @@ interface SideBarProps {
 
 const SideBar = ({ onModelChange }: SideBarProps) => {
 	const { setCameraState } = useCamera();
+	const dispatch = useDispatch();
 	const [activeButton, setActiveButton] =
 		React.useState<string>("ClinicalNotes");
 	const [dropdownValue, setDropdownValue] =
 		React.useState<DropdownValue>("total");
 
+	// const selectedCategory = useSelector(
+	// 	(state: any) => state.category.selectedCategory,
+	// );
+
+	const handleCategoryChange = (category: string) => {
+		dispatch(setCategory(category)); // Dispatch action to update the selected category
+	};
+
 	const handleZoom = (bodyPart: string) => {
 		const zoomConfigs = {
 			ClinicalNotes: { position: [0, 0, 200], zoom: 10 },
 			StressManagement: { position: [0, 30, 200], zoom: 40 },
-			CardioLoad: { position: [0, 85, 200], zoom: 20 },
+			CardioLoad: { position: [0, 85, 200], zoom: 10 },
 			Pulmonology: { position: [0, 10, 200], zoom: 43 },
 			Gastroenterolgy: { position: [0, 7, 200], zoom: 45 },
 			Endocrinology: { position: [0, 25, 200], zoom: 45 },
@@ -52,9 +63,12 @@ const SideBar = ({ onModelChange }: SideBarProps) => {
 				targetZoom: config.zoom,
 			});
 		}
+
 		if (bodyPart === "CardioLoad") {
+			handleCategoryChange("cardiovascular");
 			onModelChange("cardio");
 		} else {
+			handleCategoryChange("total");
 			onModelChange("body");
 		}
 	};

@@ -1,0 +1,25 @@
+.upload-file-container {
+	display: flex;
+	height: 30px;
+	padding: 8px;
+	align-items: center;
+	gap: 8px;
+	align-self: stretch;
+	border-radius: 6px;
+	border: 1px solid var(--p-color-border, rgba(223, 225, 228, 1));
+	background: var(--neutral-background-background-base, #fff);
+	justify-content: space-between;
+
+	.file {
+		overflow: hidden;
+		color: var(--p-color-text, rgba(33, 38, 46, 1));
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		font-family: var(--Font-family-body, Inter);
+		font-size: var(--Font-size-S, 14px);
+		font-style: normal;
+		font-weight: 400;
+		line-height: var(--Font-line-height-M, 20px);
+	}
+}

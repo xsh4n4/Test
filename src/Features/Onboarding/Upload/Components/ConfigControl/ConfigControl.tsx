@@ -2,16 +2,21 @@ import React from "react";
 import ArrowRightIcon from "@assets/General/ArrowRight.svg?react";
 import styles from "./ConfigControl.module.scss";
 import { ConfigControlItems } from "@/App/Consts";
+import { useNavigate } from "react-router-dom";
+import { paths } from "@/App/Routes/Paths";
 
 interface ConfigControlProps {
 	selectedItem: string;
+	processed: boolean;
 	setIsOpenedConfirmModal: (open: boolean) => void;
 }
 
 export const ConfigControl: React.FC<ConfigControlProps> = ({
 	selectedItem,
+	processed,
 	setIsOpenedConfirmModal,
 }) => {
+	const navigate = useNavigate();
 	return (
 		<div className={styles["config-control-bar"]}>
 			<div className={styles["config-control-items"]}>
@@ -25,9 +30,16 @@ export const ConfigControl: React.FC<ConfigControlProps> = ({
 			</div>
 			<button
 				className={styles["config-control-bar-submit"]}
-				onClick={() => setIsOpenedConfirmModal(true)}
+				onClick={() => {
+					if (!processed) {
+						setIsOpenedConfirmModal(true);
+					} else {
+						navigate(paths.dashboard);
+					}
+				}}
 			>
-				Submit My Health Data <ArrowRightIcon />
+				{processed ? "Explore your digital twin" : "Submit My Health Data"}{" "}
+				<ArrowRightIcon />
 			</button>
 		</div>
 	);

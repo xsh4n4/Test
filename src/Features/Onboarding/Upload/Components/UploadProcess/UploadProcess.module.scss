@@ -1,0 +1,84 @@
+.upload-process-container {
+	display: flex;
+	width: 718px;
+	padding: var(--rithm-XL, 40px);
+	align-items: center;
+	gap: var(--layout-page-margin-right_left, 20px);
+	border-radius: 20px;
+	border: 1px solid #e7ecf2;
+	background: #fff;
+	box-shadow:
+		0px 33px 47px 0px rgba(0, 72, 115, 0.07),
+		0px 7.371px 10.498px 0px rgba(0, 72, 115, 0.04),
+		0px 2.195px 3.126px 0px rgba(0, 72, 115, 0.03);
+}
+
+.left-side {
+	display: flex;
+	flex: 2;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 32px;
+	flex-shrink: 0;
+
+	.upload-container {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 16px;
+		align-self: stretch;
+
+		.upload-info {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 16px;
+			align-self: stretch;
+
+			.title {
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 1;
+				overflow: hidden;
+				color: var(--Neutral-text, #0b101a);
+				text-overflow: ellipsis;
+
+				/* actions/title/H2 SB */
+				font-family: var(--font-family-title, Inter);
+				font-size: var(--font-size-3xl, 24px);
+				font-style: normal;
+				font-weight: var(--font-weight-semibold-600, 600);
+				line-height: var(--font-line-hight-2xl, 32px);
+				letter-spacing: -0.48px;
+			}
+
+			.description {
+				align-self: stretch;
+				color: var(--p-color-text, rgba(81, 89, 103, 1));
+
+				font-family: var(--Font-family-body, Inter);
+				font-size: var(--Font-size-S, 14px);
+				font-style: normal;
+				font-weight: 400;
+				line-height: var(--Font-line-height-M, 20px);
+			}
+		}
+
+		.processer-container {
+			display: flex;
+			padding-top: var(--space-16-px-1-rem, 16px);
+			flex-direction: column;
+			align-items: flex-start;
+			gap: var(--space-8-px-05-rem, 8px);
+		}
+	}
+}
+
+.right-side {
+	flex: 1;
+	height: 478.478px;
+	flex-shrink: 0;
+	opacity: 0.2;
+	background: url("@assets/General/Person.png") no-repeat center;
+	background-size: auto 100%;
+}

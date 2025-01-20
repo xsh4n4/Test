@@ -5,7 +5,7 @@ import FuselabIcon from "@assets/General/Fuselab.svg?react";
 import LoaderIcon from "@assets/General/Loader.svg?react";
 import { ConfigControl } from "@/Features/Onboarding/Upload/Components/ConfigControl/ConfigControl";
 import { ConfigControlItems } from "@/App/Consts";
-import { ProcessModal } from "@/Features/Onboarding/ProcessModal/ProcessModal";
+import { ConfirmModal } from "@/Features/Onboarding/ConfirmModal/ConfirmModal";
 
 interface UploadingFile {
 	fileName: string;
@@ -16,7 +16,7 @@ const ImportOrUpload = () => {
 	const FileTypes = [".fastq", ".vcf", ".pdf"];
 	const [selectedFileType, setSelectedFileType] = useState<string>(".fastq");
 	const [isUploading, setIsUploading] = useState<boolean>(false);
-	const [isOpenedProcessModal, setIsOpenendProcessModal] =
+	const [isOpenedConfirmModal, setIsOpenedConfirmModal] =
 		useState<boolean>(false);
 
 	const uploadingFiles: UploadingFile[] = [
@@ -25,11 +25,11 @@ const ImportOrUpload = () => {
 	];
 
 	const handleClose = () => {
-		setIsOpenendProcessModal(false);
+		setIsOpenedConfirmModal(false);
 	};
 
 	const handleConfirm = () => {
-		setIsOpenendProcessModal(false);
+		setIsOpenedConfirmModal(false);
 	};
 
 	const UploadScreen = () => {
@@ -134,11 +134,11 @@ const ImportOrUpload = () => {
 			<ConfigControl
 				selectedItem={ConfigControlItems.UploadFiles}
 				setIsOpenedConfirmModal={(opened: boolean) => {
-					setIsOpenendProcessModal(opened);
+					setIsOpenedConfirmModal(opened);
 				}}
 			/>
-			{isOpenedProcessModal && (
-				<ProcessModal onClose={handleClose} onConfirm={handleConfirm} />
+			{isOpenedConfirmModal && (
+				<ConfirmModal onClose={handleClose} onConfirm={handleConfirm} />
 			)}
 		</div>
 	);

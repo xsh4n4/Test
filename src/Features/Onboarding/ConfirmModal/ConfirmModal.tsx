@@ -1,15 +1,15 @@
-import styles from "./ProcessModal.module.scss";
+import styles from "./ConfirmModal.module.scss";
 import FrameIcon from "@assets/General/Frame.svg?react";
 import ArrowRightIcon from "@assets/General/ArrowRight.svg?react";
 import CloseIcon from "@assets/General/Close.svg?react";
 import React from "react";
 
-interface ProcessModalProps {
+interface ConfirmModalProps {
 	onClose: () => void;
 	onConfirm: () => void;
 }
 
-export const ProcessModal: React.FC<ProcessModalProps> = ({
+export const ConfirmModal: React.FC<ConfirmModalProps> = ({
 	onClose,
 	onConfirm,
 }) => {

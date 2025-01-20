@@ -19,59 +19,65 @@ function Model({
 	color = "#f0f0f0",
 	modelType = "body",
 }: ModelProps) {
-	const bodyModel = useLoader(OBJLoader, "/assets/models/normal/normal.obj");
-	const cardioModel = useLoader(OBJLoader, "/assets/models/cardio/cardio.obj");
+	const bodyModel = useLoader(
+		OBJLoader,
+		"/src/assets/models/normal/normal.obj",
+	);
+	const cardioModel = useLoader(
+		OBJLoader,
+		"/src/assets/models/cardio/cardio.obj",
+	);
 
 	// Load cardio textures
 	const arteriesDiffuse = useLoader(
 		THREE.TextureLoader,
-		"/assets/models/cardio/Arteries_Diffuse.png",
+		"/src/assets/models/cardio/Arteries_Diffuse.png",
 	);
 	const arteriesNormal = useLoader(
 		THREE.TextureLoader,
-		"/assets/models/cardio/Arteries_Normal.png",
+		"/src/assets/models/cardio/Arteries_Normal.png",
 	);
 	const heartDiffuse = useLoader(
 		THREE.TextureLoader,
-		"/assets/models/cardio/HeartAnatomy_Diffuse.png",
+		"/src/assets/models/cardio/HeartAnatomy_Diffuse.png",
 	);
 	const heartNormal = useLoader(
 		THREE.TextureLoader,
-		"/assets/models/cardio/HeartAnatomy_Normal.png",
+		"/src/assets/models/cardio/HeartAnatomy_Normal.png",
 	);
 	const heartHeight = useLoader(
 		THREE.TextureLoader,
-		"/assets/models/cardio/HeartAnatomy_Height.png",
+		"/src/assets/models/cardio/HeartAnatomy_Height.png",
 	);
 	const veinsDiffuse = useLoader(
 		THREE.TextureLoader,
-		"/assets/models/cardio/Veins_Diffuse.png",
+		"/src/assets/models/cardio/Veins_Diffuse.png",
 	);
 	const veinsNormal = useLoader(
 		THREE.TextureLoader,
-		"/assets/models/cardio/Veins_Normal.png",
+		"/src/assets/models/cardio/Veins_Normal.png",
 	);
 
 	// Load normal model textures
 	const baseColor = useLoader(
 		THREE.TextureLoader,
-		"/assets/models/normal/DefaultMaterial_BaseColor.png",
+		"/src/assets/models/normal/DefaultMaterial_BaseColor.png",
 	);
 	const metallic = useLoader(
 		THREE.TextureLoader,
-		"/assets/models/normal/DefaultMaterial_Metallic.png",
+		"/src/assets/models/normal/DefaultMaterial_Metallic.png",
 	);
 	const normalDire = useLoader(
 		THREE.TextureLoader,
-		"/assets/models/normal/DefaultMaterial_Normal_Dire.png",
+		"/src/assets/models/normal/DefaultMaterial_Normal_Dire.png",
 	);
 	const normal = useLoader(
 		THREE.TextureLoader,
-		"/assets/models/normal/DefaultMaterial_Normal.png",
+		"/src/assets/models/normal/DefaultMaterial_Normal.png",
 	);
 	const roughness = useLoader(
 		THREE.TextureLoader,
-		"/assets/models/normal/DefaultMaterial_Roughness.png",
+		"/src/assets/models/normal/DefaultMaterial_Roughness.png",
 	);
 
 	const currentModel = modelType === "body" ? bodyModel : cardioModel;

@@ -1,0 +1,79 @@
+@use "@/App/Styles/_mixins" as mixins;
+
+.ReasonsTable-container {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.ReasonsTable-head {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.ReasonsTable-title {
+	color: rgba(81, 89, 103, 1);
+	font-size: 10px;
+	font-weight: 400;
+	line-height: 14px;
+	letter-spacing: 0.2px;
+	text-transform: uppercase;
+}
+
+.ReasonsTable-more {
+	display: flex;
+	flex-direction: row;
+	gap: 2px;
+	align-items: center;
+	cursor: pointer;
+}
+
+.ReasonsTable-more-text {
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 14px;
+	color: #493ddd;
+	margin: 0 auto;
+}
+
+.ReasonsTable-chevron-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2px 5px;
+}
+
+.ReasonsTable-chevron {
+	transition: transform 0.3s ease;
+}
+
+.rotate-chevron {
+	transform: rotate(180deg);
+}
+
+.ReasonsTable-table {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 4px;
+	width: 100%;
+
+	animation: collapseAndExpand 1.6s ease;
+}
+
+@keyframes collapseAndExpand {
+	0% {
+		opacity: 1;
+		max-height: 500px;
+	}
+	50% {
+		opacity: 0;
+		max-height: 0;
+	}
+	100% {
+		opacity: 1;
+		max-height: 500px;
+	}
+}

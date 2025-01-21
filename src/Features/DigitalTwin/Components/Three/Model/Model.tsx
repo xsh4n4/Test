@@ -12,26 +12,13 @@ import {
 import { useModelTransitions } from "./Hooks/useModelTransitions";
 import { useModelTransforms } from "./Hooks/useModelTransforms";
 
-const ModelLighting = (): JSX.Element => (
-	<>
-		<ambientLight intensity={0.8} />
-		<directionalLight
-			position={[2, 10, 5]}
-			intensity={5.0}
-			castShadow
-			color='#CFD8EA'
-			shadow-mapSize-width={2048}
-			shadow-mapSize-height={2048}
-		/>
-	</>
-);
-
 function Model({
 	position = [0, 0, 0],
 	rotation = [0, 0, 0],
 	scale = [1, 1, 1],
 	modelType = "body",
-}: ModelProps) {
+	transitionState,
+}: ModelProps & { transitionState: ReturnType<typeof useModelTransitions> }) {
 	const bodyModel = useLoader(
 		OBJLoader,
 		"/src/assets/models/normal/normal.obj",
@@ -43,22 +30,23 @@ function Model({
 
 	const cardioTextures = useCardioTextures();
 	const bodyTextures = useBodyTextures();
-	const currentModel = modelType === "body" ? bodyModel : cardioModel;
 
-	const { opacity, setOpacity, targetOpacity } = useModelTransitions();
+	const currentModel = modelType === "body" ? bodyModel : cardioModel;
+	const modelRef = useRef<THREE.Group>(null);
+
 	const { currentPosition, currentScale, updateTransforms } =
 		useModelTransforms(position, scale);
-	const modelRef = useRef<THREE.Group>(null);
+
+	const { opacity, setOpacity, targetOpacity } = transitionState;
 
 	useFrame(() => {
 		setOpacity((current) => {
 			const diff = targetOpacity - current;
-			return Math.abs(diff) < 0.03 ? targetOpacity : current + diff * 0.015;
+			const speed = targetOpacity > current ? 0.025 : 0.1;
+			return Math.abs(diff) < 0.01 ? targetOpacity : current + diff * speed;
 		});
 
-		if (modelRef.current) {
-			updateTransforms(position, scale);
-		}
+		updateTransforms(position, scale);
 	});
 
 	useEffect(() => {
@@ -90,7 +78,15 @@ function Model({
 				castShadow
 				receiveShadow
 			/>
-			<ModelLighting />
+			<ambientLight intensity={0.8} />
+			<directionalLight
+				position={[2, 10, 5]}
+				intensity={5.0}
+				castShadow
+				color='#CFD8EA'
+				shadow-mapSize-width={2048}
+				shadow-mapSize-height={2048}
+			/>
 		</group>
 	);
 }

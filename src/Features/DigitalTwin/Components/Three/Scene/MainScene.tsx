@@ -1,6 +1,5 @@
 import { Canvas } from "@react-three/fiber";
 import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
 import { useCamera } from "../../../Context/CameraContext";
 import { SCENE_CONSTANTS, CAMERA_SETTINGS } from "./Constants/SceneConstants";
 import { ModelType } from "./Types/ZoomTypes";
@@ -9,14 +8,20 @@ import CameraController from "../../../Controller/CameraController";
 import SideBar from "../../SideBar/SideBar";
 import ZoomControls from "./Controls/ZoomControls";
 import "./canvas.scss";
+import { useModelTransitions } from "../Model/Hooks/useModelTransitions";
 
 const MainScene = () => {
 	const { cameraState } = useCamera();
 	const [modelType, setModelType] = useState<ModelType>("body");
 	const { MODEL_ZOOM_VALUE } = SCENE_CONSTANTS;
+	const modelTransitions = useModelTransitions();
 
 	const handleModelChange = (type: ModelType) => {
-		setModelType(type);
+		if (modelTransitions.isTransitioning) return;
+
+		modelTransitions.startTransition(() => {
+			setModelType(type);
+		});
 	};
 
 	return (
@@ -33,14 +38,13 @@ const MainScene = () => {
 					}}
 				>
 					<CameraController />
-					<AnimatePresence mode='wait'>
-						<Model
-							key={modelType}
-							scale={[MODEL_ZOOM_VALUE, MODEL_ZOOM_VALUE, MODEL_ZOOM_VALUE]}
-							position={[0, (-MODEL_ZOOM_VALUE * 70) / 2 - 1, 0]}
-							modelType={modelType}
-						/>
-					</AnimatePresence>
+					<Model
+						key={modelType}
+						scale={[MODEL_ZOOM_VALUE, MODEL_ZOOM_VALUE, MODEL_ZOOM_VALUE]}
+						position={[0, (-MODEL_ZOOM_VALUE * 70) / 2 - 1, 0]}
+						modelType={modelType}
+						transitionState={modelTransitions}
+					/>
 				</Canvas>
 				<ZoomControls />
 			</div>

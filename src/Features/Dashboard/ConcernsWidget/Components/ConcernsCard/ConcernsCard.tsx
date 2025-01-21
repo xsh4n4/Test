@@ -1,13 +1,27 @@
 import styles from "./ConcernsCard.module.scss";
 import { Concern } from "../../helpers/concernsMockData";
+import { useDispatch } from "react-redux";
+import { setCategory } from "@/App/Redux/categorySlice";
 
 interface ConcernsCardProps {
 	concern: Concern;
 }
 
 export const ConcernsCard: React.FC<ConcernsCardProps> = ({ concern }) => {
+	const dispatch = useDispatch();
+
+	const handleClick = () => {
+		if (concern.link) {
+			dispatch(setCategory(concern.link));
+		}
+	};
 	return (
-		<div className={styles["ConcernsCard-card"]}>
+		<div
+			className={`${styles["ConcernsCard-card"]} ${
+				concern.link && styles["ConcernsCard-card-link"]
+			}`}
+			onClick={handleClick}
+		>
 			<div className={styles["ConcernsCard-head"]}>
 				<div className={styles["ConcernsCard-icon-container"]}>
 					<img src={concern.icon} alt={`${concern.title} icon`} />

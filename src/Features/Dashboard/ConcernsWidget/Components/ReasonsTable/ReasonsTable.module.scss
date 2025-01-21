@@ -59,21 +59,14 @@
 	align-items: flex-start;
 	gap: 4px;
 	width: 100%;
-
-	animation: collapseAndExpand 1.6s ease;
+	animation: fade 1s ease forwards;
 }
 
-@keyframes collapseAndExpand {
+@keyframes fade {
 	0% {
-		opacity: 1;
-		max-height: 500px;
-	}
-	50% {
 		opacity: 0;
-		max-height: 0;
 	}
 	100% {
 		opacity: 1;
-		max-height: 500px;
 	}
 }

@@ -21,6 +21,7 @@
 }
 
 .config-item-card {
+	cursor: pointer;
 	width: 349px;
 	height: 148px;
 	padding: 24px 24px var(--space-32-px-2-rem, 32px) 24px;
@@ -28,28 +29,14 @@
 	border: 1px solid rgba(228, 235, 249, 0.5);
 	background: #e4ebf9;
 	backdrop-filter: blur(4px);
-	animation:
-		scaleCard 1.5s ease-out,
-		cardGlow 3s ease-in-out infinite;
-
-	transform: rotate(0deg);
-	transition:
-		transform 0.3s ease,
-		box-shadow 0.3s ease,
-		background 0.3s ease;
+	animation: fadeIn 1s ease forwards;
 }
 
-@keyframes scaleCard {
+@keyframes fadeIn {
 	0% {
-		transform: scale(0.95);
-		opacity: 0.5;
-	}
-	50% {
-		transform: scale(1.05);
-		opacity: 1;
+		opacity: 0;
 	}
 	100% {
-		transform: scale(1);
 		opacity: 1;
 	}
 }
@@ -58,7 +45,6 @@
 	border-radius: var(--8-px-05-rem, 8px);
 	border: 1px solid rgba(165, 188, 230, 0.5);
 	background: var(--neutral-background-background-base, #fff);
-	transform: scale(1.05);
 }
 
 .item-card-icon-wrapper {
@@ -99,7 +85,7 @@
 	font-family: var(--font-family-title, Inter);
 	font-size: var(--font-size-xl, 16px);
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 400;
 	line-height: var(--font-line-hight-lg, 20px);
 	letter-spacing: -0.16px;
 }

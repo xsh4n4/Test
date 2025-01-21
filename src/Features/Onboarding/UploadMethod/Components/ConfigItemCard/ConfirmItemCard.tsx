@@ -23,6 +23,7 @@ export const ConfigItemCard: React.FC<CardItemProps> = ({
 			className={styles["config-item-card"]}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
+			onClick={() => url && navigate(url)}
 		>
 			<div className={styles["item-card-icon-wrapper"]}>
 				<div

@@ -14,8 +14,9 @@ export const createCardioMaterial = (
 		name.includes("aortic")
 	) {
 		return new THREE.MeshStandardMaterial({
-			map: textures.arteries.diffuse,
+			// map: textures.arteries.diffuse,
 			normalMap: textures.arteries.normal,
+			color: new THREE.Color(1, 1, 1), //
 			roughness: 0.5,
 			metalness: 0.1,
 			side: THREE.DoubleSide,
@@ -31,9 +32,10 @@ export const createCardioMaterial = (
 		name.includes("tricuspic")
 	) {
 		return new THREE.MeshStandardMaterial({
-			map: textures.heart.diffuse,
+			// map: textures.heart.diffuse,
 			normalMap: textures.heart.normal,
 			displacementMap: textures.heart.height,
+			color: new THREE.Color(1, 1, 1), //
 			displacementScale: 0.1,
 			roughness: 0.5,
 			metalness: 0.1,
@@ -49,8 +51,9 @@ export const createCardioMaterial = (
 		name.includes("pulmonary")
 	) {
 		return new THREE.MeshStandardMaterial({
-			map: textures.veins.diffuse,
+			// map: textures.veins.diffuse,
 			normalMap: textures.veins.normal,
+			color: new THREE.Color(1, 1, 1), //
 			roughness: 0.5,
 			metalness: 0.1,
 			side: THREE.DoubleSide,
@@ -58,9 +61,10 @@ export const createCardioMaterial = (
 	}
 
 	return new THREE.MeshStandardMaterial({
-		map: textures.heart.diffuse,
+		// map: textures.heart.diffuse,
 		normalMap: textures.heart.normal,
 		displacementMap: textures.heart.height,
+		color: new THREE.Color(1, 1, 1), //
 		displacementScale: 0.5,
 		roughness: 0.5,
 		metalness: 0.1,

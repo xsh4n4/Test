@@ -66,9 +66,9 @@
 
 .ConcernWidget-more-text {
 	font-size: 12px;
-	font-weight: 400;
-	line-height: 14px;
-	color: #493ddd;
+	font-weight: 600;
+	line-height: 16px;
+	color: #3b8df5;
 	margin: 0 auto;
 }
 
@@ -81,6 +81,10 @@
 
 .ConcernWidget-chevron {
 	transition: transform 0.3s ease;
+
+	path {
+		fill: rgba(59, 141, 245, 1);
+	}
 }
 
 .rotate-chevron {

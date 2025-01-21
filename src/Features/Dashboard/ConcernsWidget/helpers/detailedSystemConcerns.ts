@@ -43,7 +43,7 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 		details: [
 			{
 				id: 1,
-				title: "System Overview",
+				title: "Cardiovascular Disease",
 				factors: ["High Cholesterol level", "Other influencing factors"],
 				status: "High",
 				reasons: [

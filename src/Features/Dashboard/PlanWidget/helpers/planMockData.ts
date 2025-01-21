@@ -1,3 +1,19 @@
+import beetroot from "@assets/PlanWidget/Supplements/beetroot.svg";
+import tumeric from "@assets/PlanWidget/Supplements/tumeric.svg";
+import omega from "@assets/PlanWidget/Supplements/omega.svg";
+import coenzyme from "@assets/PlanWidget/Supplements/coenzyme.svg";
+import ashwagandha from "@assets/PlanWidget/Supplements/ashwagandha.svg";
+
+import train from "@assets/PlanWidget/Lifestyle/train.svg";
+import quitSmoking from "@assets/PlanWidget/Lifestyle/quitSmoking.svg";
+import apple from "@assets/PlanWidget/Lifestyle/apple.svg";
+
+import gene from "@assets/PlanWidget/FollowUpCare/gene.svg";
+import microscope from "@assets/PlanWidget/FollowUpCare/microscope.svg";
+import scale from "@assets/PlanWidget/FollowUpCare/scale.svg";
+
+import bottle from "@assets/PlanWidget/Bottle.svg";
+
 export type PlanSection = {
 	title: string;
 	ctaTitle?: string;
@@ -14,6 +30,7 @@ export type PlanItem = {
 	frequency?: string;
 	count?: number;
 	link?: string;
+	icon: string;
 };
 
 export const planMockData: PlanSection[] = [
@@ -25,18 +42,21 @@ export const planMockData: PlanSection[] = [
 				description: "Help preventing your high risk of Diabetes +3",
 				count: 7,
 				link: "Follow-up Care",
+				icon: microscope,
 			},
 			{
 				name: "Must-have supplements to support your wellness",
 				description: "Support you in  high risk of Diabetes +3",
 				count: 5,
 				link: "Supplements",
+				icon: bottle,
 			},
 			{
 				name: "Lifestyle tips to boost your wellbeing",
 				description: "Helps preventing your high risk of Diabetes +3",
 				count: 8,
 				link: "Lifestyle",
+				icon: train,
 			},
 		],
 	},
@@ -46,30 +66,37 @@ export const planMockData: PlanSection[] = [
 			{
 				name: "Take Genetic Health Risk Tests",
 				description: "Improved lung function",
+				icon: gene,
 			},
 			{
 				name: "Monitoring blood pressure 3 times a week",
 				description: "Early detection of hypertension",
+				icon: scale,
 			},
 			{
 				name: "Adopt a low-glycemic index and heart healthy diets",
 				description: "Helps widen blood vessels +6",
+				icon: microscope,
 			},
 			{
 				name: "Keep in range your Body Mass Index",
 				description: "Lowers your blood pressure +3",
+				icon: scale,
 			},
 			{
 				name: "Take a cholesterol laboratory test",
 				description: "Assessment of insulin resistance +7",
+				icon: microscope,
 			},
 			{
 				name: "Consider taking your avg. blood sugar (glucose) level",
 				description: "Early detection of diabetes or prediabetes +5",
+				icon: microscope,
 			},
 			{
 				name: "Monitoring blood pressure 1 time a day",
 				description: "Detect respiratory or cardiovascular issues +5",
+				icon: scale,
 			},
 		],
 	},
@@ -86,6 +113,7 @@ export const planMockData: PlanSection[] = [
 				dosage: "1 pill",
 				frequency: "Once",
 				group: "peptides",
+				icon: beetroot,
 			},
 			{
 				name: "Take turmeric extract to reduce inflammation (CPR)",
@@ -93,6 +121,7 @@ export const planMockData: PlanSection[] = [
 				dosage: "1 pill",
 				frequency: "Once",
 				group: "peptides",
+				icon: tumeric,
 			},
 			{
 				name: "Take Omega-3 Fatty Acids",
@@ -100,6 +129,7 @@ export const planMockData: PlanSection[] = [
 				dosage: "1 pill",
 				frequency: "Once",
 				group: "other",
+				icon: omega,
 			},
 			{
 				name: "Coenzyme Q10 (CoQ10)",
@@ -107,6 +137,7 @@ export const planMockData: PlanSection[] = [
 				dosage: "1 pill",
 				frequency: "Once",
 				group: "other",
+				icon: coenzyme,
 			},
 			{
 				name: "Add Ashwagandha (Withania somnifera)",
@@ -114,6 +145,7 @@ export const planMockData: PlanSection[] = [
 				dosage: "1 pill",
 				frequency: "Once",
 				group: "other",
+				icon: ashwagandha,
 			},
 		],
 	},
@@ -123,30 +155,37 @@ export const planMockData: PlanSection[] = [
 			{
 				name: "Quit smoking & limit alcohol",
 				description: "Improved lung function +5",
+				icon: quitSmoking,
 			},
 			{
 				name: "Train in zone 2 & monitor regularly VO2 max",
 				description: "Supports vascular health +4",
+				icon: train,
 			},
 			{
 				name: "Adopt a low-glycemic index and heart healthy diets",
 				description: "Helps widen blood vessels +6",
+				icon: apple,
 			},
 			{
 				name: "Manage your stress",
 				description: "Helps widen blood vessels +8",
+				icon: quitSmoking,
 			},
 			{
 				name: "Fill your plate with fruits and veggies",
 				description: "Lowers your blood pressure +3",
+				icon: apple,
 			},
 			{
 				name: "Reduce sugar and salt",
 				description: "Improved lung function +5",
+				icon: apple,
 			},
 			{
 				name: "Practice flexibility and balance",
 				description: "Enhances joint health +8",
+				icon: train,
 			},
 		],
 	},

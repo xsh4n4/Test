@@ -47,7 +47,7 @@ const SideBar = ({ onModelChange }: SideBarProps) => {
 		const zoomConfigs = {
 			ClinicalNotes: { position: [0, 0, 200], zoom: 10 },
 			StressManagement: { position: [0, 30, 200], zoom: 40 },
-			CardioLoad: { position: [0, 85, 200], zoom: 10 },
+			CardioLoad: { position: [0, 23, 200], zoom: 30 },
 			Pulmonology: { position: [0, 10, 200], zoom: 43 },
 			Gastroenterolgy: { position: [0, 7, 200], zoom: 45 },
 			Endocrinology: { position: [0, 25, 200], zoom: 45 },

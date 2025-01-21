@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./ManageData.module.scss";
 
 // Importing SVGs as React Components

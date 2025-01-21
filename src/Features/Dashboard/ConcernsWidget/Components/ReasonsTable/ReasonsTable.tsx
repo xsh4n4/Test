@@ -40,7 +40,7 @@ export const ReasonsTable: React.FC<ReasonsTableProps> = ({
 			</div>
 			<div className={styles["ReasonsTable-table"]} key={detailIndex}>
 				{reasonsToShow.map((reason) => (
-					<ReasonRow reason={reason} />
+					<ReasonRow reason={reason} key={reason.id} />
 				))}
 			</div>
 		</div>

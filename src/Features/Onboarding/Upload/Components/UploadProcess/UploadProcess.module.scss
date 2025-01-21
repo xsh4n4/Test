@@ -12,7 +12,16 @@
 		0px 7.371px 10.498px 0px rgba(0, 72, 115, 0.04),
 		0px 2.195px 3.126px 0px rgba(0, 72, 115, 0.03);
 
-	animation: fadeInContainer 0.8s ease-out;
+	animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 .left-side {
@@ -55,7 +64,6 @@
 				color 0.2s ease;
 
 			&:hover {
-				transform: scale(1.05);
 				color: var(--p-color-highlight, #1f1f1f); /* Highlight color */
 			}
 		}
@@ -67,10 +75,6 @@
 			line-height: 20px;
 			color: rgba(81, 89, 103, 1);
 			transition: transform 0.2s ease;
-
-			&:hover {
-				transform: scale(1.02);
-			}
 		}
 
 		.processer-container {
@@ -112,22 +116,9 @@
 
 	&:hover {
 		opacity: 1;
-		transform: scale(1.05);
 	}
 }
 
-@keyframes fadeInContainer {
-	0% {
-		opacity: 0;
-		transform: translateY(-20px);
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-/* Keyframe animation for progress bar animation */
 @keyframes progressAnimation {
 	0% {
 		width: 0;

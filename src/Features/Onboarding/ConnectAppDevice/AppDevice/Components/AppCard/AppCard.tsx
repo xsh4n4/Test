@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./AppCard.module.scss";
-import { ArrowRightIcon } from "@/assets/Icons/ArrowRight";
 
 interface AppCardProps {
 	img: string;
@@ -25,9 +24,7 @@ export const AppCard: React.FC<AppCardProps> = ({
 					<img src={img} />
 				</div>
 				{isHovered && (
-					<button className={styles["connect-btn"]}>
-						Connect <ArrowRightIcon fill='white' />
-					</button>
+					<button className={styles["connect-btn"]}>Connect</button>
 				)}
 			</div>
 			<div className={styles["info"]}>

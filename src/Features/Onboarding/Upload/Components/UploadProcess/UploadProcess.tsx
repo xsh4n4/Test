@@ -23,10 +23,6 @@ export const UploadProcess = () => {
 							fileName='Wellness_Summary_JohnDoe.pdf'
 							status='done'
 						/>
-						<UploadProcesser
-							fileName='Metabolism_Report_2024.pdf'
-							status='uploading'
-						/>
 					</div>
 				</div>
 			</div>

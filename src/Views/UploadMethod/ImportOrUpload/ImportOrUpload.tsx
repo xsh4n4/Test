@@ -1,10 +1,9 @@
 import { useState } from "react";
 import styles from "./ImportOrUpload.module.scss";
-import { ConfigControl } from "@/Features/Onboarding/ConfigControl/ConfigControl";
-import { ConfigControlItems } from "@/App/Consts";
 import { ConfirmModal } from "@/Features/Onboarding/ConfirmModal/ConfirmModal";
 import { UploadFiles } from "@/Features/Onboarding/Upload/Components/UploadFiles/UploadFiles";
 import { UploadProcess } from "@/Features/Onboarding/Upload/Components/UploadProcess/UploadProcess";
+import { NavigationBar } from "@/Features/Onboarding/NavigationBar/NavigationBar";
 
 const ImportOrUpload = () => {
 	const [isUploading, setIsUploading] = useState<boolean>(false);
@@ -23,8 +22,7 @@ const ImportOrUpload = () => {
 	return (
 		<div className={styles["import-upload-container"]}>
 			{isUploading ? <UploadProcess /> : <UploadFiles />}
-			<ConfigControl
-				selectedItem={ConfigControlItems.UploadFiles}
+			<NavigationBar
 				processed={isUploading}
 				setIsOpenedConfirmModal={(opened: boolean) => {
 					setIsOpenedConfirmModal(opened);

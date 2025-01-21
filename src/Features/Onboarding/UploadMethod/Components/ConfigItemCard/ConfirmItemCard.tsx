@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./ConfirmCard.module.scss";
 import ArrowUpRightIcon from "@assets/General/ArrowUpRight.svg?react";
 import { useNavigate } from "react-router-dom";
@@ -17,10 +17,19 @@ export const ConfigItemCard: React.FC<CardItemProps> = ({
 	url,
 }) => {
 	const navigate = useNavigate();
+	const [isHovered, setIsHovered] = useState(false);
 	return (
-		<div className={styles["config-item-card"]}>
+		<div
+			className={styles["config-item-card"]}
+			onMouseEnter={() => setIsHovered(true)}
+			onMouseLeave={() => setIsHovered(false)}
+		>
 			<div className={styles["item-card-icon-wrapper"]}>
-				<div className={styles["item-card-icon"]}>{icon}</div>
+				<div
+					className={`${styles["item-card-icon"]} ${isHovered ? styles["item-card-icon-hover"] : ""}`}
+				>
+					{icon}
+				</div>
 				<ArrowUpRightIcon
 					onClick={() => url && navigate(url)}
 					style={{ cursor: "pointer" }}

@@ -23,11 +23,42 @@
 .config-item-card {
 	width: 349px;
 	height: 148px;
-	padding: 20px;
-	background-color: red;
-	border-radius: 16px;
-	border: 1px solid #a5bce6;
-	background: linear-gradient(107deg, #fff 38.37%, #cbd7f4 179.43%);
+	padding: 24px 24px var(--space-32-px-2-rem, 32px) 24px;
+	border-radius: var(--8-px-05-rem, 8px);
+	border: 1px solid rgba(228, 235, 249, 0.5);
+	background: #e4ebf9;
+	backdrop-filter: blur(4px);
+	animation:
+		scaleCard 1.5s ease-out,
+		cardGlow 3s ease-in-out infinite;
+
+	transform: rotate(0deg);
+	transition:
+		transform 0.3s ease,
+		box-shadow 0.3s ease,
+		background 0.3s ease;
+}
+
+@keyframes scaleCard {
+	0% {
+		transform: scale(0.95);
+		opacity: 0.5;
+	}
+	50% {
+		transform: scale(1.05);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.config-item-card:hover {
+	border-radius: var(--8-px-05-rem, 8px);
+	border: 1px solid rgba(165, 188, 230, 0.5);
+	background: var(--neutral-background-background-base, #fff);
+	transform: scale(1.05);
 }
 
 .item-card-icon-wrapper {
@@ -37,12 +68,19 @@
 
 .item-card-icon {
 	border-radius: var(--layout-card-S-radius, 8px);
-	background: var(--data-viz-color-3-2, #d3ecff);
+	background: var(--neutral-background-background-base, #fff);
 	width: 48px;
 	height: 48px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.item-card-icon-hover {
+	background: var(
+		--p-color-bg-fill-magic-secondary-hover,
+		rgba(181, 212, 251, 1)
+	);
 }
 
 .item-card-title {

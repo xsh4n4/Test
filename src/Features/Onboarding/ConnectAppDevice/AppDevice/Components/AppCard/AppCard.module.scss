@@ -6,7 +6,7 @@
 	align-items: flex-start;
 	gap: var(--space-8-px-05-rem, 8px);
 	flex: 1 0 0;
-	border-radius: var(--Font-size-S, 14px);
+	border-radius: var(--Font-size-3XS, 8px);
 	border: 1px solid #dae4f6;
 	background: linear-gradient(341deg, #fff -18.27%, #fff 45.59%);
 }
@@ -27,7 +27,6 @@
 		display: flex;
 		width: 64px;
 		height: 64px;
-		padding: 8px;
 		align-items: center;
 		gap: 8px;
 	}

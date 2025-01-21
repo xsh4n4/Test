@@ -4,10 +4,27 @@ import PasswordHidden from "@assets/Auth/PasswordHidden.svg?react";
 import CheckMark from "@assets/Auth/CheckMark.svg?react";
 import { useNavigate } from "react-router-dom";
 import { paths } from "@/App/Routes/Paths";
+import { toast } from "react-toastify";
 
 export const LoginForm = () => {
 	const navigate = useNavigate();
+	const [email, setEmail] = useState<string>("");
+	const [password, setPassword] = useState<string>("");
 	const [hidePassword, setHidePassword] = useState(true);
+
+	const fakeUser = {
+		email: "admin@prepaire.com",
+		password: "PREPAIRE@123",
+	};
+
+	const handleLogin = () => {
+		if (email === fakeUser.email && password === fakeUser.password) {
+			navigate(paths.config.root);
+			toast.success("Successfully logged in");
+		} else {
+			toast.error("Invalid email or password");
+		}
+	};
 
 	return (
 		<div className={styles["Auth-content-form"]}>
@@ -17,12 +34,19 @@ export const LoginForm = () => {
 			</div>
 
 			<div className={styles["Auth-content-form-inputs"]}>
-				<input type='email' placeholder='Email address' />
+				<input
+					type='email'
+					placeholder='Email address'
+					value={email}
+					onChange={(e) => setEmail(e.target.value)}
+				/>
 
 				<div className={styles["Auth-content-form-inputs-password-wrapper"]}>
 					<input
 						type={hidePassword ? "password" : "text"}
 						placeholder='Password'
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
 					/>
 					<div className={styles["Auth-content-form-inputs-password-hidden"]}>
 						<PasswordHidden onClick={() => setHidePassword(!hidePassword)} />
@@ -35,7 +59,7 @@ export const LoginForm = () => {
 
 			<button
 				className={styles["Auth-content-form-signin-button"]}
-				onClick={() => navigate(paths.config.root)}
+				onClick={handleLogin}
 			>
 				Sign In <CheckMark />
 			</button>

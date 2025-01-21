@@ -9,6 +9,7 @@
 	display: flex;
 	position: relative;
 	height: 40px;
+	cursor: pointer;
 
 	&:not(:first-child) {
 		margin-left: -40px;
@@ -42,12 +43,12 @@
 
 	&:not(.active):hover {
 		.Tabs-tab {
-			background: rgb(250, 251, 255);
+			background: rgb(223, 229, 248);
 		}
 
 		svg {
 			path {
-				fill: rgb(250, 251, 255);
+				fill: rgb(223, 229, 248);
 			}
 		}
 	}
@@ -70,6 +71,7 @@
 	align-items: center;
 
 	padding: 6px 50px 3px 20px;
+	margin-left: -1px;
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 24px;

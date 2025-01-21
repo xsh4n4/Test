@@ -31,11 +31,10 @@
 }
 
 .ReasonsTable-more-text {
+	color: #3b8df5;
 	font-size: 12px;
-	font-weight: 400;
-	line-height: 14px;
-	color: #493ddd;
-	margin: 0 auto;
+	font-weight: 600;
+	line-height: 16px;
 }
 
 .ReasonsTable-chevron-container {
@@ -47,6 +46,10 @@
 
 .ReasonsTable-chevron {
 	transition: transform 0.3s ease;
+
+	path {
+		fill: rgba(59, 141, 245, 1);
+	}
 }
 
 .rotate-chevron {
@@ -59,21 +62,14 @@
 	align-items: flex-start;
 	gap: 4px;
 	width: 100%;
-
-	animation: collapseAndExpand 1.6s ease;
+	animation: fade 1s ease forwards;
 }
 
-@keyframes collapseAndExpand {
+@keyframes fade {
 	0% {
-		opacity: 1;
-		max-height: 500px;
-	}
-	50% {
 		opacity: 0;
-		max-height: 0;
 	}
 	100% {
 		opacity: 1;
-		max-height: 500px;
 	}
 }

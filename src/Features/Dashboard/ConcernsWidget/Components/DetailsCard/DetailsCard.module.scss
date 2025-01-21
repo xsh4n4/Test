@@ -9,9 +9,20 @@
 	background: linear-gradient(0deg, #f7f9fc, #f7f9fc);
 	border: 1px solid #ffffff;
 	transition: all 0.3s ease;
+	cursor: pointer;
+
+	&:hover {
+		border: 1px solid rgba(148, 178, 236, 0.5);
+		box-shadow:
+			0px 2px 12px 1px rgba(20, 28, 44, 0.12),
+			0px 2px 4px 0px rgba(20, 28, 44, 0.12);
+	}
 
 	&-active {
-		border: 1px solid #94b2ec;
+		border: 1px solid rgb(148, 178, 236);
+		box-shadow:
+			0px 2px 12px 1px rgba(20, 28, 44, 0.12),
+			0px 2px 4px 0px rgba(20, 28, 44, 0.12);
 	}
 }
 

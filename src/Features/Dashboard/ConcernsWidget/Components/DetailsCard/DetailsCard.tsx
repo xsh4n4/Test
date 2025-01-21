@@ -17,6 +17,7 @@ export const DetailsCard: React.FC<DetailsCardProps> = ({
 	return (
 		<div
 			className={`${styles["DetailsCard-card"]} ${detail.id === detailIndex && styles["DetailsCard-card-active"]}`}
+			onClick={() => setDetailIndex(detail.id)}
 		>
 			<div className={styles["DetailsCard-head"]}>
 				<div

@@ -23,6 +23,7 @@
 	overflow: hidden;
 	border-left: 1px solid rgba(149, 179, 233, 1);
 	border-top: 1px solid rgba(149, 179, 233, 1);
+	background-color: #e4ebf9;
 }
 
 // .ConcernWidget-tab::before {
@@ -51,7 +52,7 @@
 		bottom: -1px;
 		width: calc(100% - 1px);
 		height: 1px;
-		background-color: white;
+		background-color: #e4ebf9;
 	}
 }
 
@@ -99,6 +100,8 @@
 	border-radius: 0px 8px 8px 8px;
 	border: 1px solid rgba(149, 179, 233, 1);
 	overflow: hidden;
+
+	box-sizing: border-box;
 	transition:
 		max-height 1s ease,
 		padding 0.5s ease-in-out;

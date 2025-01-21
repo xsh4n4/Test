@@ -1,57 +1,14 @@
 @use "@/App/Styles/_mixins" as mixins;
 
 .SystemDetailWidget-container {
-	display: none;
+	display: flex;
 	flex-direction: column;
 	gap: 8px;
-	overflow: hidden;
+	transition: all 5s ease forwards;
 
-	margin-top: 0;
-	animation: expand 1.2s ease-in;
-}
-
-.SystemDetailWidget-container-collapse {
-	overflow: hidden;
-	animation: collapse 0.8s ease;
-	max-height: 0;
-	margin-top: 0;
-}
-
-.SystemDetailWidget-container-expand {
-	display: flex;
-}
-
-@keyframes expand {
-	0% {
-		opacity: 0;
-		max-height: 0;
-		margin-top: -16px;
-	}
-	50% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-		max-height: 400px;
-		margin-top: 0px;
-	}
-}
-
-@keyframes collapse {
-	0% {
-		display: flex;
-		opacity: 1;
-		max-height: 400px;
-		margin-top: 0px;
-	}
-	// 99.9% {
-	// 	display: flex;
-	// }
-	100% {
-		opacity: 0;
-		max-height: 0;
-		display: none;
-		margin-top: -16px;
+	&-hidden {
+		overflow: hidden;
+		max-height: 0px;
 	}
 }
 

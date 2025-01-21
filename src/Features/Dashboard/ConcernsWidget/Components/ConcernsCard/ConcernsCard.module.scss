@@ -6,7 +6,20 @@
 	gap: 12px;
 	border-radius: 8px;
 	padding: 12px;
-	background: linear-gradient(0deg, #f7f9fc, #f7f9fc);
+	background: linear-gradient(293deg, rgba(255, 255, 255, 0.7) 0.1%, #fff 100%);
+
+	&-link {
+		cursor: pointer;
+		border: 1px solid #e4ebf9;
+		transition: all 0.3s ease;
+
+		&:hover {
+			border: 1px solid rgba(58, 93, 165, 0.5);
+			box-shadow:
+				0px 2px 12px 1px rgba(20, 28, 44, 0.12),
+				0px 2px 4px 0px rgba(20, 28, 44, 0.12);
+		}
+	}
 }
 
 .ConcernsCard-head {

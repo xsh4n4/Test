@@ -7,6 +7,7 @@ export interface Concern {
 	factors: string[];
 	icon: string;
 	status: "High" | "Medium" | "Low";
+	link?: string;
 }
 
 export const concernsMockData: Concern[] = [
@@ -16,6 +17,7 @@ export const concernsMockData: Concern[] = [
 		factors: ["High cholesterol", "Smoking", "Hypertension"],
 		icon: Heart,
 		status: "High",
+		link: "cardiovascular",
 	},
 	{
 		id: 2,

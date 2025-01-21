@@ -6,9 +6,16 @@ import { PlanItem, PlanSection } from "../../helpers/planMockData";
 type PlanTableProps = {
 	section: PlanSection;
 	setActiveTab: (title: string) => void;
+	transitioning: boolean;
+	setTransitioning: (state: boolean) => void;
 };
 
-export const PlanTable = ({ section, setActiveTab }: PlanTableProps) => {
+export const PlanTable = ({
+	section,
+	setActiveTab,
+	transitioning,
+	setTransitioning,
+}: PlanTableProps) => {
 	const groupedData = section.data.reduce(
 		(acc: { [key: string]: PlanItem[] }, item: PlanItem) => {
 			const group = item.group || "default";
@@ -21,8 +28,17 @@ export const PlanTable = ({ section, setActiveTab }: PlanTableProps) => {
 		{},
 	);
 
+	const handleTransitionEnd = () => {
+		setTransitioning(false);
+	};
+
 	return (
-		<div className={styles["PlanTable-section"]}>
+		<div
+			className={`${styles["PlanTable-section"]} ${
+				transitioning && styles["PlanTable-section-animate"]
+			}`}
+			onAnimationEnd={handleTransitionEnd}
+		>
 			{section.ctaTitle && section.ctaDescription && (
 				<CtaBlock title={section.ctaTitle} desc={section.ctaDescription} />
 			)}

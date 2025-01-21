@@ -6,7 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { paths } from "@/App/Routes/Paths";
 
 interface ConfigControlProps {
-	selectedItem: string;
+	selectedItem: {
+		title: string;
+		url: string;
+	};
 	processed: boolean;
 	setIsOpenedConfirmModal: (open: boolean) => void;
 }
@@ -22,9 +25,18 @@ export const ConfigControl: React.FC<ConfigControlProps> = ({
 			<div className={styles["config-control-items"]}>
 				{Object.keys(ConfigControlItems).map((itemKey: string) => (
 					<button
-						className={`${styles["config-control-item"]}  ${selectedItem === ConfigControlItems[itemKey as keyof typeof ConfigControlItems] ? styles["selected-config-control-item"] : ""}`}
+						className={`${styles["config-control-item"]}  ${selectedItem.title === ConfigControlItems[itemKey as keyof typeof ConfigControlItems].title ? styles["selected-config-control-item"] : ""}`}
+						onClick={() => {
+							navigate(
+								ConfigControlItems[itemKey as keyof typeof ConfigControlItems]
+									.url,
+							);
+						}}
 					>
-						{ConfigControlItems[itemKey as keyof typeof ConfigControlItems]}
+						{
+							ConfigControlItems[itemKey as keyof typeof ConfigControlItems]
+								.title
+						}
 					</button>
 				))}
 			</div>

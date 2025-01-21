@@ -1,8 +1,22 @@
+import { paths } from "../Routes/Paths";
+
 export const ConfigControlItems = {
-	TakeQuiz: "Take Quiz",
-	BuySupplements: "Buy Supplements",
-	UploadFiles: "Upload Files",
-	ConnectApp: "Connect App / Device",
+	TakeQuiz: {
+		title: "Take Quiz",
+		url: paths.config.root,
+	},
+	BuySupplements: {
+		title: "Buy Supplements",
+		url: paths.config.root,
+	},
+	UploadFiles: {
+		title: "Upload Files",
+		url: paths.config.importOrUpload,
+	},
+	ConnectApp: {
+		title: "Connect App / Device",
+		url: paths.config.connectApp,
+	},
 };
 
 export const UploadFileTypes = {

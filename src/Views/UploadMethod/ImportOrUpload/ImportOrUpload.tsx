@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./ImportOrUpload.module.scss";
-import { ConfigControl } from "@/Features/Onboarding/Upload/Components/ConfigControl/ConfigControl";
+import { ConfigControl } from "@/Features/Onboarding/ConfigControl/ConfigControl";
 import { ConfigControlItems } from "@/App/Consts";
 import { ConfirmModal } from "@/Features/Onboarding/ConfirmModal/ConfirmModal";
 import { UploadFiles } from "@/Features/Onboarding/Upload/Components/UploadFiles/UploadFiles";

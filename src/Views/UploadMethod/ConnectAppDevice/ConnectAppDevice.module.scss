@@ -1,0 +1,74 @@
+.connect-app-device-container {
+	display: flex;
+	width: 920px;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 16px;
+	border-radius: 20px;
+	border: 1px solid #e7ecf2;
+	background: #fff;
+
+	.header {
+		display: flex;
+		padding: var(--layout-modal-margins-top_bottom, 16px)
+			var(--layout-modal-margin-right_left, 20px);
+		flex-direction: row;
+		align-items: center;
+		gap: 8px;
+		align-self: stretch;
+		justify-content: space-between;
+		border-bottom: 1px solid #f0f1f0;
+
+		.action-wrapper {
+			width: 100%;
+			display: flex;
+			gap: var(--rithm-S, 8px);
+
+			.back {
+				display: flex;
+				padding: 4px 0px;
+				justify-content: center;
+				align-items: center;
+				gap: 10px;
+				cursor: pointer;
+			}
+
+			.title {
+				display: flex;
+				min-height: 36px;
+				align-items: center;
+				gap: var(--rithm-S, 8px);
+				align-self: stretch;
+				justify-content: center;
+				align-items: center;
+
+				color: var(--Neutral-text, #0b101a);
+				/* actions/title/H3 SB */
+				font-family: var(--font-family-title, Inter);
+				font-size: var(--font-size-2xl, 20px);
+				font-style: normal;
+				font-weight: var(--font-weight-semibold-600, 600);
+				line-height: var(--font-line-hight-xl, 24px); /* 120% */
+				letter-spacing: -0.4px;
+			}
+		}
+
+		.close {
+			display: flex;
+			cursor: pointer;
+			padding: var(---Buttons-and-Inputs-sm-p, 8px);
+			justify-content: center;
+			align-items: center;
+			gap: var(---Buttons-and-Inputs-sm-gap, 8px);
+			border-radius: var(
+				---Buttons-and-Inputs-button-border-radius-primary,
+				999px
+			);
+			background: var(--p-color-bg-fill-transparent, rgba(108, 117, 132, 0.12));
+		}
+
+		.close:hover {
+			background-color: rgba(59, 141, 245, 0.24);
+		}
+	}
+}

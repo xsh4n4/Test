@@ -40,6 +40,7 @@ export const UploadMethodSelect = () => {
 			title: "Connect App / Device",
 			content:
 				"Sync your favorite health tracking apps and devices for real-time insights and better health monitoring.",
+			url: paths.config.connectApp,
 		},
 	];
 

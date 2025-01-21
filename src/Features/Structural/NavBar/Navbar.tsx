@@ -3,6 +3,7 @@ import Logo from "@assets/General/LogoGenetiq.svg?react";
 import styles from "./Navbar.module.scss";
 import NotificationHub from "./Components/NotificationsHub/NotificationsHub";
 import Profile from "./Components/Profile/Profile";
+import ManageData from "./Components/ManageData/ManageData";
 
 const Navbar = () => {
 	return (
@@ -12,6 +13,7 @@ const Navbar = () => {
 			</div>
 			<Navigation />
 			<div className={styles["actions-container"]}>
+				<ManageData />
 				<NotificationHub IsBadge={true} />
 				<Profile />
 			</div>

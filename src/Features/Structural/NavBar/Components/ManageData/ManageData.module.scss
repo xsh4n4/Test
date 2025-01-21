@@ -1,0 +1,33 @@
+.ManageData {
+	display: flex;
+	padding: 8px;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 99px;
+	border: 1px solid rgba(95, 104, 119, 0.1);
+	background: rgba(255, 255, 255, 0.04);
+
+	backdrop-filter: blur(1px);
+
+	background: rgba(255, 255, 255, 0.04);
+	backdrop-filter: blur(1px);
+
+	p {
+		line-height: 16px;
+		font-size: 14px;
+		font-weight: 500;
+		margin: 0;
+	}
+
+	.icon-button {
+		display: flex;
+		padding: 4px;
+		justify-content: center;
+		align-items: center;
+		// background-color: #6c75841f;
+		background-color: white;
+		border-radius: 100%;
+		margin-right: 6px;
+	}
+}

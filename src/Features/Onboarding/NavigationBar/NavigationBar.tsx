@@ -30,7 +30,7 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
 					if (!processed) {
 						setIsOpenedConfirmModal(true);
 					} else {
-						navigate(paths.dashboard);
+						navigate(paths.dashboard.root);
 					}
 				}}
 			>

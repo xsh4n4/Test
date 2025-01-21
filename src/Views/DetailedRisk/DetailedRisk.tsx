@@ -22,7 +22,7 @@ const DetailedRisk = () => {
 						<RiskHeader title={riskName ?? ""} />
 						{/* <StepWidget /> */}
 						<AgeWidget />
-						<ConcernsWidget />
+						<ConcernsWidget category={"total"} />
 
 						{/* <ConnectWatchWidget /> */}
 					</div>

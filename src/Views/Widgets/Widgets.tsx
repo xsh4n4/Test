@@ -30,7 +30,7 @@ const Widgets = () => {
 						</button> */}
 						<TrackerWidget />
 						<AgeWidget />
-						<ConcernsWidget />
+						<ConcernsWidget category={"total"} />
 						<PlanWidget />
 						{/* <ConnectWatchWidget /> */}
 					</div>

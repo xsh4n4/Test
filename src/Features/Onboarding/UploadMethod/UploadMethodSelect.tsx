@@ -23,23 +23,25 @@ export const UploadMethodSelect = () => {
 				"Answer a few quick questions to receive a personalised health and supplement plan tailored to your needs.",
 		},
 		{
-			icon: <UploadCloudIcon />,
-			title: "Upload Files",
-			content:
-				"Securely upload your health reports or genetic data to get precise recommendations based on your medical history.",
-			url: paths.config.importOrUpload,
-		},
-		{
 			icon: <ShoppingCartPlusIcon />,
 			title: "Buy Supplements",
 			content:
 				"Order custom-formulated supplements designed specifically for your health goals and genetic profile.",
 		},
 		{
+			icon: <UploadCloudIcon />,
+			title: "Upload Files",
+			content:
+				"Securely upload your health reports or genetic data to get precise recommendations based on your medical history.",
+			url: paths.config.importOrUpload,
+		},
+
+		{
 			icon: <AppsIcon />,
 			title: "Connect App / Device",
 			content:
 				"Sync your favorite health tracking apps and devices for real-time insights and better health monitoring.",
+			url: paths.config.connectApp,
 		},
 	];
 

@@ -1,0 +1,9 @@
+.app-container {
+	padding: 0px var(--space-16-px-1-rem, 16px) var(--space-20-px-125-rem, 20px)
+		var(--space-16-px-1-rem, 16px);
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 16px;
+	width: 100%;
+	box-sizing: border-box;
+}

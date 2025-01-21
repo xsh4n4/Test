@@ -8,6 +8,7 @@ import Login from "@/Views/Auth/Login/Login";
 import Config from "@/Views/UploadMethod/UploadMethod";
 import { ConfigLayout } from "../Layouts/ConfigLayout";
 import ImportOrUpload from "@/Views/UploadMethod/ImportOrUpload/ImportOrUpload";
+import ConnectAppDevice from "@/Views/UploadMethod/ConnectAppDevice/ConnectAppDevice";
 
 const RoutesConfig: RouteObject[] = [
 	{
@@ -47,6 +48,10 @@ const RoutesConfig: RouteObject[] = [
 							{
 								element: <ImportOrUpload />,
 								path: paths.config.importOrUpload,
+							},
+							{
+								element: <ConnectAppDevice />,
+								path: paths.config.connectApp,
 							},
 						],
 					},

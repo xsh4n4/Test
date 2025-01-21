@@ -7,6 +7,7 @@ export interface Detail {
 	title: string;
 	factors: string[];
 	reasons: Reason[];
+	symptoms?: Symptoms;
 	status: "High" | "Medium" | "Low";
 }
 
@@ -19,6 +20,12 @@ export interface Reason {
 	value: string;
 	unit: string;
 	status: string;
+}
+
+export interface Symptoms {
+	id: number;
+	description: string;
+	symptomsList: string[];
 }
 
 export interface SystemConcerns {
@@ -127,6 +134,19 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						status: "Medium pred.",
 					},
 				],
+				symptoms: {
+					id: 1,
+					description:
+						"Symptoms of AFib can vary, and in some cases, individuals may not notice any symptoms at all. You may experience the following symptoms with AFib:",
+					symptomsList: [
+						"Palpitations",
+						"Shortness of breath",
+						"Fatigue or weakness",
+						"Chest pain",
+						"Dizziness or lightheadedness",
+						"Dizziness or lightheadedness",
+					],
+				},
 			},
 			{
 				id: 3,
@@ -175,6 +195,19 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						status: "Medium pred.",
 					},
 				],
+				symptoms: {
+					id: 1,
+					description:
+						"Symptoms of AFib can vary, and in some cases, individuals may not notice any symptoms at all. You may experience the following symptoms with AFib:",
+					symptomsList: [
+						"Fatigue or weakness",
+						"Dizziness or lightheadedness",
+						"Chest pain",
+						"Palpitations",
+						"Shortness of breath",
+						"Dizziness or lightheadedness",
+					],
+				},
 			},
 		],
 	},

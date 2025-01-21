@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/App/Redux/store";
 import { DetailsCard } from "./Components/DetailsCard/DetailsCard";
 import { ReasonsTable } from "./Components/ReasonsTable/ReasonsTable";
+import { SymptomsList } from "./Components/SymptomsList/SymptomsList";
 
 export const ConcernsWidget = () => {
 	const [isShowMore, setIsShowMore] = useState(false);
@@ -95,6 +96,20 @@ export const ConcernsWidget = () => {
 					<ReasonsTable
 						reasons={detailedSystemConcerns[0].details[detailIndex - 1].reasons}
 						detailIndex={detailIndex}
+					/>
+				</div>
+
+				<div
+					className={`${styles["ConcernWidget-symptoms"]} ${
+						detailedSystemConcerns[0].details[detailIndex - 1].symptoms
+							? styles["ConcernWidget-symptoms-visible"]
+							: styles["ConcernWidget-symptoms-hidden"]
+					}`}
+				>
+					<SymptomsList
+						symptoms={
+							detailedSystemConcerns[0].details[detailIndex - 1].symptoms
+						}
 					/>
 				</div>
 			</div>

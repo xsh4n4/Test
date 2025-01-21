@@ -8,6 +8,10 @@
 	background: rgba(12, 23, 38, 0.8);
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 	top: 0;
+	left: 0;
+
+	/* Fade-in animation for modal appearance */
+	animation: fadeIn 0.6s ease-out;
 }
 
 .modal-body {
@@ -58,12 +62,11 @@
 .modal-title {
 	color: var(--Neutral-text, #0b101a);
 
-	/* actions/title/H2 */
 	font-family: var(--font-family-title, Inter);
 	font-size: var(--font-size-3xl, 24px);
 	font-style: normal;
 	font-weight: var(--font-weight-light-400, 400);
-	line-height: var(--font-line-hight-2xl, 32px); /* 133.333% */
+	line-height: var(--font-line-hight-2xl, 32px);
 	letter-spacing: -0.48px;
 }
 
@@ -80,7 +83,7 @@
 
 .modal-description {
 	align-self: stretch;
-	color: var(--p-color-text);
+	color: var(--p-color-text, rgba(81, 89, 103, 1));
 
 	font-family: var(--Font-family-body, Inter);
 	font-size: var(--Font-size-S, 14px);
@@ -110,40 +113,70 @@
 	align-items: center;
 	width: 20px;
 	height: 20px;
+	transition: transform 0.2s ease;
 }
 
 .modal-footer {
 	display: flex;
-	align-items: flex-start;
 	justify-content: space-between;
 	gap: 16px;
 	align-self: stretch;
 
 	button {
 		display: flex;
-		padding: var(---Buttons-and-Inputs-lg-py, 12px)
-			var(---Buttons-and-Inputs-lg-px, 16px);
 		justify-content: center;
 		align-items: center;
-		gap: var(---Buttons-and-Inputs-gap, 8px);
+		gap: 8px;
 		flex: 1 0 0;
+		border-radius: 999px;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 20px;
+		transition:
+			transform 0.2s ease,
+			background-color 0.3s ease;
+
+		&:hover {
+			transform: scale(1.05);
+		}
 	}
 
 	.cancel {
-		border-radius: var(
-			---Buttons-and-Inputs-button-border-radius-primary,
-			999px
-		);
-		border: 1px solid var(--Text-weaker, #bfc3c1);
+		border: 1px solid #bfc3c1;
 		background: rgba(255, 255, 255, 0.12);
+		color: rgba(33, 38, 46, 1);
 	}
 
 	.confirm {
-		border-radius: var(
-			---Buttons-and-Inputs-button-border-radius-primary,
-			999px
-		);
 		background: #1f1f1f;
-		color: var(--p-color-text-inverse, white);
+		color: rgba(239, 240, 241, 1);
 	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes slideIn {
+	0% {
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.modal-policy-checkbox:checked {
+	transform: scale(1.1);
+}
+
+.modal-policy-checkbox:hover {
+	transform: scale(1.1);
 }

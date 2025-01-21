@@ -31,7 +31,7 @@ export const SystemDetailWidget: React.FC<SystemDetailWidgetProps> = ({
 				<h3 className={styles["SystemDetailWidget-title"]}>{detail.title}</h3>
 				<div className={styles["SystemDetailWidget-report"]}>
 					<p className={styles["SystemDetailWidget-report-text"]}>
-						View report {category}
+						View report
 					</p>
 					<div className={styles["SystemDetailWidget-report-icon"]}>
 						<Report />

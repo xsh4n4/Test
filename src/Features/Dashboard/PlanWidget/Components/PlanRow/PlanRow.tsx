@@ -1,4 +1,3 @@
-import BottleIcon from "@assets/PlanWidget/Bottle.svg?react";
 import QuestionMark from "@assets/PlanWidget/QuestionMark.svg?react";
 import ChevronHollow from "@assets/CtaModal/ChevronHollow.svg?react";
 import Cart from "@assets/CtaModal/Cart.svg?react";
@@ -20,7 +19,7 @@ export const PlanRow = ({
 	return (
 		<div className={styles["PlanRow-row"]} onClick={handleClick}>
 			<div className={styles["PlanRow-icon"]}>
-				<BottleIcon />
+				<img src={item.icon} alt={`${item.name} icon`} />
 			</div>
 			<div className={styles["PlanRow-body"]}>
 				<div className={styles["PlanRow-name"]}>

@@ -9,6 +9,7 @@ import Config from "@/Views/UploadMethod/UploadMethod";
 import { ConfigLayout } from "../Layouts/ConfigLayout";
 import ImportOrUpload from "@/Views/UploadMethod/ImportOrUpload/ImportOrUpload";
 import ConnectAppDevice from "@/Views/UploadMethod/ConnectAppDevice/ConnectAppDevice";
+import DetailedRisk from "@/Views/DetailedRisk/DetailedRisk";
 
 const RoutesConfig: RouteObject[] = [
 	{
@@ -38,7 +39,11 @@ const RoutesConfig: RouteObject[] = [
 				children: [
 					{
 						element: <Dashboard />,
-						path: paths.dashboard,
+						path: paths.dashboard.root,
+					},
+					{
+						element: <DetailedRisk />,
+						path: paths.dashboard.detailedRisk,
 					},
 					{
 						element: <ConfigLayout />,

@@ -5,19 +5,17 @@ import Slope from "@assets/ConcernsWidget/Slope.svg?react";
 import { concernsMockData } from "./helpers/concernsMockData";
 import { detailedSystemConcerns } from "./helpers/detailedSystemConcerns";
 import { ConcernsCard } from "./Components/ConcernsCard/ConcernsCard";
-import { useSelector } from "react-redux";
-import { RootState } from "@/App/Redux/store";
 import { DetailsCard } from "./Components/DetailsCard/DetailsCard";
 import { ReasonsTable } from "./Components/ReasonsTable/ReasonsTable";
 import { SymptomsList } from "./Components/SymptomsList/SymptomsList";
 
-export const ConcernsWidget = () => {
+interface ConcernsWidgetProps {
+	category: string;
+}
+
+export const ConcernsWidget: React.FC<ConcernsWidgetProps> = ({ category }) => {
 	const [isShowMore, setIsShowMore] = useState(false);
 	const [detailIndex, setDetailIndex] = useState(1);
-
-	const selectedCategory = useSelector(
-		(state: RootState) => state.category.selectedCategory,
-	);
 
 	const concernsToShow = isShowMore
 		? concernsMockData
@@ -59,7 +57,7 @@ export const ConcernsWidget = () => {
 				<div className={styles["ConcernWidget-cards-layout"]}>
 					<div
 						className={`${styles["ConcernWidget-concern-cards"]} ${
-							selectedCategory !== "total"
+							category !== "total"
 								? styles["ConcernWidget-concern-cards-hidden"]
 								: styles["ConcernWidget-concern-cards-visible"]
 						}`}
@@ -71,7 +69,7 @@ export const ConcernsWidget = () => {
 
 					<div
 						className={`${styles["ConcernWidget-detail-cards"]} ${
-							selectedCategory !== "total"
+							category !== "total"
 								? styles["ConcernWidget-detail-cards-visible"]
 								: styles["ConcernWidget-detail-cards-hidden"]
 						}`}
@@ -88,7 +86,7 @@ export const ConcernsWidget = () => {
 				</div>
 				<div
 					className={`${styles["ConcernWidget-reasons"]} ${
-						selectedCategory !== "total"
+						category !== "total"
 							? styles["ConcernWidget-reasons-visible"]
 							: styles["ConcernWidget-reasons-hidden"]
 					}`}

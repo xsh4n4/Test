@@ -20,6 +20,8 @@ export interface Reason {
 	value: string;
 	unit: string;
 	status: string;
+	description: string;
+	date: string;
 }
 
 export interface Symptoms {
@@ -41,7 +43,7 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 		details: [
 			{
 				id: 1,
-				title: "System Overview",
+				title: "Cardiovascular Disease",
 				factors: ["High Cholesterol level", "Other influencing factors"],
 				status: "High",
 				reasons: [
@@ -54,6 +56,9 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						value: "183",
 						unit: "mg/dL",
 						status: "Above optimal",
+						description:
+							'Total cholesterol/HDL ratio: Assesses cardiovascular risk by comparing total cholesterol to "good" HDL cholesterol.',
+						date: "01.07.24",
 					},
 					{
 						id: 2,
@@ -64,6 +69,9 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						value: "132",
 						unit: "mmHg",
 						status: "High",
+						description:
+							'Total cholesterol/HDL ratio: Assesses cardiovascular risk by comparing total cholesterol to "good" HDL cholesterol.',
+						date: "Today",
 					},
 					{
 						id: 3,
@@ -74,6 +82,9 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						value: "FFAR4",
 						unit: "gene",
 						status: "Medium pred.",
+						description:
+							'Total cholesterol/HDL ratio: Assesses cardiovascular risk by comparing total cholesterol to "good" HDL cholesterol.',
+						date: "2d ago",
 					},
 					{
 						id: 4,
@@ -84,6 +95,9 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						value: "FFAR4",
 						unit: "gene",
 						status: "Medium pred.",
+						description:
+							'Total cholesterol/HDL ratio: Assesses cardiovascular risk by comparing total cholesterol to "good" HDL cholesterol.',
+						date: "03.07.24",
 					},
 				],
 			},
@@ -102,6 +116,9 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						value: "183",
 						unit: "mg/dL",
 						status: "Above optimal",
+						description:
+							'Total cholesterol/HDL ratio: Assesses cardiovascular risk by comparing total cholesterol to "good" HDL cholesterol.',
+						date: "01.07.24",
 					},
 					{
 						id: 2,
@@ -112,6 +129,9 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						value: "132",
 						unit: "mmHg",
 						status: "High",
+						description:
+							'Total cholesterol/HDL ratio: Assesses cardiovascular risk by comparing total cholesterol to "good" HDL cholesterol.',
+						date: "01.07.24",
 					},
 					{
 						id: 3,
@@ -122,6 +142,9 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						value: "FFAR4",
 						unit: "gene",
 						status: "Medium pred.",
+						description:
+							'Total cholesterol/HDL ratio: Assesses cardiovascular risk by comparing total cholesterol to "good" HDL cholesterol.',
+						date: "01.07.24",
 					},
 					{
 						id: 4,
@@ -132,6 +155,9 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						value: "FFAR4",
 						unit: "gene",
 						status: "Medium pred.",
+						description:
+							'Total cholesterol/HDL ratio: Assesses cardiovascular risk by comparing total cholesterol to "good" HDL cholesterol.',
+						date: "01.07.24",
 					},
 				],
 				symptoms: {
@@ -144,6 +170,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						"Fatigue or weakness",
 						"Chest pain",
 						"Dizziness or lightheadedness",
+						"Fatigue or weakness",
+						"Chest pain",
 						"Dizziness or lightheadedness",
 					],
 				},
@@ -163,6 +191,9 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						value: "183",
 						unit: "mg/dL",
 						status: "Above optimal",
+						description:
+							'Total cholesterol/HDL ratio: Assesses cardiovascular risk by comparing total cholesterol to "good" HDL cholesterol.',
+						date: "01.07.24",
 					},
 					{
 						id: 2,
@@ -173,6 +204,9 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						value: "132",
 						unit: "mmHg",
 						status: "High",
+						description:
+							'Total cholesterol/HDL ratio: Assesses cardiovascular risk by comparing total cholesterol to "good" HDL cholesterol.',
+						date: "01.07.24",
 					},
 					{
 						id: 3,
@@ -183,6 +217,9 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						value: "FFAR4",
 						unit: "gene",
 						status: "Medium pred.",
+						description:
+							'Total cholesterol/HDL ratio: Assesses cardiovascular risk by comparing total cholesterol to "good" HDL cholesterol.',
+						date: "01.07.24",
 					},
 					{
 						id: 4,
@@ -193,6 +230,9 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						value: "FFAR4",
 						unit: "gene",
 						status: "Medium pred.",
+						description:
+							'Total cholesterol/HDL ratio: Assesses cardiovascular risk by comparing total cholesterol to "good" HDL cholesterol.',
+						date: "01.07.24",
 					},
 				],
 				symptoms: {

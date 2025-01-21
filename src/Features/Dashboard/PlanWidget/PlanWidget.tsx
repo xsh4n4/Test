@@ -6,13 +6,19 @@ import { PlanTable } from "./Components/PlanTable/PlanTable";
 
 export const PlanWidget = () => {
 	const [activeTab, setActiveTab] = useState(planMockData[0].title);
+	const [transitioning, setTransitioning] = useState(false);
+
+	const handleTabChange = (newTab: string) => {
+		setTransitioning(true);
+		setActiveTab(newTab);
+	};
 
 	return (
 		<div className={styles["PlanWidget-wrapper"]}>
 			<Tabs
 				sections={planMockData}
 				activeTab={activeTab}
-				setActiveTab={setActiveTab}
+				setActiveTab={handleTabChange}
 			/>
 			<div className={styles["PlanWidget-content"]}>
 				{planMockData
@@ -22,6 +28,8 @@ export const PlanWidget = () => {
 							section={section}
 							setActiveTab={setActiveTab}
 							key={index}
+							transitioning={transitioning}
+							setTransitioning={setTransitioning}
 						/>
 					))}
 			</div>

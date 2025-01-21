@@ -6,7 +6,7 @@ import CameraController from "@/Features/DigitalTwin/Controller/CameraController
 import SideBar from "@/Features/DigitalTwin/Components/SideBar/SideBar";
 import { useState } from "react";
 
-const MainScene = () => {
+const MainScene = (props: { useSideBar?: boolean }) => {
 	const zoomValue = 1.1;
 	const { cameraState, setCameraState } = useCamera();
 	const [modelType, setModelType] = useState<"body" | "cardio">("body");
@@ -52,7 +52,7 @@ const MainScene = () => {
 
 	return (
 		<div className='canvas-container'>
-			<SideBar onModelChange={handleModelChange} />
+			{props.useSideBar ? <SideBar onModelChange={handleModelChange} /> : <></>}
 			<div className='canvas-wrapper'>
 				<Canvas
 					orthographic

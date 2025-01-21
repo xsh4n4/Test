@@ -8,24 +8,10 @@ import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
 import CtaModal from "@/Features/Dashboard/CtaModal/CtaModal";
 import { ConcernsWidget } from "@/Features/Dashboard/ConcernsWidget/ConcernsWidget";
 import { PlanWidget } from "@/Features/Dashboard/PlanWidget/PlanWidget";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "@/App/Redux/store";
-// import { ConnectWatchWidget } from "@/Features/Dashboard/ConnectWatchWidget/ConnectWatchWidget";
-// import { StepWidget } from "@/Features/Dashboard/StepWidget/StepWidget";
+// import { useState } from "react";
 
-const Dashboard = () => {
-	const [animate, setAnimate] = useState(false);
-	const selectedCategory = useSelector(
-		(state: RootState) => state.category.selectedCategory,
-	);
-
-	useEffect(() => {
-		setAnimate(true);
-		setTimeout(() => {
-			setAnimate(false);
-		}, 2000);
-	}, [selectedCategory]);
+const Widgets = () => {
+	// const [animate, setAnimate] = useState(false);
 
 	return (
 		<div className={styles["Dashboard-layout"]}>
@@ -35,12 +21,10 @@ const Dashboard = () => {
 				<div className={styles["Dashboard-content"]}>
 					<div className={styles["Dashboard-dt-container"]}>
 						<div className={styles["Dashboard-model"]}>
-							<MainScene useSideBar />
+							<MainScene />
 						</div>
 					</div>
-					<div
-						className={`${styles["Dashboard-stats"]} ${animate && styles["animate"]}`}
-					>
+					<div className={`${styles["Dashboard-stats"]}`}>
 						{/* <button onClick={() => setAnimate(!animate)}>
 							{animate ? "Reset" : "Animate Widgets"}
 						</button> */}
@@ -57,4 +41,4 @@ const Dashboard = () => {
 	);
 };
 
-export default Dashboard;
+export default Widgets;

@@ -26,13 +26,13 @@ export const UploadFileTypes = {
 		fileSize: 25,
 	},
 	Blood: {
-		title: "Blood",
+		title: "Blood Report",
 		fileTypes: [".pdf"],
 		extra: "PDF",
 		fileSize: 25,
 	},
 	Genetic: {
-		title: "Genetic",
+		title: "Genetic Data",
 		fileTypes: [".fastq", ".vcf"],
 		fileSize: 25,
 	},

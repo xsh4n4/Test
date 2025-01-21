@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./UploadItem.module.scss";
 import { UploadFile } from "../UploadFile/UploadFile";
 import StepsTail from "@assets/General/StepsTail.svg?react";
@@ -16,6 +16,26 @@ export const UploadItem: React.FC<UploadItemProps> = ({
 	extra,
 	fileSize,
 }) => {
+	const [uploadedFiles, setUploadedFiles] = React.useState<File[]>([]);
+	const ref = useRef<HTMLInputElement>(null);
+
+	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const files = e.target.files;
+		if (files) {
+			setUploadedFiles((prevFiles) => [...prevFiles, ...Array.from(files)]);
+		}
+	};
+
+	const handleBrowseClick = () => {
+		ref.current!.click();
+	};
+
+	const handleCloseFileUpload = (file: File) => {
+		setUploadedFiles((prevFiles) =>
+			prevFiles.filter((prevFile) => prevFile !== file),
+		);
+	};
+
 	return (
 		<div className={styles["upload-item-container"]}>
 			<div className={styles["header"]}>
@@ -31,9 +51,25 @@ export const UploadItem: React.FC<UploadItemProps> = ({
 						<span className={styles["file-size"]}>(max. {fileSize}mb)</span>
 					</div>
 				</div>
-				<button className={styles["browse-files-btn"]}>Browse files</button>
+				<button
+					className={styles["browse-files-btn"]}
+					onClick={handleBrowseClick}
+				>
+					Upload
+				</button>
+				<input
+					type='file'
+					ref={ref}
+					multiple
+					accept={fileTypes.join(",")}
+					onChange={handleFileChange}
+					style={{ display: "none" }}
+				/>
 			</div>
-			<UploadFile fileName='Metabolism_Report_2024.fastq' />
+			{uploadedFiles.map((file) => (
+				<UploadFile file={file} onClose={handleCloseFileUpload} />
+			))}
+
 			<StepsTail
 				style={{
 					width: "100%",

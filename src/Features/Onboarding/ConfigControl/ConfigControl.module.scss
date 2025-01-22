@@ -25,6 +25,15 @@
 	align-items: center;
 	border-radius: var(--font-size-2xl, 20px);
 	background: none;
+
+	color: var(--Neutral-text, #0b101a);
+	text-align: center;
+
+	font-family: var(--font-family-body, Inter);
+	font-size: var(--font-size-lg, 14px);
+	font-style: normal;
+	font-weight: var(--font-weight-medium-500, 500);
+	line-height: var(--font-line-hight-lg, 20px);
 }
 
 .selected-config-control-item {

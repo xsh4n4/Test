@@ -3,7 +3,7 @@ import NavBar from "@/Features/Structural/NavBar/Navbar";
 import styles from "./DetailedRisk.module.scss";
 import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
 import RiskHeader from "@/Features/Structural/RiskHeader/RiskHeader";
-import GoalProgressMenu from "@features/Structural/GoalProgressMenu/GoalProgressMenu.tsx";
+import GoalsProgress from "@features/Structural/GoalProgressMenu/GoalProgressMenu.tsx";
 
 const DetailedRisk = () => {
 	const { riskName } = useParams();
@@ -17,9 +17,7 @@ const DetailedRisk = () => {
 					<div className={`${styles["DetailerRisk-stats"]}`}>
 						<RiskHeader title={riskName ?? ""} />
 					</div>
-					<div className={styles["DetailerRisk-dt-container"]}>
-						<GoalProgressMenu />
-					</div>
+					<GoalsProgress />
 				</div>
 			</CameraProvider>
 		</div>

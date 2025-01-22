@@ -115,7 +115,7 @@ const MainScene = () => {
 					<Model
 						key={`current-${modelType}`}
 						scale={[MODEL_ZOOM_VALUE, MODEL_ZOOM_VALUE, MODEL_ZOOM_VALUE]}
-						position={[0, (-MODEL_ZOOM_VALUE * 70) / 2 - 1, 0]}
+						position={[0, (-MODEL_ZOOM_VALUE * 70) / 2 - 1 - 5, 0]} 
 						modelType={modelType}
 						isNew={true}
 						isHidden={isModelHidden}

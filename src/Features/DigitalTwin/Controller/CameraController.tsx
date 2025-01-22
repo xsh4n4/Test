@@ -16,7 +16,7 @@ const CameraController = () => {
 	const lastTargetZoomRef = useRef(cameraState.targetZoom);
 	const zoomStartTimeRef = useRef(Date.now());
 	const MAX_ROTATION = Math.PI / 4;
-	const POSITION_LERP_FACTOR = 0.007;
+	const POSITION_LERP_FACTOR = 0.015;
 	const Y_LERP_FACTOR = 0.02;
 
 	// Zoom control constants
@@ -44,7 +44,7 @@ const CameraController = () => {
 			if (!isDraggingRef.current) return;
 
 			const deltaX = e.clientX - previousMouseXRef.current;
-			const sensitivity = 0.005;
+			const sensitivity = 0.01;
 			const newRotation = rotationRef.current - deltaX * sensitivity;
 			rotationRef.current = Math.max(
 				-MAX_ROTATION,

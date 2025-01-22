@@ -7,9 +7,15 @@ import ImageD from "@assets/General/g11533.png";
 import ImageE from "@assets/General/qura-ring-seeklogo 1.png";
 import ImageF from "@assets/General/logo 1.png";
 import ImageG from "@assets/General/withings-health-solutions-logo 1.png";
+import EHRsDatabase from "@assets/General/EHRDatabase.svg";
 
 export const AppDevice = () => {
 	const apps = [
+		{
+			img: EHRsDatabase,
+			title: "EHRs Database",
+			description: "Digital health records",
+		},
 		{
 			img: ImageA,
 			title: "Omron",

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./NavigationBar.module.scss";
 import ArrowRightIcon from "@assets/General/ArrowRight.svg?react";
 import LeftIcon from "@assets/General/Left.svg?react";
@@ -14,6 +14,7 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
 	setIsOpenedConfirmModal,
 }) => {
 	const navigate = useNavigate();
+	const location = useLocation();
 	return (
 		<div className={styles["navigation-bar-container"]}>
 			<button
@@ -27,6 +28,9 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
 			<button
 				className={styles["submit"]}
 				onClick={() => {
+					if (location.pathname === paths.config.connectApp) {
+						navigate(paths.config.importOrUpload);
+					}
 					if (!processed) {
 						setIsOpenedConfirmModal(true);
 					} else {

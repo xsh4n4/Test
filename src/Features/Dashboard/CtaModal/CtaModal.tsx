@@ -2,6 +2,7 @@ import ReactDOM from "react-dom";
 import styles from "./CtaModal.module.scss";
 import Cross from "@assets/CtaModal/Cross.svg?react";
 import Cart from "@assets/CtaModal/Cart.svg?react";
+import Shape from "@assets/CtaModal/Shape.svg?react";
 import ChevronHollow from "@assets/CtaModal/ChevronHollow.svg?react";
 import { useState } from "react";
 
@@ -49,6 +50,7 @@ const CtaModal = () => {
 			>
 				<ChevronHollow />
 			</div>
+			<Shape className={styles["CtaModal-shape"]} />
 		</div>,
 		document.body,
 	);

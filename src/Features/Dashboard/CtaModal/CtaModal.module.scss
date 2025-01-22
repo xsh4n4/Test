@@ -10,8 +10,12 @@
 	border-radius: 16px;
 	border: 1px solid rgba(203, 215, 238, 1);
 	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-	background: linear-gradient(0deg, #f1f5ff, #f1f5ff),
-		linear-gradient(143.92deg, #d3ddf5 6.09%, rgba(211, 221, 245, 0) 55.38%);
+	background: linear-gradient(
+			144deg,
+			#d3ddf5 6.09%,
+			rgba(211, 221, 245, 0) 55.38%
+		),
+		#f1f5ff;
 	z-index: 2;
 	display: flex;
 	flex-direction: column;
@@ -20,7 +24,6 @@
 	animation: slideIn 0.5s ease-out forwards;
 
 	&-closed {
-		background-color: red;
 		animation: slideOut 0.5s ease-out forwards;
 	}
 
@@ -102,15 +105,22 @@
 	align-items: center;
 	justify-content: center;
 	width: fit-content;
-	gap: 6px;
+	gap: 8px;
 	padding: 8px 12px;
 	border-radius: 24px;
-	background-color: #ffffff;
-	border: 1px solid rgba(147, 190, 244, 1);
+	background: rgba(59, 141, 245, 0.12);
+	transition: all 0.3s ease;
+
+	&:hover {
+		border: 1px solid rgba(147, 190, 244, 1);
+		box-shadow:
+			0px 2px 12px 1px rgba(20, 28, 44, 0.12),
+			0px 2px 4px 0px rgba(20, 28, 44, 0.12);
+	}
 }
 
 .CtaModal-button-text {
-	color: rgba(9, 116, 251, 1);
+	color: rgba(0, 41, 173, 1);
 	font-weight: 400;
 	font-size: 12px;
 	line-height: 16px;
@@ -120,6 +130,12 @@
 .CtaModal-cart-container {
 	width: 20px;
 	height: 20px;
+
+	svg {
+		path {
+			fill: rgba(0, 41, 173, 1);
+		}
+	}
 }
 
 .CtaModal-chevron {
@@ -134,4 +150,10 @@
 	&-closed {
 		opacity: 1;
 	}
+}
+
+.CtaModal-shape {
+	position: absolute;
+	top: -5%;
+	left: 0;
 }

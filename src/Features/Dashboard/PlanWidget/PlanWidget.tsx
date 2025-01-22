@@ -3,10 +3,32 @@ import { planMockData } from "./helpers/planMockData";
 import styles from "./PlanWidget.module.scss";
 import { Tabs } from "./Components/Tabs/Tabs";
 import { PlanTable } from "./Components/PlanTable/PlanTable";
+import { PlanAggregate } from "./Components/PlanAggregate/PlanAggregate";
 
 export const PlanWidget = () => {
 	const [activeTab, setActiveTab] = useState(planMockData[0].title);
 	const [transitioning, setTransitioning] = useState(false);
+
+	const getActionPlanData = () => {
+		return planMockData
+			.filter((section) => section.title !== "Action Plan")
+			.flatMap((section) =>
+				section.data.map((item) => ({
+					...item,
+					group: section.title,
+				})),
+			);
+	};
+
+	const enrichedPlanMockData = planMockData.map((section) =>
+		section.title === "Action Plan"
+			? { ...section, data: getActionPlanData() }
+			: section,
+	);
+
+	const activeSection = enrichedPlanMockData.find(
+		(section) => section.title === activeTab,
+	);
 
 	const handleTabChange = (newTab: string) => {
 		setTransitioning(true);
@@ -16,22 +38,25 @@ export const PlanWidget = () => {
 	return (
 		<div className={styles["PlanWidget-wrapper"]}>
 			<Tabs
-				sections={planMockData}
+				sections={enrichedPlanMockData}
 				activeTab={activeTab}
 				setActiveTab={handleTabChange}
 			/>
 			<div className={styles["PlanWidget-content"]}>
-				{planMockData
-					.filter((section) => section.title === activeTab)
-					.map((section, index) => (
-						<PlanTable
-							section={section}
-							setActiveTab={setActiveTab}
-							key={index}
-							transitioning={transitioning}
-							setTransitioning={setTransitioning}
-						/>
-					))}
+				{activeTab === "Action Plan" && activeSection ? (
+					<PlanAggregate section={activeSection} setActiveTab={setActiveTab} />
+				) : (
+					<>
+						{activeSection && (
+							<PlanTable
+								section={activeSection}
+								setActiveTab={setActiveTab}
+								transitioning={transitioning}
+								setTransitioning={setTransitioning}
+							/>
+						)}
+					</>
+				)}
 			</div>
 		</div>
 	);

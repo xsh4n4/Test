@@ -8,6 +8,7 @@ import { ConcernsCard } from "./Components/ConcernsCard/ConcernsCard";
 import { DetailsCard } from "./Components/DetailsCard/DetailsCard";
 import { ReasonsTable } from "./Components/ReasonsTable/ReasonsTable";
 import { SymptomsList } from "./Components/SymptomsList/SymptomsList";
+import { PlanWidget } from "../PlanWidget/PlanWidget";
 
 interface ConcernsWidgetProps {
 	category: string;
@@ -40,9 +41,7 @@ export const ConcernsWidget: React.FC<ConcernsWidgetProps> = ({ category }) => {
 					onClick={() => handleShowMore()}
 				>
 					<p className={styles["ConcernWidget-more-text"]}>
-						{isShowMore
-							? "Show Less"
-							: `Show ${concernsMockData.length - 3} more`}
+						{isShowMore ? "Show Less" : "Show all"}
 					</p>
 					<div className={styles["ConcernWidget-chevron-container"]}>
 						<Chevron
@@ -110,6 +109,8 @@ export const ConcernsWidget: React.FC<ConcernsWidgetProps> = ({ category }) => {
 						}
 					/>
 				</div>
+
+				<PlanWidget />
 			</div>
 		</div>
 	);

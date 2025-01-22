@@ -3,6 +3,7 @@
 .Tabs-container {
 	display: flex;
 	flex-direction: row;
+	background-color: #e4ebf9;
 }
 
 .Tabs-tab-container {
@@ -18,6 +19,7 @@
 	&:first-child {
 		.Tabs-tab {
 			border-top-left-radius: 8px;
+			margin-left: 1px;
 			padding-left: 20px;
 		}
 		.Tabs-slope-container {
@@ -33,7 +35,7 @@
 			top: -1px;
 			right: 0;
 			rotate: (180deg);
-			background-color: #ffffff;
+			background-color: #e4ebf9;
 			position: absolute;
 			clip-path: path(
 				"M29.65 31.2362L14.5656 7.92407C11.3686 2.98327 5.88493 0 0 0V40H45.7592C39.2507 40 33.1858 36.7006 29.65 31.2362Z"
@@ -78,7 +80,7 @@
 	color: #0b101a;
 	position: relative;
 	overflow: hidden;
-	background: rgba(245, 247, 252, 1);
+	background: #f5f7fc;
 	transition: all 0.2s ease;
 
 	@include mixins.media_1536 {

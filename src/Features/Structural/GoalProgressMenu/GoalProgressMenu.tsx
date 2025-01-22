@@ -75,10 +75,12 @@ const GoalsProgressMenu = ({ totalGoals = 6, completedGoals = 1 }) => {
 					</div>
 				</div>
 				<span className='counter'>
-					<span style={{ color: "rgba(33, 38, 46, 1)" }}>
+					<span style={{ color: "rgba(33, 38, 46, 1)", marginRight: "4px" }}>
 						{currentProgress}
 					</span>
-					<span style={{ color: "rgba(108, 117, 132, 1)" }}>/</span>
+					<span style={{ color: "rgba(108, 117, 132, 1)", marginRight: "4px" }}>
+						/
+					</span>
 					<span style={{ color: "rgba(108, 117, 132, 1)" }}>{totalGoals}</span>
 				</span>
 				<PyramidIcon

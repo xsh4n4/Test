@@ -69,7 +69,8 @@ export const LoginForm = () => {
 
 			<div className={styles["actions"]}>
 				<div className={styles["signup"]}>
-					Don’t have an account? <a href='/register'>Sign Up</a>
+					Don’t have an account?{" "}
+					<div onClick={() => navigate(paths.auth.register)}>Sign Up</div>
 				</div>
 				<button
 					className={styles["signin"]}

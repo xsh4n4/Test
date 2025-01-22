@@ -10,6 +10,7 @@ import { ConfigLayout } from "../Layouts/ConfigLayout";
 import ImportOrUpload from "@/Views/UploadMethod/ImportOrUpload/ImportOrUpload";
 import ConnectAppDevice from "@/Views/UploadMethod/ConnectAppDevice/ConnectAppDevice";
 import DetailedRisk from "@/Views/DetailedRisk/DetailedRisk";
+import Register from "@/Views/Auth/Register/Register";
 
 const RoutesConfig: RouteObject[] = [
 	{
@@ -24,6 +25,10 @@ const RoutesConfig: RouteObject[] = [
 					{
 						element: <Login />,
 						path: paths.auth.login,
+					},
+					{
+						element: <Register />,
+						path: paths.auth.register,
 					},
 					// Redirect root "/" to "/login"
 					{

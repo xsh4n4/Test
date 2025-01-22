@@ -1,7 +1,5 @@
 import { useState } from "react";
 import styles from "./Dropdown.module.scss";
-import { ChevronDown } from "lucide-react";
-import { useCamera } from "../Context/CameraContext";
 
 interface DropdownOption {
 	label: string;
@@ -16,29 +14,43 @@ const options: DropdownOption[] = [
 interface DropdownProps {
 	value: "total" | "cardio";
 	onChange: (value: "total" | "cardio") => void;
+	onModelChange: (
+		type: "body" | "cardio",
+		cameraConfig: {
+			position: [number, number, number];
+			zoom: number;
+		},
+	) => void;
 }
 
-const Dropdown = ({ value, onChange }: DropdownProps) => {
+const Dropdown = ({ value, onChange, onModelChange }: DropdownProps) => {
 	const [isOpen, setIsOpen] = useState(false);
-	const { setCameraState } = useCamera();
 
 	const selected =
 		options.find((option) => option.value === value) || options[0];
+
+	const zoomConfigs = {
+		total: {
+			position: [0, 0, 200] as [number, number, number],
+			zoom: 10,
+			modelType: "body" as const,
+		},
+		cardio: {
+			position: [0, 23, 200] as [number, number, number],
+			zoom: 30,
+			modelType: "cardio" as const,
+		},
+	};
 
 	const handleSelect = (option: DropdownOption) => {
 		onChange(option.value);
 		setIsOpen(false);
 
-		const zoomConfigs = {
-			total: { position: [0, 0, 200] as [number, number, number], zoom: 10 },
-			cardio: { position: [0, 23, 200] as [number, number, number], zoom: 30 },
-		};
-
 		const config = zoomConfigs[option.value];
 		if (config) {
-			setCameraState({
-				targetPosition: config.position,
-				targetZoom: config.zoom,
+			onModelChange(config.modelType, {
+				position: config.position,
+				zoom: config.zoom,
 			});
 		}
 	};
@@ -53,10 +65,19 @@ const Dropdown = ({ value, onChange }: DropdownProps) => {
 				<div className={styles.labelContainer}>
 					<div className={styles.label}>{selected.label}</div>
 					<div className={styles.divider} />
-					<ChevronDown
+					<svg
+						width='16'
+						height='16'
+						viewBox='0 0 24 24'
+						fill='none'
+						stroke='currentColor'
+						strokeWidth='2'
+						strokeLinecap='round'
+						strokeLinejoin='round'
 						className={`${styles.icon} ${isOpen ? styles.rotated : ""}`}
-						size={16}
-					/>
+					>
+						<polyline points='6 9 12 15 18 9'></polyline>
+					</svg>
 				</div>
 			</button>
 

@@ -15,7 +15,6 @@ import HeadIcon from "@assets/SideBar/Icons/head.svg?react";
 import UlnaRadiusAltIcon from "@assets/SideBar/Icons/ulna_radius_alt.svg?react";
 import UrologyIcon from "@assets/SideBar/Icons/urology.svg?react";
 import IconButton from "./Components/IconButton/IconButton";
-import { useCamera } from "../../Context/CameraContext";
 import Dropdown from "../../Dropdown/Dropdown";
 import { useDispatch } from "react-redux";
 import { setCategory } from "@/App/Redux/categorySlice";
@@ -24,64 +23,63 @@ import React from "react";
 type DropdownValue = "total" | "cardio";
 
 interface SideBarProps {
-	onModelChange: (type: "body" | "cardio") => void;
+	onModelChange: (
+		type: "body" | "cardio",
+		cameraConfig: {
+			position: [number, number, number];
+			zoom: number;
+		},
+	) => void;
 }
 
 const SideBar = ({ onModelChange }: SideBarProps) => {
-	const { setCameraState } = useCamera();
 	const dispatch = useDispatch();
 	const [activeButton, setActiveButton] =
 		React.useState<string>("ClinicalNotes");
 	const [dropdownValue, setDropdownValue] =
 		React.useState<DropdownValue>("total");
 
-	// const selectedCategory = useSelector(
-	// 	(state: any) => state.category.selectedCategory,
-	// );
-
 	const handleCategoryChange = (category: string) => {
 		dispatch(setCategory(category));
 	};
 
-	const handleZoom = (bodyPart: string) => {
-		const zoomConfigs = {
-			ClinicalNotes: { position: [0, 0, 200], zoom: 10 },
-			StressManagement: { position: [0, 30, 200], zoom: 40 },
-			CardioLoad: { position: [0, 23, 200], zoom: 26 },
-			Pulmonology: { position: [0, 10, 200], zoom: 43 },
-			Gastroenterolgy: { position: [0, 7, 200], zoom: 45 },
-			Endocrinology: { position: [0, 25, 200], zoom: 45 },
-			Pulmonology1: { position: [0, -15, 200], zoom: 17 },
-		};
-
-		setActiveButton(bodyPart);
-
-		const config = zoomConfigs[bodyPart as keyof typeof zoomConfigs];
-		if (config) {
-			setCameraState({
-				targetPosition: config.position as [number, number, number],
-				targetZoom: config.zoom,
-			});
+	const zoomConfigs: Record<
+		string,
+		{
+			position: [number, number, number];
+			zoom: number;
 		}
+	> = {
+		ClinicalNotes: { position: [0, 0, 200], zoom: 10 },
+		StressManagement: { position: [0, 30, 200], zoom: 40 },
+		CardioLoad: { position: [0, 23, 200], zoom: 26 },
+		Pulmonology: { position: [0, 10, 200], zoom: 43 },
+		Gastroenterolgy: { position: [0, 7, 200], zoom: 45 },
+		Endocrinology: { position: [0, 25, 200], zoom: 45 },
+		Pulmonology1: { position: [0, -15, 200], zoom: 17 },
+	};
 
-		if (bodyPart === "CardioLoad") {
-			handleCategoryChange("cardiovascular");
-			onModelChange("cardio");
-		} else {
-			handleCategoryChange("total");
-			onModelChange("body");
+	const handleZoom = (bodyPart: string) => {
+		setActiveButton(bodyPart);
+		const config = zoomConfigs[bodyPart];
+
+		if (config) {
+			if (bodyPart === "CardioLoad") {
+				handleCategoryChange("cardiovascular");
+				onModelChange("cardio", config);
+			} else {
+				handleCategoryChange("total");
+				onModelChange("body", config);
+			}
 		}
 	};
 
-	// Handle dropdown value changes
 	const handleDropdownChange = (value: DropdownValue) => {
 		setDropdownValue(value);
 		if (value === "total") {
 			handleZoom("ClinicalNotes");
-			onModelChange("body");
 		} else if (value === "cardio") {
 			handleZoom("CardioLoad");
-			onModelChange("cardio");
 		}
 	};
 
@@ -104,7 +102,11 @@ const SideBar = ({ onModelChange }: SideBarProps) => {
 
 	return (
 		<div className={styles["SideBar-container"]}>
-			<Dropdown value={dropdownValue} onChange={handleDropdownChange} />
+			<Dropdown
+				value={dropdownValue}
+				onChange={handleDropdownChange}
+				onModelChange={onModelChange}
+			/>
 			{buttons.map((data, index) => (
 				<IconButton
 					key={data.text}

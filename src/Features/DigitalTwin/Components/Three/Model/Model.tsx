@@ -1,7 +1,7 @@
 import { Clone } from "@react-three/drei";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 import { ModelProps } from "./Types/modelTypes";
 import { useCardioTextures, useBodyTextures } from "./Hooks/useModelTextures";
@@ -9,16 +9,25 @@ import {
 	createCardioMaterial,
 	createBodyMaterial,
 } from "./Utils/materialUtils";
-import { useModelTransitions } from "./Hooks/useModelTransitions";
 import { useModelTransforms } from "./Hooks/useModelTransforms";
+
+interface ExtendedModelProps extends ModelProps {
+	isFading?: boolean;
+	isNew?: boolean;
+	onTransitionComplete?: () => void;
+	isHidden?: boolean;
+}
 
 function Model({
 	position = [0, 0, 0],
 	rotation = [0, 0, 0],
 	scale = [1, 1, 1],
 	modelType = "body",
-	transitionState,
-}: ModelProps & { transitionState: ReturnType<typeof useModelTransitions> }) {
+	isFading = false,
+	isNew = false,
+	onTransitionComplete,
+	isHidden = false,
+}: ExtendedModelProps) {
 	const bodyModel = useLoader(
 		OBJLoader,
 		"/src/assets/models/normal/normal.obj",
@@ -34,39 +43,77 @@ function Model({
 	const currentModel = modelType === "body" ? bodyModel : cardioModel;
 	const modelRef = useRef<THREE.Group>(null);
 
+	const [opacity, setOpacity] = useState(isNew ? 0 : 1);
+	const [shouldRender, setShouldRender] = useState(!isNew);
 	const { currentPosition, currentScale, updateTransforms } =
 		useModelTransforms(position, scale);
 
-	const { opacity, setOpacity, targetOpacity } = transitionState;
-
 	useFrame(() => {
-		setOpacity((current) => {
-			const diff = targetOpacity - current;
-			const speed = targetOpacity > current ? 0.025 : 0.1;
-			return Math.abs(diff) < 0.01 ? targetOpacity : current + diff * speed;
-		});
+		if (isHidden) {
+			setOpacity(0);
+			return;
+		}
 
 		updateTransforms(position, scale);
+
+		if (isFading) {
+			const newOpacity = Math.max(0, opacity - 0.06);
+			setOpacity(newOpacity);
+
+			if (newOpacity === 0) {
+				setShouldRender(false);
+				if (onTransitionComplete) {
+					onTransitionComplete();
+				}
+			}
+		} else if (isNew) {
+			if (shouldRender) {
+				const newOpacity = Math.min(1, opacity + 0.06);
+				setOpacity(newOpacity);
+			}
+		}
 	});
+
+	useEffect(() => {
+		if (isNew && !shouldRender) {
+			const timeout = setTimeout(() => {
+				setShouldRender(true);
+			}, 500);
+			return () => clearTimeout(timeout);
+		}
+	}, [isNew, shouldRender]);
 
 	useEffect(() => {
 		if (!currentModel) return;
 
 		currentModel.traverse((child) => {
 			if (child instanceof THREE.Mesh) {
-				if (modelType === "cardio") {
-					child.material = createCardioMaterial(child.name, cardioTextures);
-				} else {
-					child.material = createBodyMaterial(bodyTextures);
-					if (child.material.normalScale) {
-						child.material.normalScale.set(1, 1);
-					}
+				const material =
+					modelType === "cardio"
+						? createCardioMaterial(child.name, cardioTextures)
+						: createBodyMaterial(bodyTextures);
+
+				child.material = material;
+				if (child.material) {
+					child.material.transparent = true;
+					child.material.opacity = isHidden ? 0 : opacity;
+					child.material.depthWrite = opacity > 0.5;
+					child.material.blending = THREE.NormalBlending;
+					child.material.visible = !isHidden && shouldRender;
 				}
-				child.material.transparent = true;
-				child.material.opacity = opacity;
 			}
 		});
-	}, [currentModel, modelType, cardioTextures, bodyTextures, opacity]);
+	}, [
+		currentModel,
+		modelType,
+		cardioTextures,
+		bodyTextures,
+		opacity,
+		isHidden,
+		shouldRender,
+	]);
+
+	if (!shouldRender || (isFading && opacity <= 0) || isHidden) return null;
 
 	return (
 		<group ref={modelRef}>

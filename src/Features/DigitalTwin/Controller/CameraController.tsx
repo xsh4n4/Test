@@ -13,11 +13,22 @@ const CameraController = () => {
 	const currentZoomRef = useRef(camera.zoom);
 	const targetYRef = useRef(0);
 	const currentYRef = useRef(0);
-
+	const lastTargetZoomRef = useRef(cameraState.targetZoom);
+	const zoomStartTimeRef = useRef(Date.now());
 	const MAX_ROTATION = Math.PI / 4;
-	const POSITION_LERP_FACTOR = 0.01;
-	const ZOOM_LERP_FACTOR = 0.015;
-	const Y_LERP_FACTOR = 0.03; // Specific lerp factor for Y-axis movement
+	const POSITION_LERP_FACTOR = 0.007;
+	const Y_LERP_FACTOR = 0.02;
+
+	// Zoom control constants
+	const ZOOM_SPEED = 0.025;
+	const ZOOM_THRESHOLD = 0.005;
+
+	useEffect(() => {
+		if (lastTargetZoomRef.current !== cameraState.targetZoom) {
+			zoomStartTimeRef.current = Date.now();
+			lastTargetZoomRef.current = cameraState.targetZoom;
+		}
+	}, [cameraState.targetZoom]);
 
 	useEffect(() => {
 		const handleMouseDown = (e: MouseEvent) => {
@@ -63,8 +74,8 @@ const CameraController = () => {
 	}, []);
 
 	useFrame(() => {
+		// Position and rotation handling
 		targetYRef.current = cameraState.targetPosition[1];
-
 		currentYRef.current +=
 			(targetYRef.current - currentYRef.current) * Y_LERP_FACTOR;
 
@@ -75,7 +86,6 @@ const CameraController = () => {
 		);
 
 		const distance = targetPosition.length();
-
 		const rotatedPosition = new Vector3(
 			Math.sin(rotationRef.current) * distance,
 			currentYRef.current,
@@ -83,12 +93,18 @@ const CameraController = () => {
 		);
 
 		currentPositionRef.current.lerp(rotatedPosition, POSITION_LERP_FACTOR);
-
 		camera.position.copy(currentPositionRef.current);
 		camera.lookAt(0, currentYRef.current, 0);
 
-		currentZoomRef.current +=
-			(cameraState.targetZoom - currentZoomRef.current) * ZOOM_LERP_FACTOR;
+		// Simple direct zoom to target
+		const zoomDiff = cameraState.targetZoom - currentZoomRef.current;
+		if (Math.abs(zoomDiff) > ZOOM_THRESHOLD) {
+			currentZoomRef.current += zoomDiff * ZOOM_SPEED;
+		} else {
+			currentZoomRef.current = cameraState.targetZoom;
+		}
+
+		// Update camera zoom
 		camera.zoom = currentZoomRef.current;
 		camera.updateProjectionMatrix();
 	});

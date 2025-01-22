@@ -7,6 +7,8 @@ export const SCENE_CONSTANTS = {
 } as const;
 
 export const CAMERA_SETTINGS = {
-	NEAR: 0.0001,
-	FAR: 20000,
+	NEAR: 0.1,
+	FAR: 2000,
+	DEFAULT_POSITION: [0, 0, 800] as [number, number, number],
+	DEFAULT_ZOOM: 5,
 } as const;

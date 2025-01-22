@@ -13,7 +13,7 @@
 	padding: 8px 16px !important;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
 	transition: all 0.2s;
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
@@ -27,6 +27,7 @@
 	align-items: center;
 	width: 100%;
 	min-width: 0;
+	justify-content: flex-start;
 }
 
 .label {
@@ -38,7 +39,7 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	flex: 1;
+	flex: 0 1 auto;
 	min-width: 0;
 }
 
@@ -48,6 +49,7 @@
 	background-color: #dbd6d6;
 	margin: 0 8px;
 	flex-shrink: 0;
+	margin-left: auto;
 }
 
 .icon {

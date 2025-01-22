@@ -14,15 +14,11 @@
 	}
 
 	&.active {
-		border: 1px solid #0974fb !important;
-		background: linear-gradient(
-			276deg,
-			#cee3fc 6.89%,
-			#fcfdfd 98.53%
-		) !important;
+		border: none !important;
+		background: linear-gradient(100deg, #3b8df5 0%, #0059db 100%) !important;
 
 		svg path {
-			fill: #0974fb;
+			fill: #ffffff !important;
 		}
 	}
 

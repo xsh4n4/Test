@@ -179,13 +179,13 @@
 			font-weight: var(--font-weight-medium-500, 500);
 			line-height: var(--font-line-hight-md, 16px);
 
-			a {
+			div {
 				display: flex;
 				align-items: center;
 				gap: var(--space-8-px-05-rem, 8px);
 				border-radius: var(--Border-Radius-none, 0px);
 				color: var(---link-text-link-text, #3b8df5);
-
+				cursor: pointer;
 				font-family: var(--Font-family-body, Inter);
 				font-size: var(--Font-size-S, 14px);
 				font-style: normal;

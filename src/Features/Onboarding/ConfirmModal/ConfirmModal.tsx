@@ -2,7 +2,7 @@ import styles from "./ConfirmModal.module.scss";
 import FrameIcon from "@assets/General/Frame.svg?react";
 import ArrowRightIcon from "@assets/General/ArrowRight.svg?react";
 import CloseIcon from "@assets/General/Close.svg?react";
-import React from "react";
+import React, { useState } from "react";
 
 interface ConfirmModalProps {
 	onClose: () => void;
@@ -13,6 +13,7 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
 	onClose,
 	onConfirm,
 }) => {
+	const [checked, setChecked] = useState(false);
 	return (
 		<div className={styles["process-modal-container"]}>
 			<div className={styles["modal-body"]}>
@@ -36,7 +37,7 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
 					<input
 						type='checkbox'
 						className={styles["modal-policy-checkbox"]}
-						checked
+						onClick={() => setChecked(!checked)}
 					/>
 					<div>
 						I read and agree to Terms and Conditions and Privacy Policy.
@@ -46,7 +47,10 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
 					<button className={styles["cancel"]} onClick={onClose}>
 						Cancel <CloseIcon />
 					</button>
-					<button className={styles["confirm"]} onClick={onConfirm}>
+					<button
+						className={`${styles["confirm"]} ${checked === false ? styles["confirm-disabled"] : ""}`}
+						onClick={onConfirm}
+					>
 						Confirm <ArrowRightIcon />
 					</button>
 				</div>

@@ -36,8 +36,10 @@ export const ConfigItemCard: React.FC<CardItemProps> = ({
 					style={{ cursor: "pointer" }}
 				/>
 			</div>
-			<div className={styles["item-card-title"]}>{title}</div>
-			<div className={styles["item-card-content"]}>{content}</div>
+			<div className={styles["item-card-info"]}>
+				<div className={styles["item-card-title"]}>{title}</div>
+				<div className={styles["item-card-content"]}>{content}</div>
+			</div>
 		</div>
 	);
 };

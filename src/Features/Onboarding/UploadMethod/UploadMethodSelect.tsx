@@ -20,25 +20,25 @@ export const UploadMethodSelect = () => {
 			icon: <QueryIcon />,
 			title: "Take quiz",
 			content:
-				"Answer a few quick questions to receive a personalised health and supplement plan tailored to your needs.",
+				"Answer a few quick questions to receive a personalised health plan tailored to your needs.",
 		},
 		{
 			icon: <ShoppingCartPlusIcon />,
-			title: "Buy Supplements",
+			title: "Buy Supplements, Peptides, & Diagnostic Tests",
 			content:
-				"Order custom-formulated supplements designed specifically for your health goals and genetic profile.",
+				" Order custom-formulated supplements designed specifically for your health goals and genetic profile.",
 		},
 		{
 			icon: <UploadCloudIcon />,
-			title: "Upload Files",
+			title: "Upload files",
 			content:
-				"Securely upload your health reports or genetic data to get precise recommendations based on your medical history.",
+				"Securely upload your test results to get precise recommendations based on your medical history.",
 			url: paths.config.importOrUpload,
 		},
 
 		{
 			icon: <AppsIcon />,
-			title: "Connect App / Device",
+			title: "Connect a device app",
 			content:
 				"Sync your favorite health tracking apps and devices for real-time insights and better health monitoring.",
 			url: paths.config.connectApp,

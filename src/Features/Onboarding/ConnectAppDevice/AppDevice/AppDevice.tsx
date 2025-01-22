@@ -1,12 +1,12 @@
 import styles from "./AppDevice.module.scss";
 import { AppCard } from "./Components/AppCard/AppCard";
-import ImageA from "@assets/General/OMRON_Logo 1.png";
-import ImageB from "@assets/General/Apple_logo_black 1.png";
-import ImageC from "@assets/General/Qardio 1.png";
-import ImageD from "@assets/General/g11533.png";
-import ImageE from "@assets/General/qura-ring-seeklogo 1.png";
-import ImageF from "@assets/General/logo 1.png";
-import ImageG from "@assets/General/withings-health-solutions-logo 1.png";
+import OmronLogo from "@assets/AppDevice/OmronLogo.svg";
+import AppleLogo from "@assets/AppDevice/AppleLogo.svg";
+import QardioLogo from "@assets/AppDevice/QardioLogo.svg";
+import HuaweiLogo from "@assets/AppDevice/HuaweiLogo.svg";
+import OuraLogo from "@assets/AppDevice/OuraLogo.svg";
+import FreeStyleLogo from "@assets/AppDevice/FreeStyleLogo.svg";
+import WithingsLogo from "@assets/AppDevice/WithingsLogo.svg";
 import EHRsDatabase from "@assets/General/EHRDatabase.svg";
 
 export const AppDevice = () => {
@@ -17,37 +17,37 @@ export const AppDevice = () => {
 			description: "Digital health records",
 		},
 		{
-			img: ImageA,
+			img: OmronLogo,
 			title: "Omron",
 			description: "Platinum / Evolv / Complete",
 		},
 		{
-			img: ImageB,
+			img: AppleLogo,
 			title: "Apple",
 			description: "Wathc Series / Ultra / SE / Nike",
 		},
 		{
-			img: ImageC,
+			img: QardioLogo,
 			title: "Qardio",
 			description: "QardioBase, QardioCore, QardioArm",
 		},
 		{
-			img: ImageD,
+			img: HuaweiLogo,
 			title: "Huawei",
 			description: "Watch GT 5, Band 8, Scale 3",
 		},
 		{
-			img: ImageE,
+			img: OuraLogo,
 			title: "OURA",
 			description: "Ring Gen 2, Rign Gen 3",
 		},
 		{
-			img: ImageF,
+			img: FreeStyleLogo,
 			title: "FreeStyle",
 			description: "Libre2 / 3 (Glocose Monitor)",
 		},
 		{
-			img: ImageG,
+			img: WithingsLogo,
 			title: "Witings E",
 			description: "Body+, BPM Core, Sleep Analyzer",
 		},

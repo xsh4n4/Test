@@ -82,7 +82,7 @@ const GoalsProgressMenu = ({ totalGoals = 6, completedGoals = 1 }) => {
 					<span style={{ color: "rgba(108, 117, 132, 1)" }}>{totalGoals}</span>
 				</span>
 				<PyramidIcon
-					className={`chevron ${isOpen ? "rotate" : ""}`}
+					className={`chevron ${!isOpen ? "rotate" : ""}`}
 					onClick={(e) => {
 						e.stopPropagation();
 						setIsOpen(!isOpen);

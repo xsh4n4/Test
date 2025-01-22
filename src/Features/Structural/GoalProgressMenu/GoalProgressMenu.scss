@@ -1,118 +1,113 @@
 .container {
-  position: relative;
-  width: 720px;
-  height: 36px;
+	position: relative;
+	width: 720px;
+	height: 36px;
 }
 
 .button {
-  position: relative;
-  padding: 5px 20px;
-  background: linear-gradient(90deg, #F1F3F7 0.19%, #D3DEF5 64.56%);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
+	position: relative;
+	padding: 5px 20px;
+	background: linear-gradient(90deg, #f1f3f7 0.19%, #d3def5 64.56%);
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
 }
 
 .chevron {
-  transition: transform 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out;
 }
 
 .chevron.rotate {
-  transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .label {
-  color: #4b5563;
-  margin-right: 50px;
-  margin-left: 8px;
+	color: #4b5563;
+	margin-right: 50px;
+	margin-left: 8px;
 }
 
 .progress-wrapper {
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
+	position: relative;
+	flex: 1;
+	display: flex;
+	align-items: center;
 }
 
 .progress-container {
-  flex: 1;
-  height: 8px;
-  background-color: #e5e7eb;
-  border-radius: 9999px;
-  position: relative;
-  margin-right: 8px;
+	flex: 1;
+	height: 8px;
+	background-color: #e5e7eb;
+	border-radius: 9999px;
+	position: relative;
+	margin-right: 8px;
 }
 
 .progress-bar {
-  position: relative;
-  left: 0;
-  top: 0;
-  height: 100%;
-  border-radius: 9999px;
-  transition: width 0.3s;
-  background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
-  display: flex;
-  align-items: center;
+	position: relative;
+	left: 0;
+	top: 0;
+	height: 100%;
+	border-radius: 9999px;
+	transition: width 0.3s;
+	background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+	display: flex;
+	align-items: center;
 }
 
-
 .handle {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 12px;
-  border-radius: 8px;
-  background-color: white;
-  border: none;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+	width: 6px;
+	height: 12px;
+	border-radius: 8px;
+	background-color: white;
+	border: none;
 }
 
 .handle.dragging {
-  transform: translateX(50%) scale(1.1);
+	transform: translateX(50%) scale(1.1);
 }
 
 .counter {
-  color: #4b5563;
-  max-width: 35px;
-  text-align: center;
-  display: inline-block;
-  padding: 4px 16px;
-  border-radius: 9999px;
-  border: 2px solid #fff;
-  margin-right: 15px;
-  background: linear-gradient(
-                  293deg,
-                  rgba(255, 255, 255, 0.28) 0.1%,
-                  rgba(255, 255, 255, 0.4) 100%
-  );
+	color: #4b5563;
+	max-width: 35px;
+	text-align: center;
+	display: inline-block;
+	padding: 4px 16px;
+	border-radius: 9999px;
+	border: 2px solid #fff;
+	margin-right: 15px;
+	background: linear-gradient(
+		293deg,
+		rgba(255, 255, 255, 0.28) 0.1%,
+		rgba(255, 255, 255, 0.4) 100%
+	);
 }
-
 
 .dropdown {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
-  z-index: 9999;
-
-
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background-color: white;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	border: 1px solid #e5e7eb;
+	z-index: 9999;
 }
 
-
 .goal-item {
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border-bottom: 1px solid #e5e7eb;
+	padding: 16px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	border-bottom: 1px solid #e5e7eb;
 }
 
 .goal-item:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }

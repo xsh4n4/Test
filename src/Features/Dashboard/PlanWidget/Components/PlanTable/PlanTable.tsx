@@ -39,9 +39,8 @@ export const PlanTable = ({
 			}`}
 			onAnimationEnd={handleTransitionEnd}
 		>
-			{section.ctaTitle && section.ctaDescription && (
-				<CtaBlock title={section.ctaTitle} desc={section.ctaDescription} />
-			)}
+			{section.cta && <CtaBlock cta={section.cta} />}
+
 			<div className={styles["PlanTable-list"]}>
 				{Object.keys(groupedData).map((groupKey) => (
 					<div key={groupKey}>

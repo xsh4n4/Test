@@ -8,21 +8,23 @@ import { ShoppingCartPlusIcon } from "@/assets/Icons/ShoppingCartPlus";
 export const UploadFiles = () => {
 	return (
 		<div className={styles["upload-body"]}>
-			<div className={styles["upload-info"]}>
-				<div className={styles["title"]}>Upload Files</div>
-				<div className={styles["description"]}>
-					Upload relevant medical and personal documents: Medical reports, Test
-					Results.
+			<div className={styles["info-wrapper"]}>
+				<div className={styles["upload-info"]}>
+					<div className={styles["title"]}>Upload Files</div>
+					<div className={styles["description"]}>
+						Upload relevant medical and personal documents: Medical reports,
+						Test Results.
+					</div>
 				</div>
-			</div>
-			<div className={styles["upload-items"]}>
-				{Object.keys(UploadFileTypes).map((fileType) => (
-					<UploadItem
-						{...(UploadFileTypes[
-							fileType as keyof typeof UploadFileTypes
-						] as UploadItemProps)}
-					/>
-				))}
+				<div className={styles["upload-items"]}>
+					{Object.keys(UploadFileTypes).map((fileType) => (
+						<UploadItem
+							{...(UploadFileTypes[
+								fileType as keyof typeof UploadFileTypes
+							] as UploadItemProps)}
+						/>
+					))}
+				</div>
 			</div>
 			<div className={styles["bottom-side"]}>
 				<div className={styles["content"]}>

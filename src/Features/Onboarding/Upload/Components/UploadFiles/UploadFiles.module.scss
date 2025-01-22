@@ -30,16 +30,6 @@
 	}
 }
 
-.upload-body:hover {
-	box-shadow:
-		var(--Elevations-sm-1-X, 0px) var(--Elevations-sm-1-Y, 8px)
-			var(--Elevations-sm-1-Blur, 16px) var(--Elevations-sm-1-Spread, 1px)
-			rgba(19, 22, 29, 0.15),
-		var(--Elevations-sm-2-X, 0px) var(--Elevations-sm-2-Y, 10px)
-			var(--Elevations-sm-2-Blur, 24px) var(--Elevations-sm-2-Spread, 2px)
-			rgba(19, 22, 29, 0.1);
-}
-
 .upload-info {
 	display: flex;
 	padding-bottom: var(--space-12-px-075-rem, 12px);
@@ -96,6 +86,9 @@
 		gap: 8px;
 		flex: 1 0 0;
 		padding: 12px;
+
+		background: url("@assets/General/UploadBottomBg.svg") no-repeat;
+		background-size: cover;
 	}
 
 	.content {
@@ -192,8 +185,40 @@
 	border-radius: var(---Buttons-and-Inputs-button-border-radius-primary, 999px);
 	border: var(--Border-Width-thick, 1px) solid
 		var(--p-color-icon-emphasis-hover, rgba(108, 170, 247, 1));
-	color: rgba(132, 184, 249, 1);
+	color: var(--p-color-text-magic, rgba(108, 170, 247, 1));
+
+	font-family: var(--Font-family-body, Inter);
+	font-size: var(--Font-size-XS, 12px);
+	font-style: normal;
+	font-weight: 600;
+	line-height: var(--Font-line-height-S, 16px);
 	transition:
 		background 0.3s ease,
 		transform 0.3s ease;
+
+	&:hover {
+		border-radius: var(
+			---Buttons-and-Inputs-button-border-radius-primary,
+			999px
+		);
+		border: var(--Border-Width-thick, 1px) solid
+			var(--p-color-border-focus, rgba(59, 141, 245, 1));
+		background: var(
+			--p-color-bg-fill-magic-secondary-hover,
+			rgba(59, 141, 245, 0.24)
+		);
+	}
+
+	&:active {
+		border-radius: var(
+			---Buttons-and-Inputs-button-border-radius-primary,
+			999px
+		);
+		border: var(--Border-Width-thick, 1px) solid
+			var(--p-color-icon-emphasis-hover, rgba(108, 170, 247, 1));
+		background: var(
+			--p-color-bg-fill-magic-secondary-active,
+			rgba(59, 141, 245, 0.24)
+		);
+	}
 }

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./UploadItem.module.scss";
 import { UploadFile } from "../UploadFile/UploadFile";
 import StepsTail from "@assets/General/StepsTail.svg?react";
@@ -8,6 +8,7 @@ export interface UploadItemProps {
 	fileTypes: string[];
 	extra?: string;
 	fileSize: number;
+	showSwitch?: boolean;
 }
 
 export const UploadItem: React.FC<UploadItemProps> = ({
@@ -15,8 +16,10 @@ export const UploadItem: React.FC<UploadItemProps> = ({
 	fileTypes,
 	extra,
 	fileSize,
+	showSwitch,
 }) => {
 	const [uploadedFiles, setUploadedFiles] = React.useState<File[]>([]);
+	const [selectedSwitch, setSelectedSwitch] = useState(0);
 	const ref = useRef<HTMLInputElement>(null);
 
 	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,12 +54,30 @@ export const UploadItem: React.FC<UploadItemProps> = ({
 						<span className={styles["file-size"]}>(max. {fileSize}mb)</span>
 					</div>
 				</div>
-				<button
-					className={styles["browse-files-btn"]}
-					onClick={handleBrowseClick}
-				>
-					Upload
-				</button>
+				<div className={styles["actions"]}>
+					{showSwitch && (
+						<div className={styles["switch-container"]}>
+							<div
+								className={`${styles["switch-item"]} ${selectedSwitch === 0 ? styles["selected-switch-item"] : ""}`}
+								onClick={() => setSelectedSwitch(0)}
+							>
+								<span>16S .fastQ</span>
+							</div>
+							<div
+								className={`${styles["switch-item"]} ${selectedSwitch === 1 ? styles["selected-switch-item"] : ""}`}
+								onClick={() => setSelectedSwitch(1)}
+							>
+								<span>shotgun .fastQ</span>
+							</div>
+						</div>
+					)}
+					<button
+						className={styles["browse-files-btn"]}
+						onClick={handleBrowseClick}
+					>
+						Upload
+					</button>
+				</div>
 				<input
 					type='file'
 					ref={ref}

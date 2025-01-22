@@ -24,6 +24,7 @@ export const UploadFileTypes = {
 		title: "Microbiome",
 		fileTypes: [".fastq"],
 		fileSize: 25,
+		showSwitch: true,
 	},
 	Blood: {
 		title: "Blood Report",

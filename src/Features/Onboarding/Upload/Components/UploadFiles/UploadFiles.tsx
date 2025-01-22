@@ -1,9 +1,9 @@
 import styles from "./UploadFiles.module.scss";
-import UploadGroupIcon from "@assets/General/UploadGroup.svg?react";
-import ShoppingCartPlusIcon from "@assets/General/ShoppingCartPlus.svg?react";
+import FrameIcon from "@assets/General/Frame2.svg?react";
 import LabcorpIcon from "@assets/General/Labcorp.svg?react";
 import { UploadItem, UploadItemProps } from "../UploadItem/UploadItem";
 import { UploadFileTypes } from "@/App/Consts";
+import { ShoppingCartPlusIcon } from "@/assets/Icons/ShoppingCartPlus";
 
 export const UploadFiles = () => {
 	return (
@@ -27,7 +27,7 @@ export const UploadFiles = () => {
 			<div className={styles["bottom-side"]}>
 				<div className={styles["content"]}>
 					<div className={styles["icon-wrapper"]}>
-						<UploadGroupIcon />
+						<FrameIcon />
 					</div>
 					<div className={styles["info"]}>
 						<div>
@@ -38,7 +38,7 @@ export const UploadFiles = () => {
 							</div>
 						</div>
 						<button className={styles["order-test-btn"]}>
-							Order Tests <ShoppingCartPlusIcon />
+							Order Tests <ShoppingCartPlusIcon fill='rgba(108, 170, 247, 1)' />
 						</button>
 					</div>
 				</div>

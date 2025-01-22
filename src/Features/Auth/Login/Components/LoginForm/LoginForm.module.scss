@@ -142,10 +142,7 @@
 				---Buttons-and-Inputs-button-border-radius-primary,
 				999px
 			);
-			background: var(
-				--p-color-bg-fill-magic-secondary-hover,
-				rgba(0, 89, 219, 1)
-			);
+			background: #3b8df5;
 			color: var(--p-color-text-magic-on-bg-fill, rgba(255, 255, 255, 1));
 
 			font-family: var(--Font-family-body, Inter);
@@ -153,7 +150,20 @@
 			font-style: normal;
 			font-weight: 600;
 			line-height: var(--Font-line-height-M, 20px);
-			animation: Dissolve ease-out 0.2;
+		}
+
+		.signin:hover {
+			background: var(
+				--p-color-bg-fill-magic-secondary-hover,
+				rgba(0, 89, 219, 1)
+			);
+		}
+
+		.signin:active {
+			background: var(
+				--p-color-bg-fill-magic-secondary-active,
+				rgba(0, 65, 196, 1)
+			);
 		}
 
 		.signup {

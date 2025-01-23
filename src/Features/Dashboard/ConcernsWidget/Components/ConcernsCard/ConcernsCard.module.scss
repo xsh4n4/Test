@@ -30,6 +30,22 @@
 			}
 		}
 	}
+
+	&-row {
+		flex-direction: row-reverse;
+		align-items: flex-start;
+		gap: 4px;
+		justify-content: space-between;
+		background: rgba(228, 235, 249, 1);
+
+		.ConcernsCard-icon-container {
+			display: none;
+		}
+
+		.DetailsCard-question-container {
+			display: none;
+		}
+	}
 }
 
 .ConcernsCard-head {

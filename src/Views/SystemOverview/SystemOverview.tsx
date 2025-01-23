@@ -4,15 +4,22 @@ import styles from "./SystemOverview.module.scss";
 import { AgeWidget } from "@/Features/Dashboard/AgeWidget/AgeWidget";
 import MainScene from "@/Features/DigitalTwin/Components/Three/MainScene";
 import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
-// import CtaModal from "@/Features/Dashboard/CtaModal/CtaModal";
-import { ConcernsWidget } from "@/Features/Dashboard/ConcernsWidget/ConcernsWidget";
 import { Link } from "react-router-dom";
 import { ReasonsTable } from "@/Features/Dashboard/ConcernsWidget/Components/ReasonsTable/ReasonsTable";
 import { detailedSystemConcerns } from "@/Features/Dashboard/ConcernsWidget/helpers/detailedSystemConcerns";
 import { PlanWidget } from "@/Features/Dashboard/PlanWidget/PlanWidget";
+import { ConcernsCard } from "@/Features/Dashboard/ConcernsWidget/Components/ConcernsCard/ConcernsCard";
+import { useState } from "react";
+import { concernsMockData } from "@/Features/Dashboard/ConcernsWidget/helpers/concernsMockData";
+import Chevron from "@assets/ConcernWidget/Chevron.svg?react";
 
 const SystemOverview = () => {
 	const { systemName } = useParams();
+	const [isShowMore, setIsShowMore] = useState(false);
+
+	const concernsToShow = isShowMore
+		? concernsMockData
+		: concernsMockData.slice(0, 2);
 
 	return (
 		<div className={styles["SystemOverview-layout"]}>
@@ -40,20 +47,47 @@ const SystemOverview = () => {
 						</div>
 						<div className={styles["SystemOverview-widget-wrapper"]}>
 							<div className={styles["SystemOverview-widget-head"]}>
-								<h4 className={styles["SystemOverview-widget-title"]}>
-									Key areas of concern
-								</h4>
+								<div className={styles["SystemOverview-widget-title-wrapper"]}>
+									<h4 className={styles["SystemOverview-widget-title"]}>
+										Key areas of concern
+									</h4>
+									<div>
+										<div
+											className={styles["SystemOverview-more"]}
+											onClick={() => setIsShowMore((prev) => !prev)}
+										>
+											<p className={styles["SystemOverview-more-text"]}>
+												{isShowMore ? "Show Less" : "Show all"}
+											</p>
+											<div
+												className={styles["SystemOverview-chevron-container"]}
+											>
+												<Chevron
+													className={`${styles["SystemOverview-chevron"]} ${
+														isShowMore ? styles["rotate-chevron"] : ""
+													}`}
+												/>
+											</div>
+										</div>
+									</div>
+								</div>
 								<p className={styles["SystemOverview-widget-desc"]}>
 									Based on the provided data and individual disease
 									recommendations, the patient is at risk for several
 									cardiovascular conditions, including:
 								</p>
 							</div>
-							<ConcernsWidget category={"total"} />
+							<div className={styles["SystemOverview-concern-cards"]}>
+								{concernsToShow.map((concern) => (
+									<ConcernsCard key={concern.id} concern={concern} type='row' />
+								))}
+							</div>
 						</div>
 						<div className={styles["SystemOverview-widget-wrapper"]}>
 							<div className={styles["SystemOverview-widget-head"]}>
-								<h4 className={styles["SystemOverview-widget-title"]}>
+								<h4
+									className={`${styles["SystemOverview-widget-title"]} ${styles["padding-top"]}`}
+								>
 									How we known this
 								</h4>
 								<p className={styles["SystemOverview-widget-desc"]}>
@@ -69,7 +103,9 @@ const SystemOverview = () => {
 						</div>
 						<div className={styles["SystemOverview-widget-wrapper"]}>
 							<div className={styles["SystemOverview-widget-head"]}>
-								<h4 className={styles["SystemOverview-widget-title"]}>
+								<h4
+									className={`${styles["SystemOverview-widget-title"]} ${styles["padding-top"]}`}
+								>
 									What you can do
 								</h4>
 								<p className={styles["SystemOverview-widget-desc"]}>
@@ -96,7 +132,6 @@ const SystemOverview = () => {
 					</div>
 				</div>
 			</CameraProvider>
-			{/* <CtaModal /> */}
 		</div>
 	);
 };

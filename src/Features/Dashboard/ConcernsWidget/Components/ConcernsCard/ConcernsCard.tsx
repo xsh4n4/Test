@@ -6,9 +6,13 @@ import Question from "@assets/ConcernsWidget/Question.svg?react";
 
 interface ConcernsCardProps {
 	concern: Concern;
+	type?: string;
 }
 
-export const ConcernsCard: React.FC<ConcernsCardProps> = ({ concern }) => {
+export const ConcernsCard: React.FC<ConcernsCardProps> = ({
+	concern,
+	type,
+}) => {
 	const dispatch = useDispatch();
 
 	const handleClick = () => {
@@ -20,7 +24,7 @@ export const ConcernsCard: React.FC<ConcernsCardProps> = ({ concern }) => {
 		<div
 			className={`${styles["ConcernsCard-card"]} ${
 				concern.link && styles["ConcernsCard-card-link"]
-			}`}
+			} ${type === "row" && styles["ConcernsCard-card-row"]}`}
 			onClick={handleClick}
 		>
 			<div className={styles["ConcernsCard-head"]}>

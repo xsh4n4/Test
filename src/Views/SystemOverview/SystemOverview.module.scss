@@ -162,6 +162,13 @@
 	align-self: stretch;
 }
 
+.SystemOverview-widget-title-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .SystemOverview-widget-title {
 	color: rgba(33, 38, 46, 1);
 	font-size: 18px;
@@ -176,4 +183,49 @@
 	font-weight: 400;
 	line-height: 20px;
 	margin: 0;
+}
+
+.SystemOverview-concern-cards {
+	display: grid;
+	gap: 8px;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.SystemOverview-more {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	align-items: center;
+	cursor: pointer;
+}
+
+.SystemOverview-more-text {
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+	color: #3b8df5;
+	margin: 0 auto;
+}
+
+.SystemOverview-chevron-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2px 5px;
+}
+
+.SystemOverview-chevron {
+	transition: transform 0.3s ease;
+
+	path {
+		fill: rgba(59, 141, 245, 1);
+	}
+}
+
+.rotate-chevron {
+	transform: rotate(180deg);
+}
+
+.padding-top {
+	padding-top: 16px;
 }

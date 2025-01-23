@@ -1,12 +1,29 @@
+import { useEffect, useState } from "react";
 import { CircleProgressBar } from "./Components/ProgressBar/ProgressBar";
 import { UploadProcesser } from "./Components/UploadProcesser/UploadProcesser";
 import styles from "./UploadProcess.module.scss";
 
 export const UploadProcess = () => {
+	const [progress, setProgress] = useState(0);
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setProgress((prev) => {
+				if (prev >= 100) {
+					clearInterval(interval);
+					return 100;
+				}
+				return prev + 1;
+			});
+		}, 100);
+
+		return () => clearInterval(interval);
+	}, []);
+
 	return (
 		<div className={styles["upload-process-container"]}>
 			<div className={styles["left-side"]}>
-				<CircleProgressBar progress={52} />
+				<CircleProgressBar progress={progress} />
 				<div className={styles["upload-container"]}>
 					<div className={styles["upload-info"]}>
 						<div className={styles["title"]}>

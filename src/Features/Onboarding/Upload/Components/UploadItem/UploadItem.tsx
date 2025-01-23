@@ -97,7 +97,6 @@ export const UploadItem: React.FC<UploadItemProps> = ({
 					strokeWidth: "1px",
 					stroke: "#BFC3C1",
 					opacity: "0.6",
-					paddingTop: "16px",
 				}}
 			/>
 		</div>

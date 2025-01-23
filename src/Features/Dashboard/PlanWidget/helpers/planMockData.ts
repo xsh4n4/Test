@@ -12,14 +12,27 @@ import gene from "@assets/PlanWidget/FollowUpCare/gene.svg";
 import microscope from "@assets/PlanWidget/FollowUpCare/microscope.svg";
 import scale from "@assets/PlanWidget/FollowUpCare/scale.svg";
 
-import bottle from "@assets/PlanWidget/Bottle.svg";
+import heart from "@assets/ConcernsWidget/Heart.svg";
+import diab from "@assets/ConcernsWidget/Diab.svg";
 
 export type PlanSection = {
 	title: string;
-	ctaTitle?: string;
-	ctaDescription?: string;
+	cta?: Supplements;
 	type?: string;
 	data: PlanItem[];
+};
+
+export type Supplements = {
+	title: string;
+	description: string;
+	types: {
+		name: string;
+		icon: string;
+		supplements: {
+			amount: number;
+			supplement: string;
+		}[];
+	}[];
 };
 
 export type PlanItem = {
@@ -36,29 +49,8 @@ export type PlanItem = {
 export const planMockData: PlanSection[] = [
 	{
 		title: "Action Plan",
-		data: [
-			{
-				name: "Follow-up actions to maintain health",
-				description: "Help preventing your high risk of Diabetes +3",
-				count: 7,
-				link: "Follow-up Care",
-				icon: microscope,
-			},
-			{
-				name: "Must-have supplements to support your wellness",
-				description: "Support you in  high risk of Diabetes +3",
-				count: 5,
-				link: "Supplements",
-				icon: bottle,
-			},
-			{
-				name: "Lifestyle tips to boost your wellbeing",
-				description: "Helps preventing your high risk of Diabetes +3",
-				count: 8,
-				link: "Lifestyle",
-				icon: train,
-			},
-		],
+		type: "aggregated",
+		data: [],
 	},
 	{
 		title: "Follow-up Care",
@@ -102,9 +94,79 @@ export const planMockData: PlanSection[] = [
 	},
 	{
 		title: "Supplements",
-		ctaTitle: "Create My Personal Formula",
-		ctaDescription:
-			"Get a custom-made supplement tailored to your unique health needs and goals.",
+		cta: {
+			title: "Your Personal Supplements Mix",
+			description:
+				"This combination helps reduce inflammation, regulate blood pressure, and improve heart function, aiding in the prevention of diseases such as hypertension, atrial fibrillation, and coronary artery disease.",
+			types: [
+				{
+					name: "Cardiovascular",
+					icon: heart,
+					supplements: [
+						{
+							amount: 4,
+							supplement: "Vitamins",
+						},
+						{
+							amount: 3,
+							supplement: "Minerals",
+						},
+						{
+							amount: 1,
+							supplement: "amino acid",
+						},
+						{
+							amount: 2,
+							supplement: "antixidants",
+						},
+					],
+				},
+				{
+					name: "Digestive",
+					icon: diab,
+					supplements: [
+						{
+							amount: 3,
+							supplement: "Vitamins",
+						},
+						{
+							amount: 3,
+							supplement: "amino acid",
+						},
+						{
+							amount: 3,
+							supplement: "Minerals",
+						},
+						{
+							amount: 1,
+							supplement: "antixidants",
+						},
+					],
+				},
+				{
+					name: "My personal formula",
+					icon: heart,
+					supplements: [
+						{
+							amount: 7,
+							supplement: "Vitamins",
+						},
+						{
+							amount: 6,
+							supplement: "Minerals",
+						},
+						{
+							amount: 4,
+							supplement: "amino acid",
+						},
+						{
+							amount: 3,
+							supplement: "antixidants",
+						},
+					],
+				},
+			],
+		},
 		type: "grouped",
 		data: [
 			{

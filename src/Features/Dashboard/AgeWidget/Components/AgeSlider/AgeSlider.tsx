@@ -55,7 +55,14 @@ export const AgeSlider: React.FC<AgeSliderProps> = ({ ageData }) => {
 			</div>
 			<div className={styles["AgeSlider-axis"]}>
 				{axisLabels.map((label, index) => (
-					<div key={index} className={`${styles["AgeSlider-axis-label"]}`}>
+					<div
+						key={index}
+						className={`${styles["AgeSlider-axis-label"]} ${
+							index === Math.floor(range / 2)
+								? styles["AgeSlider-axis-label-median"]
+								: ""
+						}`}
+					>
 						{label}
 					</div>
 				))}

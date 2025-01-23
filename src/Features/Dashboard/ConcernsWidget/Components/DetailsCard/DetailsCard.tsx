@@ -2,6 +2,7 @@ import React from "react";
 import { Detail } from "../../helpers/detailedSystemConcerns";
 import styles from "./DetailsCard.module.scss";
 import Check from "@assets/ConcernsWidget/Check.svg?react";
+import Question from "@assets/ConcernsWidget/Question.svg?react";
 
 interface DetailsCardProps {
 	detail: Detail;
@@ -66,6 +67,9 @@ export const DetailsCard: React.FC<DetailsCardProps> = ({
 						)}
 					</>
 				</div>
+			</div>
+			<div className={styles["DetailsCard-question-container"]}>
+				<Question className={styles["DetailsCard-question"]} />
 			</div>
 		</div>
 	);

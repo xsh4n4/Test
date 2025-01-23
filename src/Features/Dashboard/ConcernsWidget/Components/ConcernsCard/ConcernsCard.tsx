@@ -2,6 +2,7 @@ import styles from "./ConcernsCard.module.scss";
 import { Concern } from "../../helpers/concernsMockData";
 import { useDispatch } from "react-redux";
 import { setCategory } from "@/App/Redux/categorySlice";
+import Question from "@assets/ConcernsWidget/Question.svg?react";
 
 interface ConcernsCardProps {
 	concern: Concern;
@@ -61,6 +62,9 @@ export const ConcernsCard: React.FC<ConcernsCardProps> = ({ concern }) => {
 						)}
 					</>
 				</div>
+			</div>
+			<div className={styles["DetailsCard-question-container"]}>
+				<Question className={styles["DetailsCard-question"]} />
 			</div>
 		</div>
 	);

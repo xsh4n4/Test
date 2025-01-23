@@ -12,6 +12,7 @@ import { ConcernsCard } from "@/Features/Dashboard/ConcernsWidget/Components/Con
 import { useState } from "react";
 import { concernsMockData } from "@/Features/Dashboard/ConcernsWidget/helpers/concernsMockData";
 import Chevron from "@assets/ConcernWidget/Chevron.svg?react";
+import ArrowLeft from "@assets/General/ArrowLeft.svg?react";
 
 const SystemOverview = () => {
 	const { systemName } = useParams();
@@ -28,7 +29,10 @@ const SystemOverview = () => {
 				<div className={styles["SystemOverview-content"]}>
 					<div className={styles["SystemOverview-stats"]}>
 						<div className={styles["SystemOverview-head"]}>
-							<Link to='/dashboard'>Back Home</Link>
+							<Link to='/dashboard' className={styles["SystemOverview-back"]}>
+								<ArrowLeft />
+								Back Home
+							</Link>
 							<h1 className={styles["SystemOverview-title"]}>{systemName}</h1>
 						</div>
 						<div className={styles["SystemOverview-widget-wrapper"]}>

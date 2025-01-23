@@ -16,11 +16,11 @@ const CameraController = () => {
 	const lastTargetZoomRef = useRef(cameraState.targetZoom);
 	const zoomStartTimeRef = useRef(Date.now());
 	const MAX_ROTATION = Math.PI / 4;
-	const POSITION_LERP_FACTOR = 0.015;
-	const Y_LERP_FACTOR = 0.02;
+	const POSITION_LERP_FACTOR = 0.025;
+	const Y_LERP_FACTOR = 0.03;
 
 	// Zoom control constants
-	const ZOOM_SPEED = 0.025;
+	const ZOOM_SPEED = 0.035;
 	const ZOOM_THRESHOLD = 0.005;
 
 	useEffect(() => {
@@ -104,7 +104,6 @@ const CameraController = () => {
 			currentZoomRef.current = cameraState.targetZoom;
 		}
 
-		// Update camera zoom
 		camera.zoom = currentZoomRef.current;
 		camera.updateProjectionMatrix();
 	});

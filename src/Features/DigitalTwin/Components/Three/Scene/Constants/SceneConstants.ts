@@ -12,3 +12,13 @@ export const CAMERA_SETTINGS = {
 	DEFAULT_POSITION: [0, 0, 800] as [number, number, number],
 	DEFAULT_ZOOM: 5,
 } as const;
+
+export const TRANSITION_CAMERA_SETTINGS = {
+	POSITION: [0, 0, 2000] as [number, number, number],
+	ZOOM: 0.8,
+} as const;
+
+export const INTERMEDIATE_CAMERA_SETTINGS = {
+	POSITION: [0, 0, 1800] as [number, number, number],
+	ZOOM: 0.9,
+} as const;

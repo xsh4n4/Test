@@ -122,7 +122,7 @@ const SystemOverview = () => {
 									overall well-being.
 								</p>
 							</div>
-							<PlanWidget />
+							<PlanWidget backgroundColor='blue' />
 						</div>
 					</div>
 					<div className={styles["SystemOverview-dt-container"]}>

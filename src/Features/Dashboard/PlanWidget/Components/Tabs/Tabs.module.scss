@@ -4,6 +4,30 @@
 	display: flex;
 	flex-direction: row;
 	background-color: #e4ebf9;
+
+	&-blue {
+		background-color: #ffffff;
+
+		.active {
+			svg {
+				path {
+					fill: rgb(228, 235, 248);
+				}
+			}
+
+			.Tabs-tab {
+				background: rgb(228, 235, 248);
+			}
+		}
+
+		.Tabs-tab-container {
+			&:last-child {
+				.Tabs-tab::after {
+					background-color: #ffffff;
+				}
+			}
+		}
+	}
 }
 
 .Tabs-tab-container {

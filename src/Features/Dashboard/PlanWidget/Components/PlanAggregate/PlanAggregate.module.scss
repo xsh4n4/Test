@@ -42,6 +42,28 @@
 			rgba(255, 255, 255, 0) 100%
 		);
 	}
+
+	&-blue {
+		&::after {
+			background: linear-gradient(
+				0deg,
+				rgba(228, 235, 248, 0.7) 0%,
+				rgba(228, 235, 248, 0) 100%
+			);
+		}
+
+		.PlanAggregate-row {
+			background: linear-gradient(
+				293deg,
+				rgba(255, 255, 255, 0.42) 0.1%,
+				rgba(255, 255, 255, 0.6) 100%
+			);
+
+			&:hover {
+				background: #edf1f9;
+			}
+		}
+	}
 }
 
 .PlanAggregate-note {
@@ -284,6 +306,7 @@
 	padding: 4px 12px 4px 4px;
 	align-items: center;
 	gap: 12px;
+	width: 100%;
 	border-radius: 8px;
 	border: 1px solid #e4ebf9;
 	background: linear-gradient(90deg, #21262e 0%, #363c47 100%);

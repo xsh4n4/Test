@@ -9,6 +9,11 @@ export interface UploadItemProps {
 	extra?: string;
 	fileSize: number;
 	showSwitch?: boolean;
+	uploadedFiles: { file: File; isUploading: boolean; progress: number }[];
+	onFileChange: (files: FileList) => void;
+	onUploadStart: (file: File) => void;
+	onUploadComplete: (file: File) => void;
+	onFileRemove: (file: File) => void;
 }
 
 export const UploadItem: React.FC<UploadItemProps> = ({
@@ -17,26 +22,17 @@ export const UploadItem: React.FC<UploadItemProps> = ({
 	extra,
 	fileSize,
 	showSwitch,
+	uploadedFiles,
+	onFileChange,
+	onUploadStart,
+	onUploadComplete,
+	onFileRemove,
 }) => {
-	const [uploadedFiles, setUploadedFiles] = React.useState<File[]>([]);
 	const [selectedSwitch, setSelectedSwitch] = useState(0);
 	const ref = useRef<HTMLInputElement>(null);
 
-	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const files = e.target.files;
-		if (files) {
-			setUploadedFiles((prevFiles) => [...prevFiles, ...Array.from(files)]);
-		}
-	};
-
 	const handleBrowseClick = () => {
 		ref.current!.click();
-	};
-
-	const handleCloseFileUpload = (file: File) => {
-		setUploadedFiles((prevFiles) =>
-			prevFiles.filter((prevFile) => prevFile !== file),
-		);
 	};
 
 	return (
@@ -83,12 +79,22 @@ export const UploadItem: React.FC<UploadItemProps> = ({
 					ref={ref}
 					multiple
 					accept={fileTypes.join(",")}
-					onChange={handleFileChange}
+					onChange={(e) => {
+						onFileChange(e.target.files!);
+					}}
 					style={{ display: "none" }}
 				/>
 			</div>
-			{uploadedFiles.map((file) => (
-				<UploadFile file={file} onClose={handleCloseFileUpload} />
+			{uploadedFiles.map((item) => (
+				<UploadFile
+					key={item.file.name}
+					file={item.file}
+					progress={item.progress}
+					isUploading={item.isUploading}
+					onClose={onFileRemove}
+					onUploadStart={onUploadStart}
+					onUploadComplete={onUploadComplete}
+				/>
 			))}
 
 			<StepsTail

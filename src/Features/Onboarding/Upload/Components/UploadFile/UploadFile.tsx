@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { CloseIcon } from "@/assets/Icons/Close";
 import CheckMarkIcon from "@assets/General/CheckMark.svg?react";
 import styles from "./UploadFile.module.scss";
@@ -6,33 +6,26 @@ import { SettingIcon } from "@/assets/Icons/Setting";
 
 interface UploadFileProps {
 	file: File;
+	progress: number;
+	isUploading: boolean;
 	onClose: (file: File) => void;
+	onUploadStart: (file: File) => void;
+	onUploadComplete: (file: File) => void;
 }
 
-export const UploadFile: React.FC<UploadFileProps> = ({ file, onClose }) => {
-	const [isUploading, setIsUploading] = useState(false);
-	const [progress, setProgress] = useState(0);
-
-	const handleFileUpload = () => {
-		setIsUploading(true);
-		let uploaded = 0;
-
-		const interval = setInterval(() => {
-			uploaded += 10;
-			setProgress(Math.min(uploaded, 100));
-
-			if (uploaded >= 100) {
-				clearInterval(interval);
-				setIsUploading(false);
-			}
-		}, 500);
-	};
-
+export const UploadFile: React.FC<UploadFileProps> = ({
+	file,
+	isUploading,
+	progress,
+	onClose,
+	onUploadStart,
+	onUploadComplete,
+}) => {
 	useEffect(() => {
-		if (file) {
-			handleFileUpload();
+		if (!isUploading && progress === 0) {
+			onUploadStart(file);
 		}
-	}, [file]);
+	}, [isUploading, progress, file, onUploadStart, onUploadComplete]);
 
 	return (
 		<div className={styles["upload-file-container"]}>

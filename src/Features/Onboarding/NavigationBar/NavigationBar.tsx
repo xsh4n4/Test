@@ -5,12 +5,14 @@ import LeftIcon from "@assets/General/Left.svg?react";
 import { paths } from "@/App/Routes/Paths";
 
 interface NavigationBarProps {
-	processed?: boolean;
+	disabled?: boolean;
+	done: boolean;
 	setIsOpenedConfirmModal: (open: boolean) => void;
 }
 
 export const NavigationBar: React.FC<NavigationBarProps> = ({
-	processed,
+	disabled,
+	done,
 	setIsOpenedConfirmModal,
 }) => {
 	const navigate = useNavigate();
@@ -26,19 +28,20 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
 				<LeftIcon /> Back
 			</button>
 			<button
-				className={styles["submit"]}
+				disabled={disabled}
+				className={`${styles["submit"]} ${disabled ? styles["disabled-submit"] : ""}`}
 				onClick={() => {
 					if (location.pathname === paths.config.connectApp) {
 						navigate(paths.config.importOrUpload);
 					}
-					if (!processed) {
+					if (!done) {
 						setIsOpenedConfirmModal(true);
 					} else {
 						navigate(paths.dashboard.root);
 					}
 				}}
 			>
-				{processed ? "Proceed to Digital twin" : "Submit My Health Data"}{" "}
+				{done ? "Proceed to Digital twin" : "Submit My Health Data"}{" "}
 				<ArrowRightIcon />
 			</button>
 		</div>

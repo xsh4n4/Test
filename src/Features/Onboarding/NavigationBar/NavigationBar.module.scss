@@ -40,4 +40,20 @@
 			border-color: white;
 		}
 	}
+
+	.disabled-submit {
+		border-radius: var(
+			---Buttons-and-Inputs-button-border-radius-primary,
+			999px
+		);
+		background: var(--p-color-bg-fill-transparent, rgba(108, 117, 132, 0.12));
+		color: var(--p-color-text-disabled, rgba(143, 149, 160, 1));
+
+		/* body/md/semibold */
+		font-family: var(--Font-family-body, Inter);
+		font-size: var(--Font-size-S, 14px);
+		font-style: normal;
+		font-weight: 600;
+		line-height: var(--Font-line-height-M, 20px); /* 142.857% */
+	}
 }

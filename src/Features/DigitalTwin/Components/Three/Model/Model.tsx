@@ -3,6 +3,7 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
+import { ThreeEvent } from "@react-three/fiber";
 import { ModelProps } from "./Types/modelTypes";
 import { useCardioTextures, useBodyTextures } from "./Hooks/useModelTextures";
 import {
@@ -16,6 +17,14 @@ interface ExtendedModelProps extends ModelProps {
 	isNew?: boolean;
 	onTransitionComplete?: () => void;
 	isHidden?: boolean;
+	startFadeIn?: boolean;
+	onModelChange?: (
+		type: "body" | "cardio",
+		cameraConfig: {
+			position: [number, number, number];
+			zoom: number;
+		},
+	) => void;
 }
 
 function Model({
@@ -27,6 +36,8 @@ function Model({
 	isNew = false,
 	onTransitionComplete,
 	isHidden = false,
+	startFadeIn = true,
+	onModelChange,
 }: ExtendedModelProps) {
 	const bodyModel = useLoader(
 		OBJLoader,
@@ -45,49 +56,70 @@ function Model({
 
 	const [opacity, setOpacity] = useState(isNew ? 0 : 1);
 	const [shouldRender, setShouldRender] = useState(!isNew);
+	const [hasFadedOut, setHasFadedOut] = useState(false);
 	const { currentPosition, currentScale, updateTransforms } =
 		useModelTransforms(position, scale);
 
+	const handleChestClick = (event: ThreeEvent<MouseEvent>) => {
+		event.stopPropagation();
+		if (modelType === "body") {
+			const cardioConfig: {
+				position: [number, number, number];
+				zoom: number;
+			} = {
+				position: [0, 20, 200] as [number, number, number],
+				zoom: 15,
+			};
+			onModelChange?.("cardio", cardioConfig);
+		}
+	};
+
 	useFrame(() => {
-		if (isHidden) {
+		if (isHidden && modelType !== "cardio") {
 			setOpacity(0);
 			return;
 		}
 
 		updateTransforms(position, scale);
 
-		if (isFading) {
-			const newOpacity = Math.max(0, opacity - 0.06);
+		if (isFading && !hasFadedOut) {
+			const fadeSpeed = 0.15;
+			const newOpacity = Math.max(0, opacity - fadeSpeed);
 			setOpacity(newOpacity);
 
 			if (newOpacity === 0) {
+				setHasFadedOut(true);
 				setShouldRender(false);
 				if (onTransitionComplete) {
 					onTransitionComplete();
 				}
 			}
-		} else if (isNew) {
+		} else if (isNew && startFadeIn && (!isFading || hasFadedOut)) {
 			if (shouldRender) {
-				const newOpacity = Math.min(1, opacity + 0.06);
+				const fadeSpeed = 0.15;
+				const targetOpacity = 1;
+				const newOpacity = Math.min(targetOpacity, opacity + fadeSpeed);
 				setOpacity(newOpacity);
 			}
 		}
 	});
 
 	useEffect(() => {
-		if (isNew && !shouldRender) {
-			const timeout = setTimeout(() => {
-				setShouldRender(true);
-			}, 500);
-			return () => clearTimeout(timeout);
+		if (isNew && !shouldRender && startFadeIn) {
+			setShouldRender(true);
 		}
-	}, [isNew, shouldRender]);
+	}, [isNew, shouldRender, startFadeIn]);
 
 	useEffect(() => {
 		if (!currentModel) return;
 
 		currentModel.traverse((child) => {
 			if (child instanceof THREE.Mesh) {
+				if (modelType === "body" && child.name === "UV_LP.002") {
+					child.raycast = new THREE.Mesh().raycast;
+					child.userData.clickable = true;
+				}
+
 				const material =
 					modelType === "cardio"
 						? createCardioMaterial(child.name, cardioTextures)
@@ -96,10 +128,19 @@ function Model({
 				child.material = material;
 				if (child.material) {
 					child.material.transparent = true;
-					child.material.opacity = isHidden ? 0 : opacity;
-					child.material.depthWrite = opacity > 0.5;
+
+					if (modelType === "body" && !isFading && !isNew) {
+						child.material.opacity = 1;
+					} else if (modelType === "cardio") {
+						child.material.opacity = Math.max(0.01, isHidden ? 0 : opacity);
+					} else {
+						child.material.opacity = isHidden ? 0 : opacity;
+					}
+
+					child.material.depthWrite = opacity > 0.2;
 					child.material.blending = THREE.NormalBlending;
-					child.material.visible = !isHidden && shouldRender;
+					child.material.visible =
+						(!isHidden || modelType === "cardio") && shouldRender;
 				}
 			}
 		});
@@ -111,12 +152,26 @@ function Model({
 		opacity,
 		isHidden,
 		shouldRender,
+		isFading,
+		isNew,
 	]);
 
-	if (!shouldRender || (isFading && opacity <= 0) || isHidden) return null;
+	if (
+		(!shouldRender || (isFading && opacity <= 0) || isHidden) &&
+		modelType !== "cardio"
+	)
+		return null;
 
 	return (
-		<group ref={modelRef}>
+		<group
+			ref={modelRef}
+			onClick={(event) => {
+				const clickedMesh = event.object;
+				if (clickedMesh.userData.clickable) {
+					handleChestClick(event);
+				}
+			}}
+		>
 			<Clone
 				object={currentModel}
 				position={currentPosition}

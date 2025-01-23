@@ -1,4 +1,3 @@
-// Hooks/useModelTransitions.ts
 import { useState, useRef, useEffect } from "react";
 
 export function useModelTransitions(initialOpacity = 1) {

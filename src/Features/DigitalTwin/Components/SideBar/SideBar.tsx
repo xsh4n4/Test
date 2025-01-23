@@ -18,7 +18,7 @@ import IconButton from "./Components/IconButton/IconButton";
 import Dropdown from "../../Dropdown/Dropdown";
 import { useDispatch } from "react-redux";
 import { setCategory } from "@/App/Redux/categorySlice";
-import React from "react";
+import React, { useEffect } from "react";
 
 type DropdownValue = "total" | "cardio";
 
@@ -30,14 +30,23 @@ interface SideBarProps {
 			zoom: number;
 		},
 	) => void;
+	modelType?: "body" | "cardio";
 }
 
-const SideBar = ({ onModelChange }: SideBarProps) => {
+const SideBar = ({ onModelChange, modelType = "body" }: SideBarProps) => {
 	const dispatch = useDispatch();
 	const [activeButton, setActiveButton] =
 		React.useState<string>("ClinicalNotes");
 	const [dropdownValue, setDropdownValue] =
 		React.useState<DropdownValue>("total");
+
+	useEffect(() => {
+		if (modelType === "cardio") {
+			setActiveButton("CardioLoad");
+			setDropdownValue("cardio");
+			handleCategoryChange("cardiovascular");
+		}
+	}, [modelType]);
 
 	const handleCategoryChange = (category: string) => {
 		dispatch(setCategory(category));
@@ -50,9 +59,9 @@ const SideBar = ({ onModelChange }: SideBarProps) => {
 			zoom: number;
 		}
 	> = {
-		ClinicalNotes: { position: [0, 0, 200], zoom: 10 },
+		ClinicalNotes: { position: [0, 6, 200], zoom: 10 },
 		StressManagement: { position: [0, 30, 200], zoom: 40 },
-		CardioLoad: { position: [0, 23, 200], zoom: 26 },
+		CardioLoad: { position: [0, 20, 200], zoom: 15 },
 		Pulmonology: { position: [0, 10, 200], zoom: 43 },
 		Gastroenterolgy: { position: [0, 7, 200], zoom: 45 },
 		Endocrinology: { position: [0, 25, 200], zoom: 45 },
@@ -60,6 +69,10 @@ const SideBar = ({ onModelChange }: SideBarProps) => {
 	};
 
 	const handleZoom = (bodyPart: string) => {
+		if (activeButton === bodyPart) {
+			return;
+		}
+
 		setActiveButton(bodyPart);
 		const config = zoomConfigs[bodyPart];
 
@@ -75,6 +88,11 @@ const SideBar = ({ onModelChange }: SideBarProps) => {
 	};
 
 	const handleDropdownChange = (value: DropdownValue) => {
+		// If selecting the same value, do nothing
+		if (value === dropdownValue) {
+			return;
+		}
+
 		setDropdownValue(value);
 		if (value === "total") {
 			handleZoom("ClinicalNotes");

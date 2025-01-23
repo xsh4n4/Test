@@ -1,10 +1,11 @@
 import { Canvas } from "@react-three/fiber";
 import "../Three/Scene/canvas.scss";
-import { useCamera } from "../../../DigitalTwin/Context/CameraContext";
+import { useCamera } from "../../Context/CameraContext";
 import CameraController from "@/Features/DigitalTwin/Controller/CameraController";
 import SideBar from "@/Features/DigitalTwin/Components/SideBar/SideBar";
 import { useState } from "react";
 import Model from "./Model/Model";
+import "./Scene/canvas.scss";
 
 const MainScene = (props: { useSideBar?: boolean }) => {
 	const zoomValue = 1.1;

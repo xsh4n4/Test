@@ -31,23 +31,18 @@ const Dropdown = ({ value, onChange, onModelChange }: DropdownProps) => {
 
 	const zoomConfigs = {
 		total: {
-			position: [0, 6, 200] as [number, number, number],
+			position: [0, 0, 200] as [number, number, number],
 			zoom: 10,
 			modelType: "body" as const,
 		},
 		cardio: {
-			position: [0, 15, 200] as [number, number, number],
-			zoom: 20,
+			position: [0, 23, 200] as [number, number, number],
+			zoom: 30,
 			modelType: "cardio" as const,
 		},
 	};
 
 	const handleSelect = (option: DropdownOption) => {
-		if (option.value === value) {
-			setIsOpen(false);
-			return;
-		}
-
 		onChange(option.value);
 		setIsOpen(false);
 
@@ -63,16 +58,12 @@ const Dropdown = ({ value, onChange, onModelChange }: DropdownProps) => {
 	return (
 		<div className={styles.dropdown}>
 			<button
-				className={`${styles.trigger} ${value === "cardio" ? styles.active : ""}`}
+				className={styles.trigger}
 				onClick={() => setIsOpen(!isOpen)}
 				type='button'
 			>
 				<div className={styles.labelContainer}>
-					<div
-						className={`${styles.label} ${value === "cardio" ? styles.activeLabel : ""}`}
-					>
-						{selected.label}
-					</div>
+					<div className={styles.label}>{selected.label}</div>
 					<div className={styles.divider} />
 					<svg
 						width='16'
@@ -95,7 +86,7 @@ const Dropdown = ({ value, onChange, onModelChange }: DropdownProps) => {
 					{options.map((option) => (
 						<button
 							key={option.value}
-							className={`${styles.option} ${option.value === value ? styles.activeOption : ""}`}
+							className={styles.option}
 							onClick={() => handleSelect(option)}
 							type='button'
 						>

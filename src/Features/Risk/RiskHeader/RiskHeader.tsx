@@ -1,3 +1,4 @@
+import { paths } from "@/App/Routes/Paths";
 import styles from "./RiskHeader.module.scss";
 import Grid from "@assets/General/Grid.svg?react";
 import Cardio from "@assets/RiskHeader/CardioLight.svg?react";
@@ -10,7 +11,7 @@ const RiskHeader = (props: { title: string }) => {
 			<div className={styles["RiskHeader-layout-title"]}>
 				<nav style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
 					<span
-						onClick={() => navigate(-1)}
+						onClick={() => navigate(paths.dashboard.root)}
 						style={{ cursor: "pointer" }}
 						className={styles.homeIcon}
 					>
@@ -27,18 +28,13 @@ const RiskHeader = (props: { title: string }) => {
 							/>
 						</svg>
 					</span>
-					<span
-						onClick={() => navigate(-1)}
-						className={styles.breadcrumbs}
-						style={{
-							cursor: "pointer",
-							color: "rgba(59, 141, 245, 1)",
-						}}
-					>
+					<span onClick={() => navigate(-1)} className={styles["breadcrumb"]}>
 						/ Cardiovascular Disease
 					</span>
 
-					<span className={styles.breadcrumbs}> / Concern report</span>
+					<span className={styles["breadcrumb-sub-item"]}>
+						/ Concern report
+					</span>
 				</nav>
 				<h2 className={styles["RiskHeader-layout-title-p"]}>{props.title}</h2>
 			</div>

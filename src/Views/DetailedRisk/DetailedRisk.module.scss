@@ -105,6 +105,25 @@
 	flex: 1;
 }
 
+.DetailerRisk-iframe-loading {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	z-index: 12;
+}
+
+.DetailerRisk-iframe-logo {
+	width: 100px;
+	height: 100px;
+	animation: rotate 2s linear infinite;
+}
+
 .DetailerRisk-header {
 	display: flex;
 	flex-direction: column;
@@ -213,4 +232,40 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes slideInFromLeft {
+	0% {
+		transform: translateX(-150%);
+		opacity: 0;
+	}
+	80% {
+		transform: translateX(10%);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+.DetailerRisk-animate {
+	> * {
+		animation: slideInFromLeft 1.5s ease-out forwards;
+	}
+
+	@for $i from 1 through 10 {
+		> *:nth-child(#{$i}) {
+			animation-delay: calc(0s + ($i - 1) * 0.3s);
+		}
+	}
 }

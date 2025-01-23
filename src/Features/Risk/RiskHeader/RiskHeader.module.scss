@@ -75,6 +75,30 @@
 	margin-top: 8px;
 }
 
+.breadcrumb {
+	color: var(---link-text-link-text, #3b8df5);
+	text-align: center;
+	cursor: pointer;
+	font-family: var(--Font-family-body, Inter);
+	font-size: var(--Font-size-S, 14px);
+	font-style: normal;
+	font-weight: 400;
+	line-height: var(--Font-line-height-M, 20px); /* 142.857% */
+}
+
+.breadcrumb-sub-item {
+	cursor: pointer;
+	color: var(--p-color-text, rgba(81, 89, 103, 1));
+	text-align: center;
+
+	/* body/md/regular */
+	font-family: var(--Font-family-body, Inter);
+	font-size: var(--Font-size-S, 14px);
+	font-style: normal;
+	font-weight: 400;
+	line-height: var(--Font-line-height-M, 20px); /* 142.857% */
+}
+
 .RiskHeader-description-p {
 	color: var(--p-color-text, rgba(81, 89, 103, 1));
 	font-feature-settings:

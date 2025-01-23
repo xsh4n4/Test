@@ -21,6 +21,7 @@
 .RiskHeader {
 	display: flex;
 	align-items: center;
+	gap: 8px;
 }
 
 .RiskHeader-category-p {
@@ -41,13 +42,24 @@
 	margin: 0;
 }
 
+.RiskHeader-wrapper {
+	background-color: rgba(208, 212, 220, 0.2);
+	border-radius: 100px;
+	border: 1px solid rgba(239, 240, 241, 1);
+	padding: 8px;
+	display: inline-flex;
+	align-items: center;
+	margin-top: 8px;
+}
+
 .RiskHeader-description-p {
-	color: #6c7584;
+	color: rgba(81, 89, 103, 1);
 	font-weight: 400;
 	text-align: left;
 	line-height: 20px;
 	font-size: 14px;
-	margin-top: 24px;
+	margin-top: 15px;
+	margin-bottom: 0;
 }
 
 .RiskHeader-description-span {

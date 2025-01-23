@@ -1,9 +1,14 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import NavBar from "@/Features/Structural/NavBar/Navbar";
 import styles from "./DetailedRisk.module.scss";
 import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
-import RiskHeader from "@/Features/Structural/RiskHeader/RiskHeader";
-import GoalsProgress from "@features/Structural/GoalProgressMenu/GoalProgressMenu.tsx";
+import RiskHeader from "@/Features/Risk/RiskHeader/RiskHeader";
+import { RiskStatus } from "@/Features/Risk/RiskStatus/RiskStatus";
+import { AgeWidget } from "@/Features/Risk/AgeWidget/AgeWidget";
+import { detailedSystemConcerns } from "@/Features/Dashboard/ConcernsWidget/helpers/detailedSystemConcerns";
+import { PlanWidget } from "@/Features/Risk/PlanWidget/PlanWidget";
+import GoalsProgressMenu from "@/Features/Risk/GoalProgressMenu/GoalProgressMenu";
+import { ReasonsTable } from "@/Features/Risk/ReasonsTable/ReasonsTable";
 
 function toTitleCase(str: string): string {
 	return str
@@ -15,7 +20,6 @@ function toTitleCase(str: string): string {
 }
 
 const DetailedRisk = () => {
-	const navigate = useNavigate();
 	const { riskName } = useParams();
 
 	const formattedName = riskName ? toTitleCase(riskName) : "";
@@ -27,44 +31,41 @@ const DetailedRisk = () => {
 			<CameraProvider>
 				<div className={styles["DetailerRisk-content"]}>
 					<div className={styles["DetailerRisk-stats"]}>
-						<nav
-							style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
-						>
-							<span
-								onClick={() => navigate(-1)}
-								style={{ cursor: "pointer" }}
-								className={styles.homeIcon}
-							>
-								<svg
-									width='16'
-									height='16'
-									viewBox='0 0 16 16'
-									fill='none'
-									xmlns='http://www.w3.org/2000/svg'
-								>
-									<path
-										d='M8.30615 1.10687C8.2174 1.03762 8.10805 1 7.99547 1C7.8829 1 7.77355 1.03762 7.6848 1.10687L0.5 6.70967L1.12135 7.49552L2 6.81042V13C2.00054 13.265 2.10607 13.5191 2.29349 13.7065C2.48091 13.8939 2.73495 13.9994 3 14H13C13.2651 13.9995 13.5191 13.894 13.7066 13.7065C13.894 13.5191 13.9995 13.265 14 13V6.81497L14.8786 7.49997L15.5 6.71407L8.30615 1.10687ZM9 13H7V8.99997H9V13ZM10 13V8.99997C9.9997 8.73485 9.89424 8.48067 9.70677 8.2932C9.5193 8.10573 9.26512 8.00028 9 7.99997H7C6.73486 8.00024 6.48066 8.10568 6.29319 8.29316C6.10571 8.48064 6.00026 8.73484 6 8.99997V13H3V6.03072L8 2.13572L13 6.03597V13H10Z'
-										fill='#3B8DF5'
-									/>
-								</svg>
-							</span>
-							<span
-								onClick={() => navigate(-1)}
-								className={styles.breadcrumbs}
-								style={{
-									cursor: "pointer",
-									color: "rgba(59, 141, 245, 1)",
-								}}
-							>
-								/ Cardiovascular Disease
-							</span>
-
-							<span className={styles.breadcrumbs}> / Concern report</span>
-						</nav>
-
 						<RiskHeader title={formattedName} />
+						<RiskStatus />
+						<div className={styles["DetailerRisk-age"]}>
+							<div className={styles["DetailerRisk-age-content"]}>
+								<div className={styles["DetailerRisk-age-content-title"]}>
+									What your age tells about your health
+								</div>
+								<div className={styles["DetailerRisk-age-content-desc"]}>
+									A younger cardiovascular age can indicate better heart health
+									and potentially lower your risk of complications from AFib,
+									making it essential to focus on heart health measures tailored
+									to your condition.
+								</div>
+							</div>
+							<AgeWidget />
+						</div>
+						<ReasonsTable
+							reasons={detailedSystemConcerns[0].details[0].reasons}
+						/>
+						<div className={styles["DetailerRisk-plan"]}>
+							<div className={styles["title"]}>What you can do</div>
+							<PlanWidget />
+						</div>
 					</div>
-					<GoalsProgress />
+					<div className={styles["DetailerRisk-twin"]}>
+						<GoalsProgressMenu />
+						<iframe
+							id='embedded-human'
+							frameBorder='0'
+							allowFullScreen
+							style={{ aspectRatio: "4 / 3", width: "100%" }}
+							loading='lazy'
+							src='https://human.biodigital.com/viewer/?id=5vyL&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=false&ui-audio=true&ui-chapter-list=false&ui-fullscreen=false&ui-help=false&ui-info=false&ui-label-list=true&ui-layers=false&ui-skin-layers=false&ui-loader=circle&ui-media-controls=none&ui-menu=false&ui-nav=false&ui-search=false&ui-tools=false&ui-tutorial=false&ui-undo=false&ui-whiteboard=false&initial.none=true&disable-scroll=false&dk=57a9053995a029ade6a11d83c8a64a4fedef2b19&paid=o_27f525a0'
+						></iframe>
+					</div>
 				</div>
 			</CameraProvider>
 		</div>

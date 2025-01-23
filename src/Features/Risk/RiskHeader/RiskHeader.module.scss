@@ -2,26 +2,49 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	gap: 16px;
+	align-self: stretch;
 }
 
 .RiskHeader-layout-title {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	flex-direction: column;
 	font-weight: 600;
-	gap: 12px;
-	padding-bottom: 8px;
 	font-family: var(--Fontfamilyheading);
 }
 
 .RiskHeader-layout-title-p {
 	margin: 0;
+	color: var(--p-color-text, rgba(33, 38, 46, 1));
+
+	font-family: var(--Font-family-heading, Inter);
+	font-size: var(--Font-size-2XL, 24px);
+	font-style: normal;
+	font-weight: 600;
+	line-height: var(--Font-line-height-2XL, 32px);
+}
+
+.RiskHeader-category {
+	display: flex;
+	gap: 8px;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 .RiskHeader {
 	display: flex;
 	align-items: center;
 	gap: 8px;
+}
+
+.RiskHeader-content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+	align-self: stretch;
 }
 
 .RiskHeader-category-p {
@@ -53,13 +76,17 @@
 }
 
 .RiskHeader-description-p {
-	color: rgba(81, 89, 103, 1);
+	color: var(--p-color-text, rgba(81, 89, 103, 1));
+	font-feature-settings:
+		"liga" off,
+		"clig" off;
+
+	/* body/lg/regular */
+	font-family: var(--Font-family-body, Inter);
+	font-size: var(--Font-size-M, 16px);
+	font-style: normal;
 	font-weight: 400;
-	text-align: left;
-	line-height: 20px;
-	font-size: 14px;
-	margin-top: 15px;
-	margin-bottom: 0;
+	line-height: var(--Font-line-height-L, 24px); /* 150% */
 }
 
 .RiskHeader-description-span {

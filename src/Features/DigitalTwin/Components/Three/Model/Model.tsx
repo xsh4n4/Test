@@ -39,14 +39,8 @@ function Model({
 	startFadeIn = true,
 	onModelChange,
 }: ExtendedModelProps) {
-	const bodyModel = useLoader(
-		OBJLoader,
-		"/src/assets/models/normal/normal.obj",
-	);
-	const cardioModel = useLoader(
-		OBJLoader,
-		"/src/assets/models/cardio/cardio.obj",
-	);
+	const bodyModel = useLoader(OBJLoader, "/assets/models/normal/normal.obj");
+	const cardioModel = useLoader(OBJLoader, "/assets/models/cardio/cardio.obj");
 
 	const cardioTextures = useCardioTextures();
 	const bodyTextures = useBodyTextures();

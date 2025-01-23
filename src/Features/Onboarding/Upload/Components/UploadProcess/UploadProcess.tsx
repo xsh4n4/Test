@@ -1,15 +1,25 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CircleProgressBar } from "./Components/ProgressBar/ProgressBar";
 import { UploadProcesser } from "./Components/UploadProcesser/UploadProcesser";
 import styles from "./UploadProcess.module.scss";
 
-export const UploadProcess = () => {
+interface UploadProcessProps {
+	uploadedFiles: File[];
+	setIsProcessing: (isProcessing: boolean) => void;
+}
+
+export const UploadProcess: React.FC<UploadProcessProps> = ({
+	uploadedFiles,
+	setIsProcessing,
+}) => {
 	const [progress, setProgress] = useState(0);
 
 	useEffect(() => {
+		setIsProcessing(true);
 		const interval = setInterval(() => {
 			setProgress((prev) => {
 				if (prev >= 100) {
+					setIsProcessing(false);
 					clearInterval(interval);
 					return 100;
 				}
@@ -36,10 +46,13 @@ export const UploadProcess = () => {
 						</div>
 					</div>
 					<div className={styles["processer-container"]}>
-						<UploadProcesser
-							fileName='Wellness_Summary_JohnDoe.pdf'
-							status='done'
-						/>
+						{uploadedFiles.map((file) => (
+							<UploadProcesser
+								key={file.name}
+								fileName={file.name}
+								status='done'
+							/>
+						))}
 					</div>
 				</div>
 			</div>

@@ -1,11 +1,31 @@
 import styles from "./UploadFiles.module.scss";
 import FrameIcon from "@assets/General/Frame2.svg?react";
 import LabcorpIcon from "@assets/General/Labcorp.svg?react";
-import { UploadItem, UploadItemProps } from "../UploadItem/UploadItem";
+import { UploadItem } from "../UploadItem/UploadItem";
 import { UploadFileTypes } from "@/App/Consts";
 import { ShoppingCartPlusIcon } from "@/assets/Icons/ShoppingCartPlus";
+import React from "react";
 
-export const UploadFiles = () => {
+interface UploadFilesProps {
+	uploadedFiles: {
+		file: File;
+		isUploading: boolean;
+		type: string;
+		progress: number;
+	}[];
+	onFileChange: (files: FileList, type: string) => void;
+	onUploadStart: (file: File) => void;
+	onUploadComplete: (file: File) => void;
+	onFileRemove: (file: File) => void;
+}
+
+export const UploadFiles: React.FC<UploadFilesProps> = ({
+	uploadedFiles,
+	onFileChange,
+	onUploadStart,
+	onUploadComplete,
+	onFileRemove,
+}) => {
 	return (
 		<div className={styles["upload-body"]}>
 			<div className={styles["info-wrapper"]}>
@@ -19,9 +39,15 @@ export const UploadFiles = () => {
 				<div className={styles["upload-items"]}>
 					{Object.keys(UploadFileTypes).map((fileType) => (
 						<UploadItem
-							{...(UploadFileTypes[
-								fileType as keyof typeof UploadFileTypes
-							] as UploadItemProps)}
+							key={fileType}
+							{...UploadFileTypes[fileType as keyof typeof UploadFileTypes]}
+							uploadedFiles={uploadedFiles.filter(
+								(item) => item.type === fileType,
+							)}
+							onFileChange={(files) => onFileChange(files, fileType)}
+							onUploadStart={onUploadStart}
+							onUploadComplete={onUploadComplete}
+							onFileRemove={onFileRemove}
 						/>
 					))}
 				</div>

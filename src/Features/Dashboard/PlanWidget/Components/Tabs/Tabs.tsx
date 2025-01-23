@@ -9,11 +9,19 @@ type TabsProps = {
 	sections: Section[];
 	activeTab: string;
 	setActiveTab: (title: string) => void;
+	backgroundColor: string;
 };
 
-export const Tabs = ({ sections, activeTab, setActiveTab }: TabsProps) => {
+export const Tabs = ({
+	sections,
+	activeTab,
+	setActiveTab,
+	backgroundColor,
+}: TabsProps) => {
 	return (
-		<div className={styles["Tabs-container"]}>
+		<div
+			className={`${styles["Tabs-container"]} ${backgroundColor === "blue" && styles["Tabs-container-blue"]}`}
+		>
 			{sections.map((section, index) => (
 				<div
 					key={index}

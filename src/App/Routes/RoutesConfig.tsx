@@ -11,6 +11,7 @@ import ImportOrUpload from "@/Views/UploadMethod/ImportOrUpload/ImportOrUpload";
 import ConnectAppDevice from "@/Views/UploadMethod/ConnectAppDevice/ConnectAppDevice";
 import DetailedRisk from "@/Views/DetailedRisk/DetailedRisk";
 import Register from "@/Views/Auth/Register/Register";
+import SystemOverview from "@/Views/SystemOverview/SystemOverview";
 
 const RoutesConfig: RouteObject[] = [
 	{
@@ -45,6 +46,10 @@ const RoutesConfig: RouteObject[] = [
 					{
 						element: <Dashboard />,
 						path: paths.dashboard.root,
+					},
+					{
+						element: <SystemOverview />,
+						path: paths.dashboard.system,
 					},
 					{
 						element: <DetailedRisk />,

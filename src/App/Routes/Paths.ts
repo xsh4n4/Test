@@ -5,6 +5,7 @@ export const paths = {
 	},
 	dashboard: {
 		root: "/dashboard",
+		system: "/dashboard/:systemName",
 		detailedRisk: "/dashboard/:systemName/:riskName",
 	},
 	config: {

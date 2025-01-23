@@ -3,6 +3,16 @@
 .PlanWidget-wrapper {
 	display: flex;
 	flex-direction: column;
+
+	&-blue {
+		.PlanWidget-content {
+			background: rgb(228, 235, 248);
+		}
+
+		.Tabs-container {
+			background-color: red;
+		}
+	}
 }
 
 .PlanWidget-tabs {

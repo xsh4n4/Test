@@ -10,11 +10,13 @@ import doctor from "@assets/PlanWidget/doctor.png";
 type PlanAggregateProps = {
 	section: PlanSection;
 	setActiveTab: (title: string) => void;
+	backgroundColor: string;
 };
 
 export const PlanAggregate = ({
 	section,
 	setActiveTab,
+	backgroundColor,
 }: PlanAggregateProps) => {
 	const groupedData = section.data.reduce(
 		(acc: { [key: string]: PlanItem[] }, item: PlanItem) => {
@@ -30,7 +32,9 @@ export const PlanAggregate = ({
 
 	return (
 		<div className={styles["PlanAggregate-container"]}>
-			<div className={styles["PlanAggregate-table"]}>
+			<div
+				className={`${styles["PlanAggregate-table"]} ${backgroundColor === "blue" && styles["PlanAggregate-table-blue"]}`}
+			>
 				<div className={styles["PlanAggregate-note"]}>
 					Recommended next steps based on your health data:
 				</div>

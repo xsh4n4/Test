@@ -5,7 +5,11 @@ import { Tabs } from "./Components/Tabs/Tabs";
 import { PlanTable } from "./Components/PlanTable/PlanTable";
 import { PlanAggregate } from "./Components/PlanAggregate/PlanAggregate";
 
-export const PlanWidget = () => {
+interface PlanWidgetProps {
+	backgroundColor: string;
+}
+
+export const PlanWidget = ({ backgroundColor }: PlanWidgetProps) => {
 	const [activeTab, setActiveTab] = useState(planMockData[0].title);
 	const [transitioning, setTransitioning] = useState(false);
 
@@ -36,15 +40,22 @@ export const PlanWidget = () => {
 	};
 
 	return (
-		<div className={styles["PlanWidget-wrapper"]}>
+		<div
+			className={`${styles["PlanWidget-wrapper"]} ${backgroundColor === "blue" && styles["PlanWidget-wrapper-blue"]}`}
+		>
 			<Tabs
 				sections={enrichedPlanMockData}
 				activeTab={activeTab}
 				setActiveTab={handleTabChange}
+				backgroundColor={backgroundColor}
 			/>
 			<div className={styles["PlanWidget-content"]}>
 				{activeTab === "Action Plan" && activeSection ? (
-					<PlanAggregate section={activeSection} setActiveTab={setActiveTab} />
+					<PlanAggregate
+						section={activeSection}
+						setActiveTab={setActiveTab}
+						backgroundColor={backgroundColor}
+					/>
 				) : (
 					<>
 						{activeSection && (

@@ -5,7 +5,7 @@ import styles from "./DetailedRisk.module.scss";
 import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
 import RiskHeader from "@/Features/Risk/RiskHeader/RiskHeader";
 import { RiskStatus } from "@/Features/Risk/RiskStatus/RiskStatus";
-import { AgeWidget } from "@/Features/Risk/AgeWidget/AgeWidget";
+// import { AgeWidget } from "@/Features/Risk/AgeWidget/AgeWidget";
 import { detailedSystemConcerns } from "@/Features/Dashboard/ConcernsWidget/helpers/detailedSystemConcerns";
 import { PlanWidget } from "@/Features/Risk/PlanWidget/PlanWidget";
 import GoalsProgressMenu from "@/Features/Risk/GoalProgressMenu/GoalProgressMenu";
@@ -30,7 +30,7 @@ const DetailedRisk = () => {
 	const handleIframeLoad = () => {
 		setInterval(() => {
 			setIsLoading(false);
-		}, 4000);
+		}, 5000);
 	};
 
 	return (
@@ -56,7 +56,7 @@ const DetailedRisk = () => {
 									to your condition.
 								</div>
 							</div>
-							<AgeWidget />
+							{/* <AgeWidget /> remove for now */}
 						</div>
 						<ReasonsTable
 							reasons={detailedSystemConcerns[0].details[0].reasons}
@@ -80,12 +80,13 @@ const DetailedRisk = () => {
 									<Logo className={styles["DetailerRisk-iframe-logo"]} />
 								</div>
 							)}
+
 							<iframe
 								id='embedded-human'
 								frameBorder='0'
 								allowFullScreen
 								style={{ aspectRatio: "4 / 3", width: "100%" }}
-								loading='lazy'
+								loading='eager'
 								onLoad={handleIframeLoad}
 								src='https://human.biodigital.com/viewer/?id=5vyL&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=false&ui-audio=true&ui-chapter-list=false&ui-fullscreen=false&ui-help=false&ui-info=false&ui-label-list=true&ui-layers=false&ui-skin-layers=false&ui-loader=circle&ui-media-controls=none&ui-menu=false&ui-nav=false&ui-search=false&ui-tools=false&ui-tutorial=false&ui-undo=false&ui-whiteboard=false&initial.none=true&disable-scroll=false&dk=57a9053995a029ade6a11d83c8a64a4fedef2b19&paid=o_27f525a0'
 							></iframe>

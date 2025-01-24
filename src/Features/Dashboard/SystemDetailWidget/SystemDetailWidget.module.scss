@@ -34,11 +34,31 @@
 }
 
 .SystemDetailWidget-report-text {
+	display: flex;
+	gap: 8px;
+	align-items: center;
 	color: rgba(0, 89, 219, 1);
 	font-weight: 600;
 	font-size: 14px;
 	line-height: 20px;
 	margin: 0;
+	border: none;
+	background-color: white;
+
+	svg {
+		path {
+			fill: rgba(0, 89, 219, 1);
+		}
+	}
+	&:hover {
+		border: none;
+		color: rgb(2, 53, 129);
+		svg {
+			path {
+				fill: rgb(2, 53, 129);
+			}
+		}
+	}
 }
 
 .SystemDetailWidget-report-icon {

@@ -110,7 +110,7 @@ export const ConcernsWidget: React.FC<ConcernsWidgetProps> = ({ category }) => {
 					/>
 				</div>
 
-				<PlanWidget />
+				<PlanWidget backgroundColor='white' />
 			</div>
 		</div>
 	);

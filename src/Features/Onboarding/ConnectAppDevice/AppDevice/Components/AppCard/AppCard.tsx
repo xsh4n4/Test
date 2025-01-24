@@ -25,7 +25,7 @@ export const AppCard: React.FC<AppCardProps> = ({
 					<img src={img} />
 				</div>
 				{isHovered && (
-					<button className={styles["connect-btn"]}>Connect</button>
+					<button className={styles["connect-btn"]}>Coming soon</button>
 				)}
 			</div>
 			<div className={styles["info"]}>

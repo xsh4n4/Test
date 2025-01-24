@@ -14,6 +14,7 @@ export const UploadMethodSelect = () => {
 		title: string;
 		content: string;
 		url?: string;
+		disabeld?: boolean;
 	}
 	const cardItems: CardItem[] = [
 		{
@@ -21,12 +22,14 @@ export const UploadMethodSelect = () => {
 			title: "Take quiz",
 			content:
 				"Answer a few quick questions to receive a personalised health plan tailored to your needs.",
+			disabeld: true,
 		},
 		{
 			icon: <ShoppingCartPlusIcon />,
 			title: "Buy Supplements, Peptides, & Diagnostic Tests",
 			content:
 				" Order custom-formulated supplements designed specifically for your health goals and genetic profile.",
+			disabeld: true,
 		},
 		{
 			icon: <UploadCloudIcon />,

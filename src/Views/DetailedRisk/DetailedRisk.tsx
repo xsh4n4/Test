@@ -30,7 +30,7 @@ const DetailedRisk = () => {
 	const handleIframeLoad = () => {
 		setInterval(() => {
 			setIsLoading(false);
-		}, 5000);
+		}, 4000);
 	};
 
 	return (
@@ -73,6 +73,8 @@ const DetailedRisk = () => {
 								position: "relative",
 								width: "100%",
 								aspectRatio: "4 / 3",
+								overflow: "hidden",
+								justifyContent: "center",
 							}}
 						>
 							{isLoading && (
@@ -88,7 +90,7 @@ const DetailedRisk = () => {
 								style={{ aspectRatio: "4 / 3", width: "100%" }}
 								loading='eager'
 								onLoad={handleIframeLoad}
-								src='https://human.biodigital.com/viewer/?id=5vyL&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=false&ui-audio=true&ui-chapter-list=false&ui-fullscreen=false&ui-help=false&ui-info=false&ui-label-list=true&ui-layers=false&ui-skin-layers=false&ui-loader=circle&ui-media-controls=none&ui-menu=false&ui-nav=false&ui-search=false&ui-tools=false&ui-tutorial=false&ui-undo=false&ui-whiteboard=false&initial.none=true&disable-scroll=false&dk=57a9053995a029ade6a11d83c8a64a4fedef2b19&paid=o_27f525a0'
+								src='https://human.biodigital.com/viewer/?id=5v3G&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=false&ui-audio=true&ui-chapter-list=false&ui-fullscreen=false&ui-help=false&ui-info=false&ui-label-list=true&ui-layers=false&ui-skin-layers=false&ui-loader=circle&ui-media-controls=none&ui-menu=false&ui-nav=false&ui-search=false&ui-tools=false&ui-tutorial=false&ui-undo=false&ui-whiteboard=false&initial.none=true&disable-scroll=false&dk=57a9053995a029ade6a11d83c8a64a4fedef2b19&paid=o_27f525a0'
 							></iframe>
 						</div>
 					</div>

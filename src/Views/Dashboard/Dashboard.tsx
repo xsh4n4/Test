@@ -57,7 +57,7 @@ const Dashboard = () => {
 						<SystemDetailWidget category={category || "total"} />
 						<AgeWidget />
 						<ConcernsWidget category={category || "total"} />
-						<PlanWidget />
+						<PlanWidget backgroundColor='white' />
 					</div>
 				</div>
 			</CameraProvider>

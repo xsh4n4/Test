@@ -8,6 +8,7 @@ interface CardItemProps {
 	title: string;
 	content: string;
 	url?: string;
+	disabeld?: boolean;
 }
 
 export const ConfigItemCard: React.FC<CardItemProps> = ({
@@ -15,19 +16,20 @@ export const ConfigItemCard: React.FC<CardItemProps> = ({
 	title,
 	content,
 	url,
+	disabeld,
 }) => {
 	const navigate = useNavigate();
 	const [isHovered, setIsHovered] = useState(false);
 	return (
 		<div
-			className={styles["config-item-card"]}
+			className={`${styles["config-item-card"]} ${disabeld ? styles["config-item-card-disabled"] : ""}`}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
 			onClick={() => url && navigate(url)}
 		>
 			<div className={styles["item-card-icon-wrapper"]}>
 				<div
-					className={`${styles["item-card-icon"]} ${isHovered ? styles["item-card-icon-hover"] : ""}`}
+					className={`${styles["item-card-icon"]} ${disabeld ? styles["item-card-icon-disabled"] : isHovered ? styles["item-card-icon-hover"] : ""}`}
 				>
 					{icon}
 				</div>

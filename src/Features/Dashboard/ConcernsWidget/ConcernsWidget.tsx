@@ -84,7 +84,7 @@ export const ConcernsWidget: React.FC<ConcernsWidgetProps> = ({ category }) => {
 					>
 						{selectedSystem.details.map((detail) => (
 							<DetailsCard
-								key={detail.id}
+								key={`${detail.id}-${category}`}
 								detail={detail}
 								detailIndex={detailIndex}
 								setDetailIndex={setDetailIndex}

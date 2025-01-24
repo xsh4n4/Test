@@ -3,19 +3,40 @@ import "../Three/Scene/canvas.scss";
 import { useCamera } from "../../Context/CameraContext";
 import CameraController from "@/Features/DigitalTwin/Controller/CameraController";
 import SideBar from "@/Features/DigitalTwin/Components/SideBar/SideBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Model from "./Model/Model";
 import "./Scene/canvas.scss";
+import { useParams } from "react-router-dom";
 
 const MainScene = (props: { useSideBar?: boolean }) => {
 	const zoomValue = 1.1;
 	const { cameraState, setCameraState } = useCamera();
 	const [modelType, setModelType] = useState<"body" | "cardio">("body");
+	const { systemName } = useParams();
 
 	const ZOOM_FACTOR = 1.05;
 	const DEFAULT_ZOOM = 10;
 	const MAX_ZOOM = 60;
 	const MIN_ZOOM = DEFAULT_ZOOM;
+
+	useEffect(() => {
+		// Set appropriate model type based on system name
+		if (systemName?.toLowerCase() === "cardiovascular") {
+			setModelType("cardio");
+			// Adjust camera for cardio view
+			setCameraState({
+				targetPosition: [0, 20, 200],
+				targetZoom: 15,
+			});
+		} else {
+			setModelType("body");
+			// Reset camera for body view
+			setCameraState({
+				targetPosition: [0, 0, 200],
+				targetZoom: 8,
+			});
+		}
+	}, [systemName, setCameraState]);
 
 	const handleZoomIn = () => {
 		const newZoom = cameraState.targetZoom * ZOOM_FACTOR;
@@ -47,13 +68,11 @@ const MainScene = (props: { useSideBar?: boolean }) => {
 	const nextZoomOut = cameraState.targetZoom / ZOOM_FACTOR;
 	const isZoomOutDisabled = nextZoomOut < MIN_ZOOM;
 
-	const handleModelChange = (type: "body" | "cardio") => {
-		setModelType(type);
-	};
-
 	return (
 		<div className='canvas-container'>
-			{props.useSideBar ? <SideBar onModelChange={handleModelChange} /> : <></>}
+			{props.useSideBar ? (
+				<SideBar onModelChange={setModelType} modelType={modelType} />
+			) : null}
 			<div className='canvas-wrapper'>
 				<Canvas
 					orthographic
@@ -66,9 +85,9 @@ const MainScene = (props: { useSideBar?: boolean }) => {
 				>
 					<CameraController />
 					<Model
-						key={modelType} // Add the key prop here to force re-render on modelType change
+						key={modelType}
 						scale={[zoomValue, zoomValue, zoomValue]}
-						position={[0, (-zoomValue * 70) / 2 - 1, 0]} // Static position based on modelType
+						position={[0, (-zoomValue * 70) / 2 - 1, 0]}
 						modelType={modelType}
 					/>
 				</Canvas>

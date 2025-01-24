@@ -75,6 +75,7 @@ export const createBodyMaterial = (
 		metalness: 0.25,
 		side: THREE.DoubleSide,
 		transparent: true,
-		envMapIntensity: 1.5, // Increased for better contrast
+		envMapIntensity: 1.5,
+		color: new THREE.Color(0x909090),
 	});
 };

@@ -48,7 +48,7 @@ function Model({
 	const currentModel = modelType === "body" ? bodyModel : cardioModel;
 	const modelRef = useRef<THREE.Group>(null);
 
-	const [opacity, setOpacity] = useState(isNew ? 0 : 1);
+	const [opacity, setOpacity] = useState(isNew ? 1 : 1);
 	const [shouldRender, setShouldRender] = useState(!isNew);
 	const [hasFadedOut, setHasFadedOut] = useState(false);
 	const { currentPosition, currentScale, updateTransforms } =
@@ -140,17 +140,20 @@ function Model({
 				child.material = material;
 				if (child.material) {
 					child.material.transparent = true;
+					child.material.blending = THREE.CustomBlending;
+					child.material.blendSrc = THREE.SrcAlphaFactor;
+					child.material.blendDst = THREE.OneMinusSrcAlphaFactor;
+					child.material.blendEquation = THREE.AddEquation;
 
-					if (modelType === "body" && !isFading && !isNew) {
-						child.material.opacity = 1;
-					} else if (modelType === "cardio") {
-						child.material.opacity = Math.max(0.01, isHidden ? 0 : opacity);
+					// Ensure body model always has full opacity unless fading
+					if (modelType === "body") {
+						child.material.opacity = isFading ? opacity : 1;
 					} else {
 						child.material.opacity = isHidden ? 0 : opacity;
 					}
 
-					child.material.depthWrite = opacity > 0.2;
-					child.material.blending = THREE.NormalBlending;
+					child.material.depthWrite = true;
+					child.material.needsUpdate = true;
 					child.material.visible =
 						(!isHidden || modelType === "cardio") && shouldRender;
 				}
@@ -165,7 +168,6 @@ function Model({
 		isHidden,
 		shouldRender,
 		isFading,
-		isNew,
 	]);
 
 	if (
@@ -191,11 +193,17 @@ function Model({
 			<ambientLight intensity={0.8} />
 			<directionalLight
 				position={[2, 10, 5]}
-				intensity={5.0}
+				intensity={3.0}
 				castShadow
 				color='#CFD8EA'
 				shadow-mapSize-width={2048}
 				shadow-mapSize-height={2048}
+			/>
+			{/* Add a constant key light */}
+			<directionalLight
+				position={[0, 10, 10]}
+				intensity={1.0}
+				color='#FFFFFF'
 			/>
 		</group>
 	);

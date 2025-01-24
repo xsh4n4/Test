@@ -36,6 +36,7 @@ export const useCardioTextures = (): ModelTextures => {
 
 export const useBodyTextures = (): BodyModelTextures => {
 	return {
+		base: useLoader(THREE.TextureLoader, baseColorUrl),
 		baseColor: useLoader(THREE.TextureLoader, baseColorUrl),
 		metallic: useLoader(THREE.TextureLoader, metallicUrl),
 		normalDire: useLoader(THREE.TextureLoader, normalDireUrl),

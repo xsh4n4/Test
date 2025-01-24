@@ -115,6 +115,7 @@ const SystemOverview = () => {
 										</p>
 									</div>
 									<PlanWidget
+										backgroundColor=''
 										planData={detailedSystemConcerns[0].defaultPlan}
 									/>
 								</div>

@@ -192,6 +192,18 @@
 	font-size: 12px;
 	font-weight: 400;
 	line-height: 14px;
+
+	&-red {
+		color: #cc4047;
+	}
+
+	&-orange {
+		color: rgba(204, 108, 19, 1);
+	}
+
+	&-green {
+		color: rgb(108, 202, 108);
+	}
 }
 
 .ReasonRow-date {

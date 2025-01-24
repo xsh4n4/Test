@@ -29,7 +29,8 @@ export interface Reason {
 	level: number;
 	value: string;
 	unit: string;
-	status: string;
+	statusText: string;
+	status: "High" | "Medium" | "Low";
 	description: string;
 	date: string;
 }
@@ -67,7 +68,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 55,
 						value: "112",
 						unit: "mg/dL",
-						status: "Above optimal",
+						statusText: "Above optimal",
+						status: "High",
 						description:
 							'LDL stands for low-density lipoprotein, a type of cholesterol in your blood that is sometimes called "bad" cholesterol',
 						date: "100-129",
@@ -80,7 +82,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "17",
 						unit: "mg/dL",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"VLDL stands for very low-density lipoprotein, a type of fat in your blood that can contribute to plaque buildup in your arteries.",
 						date: "7-40",
@@ -93,7 +96,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 20,
 						value: "58",
 						unit: "mg/dL",
-						status: "Below Optimal",
+						statusText: "Below Optimal",
+						status: "High",
 						description:
 							" HDL helps remove cholesterol from the bloodstream and is linked to a lower risk of heart disease.",
 						date: "60-null",
@@ -107,7 +111,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "181",
 						unit: "mg/dL",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Your body needs cholesterol to make hormones, digest food, and more. However, too much cholesterol can be a problem. ",
 						date: "null-200",
@@ -120,7 +125,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "3.1",
 						unit: "Ratio",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Calculation that compares your total cholesterol to your high-density lipoprotein (HDL) cholesterol levels ",
 						date: "null-4",
@@ -133,7 +139,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "5.3",
 						unit: "Ratio",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Average level of blood sugar over the past two to three months ",
 						date: "4-6",
@@ -168,7 +175,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 55,
 						value: "112",
 						unit: "mg/dL",
-						status: "Above optimal",
+						statusText: "Above optimal",
+						status: "High",
 						description:
 							'LDL stands for low-density lipoprotein, a type of cholesterol in your blood that is sometimes called "bad" cholesterol',
 						date: "100-129",
@@ -181,7 +189,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "17",
 						unit: "mg/dL",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"VLDL stands for very low-density lipoprotein, a type of fat in your blood that can contribute to plaque buildup in your arteries.",
 						date: "7-40",
@@ -194,7 +203,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 20,
 						value: "58",
 						unit: "mg/dL",
-						status: "Below Optimal",
+						statusText: "Below Optimal",
+						status: "Medium",
 						description:
 							" HDL helps remove cholesterol from the bloodstream and is linked to a lower risk of heart disease.",
 						date: "60-null",
@@ -208,7 +218,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "181",
 						unit: "mg/dL",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Your body needs cholesterol to make hormones, digest food, and more. However, too much cholesterol can be a problem. ",
 						date: "null-200",
@@ -221,7 +232,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "3.1",
 						unit: "Ratio",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Calculation that compares your total cholesterol to your high-density lipoprotein (HDL) cholesterol levels ",
 						date: "null-4",
@@ -234,7 +246,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "5.3",
 						unit: "Ratio",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Average level of blood sugar over the past two to three months ",
 						date: "4-6",
@@ -268,7 +281,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 55,
 						value: "112",
 						unit: "mg/dL",
-						status: "Above optimal",
+						statusText: "Above optimal",
+						status: "High",
 						description:
 							'LDL stands for low-density lipoprotein, a type of cholesterol in your blood that is sometimes called "bad" cholesterol',
 						date: "100-129",
@@ -281,7 +295,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "17",
 						unit: "mg/dL",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"VLDL stands for very low-density lipoprotein, a type of fat in your blood that can contribute to plaque buildup in your arteries.",
 						date: "7-40",
@@ -294,7 +309,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 20,
 						value: "58",
 						unit: "mg/dL",
-						status: "Below Optimal",
+						statusText: "Below Optimal",
+						status: "Medium",
 						description:
 							" HDL helps remove cholesterol from the bloodstream and is linked to a lower risk of heart disease.",
 						date: "60-null",
@@ -308,7 +324,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "181",
 						unit: "mg/dL",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Your body needs cholesterol to make hormones, digest food, and more. However, too much cholesterol can be a problem. ",
 						date: "null-200",
@@ -321,7 +338,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "3.1",
 						unit: "Ratio",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Calculation that compares your total cholesterol to your high-density lipoprotein (HDL) cholesterol levels ",
 						date: "null-4",
@@ -334,7 +352,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "5.3",
 						unit: "Ratio",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Average level of blood sugar over the past two to three months ",
 						date: "4-6",
@@ -368,7 +387,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 55,
 						value: "112",
 						unit: "mg/dL",
-						status: "Above optimal",
+						statusText: "Above optimal",
+						status: "High",
 						description:
 							'LDL stands for low-density lipoprotein, a type of cholesterol in your blood that is sometimes called "bad" cholesterol',
 						date: "100-129",
@@ -381,7 +401,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "17",
 						unit: "mg/dL",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"VLDL stands for very low-density lipoprotein, a type of fat in your blood that can contribute to plaque buildup in your arteries.",
 						date: "7-40",
@@ -394,7 +415,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 20,
 						value: "58",
 						unit: "mg/dL",
-						status: "Below Optimal",
+						statusText: "Below Optimal",
+						status: "Medium",
 						description:
 							" HDL helps remove cholesterol from the bloodstream and is linked to a lower risk of heart disease.",
 						date: "60-null",
@@ -408,7 +430,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "181",
 						unit: "mg/dL",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Your body needs cholesterol to make hormones, digest food, and more. However, too much cholesterol can be a problem. ",
 						date: "null-200",
@@ -421,7 +444,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "3.1",
 						unit: "Ratio",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Calculation that compares your total cholesterol to your high-density lipoprotein (HDL) cholesterol levels ",
 						date: "null-4",
@@ -434,7 +458,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "5.3",
 						unit: "Ratio",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Average level of blood sugar over the past two to three months ",
 						date: "4-6",
@@ -468,7 +493,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 55,
 						value: "112",
 						unit: "mg/dL",
-						status: "Above optimal",
+						statusText: "Above optimal",
+						status: "Medium",
 						description:
 							'LDL stands for low-density lipoprotein, a type of cholesterol in your blood that is sometimes called "bad" cholesterol',
 						date: "100-129",
@@ -481,7 +507,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "17",
 						unit: "mg/dL",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"VLDL stands for very low-density lipoprotein, a type of fat in your blood that can contribute to plaque buildup in your arteries.",
 						date: "7-40",
@@ -494,7 +521,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 20,
 						value: "58",
 						unit: "mg/dL",
-						status: "Below Optimal",
+						statusText: "Below Optimal",
+						status: "High",
 						description:
 							" HDL helps remove cholesterol from the bloodstream and is linked to a lower risk of heart disease.",
 						date: "60-null",
@@ -508,7 +536,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "181",
 						unit: "mg/dL",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Your body needs cholesterol to make hormones, digest food, and more. However, too much cholesterol can be a problem. ",
 						date: "null-200",
@@ -521,7 +550,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "3.1",
 						unit: "Ratio",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Calculation that compares your total cholesterol to your high-density lipoprotein (HDL) cholesterol levels ",
 						date: "null-4",
@@ -534,7 +564,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						level: 50,
 						value: "5.3",
 						unit: "Ratio",
-						status: "Optimal",
+						statusText: "Optimal",
+						status: "Low",
 						description:
 							"Average level of blood sugar over the past two to three months ",
 						date: "4-6",

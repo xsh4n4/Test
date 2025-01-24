@@ -52,7 +52,17 @@ export const ReasonRow: React.FC<ReasonRowProps> = ({ reason }) => {
 					<div className={styles["ReasonRow-value-unit"]}>{reason.unit}</div>
 				</div>
 				<div className={styles["ReasonRow-status-wrapper"]}>
-					<div className={styles["ReasonRow-status"]}>{reason.status}</div>
+					<div
+						className={`${styles["ReasonRow-status"]} ${
+							reason.status === "High"
+								? styles["ReasonRow-status-red"]
+								: reason.status === "Medium"
+									? styles["ReasonRow-status-orange"]
+									: styles["ReasonRow-status-green"]
+						}`}
+					>
+						{reason.statusText}
+					</div>
 				</div>
 				<div className={styles["ReasonRow-date"]}>{reason.date}</div>
 			</div>

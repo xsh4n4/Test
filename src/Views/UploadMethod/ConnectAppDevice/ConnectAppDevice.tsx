@@ -7,7 +7,7 @@ import CloseIcon from "@assets/General/Close.svg?react";
 import { AppDevice } from "@/Features/Onboarding/ConnectAppDevice/AppDevice/AppDevice";
 import { useNavigate } from "react-router-dom";
 import { paths } from "@/App/Routes/Paths";
-import { NavigationBar } from "@/Features/Onboarding/NavigationBar/NavigationBar";
+// import { NavigationBar } from "@/Features/Onboarding/NavigationBar/NavigationBar";
 
 const ConnectAppDevice = () => {
 	const [isOpenedConfirmModal, setIsOpenedConfirmModal] =
@@ -44,11 +44,11 @@ const ConnectAppDevice = () => {
 					</div>
 				</div>
 				<AppDevice />
-				<NavigationBar
+				{/* <NavigationBar
 					setIsOpenedConfirmModal={(opened: boolean) => {
 						setIsOpenedConfirmModal(opened);
 					}}
-				/>
+				/> */}
 				{isOpenedConfirmModal && (
 					<ConfirmModal onClose={handleClose} onConfirm={handleConfirm} />
 				)}

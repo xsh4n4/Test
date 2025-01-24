@@ -7,7 +7,7 @@ import MainScene from "@/Features/DigitalTwin/Components/Three/Scene/MainScene";
 import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
 import CtaModal from "@/Features/Dashboard/CtaModal/CtaModal";
 import { ConcernsWidget } from "@/Features/Dashboard/ConcernsWidget/ConcernsWidget";
-import { PlanWidget } from "@/Features/Dashboard/PlanWidget/PlanWidget";
+// import { PlanWidget } from "@/Features/Dashboard/PlanWidget/PlanWidget";
 import { SystemDetailWidget } from "@/Features/Dashboard/SystemDetailWidget/SystemDetailWidget";
 import { useSelector } from "react-redux";
 import { RootState } from "@/App/Redux/store";
@@ -55,8 +55,8 @@ const Dashboard = () => {
 						<TrackerWidget />
 						<SystemDetailWidget category={category} />
 						<AgeWidget />
-						<ConcernsWidget category={category} />
-						<PlanWidget backgroundColor='white' />
+						<ConcernsWidget category={category || "total"} />
+						{/* gi */}
 					</div>
 				</div>
 			</CameraProvider>

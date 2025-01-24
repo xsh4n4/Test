@@ -36,6 +36,7 @@
 	align-items: flex-start;
 	gap: 16px;
 	align-self: stretch;
+	opacity: 0;
 
 	.title {
 		color: var(--p-color-text, rgba(33, 38, 46, 1));
@@ -271,7 +272,7 @@
 
 .DetailerRisk-animate {
 	> * {
-		animation: slideInFromLeft 0.8s ease-out forwards;
+		animation: slideInFromLeft 0.6s ease-in-out forwards;
 	}
 
 	@for $i from 1 through 10 {

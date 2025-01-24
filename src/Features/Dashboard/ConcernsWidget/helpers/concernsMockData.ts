@@ -13,7 +13,7 @@ export interface Concern {
 export const concernsMockData: Concern[] = [
 	{
 		id: 1,
-		title: "Cardiovascular Disease",
+		title: "Atrial Fibrillation",
 		factors: ["High cholesterol", "Smoking", "Hypertension"],
 		icon: Heart,
 		status: "High",
@@ -21,10 +21,11 @@ export const concernsMockData: Concern[] = [
 	},
 	{
 		id: 2,
-		title: "Diabetes",
+		title: "Stroke",
 		factors: ["Low oral glucose", "Family history"],
 		icon: Diab,
 		status: "High",
+		link: "cardiovascular",
 	},
 	{
 		id: 3,

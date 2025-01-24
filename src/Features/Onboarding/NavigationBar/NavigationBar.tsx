@@ -6,7 +6,7 @@ import { paths } from "@/App/Routes/Paths";
 
 interface NavigationBarProps {
 	disabled?: boolean;
-	done: boolean;
+	done?: boolean;
 	setIsOpenedConfirmModal: (open: boolean) => void;
 }
 

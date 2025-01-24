@@ -21,7 +21,7 @@ export interface ModelTextures {
 }
 
 export interface BodyModelTextures {
-	base: THREE.Texture;
+	base?: THREE.Texture;
 	baseColor: THREE.Texture;
 	metallic: THREE.Texture;
 	normalDire: THREE.Texture;

@@ -162,6 +162,7 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						"Fatigue or weakness",
 					],
 				},
+				plan: AtrialFibrillationPlanMockData,
 
 				frame:
 					"https://human.biodigital.com/viewer/?id=5v3G&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=false&ui-audio=true&ui-chapter-list=false&ui-fullscreen=false&ui-help=false&ui-info=false&ui-label-list=true&ui-layers=false&ui-skin-layers=false&ui-loader=circle&ui-media-controls=none&ui-menu=false&ui-nav=false&ui-search=false&ui-tools=false&ui-tutorial=false&ui-undo=false&ui-whiteboard=false&initial.none=true&disable-scroll=false&dk=57a9053995a029ade6a11d83c8a64a4fedef2b19&paid=o_27f525a0",
@@ -275,10 +276,10 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						"Severe headache with no known cause",
 					],
 				},
+				plan: StrokePlanMockData,
 
 				frame:
 					"https://human.biodigital.com/viewer/?id=5v3G&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=false&ui-audio=true&ui-chapter-list=false&ui-fullscreen=false&ui-help=false&ui-info=false&ui-label-list=true&ui-layers=false&ui-skin-layers=false&ui-loader=circle&ui-media-controls=none&ui-menu=false&ui-nav=false&ui-search=false&ui-tools=false&ui-tutorial=false&ui-undo=false&ui-whiteboard=false&initial.none=true&disable-scroll=false&dk=57a9053995a029ade6a11d83c8a64a4fedef2b19&paid=o_27f525a0",
-
 			},
 			{
 				id: 3,
@@ -385,6 +386,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 					],
 				},
 				plan: CoronaryArteryDiseasePlanMockData,
+				frame:
+					"https://human.biodigital.com/viewer/?id=5v3G&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=false&ui-audio=true&ui-chapter-list=false&ui-fullscreen=false&ui-help=false&ui-info=false&ui-label-list=true&ui-layers=false&ui-skin-layers=false&ui-loader=circle&ui-media-controls=none&ui-menu=false&ui-nav=false&ui-search=false&ui-tools=false&ui-tutorial=false&ui-undo=false&ui-whiteboard=false&initial.none=true&disable-scroll=false&dk=57a9053995a029ade6a11d83c8a64a4fedef2b19&paid=o_27f525a0",
 			},
 			{
 				id: 4,
@@ -491,6 +494,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 					],
 				},
 				plan: HypertensionPlanMockData,
+				frame:
+					"https://human.biodigital.com/viewer/?id=5v3G&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=false&ui-audio=true&ui-chapter-list=false&ui-fullscreen=false&ui-help=false&ui-info=false&ui-label-list=true&ui-layers=false&ui-skin-layers=false&ui-loader=circle&ui-media-controls=none&ui-menu=false&ui-nav=false&ui-search=false&ui-tools=false&ui-tutorial=false&ui-undo=false&ui-whiteboard=false&initial.none=true&disable-scroll=false&dk=57a9053995a029ade6a11d83c8a64a4fedef2b19&paid=o_27f525a0",
 			},
 			{
 				id: 5,
@@ -597,6 +602,8 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 					],
 				},
 				plan: HeartFailurePlanMockData,
+				frame:
+					"https://human.biodigital.com/viewer/?id=5v3G&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=false&ui-audio=true&ui-chapter-list=false&ui-fullscreen=false&ui-help=false&ui-info=false&ui-label-list=true&ui-layers=false&ui-skin-layers=false&ui-loader=circle&ui-media-controls=none&ui-menu=false&ui-nav=false&ui-search=false&ui-tools=false&ui-tutorial=false&ui-undo=false&ui-whiteboard=false&initial.none=true&disable-scroll=false&dk=57a9053995a029ade6a11d83c8a64a4fedef2b19&paid=o_27f525a0",
 			},
 		],
 	},

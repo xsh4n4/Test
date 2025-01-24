@@ -35,6 +35,7 @@ interface SideBarProps {
 
 const SideBar = ({ onModelChange, modelType = "body" }: SideBarProps) => {
 	const dispatch = useDispatch();
+
 	const [activeButton, setActiveButton] =
 		React.useState<string>("ClinicalNotes");
 	const [dropdownValue, setDropdownValue] =

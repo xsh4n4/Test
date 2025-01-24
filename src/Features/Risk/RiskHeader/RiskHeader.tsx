@@ -6,6 +6,10 @@ import { useNavigate } from "react-router-dom";
 
 const RiskHeader = (props: { title: string }) => {
 	const navigate = useNavigate();
+	const NavigateSystem = (system: string) => {
+		navigate(`/dashboard/${system}`);
+	};
+
 	return (
 		<div className={styles["RiskHeader-layout"]}>
 			<div className={styles["RiskHeader-layout-title"]}>
@@ -28,7 +32,10 @@ const RiskHeader = (props: { title: string }) => {
 							/>
 						</svg>
 					</span>
-					<span onClick={() => navigate(-1)} className={styles["breadcrumb"]}>
+					<span
+						onClick={() => NavigateSystem("cardiovascular")}
+						className={styles["breadcrumb"]}
+					>
 						/ Cardiovascular Disease
 					</span>
 

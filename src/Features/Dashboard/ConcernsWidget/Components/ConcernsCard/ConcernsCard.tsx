@@ -18,10 +18,10 @@ export const ConcernsCard: React.FC<ConcernsCardProps> = ({
 	const dispatch = useDispatch();
 
 	const handleClick = (concernName: string) => {
-		if (concern.link) {
-			dispatch(setCategory(concern.link));
-		}
-		navigate(`/dashboard/'cardiovascular/${concernName}`);
+		dispatch(setCategory("cardiovascular"));
+		setTimeout(() => {
+			navigate(`/dashboard/cardiovascular/${concernName}`);
+		}, 100);
 	};
 
 	return (

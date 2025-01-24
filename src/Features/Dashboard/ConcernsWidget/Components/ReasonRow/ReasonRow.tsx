@@ -36,23 +36,46 @@ export const ReasonRow: React.FC<ReasonRowProps> = ({ reason }) => {
 					<div className={styles["ReasonRow-test-name"]}>{reason.test}</div>
 				</div>
 				<div
-					className={`${styles["ReasonRow-level"]} ${
-						reason.level === 0 && styles["ReasonRow-level-hidden"]
-					}`}
+					className={`${
+						reason.level.type === "progress"
+							? styles["ReasonRow-level"]
+							: styles["ReasonRow-image"]
+					} 
+					${reason.level.src === 0 && styles["ReasonRow-level-hidden"]}`}
 				>
-					<div
-						className={styles["ReasonRow-thumb"]}
-						style={{ "--level": `${reason.level}%` } as React.CSSProperties}
-					>
-						<div className={styles["ReasonRow-thumb-line"]} />
-					</div>
+					{reason.level.type === "progress" ? (
+						<div
+							className={styles["ReasonRow-thumb"]}
+							style={
+								{ "--level": `${reason.level.src}%` } as React.CSSProperties
+							}
+						>
+							<div className={styles["ReasonRow-thumb-line"]} />
+						</div>
+					) : (
+						<img
+							src={reason.level.src}
+							alt={`${reason.title} graph`}
+							className={styles["ReasonRow-level-image"]}
+						/>
+					)}
 				</div>
 				<div className={styles["ReasonRow-value"]}>
 					<div className={styles["ReasonRow-value-number"]}>{reason.value}</div>
 					<div className={styles["ReasonRow-value-unit"]}>{reason.unit}</div>
 				</div>
 				<div className={styles["ReasonRow-status-wrapper"]}>
-					<div className={styles["ReasonRow-status"]}>{reason.status}</div>
+					<div
+						className={`${styles["ReasonRow-status"]} ${
+							reason.status === "High"
+								? styles["ReasonRow-status-red"]
+								: reason.status === "Medium"
+									? styles["ReasonRow-status-orange"]
+									: styles["ReasonRow-status-green"]
+						}`}
+					>
+						{reason.statusText}
+					</div>
 				</div>
 				<div className={styles["ReasonRow-date"]}>{reason.date}</div>
 			</div>

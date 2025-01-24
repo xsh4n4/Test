@@ -54,6 +54,24 @@ function Model({
 	const { currentPosition, currentScale, updateTransforms } =
 		useModelTransforms(position, scale);
 
+	const [pointerDownTime, setPointerDownTime] = useState(0);
+
+	const handlePointerDown = () => {
+		setPointerDownTime(Date.now());
+	};
+
+	const handlePointerUp = (event: ThreeEvent<PointerEvent>) => {
+		const clickDuration = Date.now() - pointerDownTime;
+		const wasDragged = event.movementX !== 0 || event.movementY !== 0;
+
+		if (!wasDragged && clickDuration < 200) {
+			const clickedMesh = event.object;
+			if (clickedMesh.userData.clickable) {
+				handleChestClick(event);
+			}
+		}
+	};
+
 	const handleChestClick = (event: ThreeEvent<MouseEvent>) => {
 		event.stopPropagation();
 		if (modelType === "body") {
@@ -159,12 +177,8 @@ function Model({
 	return (
 		<group
 			ref={modelRef}
-			onClick={(event) => {
-				const clickedMesh = event.object;
-				if (clickedMesh.userData.clickable) {
-					handleChestClick(event);
-				}
-			}}
+			onPointerDown={handlePointerDown}
+			onPointerUp={handlePointerUp}
 		>
 			<Clone
 				object={currentModel}

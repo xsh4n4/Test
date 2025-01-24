@@ -7,12 +7,12 @@ import { setCategory } from "@/App/Redux/categorySlice";
 
 interface ConcernsCardProps {
 	concern: Concern;
-	type?: string;
+	backgroundColor?: string;
 }
 
 export const ConcernsCard: React.FC<ConcernsCardProps> = ({
 	concern,
-	type,
+	backgroundColor,
 }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export const ConcernsCard: React.FC<ConcernsCardProps> = ({
 		<div
 			className={`${styles["ConcernsCard-card"]} ${
 				concern.link && styles["ConcernsCard-card-link"]
-			} ${type === "row" && styles["ConcernsCard-card-row"]}`}
+			} ${backgroundColor === "blue" && styles["ConcernsCard-card-blue"]}`}
 			onClick={() => handleClick(concern.title)}
 		>
 			<div className={styles["ConcernsCard-head"]}>

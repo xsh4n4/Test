@@ -22,6 +22,15 @@ export const ConcernsWidget: React.FC<ConcernsWidgetProps> = ({ category }) => {
 		? concernsMockData
 		: concernsMockData.slice(0, 3);
 
+	const selectedSystem = detailedSystemConcerns[0];
+	const reasons = selectedSystem.details[detailIndex - 1]?.reasons ?? [];
+	const symptoms = selectedSystem?.details[detailIndex - 1]?.symptoms;
+	const planData =
+		category === "total"
+			? selectedSystem.defaultPlan
+			: (selectedSystem.details[detailIndex - 1]?.plan ??
+				selectedSystem.defaultPlan);
+
 	const handleShowMore = () => {
 		setIsShowMore((prev) => !prev);
 	};
@@ -73,7 +82,7 @@ export const ConcernsWidget: React.FC<ConcernsWidgetProps> = ({ category }) => {
 								: styles["ConcernWidget-detail-cards-hidden"]
 						}`}
 					>
-						{detailedSystemConcerns[0].details.map((detail) => (
+						{selectedSystem.details.map((detail) => (
 							<DetailsCard
 								key={detail.id}
 								detail={detail}
@@ -90,27 +99,20 @@ export const ConcernsWidget: React.FC<ConcernsWidgetProps> = ({ category }) => {
 							: styles["ConcernWidget-reasons-hidden"]
 					}`}
 				>
-					<ReasonsTable
-						reasons={detailedSystemConcerns[0].details[detailIndex - 1].reasons}
-						detailIndex={detailIndex}
-					/>
+					<ReasonsTable reasons={reasons} detailIndex={detailIndex} />
 				</div>
 
 				<div
 					className={`${styles["ConcernWidget-symptoms"]} ${
-						detailedSystemConcerns[0].details[detailIndex - 1].symptoms
+						category !== "total"
 							? styles["ConcernWidget-symptoms-visible"]
 							: styles["ConcernWidget-symptoms-hidden"]
 					}`}
 				>
-					<SymptomsList
-						symptoms={
-							detailedSystemConcerns[0].details[detailIndex - 1].symptoms
-						}
-					/>
+					<SymptomsList symptoms={symptoms} />
 				</div>
 
-				<PlanWidget backgroundColor='white' />
+				<PlanWidget backgroundColor='white' planData={planData} />
 			</div>
 		</div>
 	);

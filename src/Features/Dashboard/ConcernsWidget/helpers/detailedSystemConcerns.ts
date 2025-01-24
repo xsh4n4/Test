@@ -1,6 +1,15 @@
 import Drop from "@assets/ConcernsWidget/Drop.svg";
 // import Gene from "@assets/ConcernsWidget/Gene.svg";
 // import Vitals from "@assets/ConcernsWidget/Vitals.svg";
+import {
+	AtrialFibrillationPlanMockData,
+	CoronaryArteryDiseasePlanMockData,
+	HeartFailurePlanMockData,
+	HypertensionPlanMockData,
+	planMockData,
+	PlanSection,
+	StrokePlanMockData,
+} from "../../PlanWidget/helpers/planMockData";
 
 export interface Detail {
 	id: number;
@@ -8,6 +17,7 @@ export interface Detail {
 	factors: string[];
 	reasons: Reason[];
 	symptoms?: Symptoms;
+	plan: PlanSection[];
 	status: "High" | "Medium" | "Low";
 }
 
@@ -34,12 +44,14 @@ export interface SystemConcerns {
 	id: number;
 	title: string;
 	details: Detail[];
+	defaultPlan: PlanSection[];
 }
 
 export const detailedSystemConcerns: SystemConcerns[] = [
 	{
 		id: 1,
 		title: "cardiovascular",
+		defaultPlan: planMockData,
 		details: [
 			{
 				id: 1,
@@ -140,6 +152,7 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						"Fatigue or weakness",
 					],
 				},
+				plan: AtrialFibrillationPlanMockData,
 			},
 			{
 				id: 2,
@@ -239,6 +252,7 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						"Severe headache with no known cause",
 					],
 				},
+				plan: StrokePlanMockData,
 			},
 			{
 				id: 3,
@@ -338,6 +352,7 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						"Nausea",
 					],
 				},
+				plan: CoronaryArteryDiseasePlanMockData,
 			},
 			{
 				id: 4,
@@ -437,6 +452,7 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						"Vision problems",
 					],
 				},
+				plan: HypertensionPlanMockData,
 			},
 			{
 				id: 5,
@@ -536,6 +552,7 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						"Sometimes preceded by chest pain, shortness of breath, or dizziness",
 					],
 				},
+				plan: HeartFailurePlanMockData,
 			},
 		],
 	},

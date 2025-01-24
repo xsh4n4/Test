@@ -1,20 +1,21 @@
 import { useState } from "react";
-import { planMockData } from "./helpers/planMockData";
 import styles from "./PlanWidget.module.scss";
 import { Tabs } from "./Components/Tabs/Tabs";
 import { PlanTable } from "./Components/PlanTable/PlanTable";
 import { PlanAggregate } from "./Components/PlanAggregate/PlanAggregate";
+import { PlanSection } from "./helpers/planMockData";
 
 interface PlanWidgetProps {
 	backgroundColor: string;
+	planData: PlanSection[];
 }
 
-export const PlanWidget = ({ backgroundColor }: PlanWidgetProps) => {
-	const [activeTab, setActiveTab] = useState(planMockData[0].title);
+export const PlanWidget = ({ backgroundColor, planData }: PlanWidgetProps) => {
+	const [activeTab, setActiveTab] = useState(planData[0].title);
 	const [transitioning, setTransitioning] = useState(false);
 
 	const getActionPlanData = () => {
-		return planMockData
+		return planData
 			.filter((section) => section.title !== "Action Plan")
 			.flatMap((section) =>
 				section.data.map((item) => ({
@@ -24,7 +25,7 @@ export const PlanWidget = ({ backgroundColor }: PlanWidgetProps) => {
 			);
 	};
 
-	const enrichedPlanMockData = planMockData.map((section) =>
+	const enrichedPlanMockData = planData.map((section) =>
 		section.title === "Action Plan"
 			? { ...section, data: getActionPlanData() }
 			: section,

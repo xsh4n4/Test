@@ -7,7 +7,7 @@
 
 .AgeMetrics-shape-container {
 	position: relative;
-	width: 100%;
+	width: 219px;
 
 	height: auto;
 	// opacity: 0;
@@ -52,13 +52,28 @@
 
 .AgeMetrics-content-rotated {
 	left: 46%;
+
+	.AgeMetrics-content-value {
+		margin-left: 8px;
+	}
 }
 
 .AgeMetrics-content-title {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 4px;
+
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 26px;
 	text-wrap: nowrap;
+
+	svg {
+		path {
+			fill: rgba(108, 117, 132, 1);
+		}
+	}
 }
 
 .AgeMetrics-content-value {
@@ -66,6 +81,10 @@
 	font-weight: 400;
 	font-size: 32px;
 	line-height: 26px;
+}
+
+.AgeMetrics-border-pink {
+	border-left: 2px solid #ff7bd2;
 }
 
 .AgeMetrics-border-green {
@@ -93,4 +112,11 @@
 	gap: 8px;
 	border-radius: 24px;
 	background-color: #ffffff;
+}
+
+.AgeMetrics-content-ages {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 16px;
 }

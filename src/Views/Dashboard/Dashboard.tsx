@@ -17,8 +17,7 @@ const Dashboard = () => {
 	const selectedCategory = useSelector(
 		(state: RootState) => state.category.selectedCategory,
 	);
-
-	const [category, setCategory] = useState(selectedCategory);
+	const [category, setCategory] = useState(selectedCategory || "total");
 
 	useEffect(() => {
 		if (selectedCategory !== "total") {
@@ -28,7 +27,7 @@ const Dashboard = () => {
 
 	const handleAnimationStart = () => {
 		const timeout = setTimeout(() => {
-			setCategory(selectedCategory);
+			setCategory(selectedCategory || "total");
 		}, 800);
 		return () => clearTimeout(timeout);
 	};
@@ -41,12 +40,12 @@ const Dashboard = () => {
 				<div className={styles["Dashboard-content"]}>
 					<div className={styles["Dashboard-dt-container"]}>
 						<div className={styles["Dashboard-model"]}>
-							<MainScene />
+							<MainScene selectedCategory={selectedCategory || "total"} />
 						</div>
 					</div>
 					<div
 						key={selectedCategory}
-						className={`${styles["Dashboard-stats"]}  ${
+						className={`${styles["Dashboard-stats"]} ${
 							isNotFirstAnimation
 								? styles["loopAnimation"]
 								: styles["firstAnimation"]
@@ -54,7 +53,7 @@ const Dashboard = () => {
 						onAnimationStart={handleAnimationStart}
 					>
 						<TrackerWidget />
-						<SystemDetailWidget category={category || "total"} />
+						<SystemDetailWidget category={category} />
 						<AgeWidget />
 						<ConcernsWidget category={category || "total"} />
 						{/* gi */}

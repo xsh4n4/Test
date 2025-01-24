@@ -48,11 +48,29 @@ function Model({
 	const currentModel = modelType === "body" ? bodyModel : cardioModel;
 	const modelRef = useRef<THREE.Group>(null);
 
-	const [opacity, setOpacity] = useState(isNew ? 0 : 1);
+	const [opacity, setOpacity] = useState(isNew ? 1 : 1);
 	const [shouldRender, setShouldRender] = useState(!isNew);
 	const [hasFadedOut, setHasFadedOut] = useState(false);
 	const { currentPosition, currentScale, updateTransforms } =
 		useModelTransforms(position, scale);
+
+	const [pointerDownTime, setPointerDownTime] = useState(0);
+
+	const handlePointerDown = () => {
+		setPointerDownTime(Date.now());
+	};
+
+	const handlePointerUp = (event: ThreeEvent<PointerEvent>) => {
+		const clickDuration = Date.now() - pointerDownTime;
+		const wasDragged = event.movementX !== 0 || event.movementY !== 0;
+
+		if (!wasDragged && clickDuration < 200) {
+			const clickedMesh = event.object;
+			if (clickedMesh.userData.clickable) {
+				handleChestClick(event);
+			}
+		}
+	};
 
 	const handleChestClick = (event: ThreeEvent<MouseEvent>) => {
 		event.stopPropagation();
@@ -122,17 +140,20 @@ function Model({
 				child.material = material;
 				if (child.material) {
 					child.material.transparent = true;
+					child.material.blending = THREE.CustomBlending;
+					child.material.blendSrc = THREE.SrcAlphaFactor;
+					child.material.blendDst = THREE.OneMinusSrcAlphaFactor;
+					child.material.blendEquation = THREE.AddEquation;
 
-					if (modelType === "body" && !isFading && !isNew) {
-						child.material.opacity = 1;
-					} else if (modelType === "cardio") {
-						child.material.opacity = Math.max(0.01, isHidden ? 0 : opacity);
+					// Ensure body model always has full opacity unless fading
+					if (modelType === "body") {
+						child.material.opacity = isFading ? opacity : 1;
 					} else {
 						child.material.opacity = isHidden ? 0 : opacity;
 					}
 
-					child.material.depthWrite = opacity > 0.2;
-					child.material.blending = THREE.NormalBlending;
+					child.material.depthWrite = true;
+					child.material.needsUpdate = true;
 					child.material.visible =
 						(!isHidden || modelType === "cardio") && shouldRender;
 				}
@@ -147,7 +168,6 @@ function Model({
 		isHidden,
 		shouldRender,
 		isFading,
-		isNew,
 	]);
 
 	if (
@@ -159,12 +179,8 @@ function Model({
 	return (
 		<group
 			ref={modelRef}
-			onClick={(event) => {
-				const clickedMesh = event.object;
-				if (clickedMesh.userData.clickable) {
-					handleChestClick(event);
-				}
-			}}
+			onPointerDown={handlePointerDown}
+			onPointerUp={handlePointerUp}
 		>
 			<Clone
 				object={currentModel}
@@ -177,11 +193,17 @@ function Model({
 			<ambientLight intensity={0.8} />
 			<directionalLight
 				position={[2, 10, 5]}
-				intensity={5.0}
+				intensity={3.0}
 				castShadow
 				color='#CFD8EA'
 				shadow-mapSize-width={2048}
 				shadow-mapSize-height={2048}
+			/>
+			{/* Add a constant key light */}
+			<directionalLight
+				position={[0, 10, 10]}
+				intensity={1.0}
+				color='#FFFFFF'
 			/>
 		</group>
 	);

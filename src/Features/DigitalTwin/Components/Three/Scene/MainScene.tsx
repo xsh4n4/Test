@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCamera } from "../../../Context/CameraContext";
 import {
 	SCENE_CONSTANTS,
@@ -14,9 +14,15 @@ import SideBar from "../../SideBar/SideBar";
 import ZoomControls from "./Controls/ZoomControls";
 import "./canvas.scss";
 
-const MainScene = () => {
+interface MainSceneProps {
+	selectedCategory: string | null;
+}
+
+const MainScene: React.FC<MainSceneProps> = ({ selectedCategory }) => {
 	const { cameraState, setCameraState } = useCamera();
-	const [modelType, setModelType] = useState<ModelType>("body");
+	const [modelType, setModelType] = useState<ModelType>(() =>
+		selectedCategory === "cardiovascular" ? "cardio" : "body",
+	);
 	const [previousModelType, setPreviousModelType] = useState<ModelType | null>(
 		null,
 	);
@@ -25,7 +31,20 @@ const MainScene = () => {
 	const [pendingCameraConfig, setPendingCameraConfig] = useState<{
 		position: [number, number, number];
 		zoom: number;
-	} | null>(null);
+	} | null>(() => {
+		// Initialize camera config based on selected Category
+		if (selectedCategory === "cardiovascular") {
+			return {
+				position: [0, 20, 200],
+				zoom: 20,
+			};
+		} else {
+			return {
+				position: [0, 0, 200],
+				zoom: 8,
+			};
+		}
+	});
 	const { MODEL_ZOOM_VALUE } = SCENE_CONSTANTS;
 
 	const moveCamera = (
@@ -73,6 +92,27 @@ const MainScene = () => {
 			setStartNewModelFade(true);
 		}
 	};
+
+	useEffect(() => {
+		console.log("Selected Category changed:", selectedCategory);
+		if (!selectedCategory) return;
+
+		if (selectedCategory === "cardiovascular") {
+			console.log("Switching to cardio model");
+			const cardioConfig = {
+				position: [0, 20, 200] as [number, number, number],
+				zoom: 15,
+			};
+			handleModelChange("cardio", cardioConfig);
+		} else if (selectedCategory === "total") {
+			console.log("Switching to body model");
+			const bodyConfig = {
+				position: [0, 0, 200] as [number, number, number],
+				zoom: 8,
+			};
+			handleModelChange("body", bodyConfig);
+		}
+	}, [selectedCategory]);
 
 	const handleModelChange = (
 		type: ModelType,

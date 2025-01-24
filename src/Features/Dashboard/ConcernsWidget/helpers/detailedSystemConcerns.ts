@@ -20,6 +20,8 @@ export interface Detail {
 	symptoms?: Symptoms;
 	plan: PlanSection[];
 	status: "High" | "Medium" | "Low";
+	frame?: string;
+	description?: string[];
 }
 
 export interface Reason {
@@ -160,7 +162,14 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						"Fatigue or weakness",
 					],
 				},
-				plan: AtrialFibrillationPlanMockData,
+
+				frame:
+					"https://human.biodigital.com/viewer/?id=5v3G&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=false&ui-audio=true&ui-chapter-list=false&ui-fullscreen=false&ui-help=false&ui-info=false&ui-label-list=true&ui-layers=false&ui-skin-layers=false&ui-loader=circle&ui-media-controls=none&ui-menu=false&ui-nav=false&ui-search=false&ui-tools=false&ui-tutorial=false&ui-undo=false&ui-whiteboard=false&initial.none=true&disable-scroll=false&dk=57a9053995a029ade6a11d83c8a64a4fedef2b19&paid=o_27f525a0",
+				description: [
+					"AFib is a common heart rhythm disorder characterized by irregular and often rapid heartbeats, leading to an increased risk of stroke, heart failure, and other cardiovascular complications.",
+					"Atrial fibrillation affects millions of people worldwide and is often influenced by a combination of genetic predisposition and environmental factors.",
+					"Variations in genes encoding ion channels, structural proteins, and signaling molecules involved in cardiac electrical conduction and contractility contribute to the development of AFib. Common genetic risk factors include mutations in the KCNE1, KCNH2, and SCN5A genes, which regulate potassium and sodium channels crucial for maintaining normal heart rhythm.",
+				],
 			},
 			{
 				id: 2,
@@ -266,7 +275,10 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 						"Severe headache with no known cause",
 					],
 				},
-				plan: StrokePlanMockData,
+
+				frame:
+					"https://human.biodigital.com/viewer/?id=5v3G&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=false&ui-audio=true&ui-chapter-list=false&ui-fullscreen=false&ui-help=false&ui-info=false&ui-label-list=true&ui-layers=false&ui-skin-layers=false&ui-loader=circle&ui-media-controls=none&ui-menu=false&ui-nav=false&ui-search=false&ui-tools=false&ui-tutorial=false&ui-undo=false&ui-whiteboard=false&initial.none=true&disable-scroll=false&dk=57a9053995a029ade6a11d83c8a64a4fedef2b19&paid=o_27f525a0",
+
 			},
 			{
 				id: 3,

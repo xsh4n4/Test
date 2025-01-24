@@ -439,7 +439,7 @@ export const detailedSystemConcerns: SystemConcerns[] = [
 				},
 			},
 			{
-				id: 2,
+				id: 5,
 				title: "Heart Failure",
 				factors: ["High heart rate level", "Other influencing factors"],
 				status: "Low",

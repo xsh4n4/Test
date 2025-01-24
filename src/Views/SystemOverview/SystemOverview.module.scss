@@ -250,3 +250,30 @@
 .padding-top {
 	padding-top: 16px;
 }
+
+@keyframes slideInFromLeft {
+	0% {
+		transform: translateX(-150%);
+		opacity: 0;
+	}
+	80% {
+		transform: translateX(2%);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+.SystemOverview-animate {
+	> * {
+		animation: slideInFromLeft 0.8s ease-out forwards;
+	}
+
+	@for $i from 1 through 10 {
+		> *:nth-child(#{$i}) {
+			animation-delay: calc(0s + ($i - 1) * 0.1s);
+		}
+	}
+}

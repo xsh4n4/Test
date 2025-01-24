@@ -7,7 +7,7 @@ import RiskHeader from "@/Features/Risk/RiskHeader/RiskHeader";
 import { RiskStatus } from "@/Features/Risk/RiskStatus/RiskStatus";
 // import { AgeWidget } from "@/Features/Risk/AgeWidget/AgeWidget";
 import { detailedSystemConcerns } from "@/Features/Dashboard/ConcernsWidget/helpers/detailedSystemConcerns";
-import { PlanWidget } from "@/Features/Risk/PlanWidget/PlanWidget";
+import { PlanWidget } from "@/Features/Dashboard/PlanWidget/PlanWidget";
 import GoalsProgressMenu from "@/Features/Risk/GoalProgressMenu/GoalProgressMenu";
 import { ReasonsTable } from "@/Features/Risk/ReasonsTable/ReasonsTable";
 import Logo from "@assets/General/IconGenetiq.svg?react";
@@ -26,6 +26,10 @@ const DetailedRisk = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 
 	const formattedName = riskName ? toTitleCase(riskName) : "";
+
+	const selectedDetail = detailedSystemConcerns[0].details.find(
+		(detail) => detail.title === formattedName,
+	);
 
 	const handleIframeLoad = () => {
 		setInterval(() => {
@@ -58,12 +62,15 @@ const DetailedRisk = () => {
 							</div>
 							{/* <AgeWidget /> remove for now */}
 						</div>
-						<ReasonsTable
-							reasons={detailedSystemConcerns[0].details[0].reasons}
-						/>
+						<ReasonsTable reasons={selectedDetail?.reasons ?? []} />
 						<div className={styles["DetailerRisk-plan"]}>
 							<div className={styles["title"]}>What you can do</div>
-							<PlanWidget />
+							<PlanWidget
+								backgroundColor='blue'
+								planData={
+									selectedDetail?.plan ?? detailedSystemConcerns[0].defaultPlan
+								}
+							/>
 						</div>
 					</div>
 					<div className={styles["DetailerRisk-twin"]}>

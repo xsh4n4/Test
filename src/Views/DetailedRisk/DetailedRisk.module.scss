@@ -38,6 +38,10 @@
 	align-self: stretch;
 	opacity: 0;
 
+	> div {
+		width: 100%;
+	}
+
 	.title {
 		color: var(--p-color-text, rgba(33, 38, 46, 1));
 

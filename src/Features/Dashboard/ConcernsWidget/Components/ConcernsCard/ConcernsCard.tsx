@@ -21,7 +21,7 @@ export const ConcernsCard: React.FC<ConcernsCardProps> = ({
 		if (concern.link) {
 			dispatch(setCategory(concern.link));
 		}
-		navigate(`/dashboard/'cardiovascular/${concernName}`);
+		navigate(`/dashboard/cardiovascular/${concernName}`);
 	};
 
 	return (

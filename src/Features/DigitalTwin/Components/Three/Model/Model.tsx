@@ -131,7 +131,8 @@ function Model({
 						child.material.opacity = isHidden ? 0 : opacity;
 					}
 
-					child.material.depthWrite = opacity > 0.2;
+					// Ensure depth write is only affected when opacity is very low
+					child.material.depthWrite = opacity > 0.01;
 					child.material.blending = THREE.NormalBlending;
 					child.material.visible =
 						(!isHidden || modelType === "cardio") && shouldRender;

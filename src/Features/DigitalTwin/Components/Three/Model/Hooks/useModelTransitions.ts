@@ -16,18 +16,23 @@ export function useModelTransitions(initialOpacity = 1) {
 		setIsTransitioning(true);
 		setTargetOpacity(0);
 
-		// Fade out
-		fadeRef.current = setTimeout(() => {
+		const fadeOut = () => {
+			setOpacity(0);
 			if (callbackRef.current) {
 				callbackRef.current();
 			}
 			setTargetOpacity(1);
+			fadeIn();
+		};
 
-			// Fade in
-			fadeRef.current = setTimeout(() => {
+		const fadeIn = () => {
+			setOpacity(1);
+			setTimeout(() => {
 				setIsTransitioning(false);
 			}, 800);
-		}, 800);
+		};
+
+		fadeRef.current = setTimeout(fadeOut, 800);
 	};
 
 	useEffect(() => {

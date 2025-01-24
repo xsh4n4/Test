@@ -20,7 +20,9 @@ interface MainSceneProps {
 
 const MainScene: React.FC<MainSceneProps> = ({ selectedCategory }) => {
 	const { cameraState, setCameraState } = useCamera();
-	const [modelType, setModelType] = useState<ModelType>("body");
+	const [modelType, setModelType] = useState<ModelType>(() =>
+		selectedCategory === "cardiovascular" ? "cardio" : "body",
+	);
 	const [previousModelType, setPreviousModelType] = useState<ModelType | null>(
 		null,
 	);
@@ -29,7 +31,20 @@ const MainScene: React.FC<MainSceneProps> = ({ selectedCategory }) => {
 	const [pendingCameraConfig, setPendingCameraConfig] = useState<{
 		position: [number, number, number];
 		zoom: number;
-	} | null>(null);
+	} | null>(() => {
+		// Initialize camera config based on selected Category
+		if (selectedCategory === "cardiovascular") {
+			return {
+				position: [0, 20, 200],
+				zoom: 20,
+			};
+		} else {
+			return {
+				position: [0, 0, 200],
+				zoom: 8,
+			};
+		}
+	});
 	const { MODEL_ZOOM_VALUE } = SCENE_CONSTANTS;
 
 	const moveCamera = (

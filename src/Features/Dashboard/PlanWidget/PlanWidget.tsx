@@ -6,7 +6,7 @@ import { PlanAggregate } from "./Components/PlanAggregate/PlanAggregate";
 import { PlanSection } from "./helpers/planMockData";
 
 interface PlanWidgetProps {
-	backgroundColor?: string;
+	backgroundColor: string;
 	planData: PlanSection[];
 }
 

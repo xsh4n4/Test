@@ -59,7 +59,7 @@ const SideBar = ({ onModelChange, modelType = "body" }: SideBarProps) => {
 			zoom: number;
 		}
 	> = {
-		ClinicalNotes: { position: [0, 6, 200], zoom: 10 },
+		ClinicalNotes: { position: [0, 5, 200], zoom: 10 },
 		StressManagement: { position: [0, 30, 200], zoom: 40 },
 		CardioLoad: { position: [0, 20, 200], zoom: 15 },
 		Pulmonology: { position: [0, 10, 200], zoom: 43 },

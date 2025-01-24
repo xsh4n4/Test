@@ -1,4 +1,4 @@
-// src/Features/DigitalTwin/Utils/materialUtils.ts
+// materialUtils.ts
 import * as THREE from "three";
 import { ModelTextures, BodyModelTextures } from "../Types/modelTypes";
 
@@ -8,18 +8,21 @@ export const createCardioMaterial = (
 ): THREE.Material => {
 	const name = meshName.toLowerCase();
 
+	const baseProperties = {
+		roughness: 0.5,
+		metalness: 0.1,
+		side: THREE.DoubleSide,
+		transparent: true,
+	};
+
 	if (
 		name.includes("arteries") ||
 		name.includes("aorta") ||
 		name.includes("aortic")
 	) {
 		return new THREE.MeshStandardMaterial({
-			// map: textures.arteries.diffuse,
+			...baseProperties,
 			normalMap: textures.arteries.normal,
-			color: new THREE.Color(1, 1, 1), //
-			roughness: 0.5,
-			metalness: 0.1,
-			side: THREE.DoubleSide,
 		});
 	}
 
@@ -32,14 +35,10 @@ export const createCardioMaterial = (
 		name.includes("tricuspic")
 	) {
 		return new THREE.MeshStandardMaterial({
-			// map: textures.heart.diffuse,
+			...baseProperties,
 			normalMap: textures.heart.normal,
 			displacementMap: textures.heart.height,
-			color: new THREE.Color(1, 1, 1), //
 			displacementScale: 0.1,
-			roughness: 0.5,
-			metalness: 0.1,
-			side: THREE.DoubleSide,
 		});
 	}
 
@@ -51,24 +50,16 @@ export const createCardioMaterial = (
 		name.includes("pulmonary")
 	) {
 		return new THREE.MeshStandardMaterial({
-			// map: textures.veins.diffuse,
+			...baseProperties,
 			normalMap: textures.veins.normal,
-			color: new THREE.Color(1, 1, 1), //
-			roughness: 0.5,
-			metalness: 0.1,
-			side: THREE.DoubleSide,
 		});
 	}
 
 	return new THREE.MeshStandardMaterial({
-		// map: textures.heart.diffuse,
+		...baseProperties,
 		normalMap: textures.heart.normal,
 		displacementMap: textures.heart.height,
-		color: new THREE.Color(1, 1, 1), //
 		displacementScale: 0.5,
-		roughness: 0.5,
-		metalness: 0.1,
-		side: THREE.DoubleSide,
 	});
 };
 
@@ -83,5 +74,7 @@ export const createBodyMaterial = (
 		roughness: 0.7,
 		metalness: 0.25,
 		side: THREE.DoubleSide,
+		transparent: true,
+		envMapIntensity: 1.5, // Increased for better contrast
 	});
 };

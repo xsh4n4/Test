@@ -21,7 +21,6 @@ const SystemOverview = () => {
 	const concernsToShow = isShowMore
 		? concernsMockData
 		: concernsMockData.slice(0, 2);
-
 	return (
 		<div className={styles["SystemOverview-layout"]}>
 			<NavBar />

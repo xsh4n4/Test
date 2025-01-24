@@ -7,7 +7,7 @@ import { CameraProvider } from "@/Features/DigitalTwin/Context/CameraContext";
 // import { ConnectWatchWidget } from "@/Features/Dashboard/ConnectWatchWidget/ConnectWatchWidget";
 import CtaModal from "@/Features/Dashboard/CtaModal/CtaModal";
 import { ConcernsWidget } from "@/Features/Dashboard/ConcernsWidget/ConcernsWidget";
-import { PlanWidget } from "@/Features/Dashboard/PlanWidget/PlanWidget";
+// import { PlanWidget } from "@/Features/Dashboard/PlanWidget/PlanWidget";
 // import { useState } from "react";
 
 const Widgets = () => {
@@ -31,7 +31,7 @@ const Widgets = () => {
 						<TrackerWidget />
 						<AgeWidget />
 						<ConcernsWidget category={"total"} />
-						<PlanWidget />
+						{/* <PlanWidget /> */}
 						{/* <ConnectWatchWidget /> */}
 					</div>
 				</div>

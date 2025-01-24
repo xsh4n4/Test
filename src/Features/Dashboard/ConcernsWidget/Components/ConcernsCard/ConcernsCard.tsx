@@ -1,8 +1,9 @@
 import styles from "./ConcernsCard.module.scss";
 import { Concern } from "../../helpers/concernsMockData";
+import Question from "@assets/ConcernsWidget/Question.svg?react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setCategory } from "@/App/Redux/categorySlice";
-import Question from "@assets/ConcernsWidget/Question.svg?react";
 
 interface ConcernsCardProps {
 	concern: Concern;
@@ -13,19 +14,22 @@ export const ConcernsCard: React.FC<ConcernsCardProps> = ({
 	concern,
 	type,
 }) => {
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const handleClick = () => {
+	const handleClick = (concernName: string) => {
 		if (concern.link) {
 			dispatch(setCategory(concern.link));
 		}
+		navigate(`/dashboard/'cardiovascular/${concernName}`);
 	};
+
 	return (
 		<div
 			className={`${styles["ConcernsCard-card"]} ${
 				concern.link && styles["ConcernsCard-card-link"]
 			} ${type === "row" && styles["ConcernsCard-card-row"]}`}
-			onClick={handleClick}
+			onClick={() => handleClick(concern.title)}
 		>
 			<div className={styles["ConcernsCard-head"]}>
 				<div className={styles["ConcernsCard-icon-container"]}>

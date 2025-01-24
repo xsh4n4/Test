@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { CircleProgressBar } from "./Components/ProgressBar/ProgressBar";
 import { UploadProcesser } from "./Components/UploadProcesser/UploadProcesser";
 import styles from "./UploadProcess.module.scss";
+import ArrowRightIcon from "@assets/General/ArrowRight.svg?react";
+import { useNavigate } from "react-router-dom";
+import { paths } from "@/App/Routes/Paths";
 
 interface UploadProcessProps {
 	uploadedFiles: File[];
@@ -13,6 +16,7 @@ export const UploadProcess: React.FC<UploadProcessProps> = ({
 	setIsProcessing,
 }) => {
 	const [progress, setProgress] = useState(0);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		setIsProcessing(true);
@@ -55,6 +59,15 @@ export const UploadProcess: React.FC<UploadProcessProps> = ({
 						))}
 					</div>
 				</div>
+				{progress === 100 && (
+					<button
+						className={styles["submit"]}
+						onClick={() => navigate(paths.dashboard.root)}
+					>
+						Submit My Health Data
+						<ArrowRightIcon />
+					</button>
+				)}
 			</div>
 			<div className={styles["right-side"]}></div>
 		</div>

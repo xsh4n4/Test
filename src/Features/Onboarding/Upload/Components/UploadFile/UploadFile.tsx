@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { CloseIcon } from "@/assets/Icons/Close";
 import CheckMarkIcon from "@assets/General/CheckMark.svg?react";
 import styles from "./UploadFile.module.scss";
-import { SettingIcon } from "@/assets/Icons/Setting";
+// import { SettingIcon } from "@/assets/Icons/Setting";
 
 interface UploadFileProps {
 	file: File;
@@ -42,9 +42,9 @@ export const UploadFile: React.FC<UploadFileProps> = ({
 					<>{progress}%</>
 				) : (
 					<div className={styles["actions"]}>
-						<button className={styles["process-btn"]}>
+						{/* <button className={styles["process-btn"]}>
 							Process <SettingIcon fill='rgba(0, 41, 173, 1)' />
-						</button>
+						</button> */}
 						<div className={styles["close-icon"]} onClick={() => onClose(file)}>
 							<CloseIcon fill='rgba(17, 17, 17, 1)' />
 						</div>

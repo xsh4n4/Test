@@ -26,7 +26,9 @@ const SystemOverview = () => {
 			<NavBar />
 			<CameraProvider>
 				<div className={styles["SystemOverview-content"]}>
-					<div className={styles["SystemOverview-stats"]}>
+					<div
+						className={`${styles["SystemOverview-stats"]}  ${styles["SystemOverview-animate"]}`}
+					>
 						<div className={styles["SystemOverview-head"]}>
 							<Link to='/dashboard' className={styles["SystemOverview-back"]}>
 								<ArrowLeft />

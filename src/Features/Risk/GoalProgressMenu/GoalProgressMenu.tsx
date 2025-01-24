@@ -1,5 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./GoalProgressMenu.scss";
+import ProgressRing from "@features/Risk/GoalProgressMenu/ProgressRing.tsx";
+import initialGoals from "@features/Risk/GoalProgressMenu/InitialGoals.tsx";
 
 const PyramidIcon = ({
 	className,
@@ -15,7 +17,7 @@ const PyramidIcon = ({
 			width='16'
 			height='16'
 			viewBox='0 0 16 16'
-			fill='#515967'
+			fill='rgba(0, 65, 196, 1)'
 			xmlns='http://www.w3.org/2000/svg'
 			style={{ cursor: "pointer" }}
 		>
@@ -24,25 +26,62 @@ const PyramidIcon = ({
 	);
 };
 const GoalsProgressMenu = ({ totalGoals = 6, completedGoals = 1 }) => {
+	const daysOfWeek = [
+		"Monday",
+		"Tuesday",
+		"Wednesday",
+		"Thursday",
+		"Friday",
+		"Saturday",
+		"Sunday",
+	];
+
 	const [isOpen, setIsOpen] = useState(false);
 	const [currentProgress, setCurrentProgress] = useState(completedGoals);
-	const [goalsState, setGoalsState] = useState<boolean[]>(
-		Array.from({ length: totalGoals }, (_, index) => index < completedGoals),
+	const [goalsState] = useState<{
+		[day: string]: boolean[];
+	}>(
+		daysOfWeek.reduce(
+			(state, day) => {
+				state[day] = initialGoals.map(() => false);
+				return state;
+			},
+			{} as { [day: string]: boolean[] },
+		),
 	);
 
-	const handleCheckboxChange = (index: number) => {
-		setGoalsState((prevGoalsState) => {
-			const updatedGoalsState = [...prevGoalsState];
-			updatedGoalsState[index] = !updatedGoalsState[index];
-			const completedCount = updatedGoalsState.filter((goal) => goal).length;
-			setCurrentProgress(completedCount);
-			return updatedGoalsState;
-		});
+	const [activeDay, setActiveDay] = useState<string | null>(
+		daysOfWeek[new Date().getDay() - 1] || "Monday",
+	);
+
+	// const handleCheckboxChange = (index: number) => {
+	// 	if (!activeDay) return;
+	//
+	// 	setGoalsState((prevGoalsState) => {
+	// 		const updatedGoalsState = {
+	// 			...prevGoalsState,
+	// 			[activeDay]: [...prevGoalsState[activeDay]],
+	// 		};
+	// 		updatedGoalsState[activeDay][index] =
+	// 			!updatedGoalsState[activeDay][index];
+	//
+	// 		const completedCount = updatedGoalsState[activeDay].filter(
+	// 			(goal) => goal,
+	// 		).length;
+	// 		setCurrentProgress(completedCount);
+	//
+	// 		return updatedGoalsState;
+	// 	});
+	// };
+	const calculateProgressPercentage = (day: string) => {
+		const completed = goalsState[day].filter((g) => g).length;
+		const total = goalsState[day].length;
+		return Math.round((completed / total) * 100);
 	};
 
 	return (
 		<div className='container'>
-			<div className='button'>
+			<div className={`button ${isOpen ? "open" : ""}`}>
 				<svg
 					width='16'
 					height='16'
@@ -75,14 +114,11 @@ const GoalsProgressMenu = ({ totalGoals = 6, completedGoals = 1 }) => {
 					</div>
 				</div>
 				<span className='counter'>
-					<span style={{ color: "rgba(33, 38, 46, 1)", marginRight: "4px" }}>
-						{currentProgress}
-					</span>
-					<span style={{ color: "rgba(108, 117, 132, 1)", marginRight: "4px" }}>
-						/
-					</span>
-					<span style={{ color: "rgba(108, 117, 132, 1)" }}>{totalGoals}</span>
+					<span className='current-progress'>{currentProgress}</span>
+					<span className='divider'>/</span>
+					<span className='total-goals'>{totalGoals}</span>
 				</span>
+
 				<PyramidIcon
 					className={`chevron ${!isOpen ? "rotate" : ""}`}
 					onClick={(e) => {
@@ -92,25 +128,91 @@ const GoalsProgressMenu = ({ totalGoals = 6, completedGoals = 1 }) => {
 				/>
 			</div>
 			{isOpen && (
-				<div className='dropdown' onClick={(e) => e.stopPropagation()}>
-					{Array.from({ length: totalGoals }, (_, index) => ({
-						id: index + 1,
-						text: `Goal ${index + 1}`,
-						completed: goalsState[index],
-					})).map((goal, index) => (
-						<div
-							key={goal.id}
-							className='goal-item'
-							onClick={(e) => e.stopPropagation()}
+				<div className='dropdown'>
+					<div className='days-wrapper'>
+						{daysOfWeek.map((day) => {
+							const hasCheckedGoals = goalsState[day].some((goal) => goal);
+
+							return (
+								<React.Fragment key={day}>
+									<button
+										key={day}
+										className={`day-button ${activeDay === day ? "active" : ""}`}
+										onClick={() => {
+											setActiveDay(day);
+											setCurrentProgress(
+												goalsState[day].filter((goal) => goal).length,
+											);
+										}}
+									>
+										<div
+											style={{ display: "flex", alignItems: "center", gap: 8 }}
+										>
+											<ProgressRing
+												progress={calculateProgressPercentage(day)}
+												hasCheckedGoals={hasCheckedGoals}
+												isActive={activeDay === day}
+											/>
+											{day.slice(0, 3)}
+										</div>
+									</button>
+									{day === "Sunday" && (
+										<div className='sunday-icon-wrapper'>
+											<svg
+												width='16'
+												height='16'
+												viewBox='0 0 16 16'
+												fill='none'
+												xmlns='http://www.w3.org/2000/svg'
+											>
+												<path
+													d='M13 2H11V1H10V2H6V1H5V2H3C2.45 2 2 2.45 2 3V13C2 13.55 2.45 14 3 14H13C13.55 14 14 13.55 14 13V3C14 2.45 13.55 2 13 2ZM13 13H3V6H13V13ZM13 5H3V3H5V4H6V3H10V4H11V3H13V5Z'
+													fill='#0029AD'
+												/>
+											</svg>
+										</div>
+									)}
+								</React.Fragment>
+							);
+						})}
+					</div>
+					{activeDay &&
+						initialGoals.map((goal) => (
+							<div key={goal.id} className='goal-item'>
+								{/*<input*/}
+								{/*	type='checkbox'*/}
+								{/*	checked={goalsState[activeDay][index]}*/}
+								{/*	onChange={() => handleCheckboxChange(index)}*/}
+								{/*/>*/}
+								<div className='goal-content'>
+									{goal.icon}
+									<span className='goal-text'>{goal.text}</span>
+
+									{goal.id === 3 ? (
+										goal.stats
+									) : (
+										<span className='stats-badge'>{goal.stats}</span>
+									)}
+								</div>
+							</div>
+						))}
+
+					<div className='edit-goals'>
+						<span>Edit goals</span>
+						<svg
+							width='16'
+							height='16'
+							viewBox='0 0 16 16'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
 						>
-							<input
-								type='checkbox'
-								checked={goal.completed}
-								onChange={() => handleCheckboxChange(index)}
+							<path d='M15 13H1V14H15V13Z' fill='#0041C4' />
+							<path
+								d='M12.7 4.5C13.1 4.1 13.1 3.5 12.7 3.1L10.9 1.3C10.5 0.9 9.9 0.9 9.5 1.3L2 8.8V12H5.2L12.7 4.5ZM10.2 2L12 3.8L10.5 5.3L8.7 3.5L10.2 2ZM3 11V9.2L8 4.2L9.8 6L4.8 11H3Z'
+								fill='#0041C4'
 							/>
-							<span>{goal.text}</span>
-						</div>
-					))}
+						</svg>
+					</div>
 				</div>
 			)}
 		</div>

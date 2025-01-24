@@ -26,32 +26,11 @@ const MainScene: React.FC<MainSceneProps> = ({ selectedCategory }) => {
 	);
 	const [isModelHidden, setIsModelHidden] = useState(false);
 	const [startNewModelFade, setStartNewModelFade] = useState(true);
-	const [isInitialRender, setIsInitialRender] = useState(true);
-	const [showCanvas, setShowCanvas] = useState(false);
 	const [pendingCameraConfig, setPendingCameraConfig] = useState<{
 		position: [number, number, number];
 		zoom: number;
 	} | null>(null);
 	const { MODEL_ZOOM_VALUE } = SCENE_CONSTANTS;
-
-	useEffect(() => {
-		const initialPosition: [number, number, number] =
-			selectedCategory === "cardiovascular" ? [0, 20, 200] : [0, 0, 200];
-		const initialZoom = selectedCategory === "cardiovascular" ? 15 : 8;
-
-		setCameraState({
-			targetPosition: initialPosition,
-			targetZoom: initialZoom,
-		});
-
-		// Add delay for showing canvas
-		const timer = setTimeout(() => {
-			setShowCanvas(true);
-			setIsInitialRender(false);
-		}, 800); // 800ms delay
-
-		return () => clearTimeout(timer);
-	}, []);
 
 	const moveCamera = (
 		position: [number, number, number],
@@ -66,12 +45,6 @@ const MainScene: React.FC<MainSceneProps> = ({ selectedCategory }) => {
 		}, delay);
 	};
 
-	useEffect(() => {
-		setCameraState({
-			targetPosition: [0, 0, 200] as [number, number, number],
-			targetZoom: 8,
-		});
-	}, []);
 	const handleModelTransitionComplete = () => {
 		if (pendingCameraConfig) {
 			if (modelType === "cardio") {
@@ -106,27 +79,24 @@ const MainScene: React.FC<MainSceneProps> = ({ selectedCategory }) => {
 	};
 
 	useEffect(() => {
+		console.log("Selected Category changed:", selectedCategory);
 		if (!selectedCategory) return;
 
-		const handleModelTypeChange = async () => {
-			if (selectedCategory === "cardiovascular") {
-				setStartNewModelFade(false);
-				const cardioConfig = {
-					position: [0, 20, 200] as [number, number, number],
-					zoom: 15,
-				};
-				await handleModelChange("cardio", cardioConfig);
-			} else if (selectedCategory === "total") {
-				setStartNewModelFade(false);
-				const bodyConfig = {
-					position: [0, 0, 200] as [number, number, number],
-					zoom: 8,
-				};
-				await handleModelChange("body", bodyConfig);
-			}
-		};
-
-		handleModelTypeChange();
+		if (selectedCategory === "cardiovascular") {
+			console.log("Switching to cardio model");
+			const cardioConfig = {
+				position: [0, 20, 200] as [number, number, number],
+				zoom: 15,
+			};
+			handleModelChange("cardio", cardioConfig);
+		} else if (selectedCategory === "total") {
+			console.log("Switching to body model");
+			const bodyConfig = {
+				position: [0, 0, 200] as [number, number, number],
+				zoom: 8,
+			};
+			handleModelChange("body", bodyConfig);
+		}
 	}, [selectedCategory]);
 
 	const handleModelChange = (
@@ -151,41 +121,38 @@ const MainScene: React.FC<MainSceneProps> = ({ selectedCategory }) => {
 		<div className='canvas-container'>
 			<SideBar onModelChange={handleModelChange} modelType={modelType} />
 			<div className='canvas-wrapper'>
-				{!isInitialRender &&
-					showCanvas && ( // Modified condition
-						<Canvas
-							orthographic
-							camera={{
-								near: CAMERA_SETTINGS.NEAR,
-								far: CAMERA_SETTINGS.FAR,
-								zoom: cameraState.targetZoom,
-								position: cameraState.targetPosition,
-							}}
-						>
-							<CameraController />
-							{previousModelType && (
-								<Model
-									key={`previous-${previousModelType}`}
-									scale={[MODEL_ZOOM_VALUE, MODEL_ZOOM_VALUE, MODEL_ZOOM_VALUE]}
-									position={[0, (-MODEL_ZOOM_VALUE * 70) / 2 - 1 - 5, 0]}
-									modelType={previousModelType}
-									isFading={true}
-									onTransitionComplete={handleModelTransitionComplete}
-									isHidden={isModelHidden}
-								/>
-							)}
-							<Model
-								key={`current-${modelType}`}
-								scale={[MODEL_ZOOM_VALUE, MODEL_ZOOM_VALUE, MODEL_ZOOM_VALUE]}
-								position={[0, (-MODEL_ZOOM_VALUE * 70) / 2 - 1 - 5, 0]}
-								modelType={modelType}
-								isNew={true}
-								isHidden={isModelHidden}
-								startFadeIn={startNewModelFade}
-								onModelChange={handleModelChange}
-							/>
-						</Canvas>
+				<Canvas
+					orthographic
+					camera={{
+						near: CAMERA_SETTINGS.NEAR,
+						far: CAMERA_SETTINGS.FAR,
+						zoom: cameraState.targetZoom,
+						position: cameraState.targetPosition,
+					}}
+				>
+					<CameraController />
+					{previousModelType && (
+						<Model
+							key={`previous-${previousModelType}`}
+							scale={[MODEL_ZOOM_VALUE, MODEL_ZOOM_VALUE, MODEL_ZOOM_VALUE]}
+							position={[0, (-MODEL_ZOOM_VALUE * 70) / 2 - 1 - 5, 0]}
+							modelType={previousModelType}
+							isFading={true}
+							onTransitionComplete={handleModelTransitionComplete}
+							isHidden={isModelHidden}
+						/>
 					)}
+					<Model
+						key={`current-${modelType}`}
+						scale={[MODEL_ZOOM_VALUE, MODEL_ZOOM_VALUE, MODEL_ZOOM_VALUE]}
+						position={[0, (-MODEL_ZOOM_VALUE * 70) / 2 - 1 - 5, 0]}
+						modelType={modelType}
+						isNew={true}
+						isHidden={isModelHidden}
+						startFadeIn={startNewModelFade}
+						onModelChange={handleModelChange}
+					/>
+				</Canvas>
 				<ZoomControls />
 			</div>
 		</div>

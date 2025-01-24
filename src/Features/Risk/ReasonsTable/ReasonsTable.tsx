@@ -2,14 +2,21 @@ import { useState } from "react";
 import styles from "./ReasonsTable.module.scss";
 
 import Chevron from "@assets/ConcernWidget/Chevron.svg?react";
-import { Reason } from "@/Features/Dashboard/ConcernsWidget/helpers/detailedSystemConcerns";
+import {
+	Reason,
+	Symptoms,
+} from "@/Features/Dashboard/ConcernsWidget/helpers/detailedSystemConcerns";
 import { ReasonRow } from "@/Features/Dashboard/ConcernsWidget/Components/ReasonRow/ReasonRow";
 
 interface ReasonsTableProps {
 	reasons: Reason[];
+	symptoms?: Symptoms;
 }
 
-export const ReasonsTable: React.FC<ReasonsTableProps> = ({ reasons }) => {
+export const ReasonsTable: React.FC<ReasonsTableProps> = ({
+	reasons,
+	symptoms,
+}) => {
 	const [isShowMore, setIsShowMore] = useState(false);
 
 	const reasonsToShow = isShowMore ? reasons : reasons.slice(0, 3);
@@ -38,9 +45,7 @@ export const ReasonsTable: React.FC<ReasonsTableProps> = ({ reasons }) => {
 					</div>
 				</div>
 				<div className={styles["ReasonsTable-desc"]}>
-					Symptoms of AFib can vary, and in some cases, individuals may not
-					notice any symptoms at all. You may experience the following symptoms
-					with AFib:
+					{symptoms?.description}
 				</div>
 			</div>
 			<div className={styles["ReasonsTable-table"]}>

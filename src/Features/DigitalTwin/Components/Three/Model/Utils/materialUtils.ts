@@ -71,12 +71,11 @@ export const createBodyMaterial = (
 		normalMap: textures.normal,
 		metalnessMap: textures.metallic,
 		roughnessMap: textures.roughness,
-		roughness: 0.7,
-		metalness: 0.25,
+		roughness: 0.9,
+		metalness: 0.1,
 		side: THREE.DoubleSide,
 		transparent: true,
-		envMapIntensity: 1.5,
-
-		color: new THREE.Color(0x909090), // Adjust this color as needed
+		envMapIntensity: 0.8,
+		color: new THREE.Color(0xf0f0f0),
 	});
 };

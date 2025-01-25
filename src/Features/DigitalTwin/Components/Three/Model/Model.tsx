@@ -57,11 +57,6 @@ function Model({
 
 	const [pointerDownTime, setPointerDownTime] = useState(0);
 
-	// Replace the existing spot material with this new pain area material
-
-	// Replace the Sphere component with a custom pain area mesh
-
-	// Handle pointer events
 	const handlePointerDown = () => {
 		setPointerDownTime(Date.now());
 	};
@@ -120,7 +115,6 @@ function Model({
 				setOpacity(newOpacity);
 			}
 		} else if (!isFading && !isNew && opacity !== 1) {
-			// Ensure opacity is fully restored for stable rendering
 			setOpacity(1);
 		}
 
@@ -217,7 +211,6 @@ function Model({
 				castShadow
 				receiveShadow
 			/>
-			{/* Add the orange spot */}
 			{shouldShowPainArea && (
 				<mesh position={[1, 15, 1.5]} rotation={[0, 0, 0]}>
 					<planeGeometry args={[15, 15, 32, 32]} />
@@ -233,7 +226,6 @@ function Model({
 				shadow-mapSize-width={2048}
 				shadow-mapSize-height={2048}
 			/>
-			{/* Add a constant key light */}
 			<directionalLight
 				position={[0, 10, 10]}
 				intensity={1.0}

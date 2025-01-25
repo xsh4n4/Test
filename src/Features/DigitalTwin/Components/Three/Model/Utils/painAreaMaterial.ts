@@ -1,4 +1,3 @@
-// shaderUtils.ts
 import * as THREE from "three";
 
 export const painAreaMaterial = new THREE.ShaderMaterial({
@@ -48,20 +47,17 @@ export const painAreaMaterial = new THREE.ShaderMaterial({
           vec2 center = vec2(0.5, 0.5);
           float dist = length(vUv - center);
           
-          // Create sharp, intense pulses
           float sharpPulse = pow(abs(sin(time * 2.0)), 3.0);
           float rapidPulse = pow(abs(sin(time * 8.0)), 2.0);
           
-          // Combine different pulse frequencies for a more irregular rhythm
-          float combinedPulse = mix(sharpPulse, rapidPulse, 0.3) * pulse;
+          // Reduced pulse intensity multiplier
+          float combinedPulse = mix(sharpPulse, rapidPulse, 0.3) * pulse * 0.05; 
           
           float noiseScale = 12.0;
           float noiseValue = noise(vUv * noiseScale + time * 0.5);
           
-          // Intense core with sharp falloff
           float coreBrightness = smoothstep(0.25, 0.0, dist) * (1.5 + combinedPulse * 0.5);
           
-          // More intense, pain-suggesting colors
           vec3 coreColor = vec3(1.0, 0.2, 0.0);    // Bright red core
           vec3 midColor = vec3(1.0, 0.3, 0.0);     // Orange-red
           vec3 outerColor = vec3(0.8, 0.1, 0.0);   // Dark red
@@ -75,25 +71,20 @@ export const painAreaMaterial = new THREE.ShaderMaterial({
               finalColor = outerColor;
           }
 
-          // Add rapid, sharp intensity variations
           float pulseEffect = 1.0 + (combinedPulse * 0.3);
           float alpha = smoothstep(0.7, 0.0, dist);
           
-          // Add noise distortion that moves with the pulse
           float distortion = noiseValue * (0.3 + combinedPulse * 0.2);
           alpha *= (0.9 + distortion) * pulseEffect;
 
-          // Add hot spots that appear and disappear
           float hotSpots = pow(noiseValue, 3.0) * combinedPulse;
           finalColor += vec3(hotSpots * 0.3, hotSpots * 0.1, 0.0);
           
-          // Add core glow that pulses with intensity
           finalColor += coreColor * coreBrightness * (1.0 + combinedPulse * 0.5);
 
           float edgeFade = smoothstep(0.5, 0.0, dist);
           alpha *= edgeFade * intensity;
 
-          // Make the effect more pronounced during pulse peaks
           alpha *= 0.8 + combinedPulse * 0.2;
 
           gl_FragColor = vec4(finalColor, alpha * 0.9);

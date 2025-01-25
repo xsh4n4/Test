@@ -12,11 +12,10 @@ import veinsDiffuseUrl from "@assets/models/cardio/Veins_Diffuse.png?url";
 import veinsNormalUrl from "@assets/models/cardio/Veins_Normal.png?url";
 
 // Body texture imports
-import baseColorUrl from "@assets/models/normal/DefaultMaterial_BaseColor.png?url";
-import metallicUrl from "@assets/models/normal/DefaultMaterial_Metallic.png?url";
-import normalDireUrl from "@assets/models/normal/DefaultMaterial_Normal_Dire.png?url";
-import normalUrl from "@assets/models/normal/DefaultMaterial_Normal.png?url";
-import roughnessUrl from "@assets/models/normal/DefaultMaterial_Roughness.png?url";
+import baseColorUrl from "@assets/models/normal/Body_2_baseColor.jpg?url";
+import metallicUrl from "@assets/models/normal/Body_2_metallic.jpg?url";
+import normalUrl from "@assets/models/normal/Body_2_normal.png?url";
+import roughnessUrl from "@assets/models/normal/Body_2_roughness.jpg?url";
 
 export const useCardioTextures = (): ModelTextures => {
 	const arteriesDiffuse = useLoader(THREE.TextureLoader, arteriesDiffuseUrl);
@@ -39,7 +38,6 @@ export const useBodyTextures = (): BodyModelTextures => {
 		base: useLoader(THREE.TextureLoader, baseColorUrl),
 		baseColor: useLoader(THREE.TextureLoader, baseColorUrl),
 		metallic: useLoader(THREE.TextureLoader, metallicUrl),
-		normalDire: useLoader(THREE.TextureLoader, normalDireUrl),
 		normal: useLoader(THREE.TextureLoader, normalUrl),
 		roughness: useLoader(THREE.TextureLoader, roughnessUrl),
 	};

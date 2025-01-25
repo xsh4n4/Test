@@ -11,6 +11,7 @@ import {
 	createBodyMaterial,
 } from "./Utils/materialUtils";
 import { useModelTransforms } from "./Hooks/useModelTransforms";
+import { painAreaMaterial } from "./Utils/painAreaMaterial";
 
 interface ExtendedModelProps extends ModelProps {
 	isFading?: boolean;
@@ -44,11 +45,11 @@ function Model({
 
 	const cardioTextures = useCardioTextures();
 	const bodyTextures = useBodyTextures();
-
+	const [isModelLoaded, setIsModelLoaded] = useState(false);
 	const currentModel = modelType === "body" ? bodyModel : cardioModel;
 	const modelRef = useRef<THREE.Group>(null);
 
-	const [opacity, setOpacity] = useState(isNew ? 1 : 1);
+	const [opacity, setOpacity] = useState(isNew ? 0 : 1);
 	const [shouldRender, setShouldRender] = useState(!isNew);
 	const [hasFadedOut, setHasFadedOut] = useState(false);
 	const { currentPosition, currentScale, updateTransforms } =
@@ -56,6 +57,11 @@ function Model({
 
 	const [pointerDownTime, setPointerDownTime] = useState(0);
 
+	// Replace the existing spot material with this new pain area material
+
+	// Replace the Sphere component with a custom pain area mesh
+
+	// Handle pointer events
 	const handlePointerDown = () => {
 		setPointerDownTime(Date.now());
 	};
@@ -86,7 +92,7 @@ function Model({
 		}
 	};
 
-	useFrame(() => {
+	useFrame((state) => {
 		if (isHidden && modelType !== "cardio") {
 			setOpacity(0);
 			return;
@@ -113,6 +119,21 @@ function Model({
 				const newOpacity = Math.min(targetOpacity, opacity + fadeSpeed);
 				setOpacity(newOpacity);
 			}
+		} else if (!isFading && !isNew && opacity !== 1) {
+			// Ensure opacity is fully restored for stable rendering
+			setOpacity(1);
+		}
+
+		if (painAreaMaterial) {
+			painAreaMaterial.uniforms.time.value = state.clock.getElapsedTime();
+
+			const baseTime = state.clock.getElapsedTime();
+			const sharpPulse = Math.pow(Math.abs(Math.sin(baseTime * 2.0)), 3);
+			const rapidPulse = Math.pow(Math.abs(Math.sin(baseTime * 8.0)), 2);
+			const combinedPulse = sharpPulse * 0.7 + rapidPulse * 0.3;
+
+			painAreaMaterial.uniforms.pulse.value = combinedPulse;
+			painAreaMaterial.uniforms.intensity.value = 0.7 + combinedPulse * 0.3;
 		}
 	});
 
@@ -127,7 +148,7 @@ function Model({
 
 		currentModel.traverse((child) => {
 			if (child instanceof THREE.Mesh) {
-				if (modelType === "body" && child.name === "UV_LP.002") {
+				if (modelType === "body" && child.name === "Body_final") {
 					child.raycast = new THREE.Mesh().raycast;
 					child.userData.clickable = true;
 				}
@@ -145,7 +166,6 @@ function Model({
 					child.material.blendDst = THREE.OneMinusSrcAlphaFactor;
 					child.material.blendEquation = THREE.AddEquation;
 
-					// Ensure body model always has full opacity unless fading
 					if (modelType === "body") {
 						child.material.opacity = isFading ? opacity : 1;
 					} else {
@@ -159,6 +179,8 @@ function Model({
 				}
 			}
 		});
+
+		setIsModelLoaded(true);
 	}, [
 		currentModel,
 		modelType,
@@ -175,7 +197,12 @@ function Model({
 		modelType !== "cardio"
 	)
 		return null;
-
+	const shouldShowPainArea =
+		modelType === "body" &&
+		isModelLoaded &&
+		shouldRender &&
+		!isHidden &&
+		opacity > 0;
 	return (
 		<group
 			ref={modelRef}
@@ -190,10 +217,17 @@ function Model({
 				castShadow
 				receiveShadow
 			/>
-			<ambientLight intensity={0.8} />
+			{/* Add the orange spot */}
+			{shouldShowPainArea && (
+				<mesh position={[1, 15, 1.5]} rotation={[0, 0, 0]}>
+					<planeGeometry args={[15, 15, 32, 32]} />
+					<primitive attach='material' object={painAreaMaterial} />
+				</mesh>
+			)}
+			<ambientLight intensity={0.5} />
 			<directionalLight
 				position={[2, 10, 5]}
-				intensity={3.0}
+				intensity={0.8}
 				castShadow
 				color='#CFD8EA'
 				shadow-mapSize-width={2048}

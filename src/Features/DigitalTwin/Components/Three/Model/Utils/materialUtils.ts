@@ -76,6 +76,7 @@ export const createBodyMaterial = (
 		side: THREE.DoubleSide,
 		transparent: true,
 		envMapIntensity: 1.5,
-		color: new THREE.Color(0x909090),
+
+		color: new THREE.Color(0x909090), // Adjust this color as needed
 	});
 };

@@ -33,7 +33,7 @@ const RoutesConfig: RouteObject[] = [
 					},
 					// Redirect root "/" to "/login"
 					{
-						element: <Navigate to={paths.auth.login} replace />,
+						element: <Navigate to={paths.dashboard.root} replace />,
 						index: true,
 					},
 				],

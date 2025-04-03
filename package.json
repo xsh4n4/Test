@@ -4,7 +4,7 @@
 	"version": "0.0.0",
 	"type": "commonjs",
 	"scripts": {
-		"dev": "concurrently \"npm run start-server\" \"npm run start-front\" --kill-others --kill-others-on-fail",
+		"start": "concurrently \"npm run start-server\" \"npm run start-front\" --kill-others --kill-others-on-fail",
 		"build": "tsc -b && vite build",
 		"start-front": "vite",
 		"start-server": "node server/index.js --watch server/*",

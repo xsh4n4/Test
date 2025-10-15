@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./ReasonsTable.module.scss";
 
 import Chevron from "@assets/ConcernWidget/Chevron.svg?react";
@@ -14,6 +15,7 @@ export const ReasonsTable: React.FC<ReasonsTableProps> = ({
 	reasons,
 	detailIndex,
 }) => {
+	const { t } = useTranslation();
 	const [isShowMore, setIsShowMore] = useState(false);
 
 	const reasonsToShow = isShowMore ? reasons : reasons.slice(0, 3);
@@ -21,13 +23,17 @@ export const ReasonsTable: React.FC<ReasonsTableProps> = ({
 	return (
 		<div className={styles["ReasonsTable-container"]}>
 			<div className={styles["ReasonsTable-head"]}>
-				<div className={styles["ReasonsTable-title"]}>How we know this</div>
+				<div className={styles["ReasonsTable-title"]}>
+					{t("reasonsTable.howWeKnowThis")}
+				</div>
 				<div
 					className={styles["ReasonsTable-more"]}
 					onClick={() => setIsShowMore((prev) => !prev)}
 				>
 					<p className={styles["ReasonsTable-more-text"]}>
-						{isShowMore ? "Show less" : `Show ${reasons.length - 3} more`}
+						{isShowMore
+							? t("reasonsTable.showLess")
+							: t("reasonsTable.showMore", { count: reasons.length - 3 })}
 					</p>
 					<div className={styles["ReasonsTable-chevron-container"]}>
 						<Chevron

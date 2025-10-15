@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Thumb from "@assets/AgeWidget/Thumb.svg?react";
 import Circle from "@assets/AgeWidget/Circle.svg?react";
 import styles from "./AgeSlider.module.scss";
@@ -10,6 +11,8 @@ interface AgeSliderProps {
 }
 
 export const AgeSlider: React.FC<AgeSliderProps> = ({ ageData }) => {
+	const { t } = useTranslation();
+
 	const minAge = Math.min(ageData.biologicalAge, ageData.chronoAge);
 	const maxAge = Math.max(ageData.biologicalAge, ageData.chronoAge);
 	const rangeStart = Math.min(ageData.biologicalAge, ageData.chronoAge) - 1;
@@ -26,7 +29,7 @@ export const AgeSlider: React.FC<AgeSliderProps> = ({ ageData }) => {
 
 	return (
 		<div className={styles["AgeSlider-container"]}>
-			<div className={styles["AgeSlider-title"]}>You</div>
+			<div className={styles["AgeSlider-title"]}>{t("ageSlider.you")}</div>
 			<div className={styles["AgeSlider-bar-wrapper"]}>
 				<div className={styles["AgeSlider-bar"]}>
 					<Circle className={styles["AgeSlider-circle-start"]} />

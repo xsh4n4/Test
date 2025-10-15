@@ -1,0 +1,725 @@
+{
+	"precision_health": "Santé de Précision, Adaptée pour Vous",
+	"sign_in": "Se Connecter",
+	"email_address": "Adresse e-mail",
+	"password": "Mot de passe",
+	"forgot_password": "Mot de passe oublié ?",
+	"sign_up": "S'inscrire",
+	"create_account": "Créer un Compte",
+	"authentication_details": "Détails d'authentification",
+	"confirm_password": "Confirmer le mot de passe",
+	"optional": "(Optionnel)",
+	"full_name": "Nom complet",
+	"date_of_birth": "Date de naissance",
+	"height": "Taille",
+	"weight": "Poids",
+	"yrs": "ans",
+	"you": "Vous",
+	"how_we_know_this": "Comment nous le savons",
+	"symptoms": "Symptômes",
+	"new_insights": "Nouvelles informations",
+	"order_dna_test": "Commander un Test ADN",
+	"view_more": "Voir plus",
+	"why": "Pourquoi",
+	"add_to_cart": "Ajouter au Panier",
+	"or": "OU",
+	"schedule_call": "Planifier un Appel",
+	"days": "3 jours",
+	"total_health": "Santé Globale",
+	"coming_soon": "Bientôt disponible",
+	"upload_files": "Télécharger des Fichiers",
+	"dont_have_data": "Vous n'avez pas de données ?",
+	"certified_genetic_labs": "Laboratoires génétiques certifiés",
+	"todays_goals": "Objectifs du jour",
+	"edit_goals": "Modifier les objectifs",
+	"high": "Élevé",
+	"concern": "Préoccupation",
+	"category": "Catégorie",
+	"key_organs": "Organes clés",
+	"heart": "Cœur",
+	"high_concern": "préoccupation élevée",
+	"manage_data": "Gérer les données",
+	"english": "English",
+	"spanish": "Español",
+	"french": "Français",
+	"what_you_can_do": "Ce que vous pouvez faire",
+	"todaysGoals": "Objectifs du jour",
+	"editGoals": "Modifier les objectifs",
+	"monday": "Lundi",
+	"tuesday": "Mardi",
+	"wednesday": "Mercredi",
+	"thursday": "Jeudi",
+	"friday": "Vendredi",
+	"saturday": "Samedi",
+	"sunday": "Dimanche",
+	"goal1": "Mangez 3 légumes et 2 fruits",
+	"goal2": "Mesurez et enregistrez votre tension artérielle deux fois aujourd'hui - une fois le matin et une fois le soir",
+	"goal3": "Prenez 1 000 mg d'acides gras oméga-3 (EPA/DHA) au petit-déjeuner",
+	"goal4": "Pratiquez 10 minutes de respiration profonde ou de méditation dans un environnement calme",
+	"goal5": "Faites 30 minutes de marche rapide à un rythme soutenu",
+	"goal6": "Visez 7 à 9 heures de sommeil de qualité ce soir",
+
+	"dropdown": {
+		"totalHealth": "Santé Totale",
+		"cardiovascular": "Cardiovasculaire"
+	},
+
+	"common": {
+		"icon": "icône",
+		"graph": "graphique"
+	},
+
+	"ageSlider": {
+		"you": "Vous"
+	},
+
+	"ageMetrics": {
+		"biologicalAge": "Âge biologique",
+		"chronologicalAge": "Âge chronologique",
+		"years": "ans"
+	},
+
+	"tracker": {
+		"stayTuned": "Restez à l'écoute pour",
+		"cholesterol": "Cholestérol",
+		"resultsExpected": "Résultats attendus dans",
+		"threeDays": "3 jours"
+	},
+
+	"systemDetail": {
+		"noDetails": "Aucun détail disponible.",
+		"viewReport": "Voir le rapport",
+		"cardiovascular": {
+			"title": "Système Cardiovasculaire",
+			"description": "Le système cardiovasculaire est composé du cœur, des vaisseaux sanguins et du sang. Il est responsable du transport de l'oxygène, des nutriments, des hormones et des déchets dans tout le corps."
+		}
+	},
+
+	"systemOverview": {
+		"reportTitle": "Rapport du système",
+		"systemReportTitle": "Rapport du système {{systemName}}",
+		"cardiovascularAge": "Âge cardiovasculaire",
+		"chronologicalAge": "Âge chronologique",
+		"you": "Vous",
+		"keyAreas": "Principaux domaines de préoccupation",
+		"keyAreasDesc": "D'après les données fournies et les recommandations spécifiques aux maladies, le patient présente un risque de plusieurs affections cardiovasculaires, notamment :",
+		"healthInsights": "Aperçus de santé",
+		"testResults": "Résultats des tests",
+		"testResultsDesc": "Les principales préoccupations sont un taux de cholestérol LDL élevé, un taux de cholestérol HDL légèrement inférieur à l’optimal et la nécessité d’améliorer la condition cardiovasculaire et la gestion du stress.",
+		"whatYouCanDo": "Ce que vous pouvez faire",
+		"whatYouCanDoDesc": "Le plan d’action complet suivant combine des changements de mode de vie, des stratégies de suivi et des recommandations de suppléments pour soutenir la santé cardiovasculaire globale.",
+		"todaysGoals": "Objectifs du jour"
+	},
+
+	"connectWatch": {
+		"title": "Trouvez vos données de santé en un seul endroit",
+		"connectToAppleHealth": "Se connecter à Apple Health"
+	},
+
+	"ctaModal": {
+		"newInsights": "Nouvelles informations",
+		"description": "Découvrez de nouvelles informations sur votre santé pour mieux comprendre et améliorer votre bien-être.",
+		"orderDnaTest": "Commander un Test ADN"
+	},
+
+	"concerns": {
+		"keyAreasOfConcern": "Domaines Clés de Préoccupation",
+		"showLess": "Afficher Moins",
+		"showAll": "Tout afficher",
+		"levelAndOtherFactors": "niveau et {{count}} autres facteurs",
+		"status": {
+			"high": "Élevé",
+			"medium": "Moyen",
+			"low": "Faible"
+		},
+		"atrialFibrillation": {
+			"title": "Fibrillation Auriculaire",
+			"factors": {
+				"highCholesterol": "Cholestérol élevé",
+				"smoking": "Tabagisme",
+				"hypertension": "Hypertension"
+			}
+		},
+		"stroke": {
+			"title": "Accident Vasculaire Cérébral",
+			"factors": {
+				"lowOralGlucose": "Glucose oral bas",
+				"familyHistory": "Antécédents familiaux"
+			}
+		},
+		"coronaryArteryDisease": {
+			"title": "Maladie Coronarienne",
+			"factors": {
+				"highCoronaryArteryCalcium": "Niveau élevé de calcium dans les artères coronaires"
+			}
+		},
+		"hypertension": {
+			"title": "Hypertension",
+			"factors": {
+				"highBloodPressure": "Pression artérielle élevée",
+				"stress": "Stress",
+				"highSodiumDiet": "Régime riche en sodium"
+			}
+		},
+		"chronicKidneyDisease": {
+			"title": "Maladie Rénale Chronique",
+			"factors": {
+				"elevatedCreatinine": "Niveaux élevés de créatinine",
+				"diabetes": "Diabète",
+				"hypertension": "Hypertension"
+			}
+		},
+		"obesity": {
+			"title": "Obésité",
+			"factors": {
+				"highBMI": "IMC élevé",
+				"lowPhysicalActivity": "Faible activité physique",
+				"unhealthyEating": "Habitudes alimentaires malsaines"
+			}
+		}
+	},
+
+	"symptomsList": {
+		"title": "Symptômes"
+	},
+
+	"symptoms": {
+		"atrialFibrillation": {
+			"description": "Les symptômes de la fibrillation auriculaire peuvent varier, et dans certains cas, les personnes peuvent ne remarquer aucun symptôme. Vous pouvez ressentir les symptômes suivants avec la fibrillation auriculaire",
+			"palpitations": "Palpitations",
+			"shortnessOfBreath": "Essoufflement",
+			"fatigue": "Fatigue ou faiblesse",
+			"chestPain": "Douleur thoracique",
+			"dizziness": "Étourdissements ou vertiges",
+			"weakness": "Fatigue ou faiblesse"
+		},
+		"stroke": {
+			"description": "Les symptômes d'un accident vasculaire cérébral ischémique peuvent être soudains et potentiellement mortels, nécessitant une attention médicale immédiate. Cependant, certaines personnes peuvent présenter des symptômes légers qui peuvent être confondus avec d'autres conditions. Vous pouvez ressentir les symptômes suivants lors d'un accident vasculaire cérébral ischémique :",
+			"numbness": "Engourdissement ou faiblesse soudaine, en particulier d'un côté du corps",
+			"confusion": "Confusion ou difficulté à parler",
+			"visionProblems": "Problèmes de vision dans un œil ou les deux yeux",
+			"walkingDifficulty": "Difficulté à marcher, étourdissements ou perte d'équilibre",
+			"severeHeadache": "Maux de tête sévères sans cause connue"
+		},
+		"coronaryArteryDisease": {
+			"description": "Les symptômes de la maladie coronarienne peuvent varier, et dans certains cas, il peut n'y avoir aucun signe visible jusqu'à ce que la condition soit avancée. Vous pouvez ressentir les symptômes suivants avec la maladie coronarienne :",
+			"chestPain": "Douleur thoracique (angine)",
+			"shortnessOfBreath": "Essoufflement",
+			"fatigue": "Fatigue",
+			"palpitations": "Palpitations cardiaques",
+			"nausea": "Nausées"
+		},
+		"hypertension": {
+			"description": "Les symptômes de l'hypertension ne sont souvent pas perceptibles jusqu'à ce qu'ils atteignent des niveaux sévères, c'est pourquoi elle est connue comme le 'tueur silencieux'. Cependant, vous pouvez ressentir les symptômes suivants si l'hypertension devient sévère :",
+			"headaches": "Maux de tête",
+			"shortnessOfBreath": "Essoufflement",
+			"nosebleeds": "Saignements de nez",
+			"fatigue": "Fatigue ou confusion",
+			"visionProblems": "Problèmes de vision"
+		},
+		"heartFailure": {
+			"description": "Les symptômes d'un arrêt cardiaque soudain sont souvent immédiats et potentiellement mortels, nécessitant une intervention médicale urgente. Cependant, dans certains cas, les personnes peuvent ressentir des signes avant-coureurs. Vous pouvez ressentir les symptômes suivants avant un arrêt cardiaque soudain :",
+			"suddenCollapse": "Effondrement soudain",
+			"noPulse": "Absence de pouls",
+			"noBreathing": "Absence de respiration",
+			"lossOfConsciousness": "Perte de conscience",
+			"precedingSymptoms": "Parfois précédé de douleur thoracique, d'essoufflement ou d'étourdissements"
+		}
+	},
+
+	"systemConcerns": {
+		"cardiovascular": {
+			"title": "cardiovasculaire"
+		}
+	},
+
+	"details": {
+		"atrialFibrillation": {
+			"title": "Fibrillation Auriculaire",
+			"factors": {
+				"highCholesterol": "Niveau élevé de cholestérol",
+				"otherFactors": "Autres facteurs influents"
+			},
+			"description": {
+				"0": "La fibrillation auriculaire est un trouble courant du rythme cardiaque caractérisé par des battements cardiaques irréguliers et souvent rapides, entraînant un risque accru d'accident vasculaire cérébral, d'insuffisance cardiaque et d'autres complications cardiovasculaires.",
+				"1": "La fibrillation auriculaire affecte des millions de personnes dans le monde et est souvent influencée par une combinaison de prédisposition génétique et de facteurs environnementaux.",
+				"2": "Les variations dans les gènes codant pour les canaux ioniques, les protéines structurelles et les molécules de signalisation impliquées dans la conduction électrique cardiaque et la contractilité contribuent au développement de la fibrillation auriculaire. Les facteurs de risque génétiques courants incluent des mutations dans les gènes KCNE1, KCNH2 et SCN5A, qui régulent les canaux potassiques et sodiques cruciaux pour maintenir un rythme cardiaque normal."
+			}
+		},
+		"stroke": {
+			"title": "Accident Vasculaire Cérébral",
+			"factors": {
+				"highHeartRate": "Niveau élevé de fréquence cardiaque",
+				"otherFactors": "Autres facteurs influents"
+			}
+		},
+		"coronaryArteryDisease": {
+			"title": "Maladie Coronarienne",
+			"factors": {
+				"highHeartRate": "Niveau élevé de fréquence cardiaque",
+				"otherFactors": "Autres facteurs influents"
+			}
+		},
+		"hypertension": {
+			"title": "Hypertension",
+			"factors": {
+				"highCholesterol": "Niveau élevé de cholestérol",
+				"otherFactors": "Autres facteurs influents"
+			}
+		},
+		"heartFailure": {
+			"title": "Insuffisance Cardiaque",
+			"factors": {
+				"highHeartRate": "Niveau élevé de fréquence cardiaque",
+				"otherFactors": "Autres facteurs influents"
+			}
+		}
+	},
+
+	"reasons": {
+		"ldl": {
+			"title": "LDL",
+			"test": "Analyse de sang",
+			"unit": "mg/dL",
+			"statusText": "Au-dessus de l'optimal",
+			"description": "LDL signifie lipoprotéine de basse densité, un type de cholestérol dans votre sang parfois appelé \"mauvais\" cholestérol"
+		},
+		"vldl": {
+			"title": "VLDL",
+			"test": "Analyse de sang",
+			"unit": "mg/dL",
+			"statusText": "Optimal",
+			"description": "VLDL signifie lipoprotéine de très basse densité, un type de graisse dans votre sang qui peut contribuer à l'accumulation de plaque dans vos artères."
+		},
+		"hdl": {
+			"title": "HDL",
+			"test": "Analyse de sang",
+			"unit": "mg/dL",
+			"statusText": "En dessous de l'optimal",
+			"description": "Le HDL aide à éliminer le cholestérol de la circulation sanguine et est lié à un risque plus faible de maladie cardiaque."
+		},
+		"cholesterol": {
+			"title": "Cholestérol",
+			"test": "Analyse de sang",
+			"unit": "mg/dL",
+			"statusText": "Optimal",
+			"description": "Votre corps a besoin de cholestérol pour produire des hormones, digérer les aliments et plus encore. Cependant, trop de cholestérol peut être un problème."
+		},
+		"cholesterolHdl": {
+			"title": "Cholestérol:HDL",
+			"test": "Analyse de sang",
+			"unit": "Rapport",
+			"statusText": "Optimal",
+			"description": "Calcul qui compare votre cholestérol total à vos niveaux de lipoprotéine de haute densité (HDL)"
+		},
+		"hba1c": {
+			"title": "HbA1C",
+			"test": "Analyse de sang",
+			"unit": "Rapport",
+			"statusText": "Optimal",
+			"description": "Niveau moyen de sucre dans le sang au cours des deux à trois derniers mois"
+		}
+	},
+
+	"reasonsTable": {
+		"howWeKnowThis": "Comment nous le savons",
+		"showLess": "Afficher moins",
+		"showMore": "Afficher {{count}} de plus"
+	},
+
+	"plan": {
+		"iconAlt": "icône",
+		"why": "Pourquoi",
+		"addToCart": "Ajouter au Panier",
+		"viewMore": "Voir plus",
+		"whatIsThisFor": "À quoi cela sert-il ?",
+		"personImageAlt": "Image de personne",
+		"groups": {
+			"peptides": "Peptides",
+			"other": "Autre"
+		},
+		"actionPlan": {
+			"title": "Plan d'Action"
+		},
+		"followUpCare": {
+			"title": "Suivi Médical",
+			"items": {
+				"0": {
+					"name": "Effectuer des Tests de Risque de Santé Génétique",
+					"description": "Fonction pulmonaire améliorée"
+				},
+				"1": {
+					"name": "Surveiller la tension artérielle 3 fois par semaine",
+					"description": "Détection précoce de l'hypertension"
+				},
+				"2": {
+					"name": "Adopter un régime à faible indice glycémique et bon pour le cœur",
+					"description": "Aide à élargir les vaisseaux sanguins +6"
+				},
+				"3": {
+					"name": "Maintenir votre Indice de Masse Corporelle dans la plage normale",
+					"description": "Réduit votre tension artérielle +3"
+				},
+				"4": {
+					"name": "Effectuer un test de laboratoire du cholestérol",
+					"description": "Évaluation de la résistance à l'insuline +7"
+				},
+				"5": {
+					"name": "Envisager de prendre votre niveau moyen de sucre dans le sang (glucose)",
+					"description": "Détection précoce du diabète ou du prédiabète +5"
+				},
+				"6": {
+					"name": "Surveiller la tension artérielle 1 fois par jour",
+					"description": "Détecter les problèmes respiratoires ou cardiovasculaires +5"
+				}
+			}
+		},
+		"supplements": {
+			"title": "Suppléments",
+			"cta": {
+				"title": "Votre Mélange Personnel de Suppléments",
+				"description": "Cette combinaison aide à réduire l'inflammation, réguler la tension artérielle et améliorer la fonction cardiaque, aidant à prévenir des maladies telles que l'hypertension, la fibrillation auriculaire et la maladie coronarienne.",
+				"types": {
+					"0": {
+						"name": "Cardiovasculaire",
+						"supplements": {
+							"0": "Vitamines",
+							"1": "Minéraux",
+							"2": "acide aminé",
+							"3": "antioxydants"
+						}
+					},
+					"1": {
+						"name": "Digestif",
+						"supplements": {
+							"0": "Vitamines",
+							"1": "acide aminé",
+							"2": "Minéraux",
+							"3": "antioxydants"
+						}
+					},
+					"2": {
+						"name": "Ma formule personnelle",
+						"supplements": {
+							"0": "Vitamines",
+							"1": "Minéraux",
+							"2": "acide aminé",
+							"3": "antioxydants"
+						}
+					}
+				}
+			},
+			"items": {
+				"0": {
+					"name": "Poudre de betterave / suppléments titrés",
+					"description": "Augmente les niveaux d'oxyde nitrique",
+					"dosage": "1 comprimé",
+					"frequency": "Une fois"
+				},
+				"1": {
+					"name": "Prendre de l'extrait de curcuma pour réduire l'inflammation (CRP)",
+					"description": "Soutient la santé vasculaire",
+					"dosage": "1 comprimé",
+					"frequency": "Une fois"
+				},
+				"2": {
+					"name": "Prendre des Acides Gras Oméga-3",
+					"description": "Aide à élargir les vaisseaux sanguins +8",
+					"dosage": "1 comprimé",
+					"frequency": "Une fois"
+				},
+				"3": {
+					"name": "Coenzyme Q10 (CoQ10)",
+					"description": "Inclure la Coenzyme Q10 (CoQ10)",
+					"dosage": "1 comprimé",
+					"frequency": "Une fois"
+				},
+				"4": {
+					"name": "Ajouter de l'Ashwagandha (Withania somnifera)",
+					"description": "Soutient la santé vasculaire",
+					"dosage": "1 comprimé",
+					"frequency": "Une fois"
+				}
+			}
+		},
+		"lifestyle": {
+			"title": "Mode de Vie",
+			"items": {
+				"0": {
+					"name": "Arrêter de fumer et limiter l'alcool",
+					"description": "Fonction pulmonaire améliorée +5"
+				},
+				"1": {
+					"name": "S'entraîner en zone 2 et surveiller régulièrement le VO2 max",
+					"description": "Soutient la santé vasculaire +4"
+				},
+				"2": {
+					"name": "Adopter un régime à faible indice glycémique et bon pour le cœur",
+					"description": "Aide à élargir les vaisseaux sanguins +6"
+				},
+				"3": {
+					"name": "Gérer votre stress",
+					"description": "Aide à élargir les vaisseaux sanguins +8"
+				},
+				"4": {
+					"name": "Remplir votre assiette de fruits et légumes",
+					"description": "Réduit votre tension artérielle +3"
+				},
+				"5": {
+					"name": "Réduire le sucre et le sel",
+					"description": "Fonction pulmonaire améliorée +5"
+				},
+				"6": {
+					"name": "Pratiquer la flexibilité et l'équilibre",
+					"description": "Améliore la santé des articulations +8"
+				}
+			}
+		},
+		"aggregate": {
+			"recommendedNextSteps": "Prochaines étapes recommandées basées sur vos données de santé :",
+			"activity": "Activité",
+			"why": "Pourquoi",
+			"addToCart": "Ajouter au Panier",
+			"or": "OU",
+			"checkInWithPhysician": "Consultez d'abord notre médecin",
+			"consultSpecialist": "Consultez notre spécialiste si vous n'êtes pas sûr ou préoccupé par vos résultats.",
+			"scheduleCall": "Planifier un Appel",
+			"doctorIconAlt": "Icône de médecin"
+		},
+		"atrialFib": {
+			"followUpCare": {
+				"items": {
+					"0": {
+						"name": "Surveillance par ECG",
+						"description": "Détecte les rythmes cardiaques irréguliers"
+					},
+					"1": {
+						"name": "Surveillance de la Glycémie",
+						"description": "Réduit les risques secondaires pour la santé"
+					}
+				}
+			},
+			"supplements": {
+				"cta": {
+					"title": "Mélange de Suppléments pour la Fibrillation Auriculaire",
+					"description": "Soutient le rythme cardiaque et la santé vasculaire.",
+					"types": {
+						"0": {
+							"name": "Soutien du Rythme Cardiaque"
+						}
+					}
+				},
+				"items": {
+					"0": {
+						"name": "Citrate de Magnésium",
+						"description": "Favorise la relaxation du muscle cardiaque"
+					},
+					"1": {
+						"name": "Extrait de Curcuma",
+						"description": "Réduit l'inflammation"
+					}
+				}
+			},
+			"lifestyle": {
+				"items": {
+					"0": {
+						"name": "Arrêter de Fumer",
+						"description": "Améliore la santé pulmonaire et cardiaque"
+					},
+					"1": {
+						"name": "Adopter un Régime Bon pour le Cœur",
+						"description": "Réduit les niveaux de cholestérol"
+					}
+				}
+			}
+		},
+		"stroke": {
+			"followUpCare": {
+				"items": {
+					"0": {
+						"name": "Surveillance de la Tension Artérielle",
+						"description": "Aide à prévenir les AVC secondaires"
+					},
+					"1": {
+						"name": "Examens Neurologiques Réguliers",
+						"description": "Surveille la récupération post-AVC"
+					}
+				}
+			},
+			"supplements": {
+				"cta": {
+					"title": "Mélange de Suppléments pour la Récupération après AVC",
+					"description": "Soutient la santé cérébrale et réduit l'inflammation.",
+					"types": {
+						"0": {
+							"name": "Santé Cérébrale"
+						}
+					}
+				},
+				"items": {
+					"0": {
+						"name": "Vitamine D",
+						"description": "Améliore la fonction vasculaire"
+					},
+					"1": {
+						"name": "Ashwagandha",
+						"description": "Réduit le stress et l'inflammation"
+					}
+				}
+			},
+			"lifestyle": {
+				"items": {
+					"0": {
+						"name": "Participer à une Thérapie Physique",
+						"description": "Améliore la récupération motrice"
+					},
+					"1": {
+						"name": "Réduire le Sel et le Sucre",
+						"description": "Améliore le contrôle de la tension artérielle"
+					}
+				}
+			}
+		},
+		"coronary": {
+			"followUpCare": {
+				"items": {
+					"0": {
+						"name": "Tests ECG de Routine",
+						"description": "Surveille la fonction cardiaque"
+					},
+					"1": {
+						"name": "Analyse du Bilan Lipidique",
+						"description": "Suit les niveaux de lipides"
+					}
+				}
+			},
+			"supplements": {
+				"cta": {
+					"title": "Suppléments pour la Santé Cardiaque",
+					"description": "Soutient la santé artérielle et réduit l'accumulation de plaque.",
+					"types": {
+						"0": {
+							"name": "Santé Cardiaque"
+						}
+					}
+				},
+				"items": {
+					"0": {
+						"name": "Acides Gras Oméga-3",
+						"description": "Réduit les triglycérides"
+					},
+					"1": {
+						"name": "Extrait de Curcuma",
+						"description": "Réduit l'inflammation"
+					}
+				}
+			},
+			"lifestyle": {
+				"items": {
+					"0": {
+						"name": "Faire de l'Exercice Régulièrement",
+						"description": "Améliore la circulation"
+					},
+					"1": {
+						"name": "Adopter un Régime Méditerranéen",
+						"description": "Favorise la santé cardiaque"
+					}
+				}
+			}
+		},
+		"hypertension": {
+			"followUpCare": {
+				"items": {
+					"0": {
+						"name": "Surveillance de la Tension Artérielle",
+						"description": "Suit les changements quotidiens"
+					},
+					"1": {
+						"name": "Tests de Fonction Rénale",
+						"description": "Évalue la santé rénale"
+					}
+				}
+			},
+			"supplements": {
+				"cta": {
+					"title": "Suppléments pour la Tension Artérielle",
+					"description": "Aide à réguler naturellement la tension artérielle.",
+					"types": {
+						"0": {
+							"name": "Soutien pour l'Hypertension"
+						}
+					}
+				},
+				"items": {
+					"0": {
+						"name": "Poudre de Betterave",
+						"description": "Augmente l'oxyde nitrique"
+					},
+					"1": {
+						"name": "Ashwagandha",
+						"description": "Réduit le stress"
+					}
+				}
+			},
+			"lifestyle": {
+				"items": {
+					"0": {
+						"name": "Arrêter de Fumer",
+						"description": "Améliore la santé vasculaire"
+					},
+					"1": {
+						"name": "Participer à un Entraînement en Zone 2",
+						"description": "Réduit la fréquence cardiaque au repos"
+					}
+				}
+			}
+		},
+		"heartFailure": {
+			"followUpCare": {
+				"items": {
+					"0": {
+						"name": "Échocardiogrammes",
+						"description": "Surveille la fonction cardiaque"
+					},
+					"1": {
+						"name": "Surveillance de la Tension Artérielle",
+						"description": "Prévient les changements soudains"
+					}
+				}
+			},
+			"supplements": {
+				"cta": {
+					"title": "Suppléments pour l'Insuffisance Cardiaque",
+					"description": "Soutient la santé cardiaque globale.",
+					"types": {
+						"0": {
+							"name": "Soutien Cardiaque"
+						}
+					}
+				},
+				"items": {
+					"0": {
+						"name": "Coenzyme Q10",
+						"description": "Améliore l'énergie cellulaire"
+					},
+					"1": {
+						"name": "Extrait de Curcuma",
+						"description": "Réduit l'inflammation"
+					}
+				}
+			},
+			"lifestyle": {
+				"items": {
+					"0": {
+						"name": "Réduire l'Apport en Sel",
+						"description": "Réduit la tension artérielle"
+					},
+					"1": {
+						"name": "Participer à une Thérapie Physique",
+						"description": "Améliore l'endurance"
+					}
+				}
+			}
+		}
+	}
+}

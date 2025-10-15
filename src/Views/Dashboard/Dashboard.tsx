@@ -11,8 +11,10 @@ import { ConcernsWidget } from "@/Features/Dashboard/ConcernsWidget/ConcernsWidg
 import { SystemDetailWidget } from "@/Features/Dashboard/SystemDetailWidget/SystemDetailWidget";
 import { useSelector } from "react-redux";
 import { RootState } from "@/App/Redux/store";
+// import { useTranslation } from "react-i18next";
 
 const Dashboard = () => {
+	// const { t } = useTranslation();
 	const [isNotFirstAnimation, setIsNotFirstAnimation] = useState(false);
 	const selectedCategory = useSelector(
 		(state: RootState) => state.category.selectedCategory,

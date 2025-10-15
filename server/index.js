@@ -23,33 +23,31 @@ app.use(express.json());
 //   });
 
 app.get("/ping", (_req, res) => {
-  return res.json({ msg: "Ping Successful" });
+	return res.json({ msg: "Ping Successful" });
 });
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-const server = app.listen(3003, () =>
-  console.log(`Server started on 3003`)
-);
+const server = app.listen(3003, () => console.log(`Server started on 3003`));
 const io = socket(server, {
-  cors: {
-    origin: "http://localhost:3000",
-    credentials: true,
-  },
+	cors: {
+		origin: "http://localhost:3000",
+		credentials: true,
+	},
 });
 
 global.onlineUsers = new Map();
 io.on("connection", (socket) => {
-  global.chatSocket = socket;
-  socket.on("add-user", (userId) => {
-    onlineUsers.set(userId, socket.id);
-  });
+	global.chatSocket = socket;
+	socket.on("add-user", (userId) => {
+		onlineUsers.set(userId, socket.id);
+	});
 
-  socket.on("send-msg", (data) => {
-    const sendUserSocket = onlineUsers.get(data.to);
-    if (sendUserSocket) {
-      socket.to(sendUserSocket).emit("msg-recieve", data.msg);
-    }
-  });
+	socket.on("send-msg", (data) => {
+		const sendUserSocket = onlineUsers.get(data.to);
+		if (sendUserSocket) {
+			socket.to(sendUserSocket).emit("msg-recieve", data.msg);
+		}
+	});
 });

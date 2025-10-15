@@ -48,120 +48,119 @@ export type PlanItem = {
 
 export const planMockData: PlanSection[] = [
 	{
-		title: "Action Plan",
+		title: "plan.actionPlan.title",
 		type: "aggregated",
 		data: [],
 	},
 	{
-		title: "Follow-up Care",
+		title: "plan.followUpCare.title",
 		data: [
 			{
-				name: "Take Genetic Health Risk Tests",
-				description: "Improved lung function",
+				name: "plan.followUpCare.items.0.name",
+				description: "plan.followUpCare.items.0.description",
 				icon: gene,
 			},
 			{
-				name: "Monitoring blood pressure 3 times a week",
-				description: "Early detection of hypertension",
+				name: "plan.followUpCare.items.1.name",
+				description: "plan.followUpCare.items.1.description",
 				icon: scale,
 			},
 			{
-				name: "Adopt a low-glycemic index and heart healthy diets",
-				description: "Helps widen blood vessels +6",
+				name: "plan.followUpCare.items.2.name",
+				description: "plan.followUpCare.items.2.description",
 				icon: microscope,
 			},
 			{
-				name: "Keep in range your Body Mass Index",
-				description: "Lowers your blood pressure +3",
+				name: "plan.followUpCare.items.3.name",
+				description: "plan.followUpCare.items.3.description",
 				icon: scale,
 			},
 			{
-				name: "Take a cholesterol laboratory test",
-				description: "Assessment of insulin resistance +7",
+				name: "plan.followUpCare.items.4.name",
+				description: "plan.followUpCare.items.4.description",
 				icon: microscope,
 			},
 			{
-				name: "Consider taking your avg. blood sugar (glucose) level",
-				description: "Early detection of diabetes or prediabetes +5",
+				name: "plan.followUpCare.items.5.name",
+				description: "plan.followUpCare.items.5.description",
 				icon: microscope,
 			},
 			{
-				name: "Monitoring blood pressure 1 time a day",
-				description: "Detect respiratory or cardiovascular issues +5",
+				name: "plan.followUpCare.items.6.name",
+				description: "plan.followUpCare.items.6.description",
 				icon: scale,
 			},
 		],
 	},
 	{
-		title: "Supplements",
+		title: "plan.supplements.title",
 		cta: {
-			title: "Your Personal Supplements Mix",
-			description:
-				"This combination helps reduce inflammation, regulate blood pressure, and improve heart function, aiding in the prevention of diseases such as hypertension, atrial fibrillation, and coronary artery disease.",
+			title: "plan.supplements.cta.title",
+			description: "plan.supplements.cta.description",
 			types: [
 				{
-					name: "Cardiovascular",
+					name: "plan.supplements.cta.types.0.name",
 					icon: heart,
 					supplements: [
 						{
 							amount: 4,
-							supplement: "Vitamins",
+							supplement: "plan.supplements.cta.types.0.supplements.0",
 						},
 						{
 							amount: 3,
-							supplement: "Minerals",
+							supplement: "plan.supplements.cta.types.0.supplements.1",
 						},
 						{
 							amount: 1,
-							supplement: "amino acid",
+							supplement: "plan.supplements.cta.types.0.supplements.2",
 						},
 						{
 							amount: 2,
-							supplement: "antixidants",
+							supplement: "plan.supplements.cta.types.0.supplements.3",
 						},
 					],
 				},
 				{
-					name: "Digestive",
+					name: "plan.supplements.cta.types.1.name",
 					icon: diab,
 					supplements: [
 						{
 							amount: 3,
-							supplement: "Vitamins",
+							supplement: "plan.supplements.cta.types.1.supplements.0",
 						},
 						{
 							amount: 3,
-							supplement: "amino acid",
+							supplement: "plan.supplements.cta.types.1.supplements.1",
 						},
 						{
 							amount: 3,
-							supplement: "Minerals",
+							supplement: "plan.supplements.cta.types.1.supplements.2",
 						},
 						{
 							amount: 1,
-							supplement: "antixidants",
+							supplement: "plan.supplements.cta.types.1.supplements.3",
 						},
 					],
 				},
 				{
-					name: "My personal formula",
+					name: "plan.supplements.cta.types.2.name",
 					icon: heart,
 					supplements: [
 						{
 							amount: 7,
-							supplement: "Vitamins",
+							supplement: "plan.supplements.cta.types.2.supplements.0",
 						},
 						{
 							amount: 6,
-							supplement: "Minerals",
+							supplement: "plan.supplements.cta.types.2.supplements.1",
 						},
 						{
 							amount: 4,
-							supplement: "amino acid",
+							supplement: "plan.supplements.cta.types.2.supplements.2",
 						},
 						{
 							amount: 3,
-							supplement: "antixidants",
+							supplement: "plan.supplements.cta.types.2.supplements.3",
 						},
 					],
 				},
@@ -170,83 +169,83 @@ export const planMockData: PlanSection[] = [
 		type: "grouped",
 		data: [
 			{
-				name: "Beetroot powder / titrate supplements",
-				description: "Increases nitric oxide levels",
-				dosage: "1 pill",
-				frequency: "Once",
+				name: "plan.supplements.items.0.name",
+				description: "plan.supplements.items.0.description",
+				dosage: "plan.supplements.items.0.dosage",
+				frequency: "plan.supplements.items.0.frequency",
 				group: "peptides",
 				icon: beetroot,
 			},
 			{
-				name: "Take turmeric extract to reduce inflammation (CPR)",
-				description: "Supports vascular health",
-				dosage: "1 pill",
-				frequency: "Once",
+				name: "plan.supplements.items.1.name",
+				description: "plan.supplements.items.1.description",
+				dosage: "plan.supplements.items.1.dosage",
+				frequency: "plan.supplements.items.1.frequency",
 				group: "peptides",
 				icon: tumeric,
 			},
 			{
-				name: "Take Omega-3 Fatty Acids",
-				description: "Helps widen blood vessels +8",
-				dosage: "1 pill",
-				frequency: "Once",
+				name: "plan.supplements.items.2.name",
+				description: "plan.supplements.items.2.description",
+				dosage: "plan.supplements.items.2.dosage",
+				frequency: "plan.supplements.items.2.frequency",
 				group: "other",
 				icon: omega,
 			},
 			{
-				name: "Coenzyme Q10 (CoQ10)",
-				description: "Include Coenzyme Q10 (CoQ10)",
-				dosage: "1 pill",
-				frequency: "Once",
+				name: "plan.supplements.items.3.name",
+				description: "plan.supplements.items.3.description",
+				dosage: "plan.supplements.items.3.dosage",
+				frequency: "plan.supplements.items.3.frequency",
 				group: "other",
 				icon: coenzyme,
 			},
 			{
-				name: "Add Ashwagandha (Withania somnifera)",
-				description: "Supports vascular health",
-				dosage: "1 pill",
-				frequency: "Once",
+				name: "plan.supplements.items.4.name",
+				description: "plan.supplements.items.4.description",
+				dosage: "plan.supplements.items.4.dosage",
+				frequency: "plan.supplements.items.4.frequency",
 				group: "other",
 				icon: ashwagandha,
 			},
 		],
 	},
 	{
-		title: "Lifestyle",
+		title: "plan.lifestyle.title",
 		data: [
 			{
-				name: "Quit smoking & limit alcohol",
-				description: "Improved lung function +5",
+				name: "plan.lifestyle.items.0.name",
+				description: "plan.lifestyle.items.0.description",
 				icon: quitSmoking,
 			},
 			{
-				name: "Train in zone 2 & monitor regularly VO2 max",
-				description: "Supports vascular health +4",
+				name: "plan.lifestyle.items.1.name",
+				description: "plan.lifestyle.items.1.description",
 				icon: train,
 			},
 			{
-				name: "Adopt a low-glycemic index and heart healthy diets",
-				description: "Helps widen blood vessels +6",
+				name: "plan.lifestyle.items.2.name",
+				description: "plan.lifestyle.items.2.description",
 				icon: apple,
 			},
 			{
-				name: "Manage your stress",
-				description: "Helps widen blood vessels +8",
+				name: "plan.lifestyle.items.3.name",
+				description: "plan.lifestyle.items.3.description",
 				icon: quitSmoking,
 			},
 			{
-				name: "Fill your plate with fruits and veggies",
-				description: "Lowers your blood pressure +3",
+				name: "plan.lifestyle.items.4.name",
+				description: "plan.lifestyle.items.4.description",
 				icon: apple,
 			},
 			{
-				name: "Reduce sugar and salt",
-				description: "Improved lung function +5",
+				name: "plan.lifestyle.items.5.name",
+				description: "plan.lifestyle.items.5.description",
 				icon: apple,
 			},
 			{
-				name: "Practice flexibility and balance",
-				description: "Enhances joint health +8",
+				name: "plan.lifestyle.items.6.name",
+				description: "plan.lifestyle.items.6.description",
 				icon: train,
 			},
 		],
@@ -255,65 +254,71 @@ export const planMockData: PlanSection[] = [
 
 export const AtrialFibrillationPlanMockData: PlanSection[] = [
 	{
-		title: "Action Plan",
+		title: "plan.actionPlan.title",
 		type: "aggregated",
 		data: [],
 	},
 	{
-		title: "Follow-up Care",
+		title: "plan.followUpCare.title",
 		data: [
 			{
-				name: "EKG Monitoring",
-				description: "Detects irregular heart rhythms",
+				name: "plan.atrialFib.followUpCare.items.0.name",
+				description: "plan.atrialFib.followUpCare.items.0.description",
 				icon: gene,
 			},
 			{
-				name: "Blood Sugar Monitoring",
-				description: "Reduces secondary health risks",
+				name: "plan.atrialFib.followUpCare.items.1.name",
+				description: "plan.atrialFib.followUpCare.items.1.description",
 				icon: microscope,
 			},
 		],
 	},
 	{
-		title: "Supplements",
+		title: "plan.supplements.title",
 		cta: {
-			title: "Atrial Fibrillation Supplement Mix",
-			description: "Supports heart rhythm and vascular health.",
+			title: "plan.atrialFib.supplements.cta.title",
+			description: "plan.atrialFib.supplements.cta.description",
 			types: [
 				{
-					name: "Heart Rhythm Support",
+					name: "plan.atrialFib.supplements.cta.types.0.name",
 					icon: heart,
 					supplements: [
-						{ amount: 3, supplement: "Vitamins" },
-						{ amount: 2, supplement: "Minerals" },
+						{
+							amount: 3,
+							supplement: "plan.supplements.cta.types.0.supplements.0",
+						},
+						{
+							amount: 2,
+							supplement: "plan.supplements.cta.types.0.supplements.1",
+						},
 					],
 				},
 			],
 		},
 		data: [
 			{
-				name: "Magnesium Citrate",
-				description: "Supports heart muscle relaxation",
+				name: "plan.atrialFib.supplements.items.0.name",
+				description: "plan.atrialFib.supplements.items.0.description",
 				icon: omega,
 			},
 			{
-				name: "Turmeric Extract",
-				description: "Reduces inflammation",
+				name: "plan.atrialFib.supplements.items.1.name",
+				description: "plan.atrialFib.supplements.items.1.description",
 				icon: tumeric,
 			},
 		],
 	},
 	{
-		title: "Lifestyle",
+		title: "plan.lifestyle.title",
 		data: [
 			{
-				name: "Quit Smoking",
-				description: "Improves lung and heart health",
+				name: "plan.atrialFib.lifestyle.items.0.name",
+				description: "plan.atrialFib.lifestyle.items.0.description",
 				icon: quitSmoking,
 			},
 			{
-				name: "Adopt a Heart-Healthy Diet",
-				description: "Reduces cholesterol levels",
+				name: "plan.atrialFib.lifestyle.items.1.name",
+				description: "plan.atrialFib.lifestyle.items.1.description",
 				icon: apple,
 			},
 		],
@@ -322,65 +327,71 @@ export const AtrialFibrillationPlanMockData: PlanSection[] = [
 
 export const StrokePlanMockData: PlanSection[] = [
 	{
-		title: "Action Plan",
+		title: "plan.actionPlan.title",
 		type: "aggregated",
 		data: [],
 	},
 	{
-		title: "Follow-up Care",
+		title: "plan.followUpCare.title",
 		data: [
 			{
-				name: "Blood Pressure Monitoring",
-				description: "Helps prevent secondary strokes",
+				name: "plan.stroke.followUpCare.items.0.name",
+				description: "plan.stroke.followUpCare.items.0.description",
 				icon: scale,
 			},
 			{
-				name: "Regular Neurological Exams",
-				description: "Monitors post-stroke recovery",
+				name: "plan.stroke.followUpCare.items.1.name",
+				description: "plan.stroke.followUpCare.items.1.description",
 				icon: gene,
 			},
 		],
 	},
 	{
-		title: "Supplements",
+		title: "plan.supplements.title",
 		cta: {
-			title: "Stroke Recovery Supplement Mix",
-			description: "Supports brain health and reduces inflammation.",
+			title: "plan.stroke.supplements.cta.title",
+			description: "plan.stroke.supplements.cta.description",
 			types: [
 				{
-					name: "Brain Health",
+					name: "plan.stroke.supplements.cta.types.0.name",
 					icon: diab,
 					supplements: [
-						{ amount: 4, supplement: "Antioxidants" },
-						{ amount: 3, supplement: "Vitamins" },
+						{
+							amount: 4,
+							supplement: "plan.supplements.cta.types.0.supplements.3",
+						},
+						{
+							amount: 3,
+							supplement: "plan.supplements.cta.types.0.supplements.0",
+						},
 					],
 				},
 			],
 		},
 		data: [
 			{
-				name: "Vitamin D",
-				description: "Improves vascular function",
+				name: "plan.stroke.supplements.items.0.name",
+				description: "plan.stroke.supplements.items.0.description",
 				icon: coenzyme,
 			},
 			{
-				name: "Ashwagandha",
-				description: "Reduces stress and inflammation",
+				name: "plan.stroke.supplements.items.1.name",
+				description: "plan.stroke.supplements.items.1.description",
 				icon: ashwagandha,
 			},
 		],
 	},
 	{
-		title: "Lifestyle",
+		title: "plan.lifestyle.title",
 		data: [
 			{
-				name: "Engage in Physical Therapy",
-				description: "Enhances motor recovery",
+				name: "plan.stroke.lifestyle.items.0.name",
+				description: "plan.stroke.lifestyle.items.0.description",
 				icon: train,
 			},
 			{
-				name: "Reduce Salt and Sugar",
-				description: "Improves blood pressure control",
+				name: "plan.stroke.lifestyle.items.1.name",
+				description: "plan.stroke.lifestyle.items.1.description",
 				icon: apple,
 			},
 		],
@@ -389,65 +400,71 @@ export const StrokePlanMockData: PlanSection[] = [
 
 export const CoronaryArteryDiseasePlanMockData: PlanSection[] = [
 	{
-		title: "Action Plan",
+		title: "plan.actionPlan.title",
 		type: "aggregated",
 		data: [],
 	},
 	{
-		title: "Follow-up Care",
+		title: "plan.followUpCare.title",
 		data: [
 			{
-				name: "Routine EKG Tests",
-				description: "Monitors heart function",
+				name: "plan.coronary.followUpCare.items.0.name",
+				description: "plan.coronary.followUpCare.items.0.description",
 				icon: gene,
 			},
 			{
-				name: "Cholesterol Panel Testing",
-				description: "Tracks lipid levels",
+				name: "plan.coronary.followUpCare.items.1.name",
+				description: "plan.coronary.followUpCare.items.1.description",
 				icon: microscope,
 			},
 		],
 	},
 	{
-		title: "Supplements",
+		title: "plan.supplements.title",
 		cta: {
-			title: "Heart Health Supplements",
-			description: "Supports arterial health and reduces plaque buildup.",
+			title: "plan.coronary.supplements.cta.title",
+			description: "plan.coronary.supplements.cta.description",
 			types: [
 				{
-					name: "Heart Health",
+					name: "plan.coronary.supplements.cta.types.0.name",
 					icon: heart,
 					supplements: [
-						{ amount: 3, supplement: "Minerals" },
-						{ amount: 2, supplement: "Vitamins" },
+						{
+							amount: 3,
+							supplement: "plan.supplements.cta.types.0.supplements.1",
+						},
+						{
+							amount: 2,
+							supplement: "plan.supplements.cta.types.0.supplements.0",
+						},
 					],
 				},
 			],
 		},
 		data: [
 			{
-				name: "Omega-3 Fatty Acids",
-				description: "Lowers triglycerides",
+				name: "plan.coronary.supplements.items.0.name",
+				description: "plan.coronary.supplements.items.0.description",
 				icon: omega,
 			},
 			{
-				name: "Turmeric Extract",
-				description: "Reduces inflammation",
+				name: "plan.coronary.supplements.items.1.name",
+				description: "plan.coronary.supplements.items.1.description",
 				icon: tumeric,
 			},
 		],
 	},
 	{
-		title: "Lifestyle",
+		title: "plan.lifestyle.title",
 		data: [
 			{
-				name: "Exercise Regularly",
-				description: "Improves circulation",
+				name: "plan.coronary.lifestyle.items.0.name",
+				description: "plan.coronary.lifestyle.items.0.description",
 				icon: train,
 			},
 			{
-				name: "Adopt a Mediterranean Diet",
-				description: "Promotes heart health",
+				name: "plan.coronary.lifestyle.items.1.name",
+				description: "plan.coronary.lifestyle.items.1.description",
 				icon: apple,
 			},
 		],
@@ -456,65 +473,71 @@ export const CoronaryArteryDiseasePlanMockData: PlanSection[] = [
 
 export const HypertensionPlanMockData: PlanSection[] = [
 	{
-		title: "Action Plan",
+		title: "plan.actionPlan.title",
 		type: "aggregated",
 		data: [],
 	},
 	{
-		title: "Follow-up Care",
+		title: "plan.followUpCare.title",
 		data: [
 			{
-				name: "Blood Pressure Monitoring",
-				description: "Tracks daily changes",
+				name: "plan.hypertension.followUpCare.items.0.name",
+				description: "plan.hypertension.followUpCare.items.0.description",
 				icon: scale,
 			},
 			{
-				name: "Renal Function Tests",
-				description: "Assesses kidney health",
+				name: "plan.hypertension.followUpCare.items.1.name",
+				description: "plan.hypertension.followUpCare.items.1.description",
 				icon: gene,
 			},
 		],
 	},
 	{
-		title: "Supplements",
+		title: "plan.supplements.title",
 		cta: {
-			title: "Blood Pressure Supplements",
-			description: "Helps regulate blood pressure naturally.",
+			title: "plan.hypertension.supplements.cta.title",
+			description: "plan.hypertension.supplements.cta.description",
 			types: [
 				{
-					name: "Hypertension Support",
+					name: "plan.hypertension.supplements.cta.types.0.name",
 					icon: diab,
 					supplements: [
-						{ amount: 3, supplement: "Vitamins" },
-						{ amount: 2, supplement: "Minerals" },
+						{
+							amount: 3,
+							supplement: "plan.supplements.cta.types.0.supplements.0",
+						},
+						{
+							amount: 2,
+							supplement: "plan.supplements.cta.types.0.supplements.1",
+						},
 					],
 				},
 			],
 		},
 		data: [
 			{
-				name: "Beetroot Powder",
-				description: "Increases nitric oxide",
+				name: "plan.hypertension.supplements.items.0.name",
+				description: "plan.hypertension.supplements.items.0.description",
 				icon: beetroot,
 			},
 			{
-				name: "Ashwagandha",
-				description: "Reduces stress",
+				name: "plan.hypertension.supplements.items.1.name",
+				description: "plan.hypertension.supplements.items.1.description",
 				icon: ashwagandha,
 			},
 		],
 	},
 	{
-		title: "Lifestyle",
+		title: "plan.lifestyle.title",
 		data: [
 			{
-				name: "Quit Smoking",
-				description: "Improves vascular health",
+				name: "plan.hypertension.lifestyle.items.0.name",
+				description: "plan.hypertension.lifestyle.items.0.description",
 				icon: quitSmoking,
 			},
 			{
-				name: "Engage in Zone 2 Training",
-				description: "Lowers resting heart rate",
+				name: "plan.hypertension.lifestyle.items.1.name",
+				description: "plan.hypertension.lifestyle.items.1.description",
 				icon: train,
 			},
 		],
@@ -523,65 +546,71 @@ export const HypertensionPlanMockData: PlanSection[] = [
 
 export const HeartFailurePlanMockData: PlanSection[] = [
 	{
-		title: "Action Plan",
+		title: "plan.actionPlan.title",
 		type: "aggregated",
 		data: [],
 	},
 	{
-		title: "Follow-up Care",
+		title: "plan.followUpCare.title",
 		data: [
 			{
-				name: "Echocardiograms",
-				description: "Monitors heart function",
+				name: "plan.heartFailure.followUpCare.items.0.name",
+				description: "plan.heartFailure.followUpCare.items.0.description",
 				icon: gene,
 			},
 			{
-				name: "Blood Pressure Monitoring",
-				description: "Prevents sudden changes",
+				name: "plan.heartFailure.followUpCare.items.1.name",
+				description: "plan.heartFailure.followUpCare.items.1.description",
 				icon: scale,
 			},
 		],
 	},
 	{
-		title: "Supplements",
+		title: "plan.supplements.title",
 		cta: {
-			title: "Heart Failure Supplements",
-			description: "Supports overall cardiac health.",
+			title: "plan.heartFailure.supplements.cta.title",
+			description: "plan.heartFailure.supplements.cta.description",
 			types: [
 				{
-					name: "Cardiac Support",
+					name: "plan.heartFailure.supplements.cta.types.0.name",
 					icon: heart,
 					supplements: [
-						{ amount: 3, supplement: "Vitamins" },
-						{ amount: 2, supplement: "Minerals" },
+						{
+							amount: 3,
+							supplement: "plan.supplements.cta.types.0.supplements.0",
+						},
+						{
+							amount: 2,
+							supplement: "plan.supplements.cta.types.0.supplements.1",
+						},
 					],
 				},
 			],
 		},
 		data: [
 			{
-				name: "Coenzyme Q10",
-				description: "Improves cellular energy",
+				name: "plan.heartFailure.supplements.items.0.name",
+				description: "plan.heartFailure.supplements.items.0.description",
 				icon: coenzyme,
 			},
 			{
-				name: "Turmeric Extract",
-				description: "Reduces inflammation",
+				name: "plan.heartFailure.supplements.items.1.name",
+				description: "plan.heartFailure.supplements.items.1.description",
 				icon: tumeric,
 			},
 		],
 	},
 	{
-		title: "Lifestyle",
+		title: "plan.lifestyle.title",
 		data: [
 			{
-				name: "Reduce Salt Intake",
-				description: "Lowers blood pressure",
+				name: "plan.heartFailure.lifestyle.items.0.name",
+				description: "plan.heartFailure.lifestyle.items.0.description",
 				icon: apple,
 			},
 			{
-				name: "Engage in Physical Therapy",
-				description: "Improves endurance",
+				name: "plan.heartFailure.lifestyle.items.1.name",
+				description: "plan.heartFailure.lifestyle.items.1.description",
 				icon: train,
 			},
 		],

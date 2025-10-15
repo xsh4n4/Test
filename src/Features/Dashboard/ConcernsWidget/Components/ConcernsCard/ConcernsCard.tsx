@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import styles from "./ConcernsCard.module.scss";
 import { Concern } from "../../helpers/concernsMockData";
 import Question from "@assets/ConcernsWidget/Question.svg?react";
@@ -14,6 +15,7 @@ export const ConcernsCard: React.FC<ConcernsCardProps> = ({
 	concern,
 	backgroundColor,
 }) => {
+	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
@@ -33,7 +35,10 @@ export const ConcernsCard: React.FC<ConcernsCardProps> = ({
 		>
 			<div className={styles["ConcernsCard-head"]}>
 				<div className={styles["ConcernsCard-icon-container"]}>
-					<img src={concern.icon} alt={`${concern.title} icon`} />
+					<img
+						src={concern.icon}
+						alt={`${t(concern.title)} ${t("common.icon")}`}
+					/>
 				</div>
 				<div
 					className={`${styles["ConcernsCard-status"]} ${
@@ -46,12 +51,14 @@ export const ConcernsCard: React.FC<ConcernsCardProps> = ({
 				>
 					<div className={styles["ConcernsCard-status-exclamation"]}>!</div>
 					<div className={styles["ConcernsCard-status-text"]}>
-						{concern.status}
+						{t(`concerns.status.${concern.status.toLowerCase()}`)}
 					</div>
 				</div>
 			</div>
 			<div className={styles["ConcernsCard-body"]}>
-				<div className={styles["ConcernsCard-body-title"]}>{concern.title}</div>
+				<div className={styles["ConcernsCard-body-title"]}>
+					{t(concern.title)}
+				</div>
 				<div className={styles["ConcernsCard-body-description"]}>
 					<>
 						<span
@@ -63,10 +70,15 @@ export const ConcernsCard: React.FC<ConcernsCardProps> = ({
 										: styles["ConcernsCard-highlight-green"]
 							}`}
 						>
-							{concern.factors[0]}
+							{t(concern.factors[0])}
 						</span>
 						{concern.factors.length > 1 && (
-							<span> level and other {concern.factors.length - 1} factors</span>
+							<span>
+								{" "}
+								{t("concerns.levelAndOtherFactors", {
+									count: concern.factors.length - 1,
+								})}
+							</span>
 						)}
 					</>
 				</div>

@@ -1,0 +1,16 @@
+.theme-toggle {
+	background-color: #e0e0e0;
+	border: 1px solid #535bf2;
+	border-radius: 50%;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8px;
+	transition: all 0.3s ease;
+
+	svg {
+		width: 20px;
+		height: 20px;
+	}
+}

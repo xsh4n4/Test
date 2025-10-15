@@ -1,15 +1,11 @@
 import { useState } from "react";
 import styles from "./Dropdown.module.scss";
+import { useTranslation } from "react-i18next";
 
 interface DropdownOption {
 	label: string;
 	value: "total" | "cardio";
 }
-
-const options: DropdownOption[] = [
-	{ label: "Total Health", value: "total" },
-	{ label: "Cardiovascular", value: "cardio" },
-];
 
 interface DropdownProps {
 	value: "total" | "cardio";
@@ -24,7 +20,13 @@ interface DropdownProps {
 }
 
 const Dropdown = ({ value, onChange, onModelChange }: DropdownProps) => {
+	const { t } = useTranslation();
 	const [isOpen, setIsOpen] = useState(false);
+
+	const options: DropdownOption[] = [
+		{ label: t("dropdown.totalHealth"), value: "total" },
+		{ label: t("dropdown.cardiovascular"), value: "cardio" },
+	];
 
 	const selected =
 		options.find((option) => option.value === value) || options[0];

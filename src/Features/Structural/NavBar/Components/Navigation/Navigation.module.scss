@@ -1,19 +1,35 @@
 .navigation-container {
-	.selected {
+	display: flex;
+	gap: 2px;
+	border-radius: 99px;
+	align-items: center;
+	justify-content: center;
+	backdrop-filter: blur(1.5px);
+
+	button {
 		display: flex;
-		padding: 8px 16px 8px 16px;
+		padding: 8px 16px;
 		justify-content: center;
 		align-items: center;
-		height: 32px;
 		gap: 8px;
-		border-color: #e2e6ef;
-		border-radius: 999px;
-		background: #000;
-		color: #fff;
-		line-height: 8px;
+		border-radius: 99px;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 1;
+		cursor: pointer;
+		transition:
+			background-color 0.25s,
+			color 0.25s;
 
-		svg {
-			path {
+		// Light mode defaults
+
+		background: #e7e9ec66;
+		color: #0b101a;
+		border: 1px solid #fff;
+
+		.icon {
+			display: flex;
+			svg path {
 				fill: #0974fb;
 			}
 		}
@@ -22,31 +38,57 @@
 			border: 1px solid #fff;
 		}
 	}
-	button {
+
+	.selected {
 		display: flex;
-		padding: 8px 16px 8px 16px;
+		padding: 8px 16px;
 		justify-content: center;
 		align-items: center;
-		height: auto;
-		gap: 8px;
-		background: #e7e9ec66;
-		border-radius: 99px;
-		color: #0b101a;
-		text-align: center;
 		height: 32px;
-		font-size: 14px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: auto;
+		gap: 8px;
+		border-radius: 999px;
+		background: #000;
+		color: #fff;
+		line-height: 8px;
+		border-color: #e2e6ef;
+
+		.icon {
+			svg path {
+				fill: #0974fb;
+			}
+		}
 	}
+}
 
-	display: flex;
-	gap: 2px;
+/* Dark Mode */
 
-	border-radius: 99px;
-	border: 1px solid #fff;
-	align-items: center;
-	justify-content: center;
-	/* Scrim blur */
-	backdrop-filter: blur(1.5px);
+[data-theme="dark"] {
+	.navigation-container {
+		button {
+			background-color: #1a1a1a66;
+			color: #e0e0e0;
+			border: none;
+
+			&:hover {
+				background-color: #333333;
+			}
+
+			.icon svg path {
+				fill: #0974fb;
+			}
+		}
+
+		.selected {
+			background-color: rgba(255, 255, 255, 0.1);
+			color: #fff;
+
+			&:hover {
+				background-color: rgba(255, 255, 255, 0.2);
+			}
+
+			.icon svg path {
+				fill: #0974fb;
+			}
+		}
+	}
 }

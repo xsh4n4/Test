@@ -17,6 +17,10 @@
 	transform: translate(-50%, -50%);
 	position: relative;
 	background: url("@assets/DigitalTwin/images/canvas-bg.jpg");
+	border-radius: 5%;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	display: inline-block;
 	background-color: #ffffff;
 	background-size: contain;
 	background-blend-mode: luminosity;

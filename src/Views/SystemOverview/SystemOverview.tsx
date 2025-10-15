@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import NavBar from "@/Features/Structural/NavBar/Navbar";
 import styles from "./SystemOverview.module.scss";
 import MainScene from "@/Features/DigitalTwin/Components/Three/MainScene";
@@ -17,6 +18,7 @@ import GoalsProgressMenu from "@/Features/Risk/GoalProgressMenu/GoalProgressMenu
 
 const SystemOverview = () => {
 	const { systemName } = useParams();
+	const { t } = useTranslation();
 
 	return (
 		<div className={styles["SystemOverview-layout"]}>
@@ -31,31 +33,31 @@ const SystemOverview = () => {
 								<Link to='/dashboard' className={styles["SystemOverview-back"]}>
 									<Home /> /
 								</Link>
-								System Report
+								{t("systemOverview.reportTitle")}
 							</div>
 							<div className={styles["SystemOverview-system"]}>
 								<div className={styles["SystemOverview-icon-container"]}>
 									<Heart />
 								</div>
 								<h1 className={styles["SystemOverview-title"]}>
-									{systemName} System Report
+									{t("systemOverview.systemReportTitle", { systemName })}
 								</h1>
 							</div>
 						</div>
+
 						<div className={styles["SystemOverview-widget-wrapper"]}>
 							<AgeWidget />
 						</div>
+
 						<div className={styles["SystemOverview-widget-wrapper"]}>
 							<div className={styles["SystemOverview-widget-head"]}>
 								<div className={styles["SystemOverview-widget-title-wrapper"]}>
 									<h4 className={styles["SystemOverview-widget-title"]}>
-										Key areas of concern
+										{t("systemOverview.keyAreas")}
 									</h4>
 								</div>
 								<p className={styles["SystemOverview-widget-desc"]}>
-									Based on the provided data and individual disease
-									recommendations, the patient is at risk for several
-									cardiovascular conditions, including:
+									{t("systemOverview.keyAreasDesc")}
 								</p>
 							</div>
 							<div className={styles["SystemOverview-concern-cards"]}>
@@ -68,13 +70,15 @@ const SystemOverview = () => {
 								))}
 							</div>
 						</div>
+
 						<div className={styles["SystemOverview-widgets-container"]}>
 							<div className={styles["SystemOverview-tab-container"]}>
 								<div className={styles["SystemOverview-tab"]}>
-									Health insights
+									{t("systemOverview.healthInsights")}
 								</div>
 								<Slope className={styles["SystemOverview-slope"]} />
 							</div>
+
 							<div className={styles["SystemOverview-widgets-content"]}>
 								<div className={styles["SystemOverview-widget-wrapper"]}>
 									<div className={styles["SystemOverview-widget-head"]}>
@@ -82,14 +86,12 @@ const SystemOverview = () => {
 											className={styles["SystemOverview-widget-title-wrapper"]}
 										>
 											<h4 className={styles["SystemOverview-widget-title"]}>
-												Test results
+												{t("systemOverview.testResults")}
 											</h4>
 											<div className={styles["SystemOverview-counter"]}>8</div>
 										</div>
 										<p className={styles["SystemOverview-widget-desc"]}>
-											The primary concerns are elevated LDL cholesterol levels,
-											slightly below optimal HDL cholesterol, and the need for
-											improved cardiovascular fitness and stress management.
+											{t("systemOverview.testResultsDesc")}
 										</p>
 									</div>
 									<ReasonsTable
@@ -97,21 +99,21 @@ const SystemOverview = () => {
 										detailIndex={1}
 									/>
 								</div>
+
 								<div className={styles["SystemOverview-line"]} />
+
 								<div className={styles["SystemOverview-widget-wrapper"]}>
 									<div className={styles["SystemOverview-widget-head"]}>
 										<div
 											className={styles["SystemOverview-widget-title-wrapper"]}
 										>
 											<h4 className={styles["SystemOverview-widget-title"]}>
-												What you can do
+												{t("systemOverview.whatYouCanDo")}
 											</h4>
 											<div className={styles["SystemOverview-counter"]}>8</div>
 										</div>
 										<p className={styles["SystemOverview-widget-desc"]}>
-											The following comprehensive action plan combines lifestyle
-											changes, monitoring strategies, and supplement
-											recommendations to support overall cardiovascular health.
+											{t("systemOverview.whatYouCanDoDesc")}
 										</p>
 									</div>
 									<PlanWidget
@@ -122,6 +124,7 @@ const SystemOverview = () => {
 							</div>
 						</div>
 					</div>
+
 					<div className={styles["SystemOverview-dt-container"]}>
 						<GoalsProgressMenu />
 						<div className={styles["SystemOverview-model"]}>

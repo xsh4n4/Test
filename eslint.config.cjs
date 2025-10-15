@@ -1,9 +1,9 @@
-import typescriptParser from "@typescript-eslint/parser";
-import typescriptPlugin from "@typescript-eslint/eslint-plugin";
-import prettier from "eslint-config-prettier";
-import prettierPlugin from "eslint-plugin-prettier";
+const typescriptParser = require("@typescript-eslint/parser");
+const typescriptPlugin = require("@typescript-eslint/eslint-plugin");
+const prettier = require("eslint-config-prettier");
+const prettierPlugin = require("eslint-plugin-prettier");
 
-export default [
+module.exports = [
 	{
 		files: ["**/*.{ts,tsx}"], // Include TypeScript files
 		languageOptions: {

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Symptoms } from "../../helpers/detailedSystemConcerns";
 import styles from "./SymptomsList.module.scss";
 
@@ -7,6 +8,7 @@ interface SymptomsProps {
 }
 
 export const SymptomsList: React.FC<SymptomsProps> = ({ symptoms }) => {
+	const { t } = useTranslation();
 	const [numberOfVisibleSymptoms, setNumberOfVisibleSymptoms] = useState(0);
 	const symptomsListRef = useRef<HTMLDivElement>(null);
 	const symptomItemsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -57,9 +59,11 @@ export const SymptomsList: React.FC<SymptomsProps> = ({ symptoms }) => {
 
 	return (
 		<div className={styles["SymptomsList-container"]}>
-			<div className={styles["SymptomsList-head"]}>Symptoms</div>
+			<div className={styles["SymptomsList-head"]}>
+				{t("symptomsList.title")}
+			</div>
 			<div className={styles["SymptomsList-description"]}>
-				{symptoms?.description}
+				{symptoms?.description && t(symptoms.description)}
 			</div>
 			<div className={styles["SymptomsList-list"]} ref={symptomsListRef}>
 				{symptoms?.symptomsList.map((symptom, index) => (
@@ -71,7 +75,7 @@ export const SymptomsList: React.FC<SymptomsProps> = ({ symptoms }) => {
 							styles["SymptomsList-symptom-hidden"]
 						}`}
 					>
-						{symptom}
+						{t(symptom)}
 					</div>
 				))}
 				{numberOfOverflowSymptoms > 0 && (

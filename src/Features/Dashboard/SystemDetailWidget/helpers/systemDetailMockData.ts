@@ -7,8 +7,7 @@ export type SystemDetail = {
 export const systemDetailMockData: SystemDetail[] = [
 	{
 		id: 1,
-		title: "Cardiovascular System",
-		description:
-			"Cardiovscular system consists of the heart, blood vessels, and blood. It is responsible for transporting oxygen, nutrients, hormones, and waste products throughout the body.",
+		title: "systemDetail.cardiovascular.title",
+		description: "systemDetail.cardiovascular.description",
 	},
 ];

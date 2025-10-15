@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import styles from "./ReasonRow.module.scss";
 import { Reason } from "../../helpers/detailedSystemConcerns";
 
@@ -9,6 +10,7 @@ interface ReasonRowProps {
 }
 
 export const ReasonRow: React.FC<ReasonRowProps> = ({ reason }) => {
+	const { t } = useTranslation();
 	const [isShowMore, setIsShowMore] = useState(false);
 
 	return (
@@ -28,12 +30,15 @@ export const ReasonRow: React.FC<ReasonRowProps> = ({ reason }) => {
 						}`}
 					/>
 				</div>
-				<div className={styles["ReasonRow-title"]}>{reason.title}</div>
+				<div className={styles["ReasonRow-title"]}>{t(reason.title)}</div>
 				<div className={styles["ReasonRow-test"]}>
 					<div className={styles["ReasonRow-icon"]}>
-						<img src={reason.icon} alt={`${reason.title} icon`} />
+						<img
+							src={reason.icon}
+							alt={`${t(reason.title)} ${t("common.icon")}`}
+						/>
 					</div>
-					<div className={styles["ReasonRow-test-name"]}>{reason.test}</div>
+					<div className={styles["ReasonRow-test-name"]}>{t(reason.test)}</div>
 				</div>
 				<div
 					className={`${
@@ -55,14 +60,14 @@ export const ReasonRow: React.FC<ReasonRowProps> = ({ reason }) => {
 					) : (
 						<img
 							src={reason.level.src}
-							alt={`${reason.title} graph`}
+							alt={`${t(reason.title)} ${t("common.graph")}`}
 							className={styles["ReasonRow-level-image"]}
 						/>
 					)}
 				</div>
 				<div className={styles["ReasonRow-value"]}>
 					<div className={styles["ReasonRow-value-number"]}>{reason.value}</div>
-					<div className={styles["ReasonRow-value-unit"]}>{reason.unit}</div>
+					<div className={styles["ReasonRow-value-unit"]}>{t(reason.unit)}</div>
 				</div>
 				<div className={styles["ReasonRow-status-wrapper"]}>
 					<div
@@ -74,7 +79,7 @@ export const ReasonRow: React.FC<ReasonRowProps> = ({ reason }) => {
 									: styles["ReasonRow-status-green"]
 						}`}
 					>
-						{reason.statusText}
+						{t(reason.statusText)}
 					</div>
 				</div>
 				<div className={styles["ReasonRow-date"]}>{reason.date}</div>
@@ -84,7 +89,7 @@ export const ReasonRow: React.FC<ReasonRowProps> = ({ reason }) => {
 					isShowMore && styles["ReasonRow-description-open"]
 				}`}
 			>
-				{reason.description}
+				{t(reason.description)}
 			</div>
 		</div>
 	);

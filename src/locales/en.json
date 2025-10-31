@@ -185,10 +185,7 @@
 
 	"symptoms": {
 		"atrialFibrillation": {
-			"description": "Symptoms of AFib can vary, and in some cases, individuals may not notice any symptoms at all. You may experience the following symptoms with AFib",
-			"palpitations": "Palpitations",
-			"shortnessOfBreath": "Shortness of breath",
-			"fatigue": "Fatigue or weakness",
+			
 			"chestPain": "Chest pain",
 			"dizziness": "Dizziness or lightheadedness",
 			"weakness": "Fatigue or weakness"
